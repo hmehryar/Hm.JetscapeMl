@@ -16,42 +16,59 @@
 # 
 # Note that there's [tf.keras](https://www.tensorflow.org/guide/keras) (comes with TensorFlow) and there's [Keras](https://keras.io/) (standalone). You should be using [tf.keras](https://www.tensorflow.org/guide/keras) because (1) it comes with TensorFlow so you don't need to install anything extra and (2) it comes with powerful TensorFlow-specific features.
 
-# In[11]:
+# In[4]:
 
 
+print('Loading/Installing Package => Begin\n\n')
+# Commonly used modules
+import numpy as np
+import os
+import time
+from time import time
+import subprocess
+import sys
+
+def install(package):
+  print("Installing "+package) 
+  subprocess.check_call([sys.executable,"-m" ,"pip", "install", package])
+  print("Installed "+package+"\n") 
 # TensorFlow and tf.keras
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense
 from tensorflow.keras.models import load_model
 
+# !pip3 install sklearn
+install("sklearn")
 from sklearn.metrics import confusion_matrix, classification_report
+
+# !pip3 install seaborn
+install("seaborn")
 import seaborn as sns
 
-# Commonly used modules
-import numpy as np
-import os
-import sys
-import time
-from time import time
 
 # Images, plots, display, and visualization
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 import pandas as pd
 
+#reading/writing into files
+# !pip3 install pickle5
+install("pickle5")
+import pickle5 as pickle
+
+
 #import cv2
+install("IPython")
 import IPython
 from six.moves import urllib
 
-print(tf.__version__)
-sys.version_info
-get_ipython().system('python --version')
+import platform
+print("Python version: "+platform.python_version())
+print("Tensorflow version: "+tf.__version__)
 
 
-
-
-
+print('\nLoading/Installing Package => End\n\n')
 
 
 # ## 1. Load Data into a Numpy Array  
@@ -69,7 +86,7 @@ get_ipython().system('python --version')
 # **Building Randomized Dataset**
 # Before having the simulation data, researcher tried to implmenet a psudo random data to create the architecture for the project. I thought it could be useful for further usages.
 
-# In[1]:
+# In[5]:
 
 
 def dataset_y_builder(y_size,y_class_label_items):
@@ -108,7 +125,7 @@ def build_randomized_dataset():
 
 # ##Saving and Loading Dataset 
 
-# In[2]:
+# In[ ]:
 
 
 import pickle
@@ -117,9 +134,6 @@ def save_dataset(file_name,dataset):
         pickle.dump(dataset,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
 
         
-get_ipython().system('pip3 install pickle5')
-import pickle5 as pickle
-
 def load_dataset(file_name):
     with open(file_name, 'rb') as dataset_file:
         (x_train, y_train), (x_test, y_test) = pickle.load(dataset_file, encoding='latin1')
@@ -203,7 +217,7 @@ def shuffle_training_dataset_runner():
 
 # **Saving Dataset Benchmark as a file**
 
-# In[3]:
+# In[ ]:
 
 
 def save_dataset_runner():
@@ -218,7 +232,7 @@ def save_dataset_runner():
 # **Creatinng a random event and demostrate it in a 2-D histogram**
 # This module implemented for developemental purpose, just as an example of how the events can be shown in 2-D images with their hit frequency
 
-# In[8]:
+# In[ ]:
 
 
 def create_and_plot_random_event():
@@ -525,11 +539,11 @@ def build_and_train_model():
   print('Elapsed %.3f seconds.' % elapsed_time)
 
 
-# ## ## 5.2 Apply Keras/TensorFlow with complicated CNN
+# ## 5.2 Apply Keras/TensorFlow with complicated CNN
 # Previous research replication
 # 
 
-# In[9]:
+# In[ ]:
 
 
 ## event info
@@ -543,7 +557,7 @@ observables = ['pt']
 kind = 'Hadron'
 
 
-# In[10]:
+# In[ ]:
 
 
 ## create a directory to save the best model
