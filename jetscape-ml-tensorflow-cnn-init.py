@@ -42,9 +42,40 @@ install("IPython")
 import IPython
 from six.moves import urllib
 
+
+
+print('\nChecking the running platforms\n')
 import platform
+running_os=platform.system()
+print("OS: "+running_os)
+print("OS version: "+platform.release())
+
+try:
+  from google.colab import drive
+  COLAB = True
+except:
+  COLAB = False
+print("running on Colab: "+str(COLAB))
+
+# if 'google.colab' in str(get_ipython()):
+#   print('Running on CoLab')
+#   install("google.colab")
+#   from google.colab import drive
+#   drive.mount('/content/drive')
+# else:
+#   print('Not running on CoLab')
+
+
 print("Python version: "+platform.python_version())
 print("Tensorflow version: "+tf.__version__)
 
-
+dataset_directory_path=''
+if COLAB == True:
+  drive.mount('/content/drive')
+  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/Hm.JetscapeMl.Data/'
+elif 'Linux' in running_os:
+  dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
+else:
+  file_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\Hm.JetscapeMl.Data\\'
+print('Dataset Directory Path: '+dataset_directory_path)
 print('\nLoading/Installing Package => End\n\n')
