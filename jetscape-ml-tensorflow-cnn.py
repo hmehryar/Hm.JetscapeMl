@@ -16,17 +16,19 @@
 # 
 # Note that there's [tf.keras](https://www.tensorflow.org/guide/keras) (comes with TensorFlow) and there's [Keras](https://keras.io/) (standalone). You should be using [tf.keras](https://www.tensorflow.org/guide/keras) because (1) it comes with TensorFlow so you don't need to install anything extra and (2) it comes with powerful TensorFlow-specific features.
 
-# In[11]:
+# In[61]:
 
 
 print('Loading/Installing Package => Begin\n\n')
 # Commonly used modules
 import numpy as np
 import os
+from os import path, makedirs
 import time
 from time import time
 import subprocess
 import sys
+
 
 def install(package):
   print("Installing "+package) 
@@ -64,8 +66,8 @@ import IPython
 from six.moves import urllib
 
 
-
-print('\nChecking the running platforms\n')
+print('\n########################################################################')
+print('Checking the running platforms\n')
 import platform
 running_os=platform.system()
 print("OS: "+running_os)
@@ -91,14 +93,29 @@ print("Python version: "+platform.python_version())
 print("Tensorflow version: "+tf.__version__)
 
 dataset_directory_path=''
+simulation_directory_path=''
+
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/'
+  simulation_directory_path=dataset_directory_path+'simulation_results/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
+  simulation_directory_path=dataset_directory_path+'simulation_results/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
+  simulation_directory_path=dataset_directory_path+'simulation_results\\'
 print('Dataset Directory Path: '+dataset_directory_path)
+
+#dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
+# dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
+dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
+print("Dataset file name: "+dataset_file_name)
+
+if not path.exists(simulation_directory_path):
+    makedirs(simulation_directory_path)
+print('Simulation Results Path: '+simulation_directory_path)
+print('########################################################################\n')
 print('\nLoading/Installing Package => End\n\n')
 
 
@@ -117,7 +134,7 @@ print('\nLoading/Installing Package => End\n\n')
 # **Building Randomized Dataset**
 # Before having the simulation data, researcher tried to implmenet a psudo random data to create the architecture for the project. I thought it could be useful for further usages.
 
-# In[2]:
+# In[ ]:
 
 
 def dataset_y_builder(y_size,y_class_label_items):
@@ -154,17 +171,9 @@ def build_randomized_dataset():
   return dataset
 
 
-# # Checking operting system and Setting the file system configuration
+# ##Saving and Loading Dataset Methods Implementation
 
-# In[ ]:
-
-
-
-
-
-# ##Saving and Loading Dataset 
-
-# In[3]:
+# In[62]:
 
 
 def save_dataset(file_name,dataset):
@@ -188,7 +197,7 @@ def load_dataset(file_name):
 # 2. Shuffling Test Dataset
 # 
 
-# In[4]:
+# In[ ]:
 
 
 def shuffle_training_dataset(x_train, y_train):
@@ -249,7 +258,7 @@ def shuffle_training_dataset_runner():
 
 # **Saving Dataset Benchmark as a file**
 
-# In[5]:
+# In[ ]:
 
 
 def save_dataset_runner():
@@ -261,7 +270,7 @@ def save_dataset_runner():
 # **Creatinng a random event and demostrate it in a 2-D histogram**
 # This module implemented for developemental purpose, just as an example of how the events can be shown in 2-D images with their hit frequency
 
-# In[6]:
+# In[63]:
 
 
 def create_and_plot_random_event():
@@ -274,29 +283,43 @@ def create_and_plot_random_event():
         extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]])
   cb = plt.colorbar()
   cb.set_label("Hit Frequency")
-  plt.savefig('sampleRandomEventHistogram32x32.png')
+  
+  file_name='sample_random_event_histogram_32x32.png'
+  file_path=simulation_directory_path+file_name
+  plt.savefig(file_path)
+
   return counts
-# Funtionality Testing
-counts=create_and_plot_random_event()
-save_dataset('sampleRandomEventHistogram32x32.pkl',counts)
+
+# # # Funtionality Testing
+# counts=create_and_plot_random_event()
+# sample_random_event_file_name='sample_random_event_histogram_32x32.pkl'
+# sample_random_event_file_path=simulation_directory_path+sample_random_event_file_name
+# save_dataset(sample_random_event_file_path,counts)
 
 
 # ## 2. Use Matplotlib to visualize one record.  
 # I set the colormap to Grey and ColorMap. There are a bunch of other colormap choices if you like bright visualizations. Try magma or any of the other  choice in the [docs](https://matplotlib.org/tutorials/colors/colormaps.html).
 
-# In[7]:
+# In[64]:
 
 
-def plot_event(image_frame_size,event_matrix):
+def plot_event(image_frame_size,event_matrix,file_name):
   plt.imshow(event_matrix.reshape(image_frame_size, image_frame_size), cmap=cm.Greys)
   cb = plt.colorbar()
   cb.set_label("Hit Frequency")
-  plt.savefig('Hit_Frequency.png')
+  
+  file_path=simulation_directory_path+file_name
+  plt.savefig(file_path)
+# # Funtionality Testing
+# # Plotting sample Random Event Histogram on gray scale
 # image_frame_size=32
-# plot_event(image_frame_size,x_train[55])
+# plot_event(image_frame_size,counts,file_name='sample_random_event_histogram_32x32_grayscale.png')
 
 
-# In[12]:
+# #Loading Dataset
+# **First learning step**
+
+# In[65]:
 
 
 class JetscapeMlCnn:
@@ -312,15 +335,13 @@ class JetscapeMlCnn:
 
 #Loading Dataset Phase
 
-#file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
-# file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
-file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
-dataset_file_path=dataset_directory_path+file_name
-print(dataset_file_path)
+
+dataset_file_path=dataset_directory_path+dataset_file_name
+print("Dataset file path: "+dataset_file_path)
 (x_train, y_train), (x_test, y_test) =load_dataset(dataset_file_path)
 
 oJetscapeMlCnn=JetscapeMlCnn(x_train, y_train, x_test, y_test)
-
+print("\n#############################################################")
 print("Post-Load: DataType Checkpoint: Begin")
 print(type(oJetscapeMlCnn.x_train), oJetscapeMlCnn.x_train.size, oJetscapeMlCnn.x_train.shape)
 print(type(oJetscapeMlCnn.y_train), oJetscapeMlCnn.y_train.size, oJetscapeMlCnn.y_train.shape)
@@ -329,13 +350,14 @@ print(type(oJetscapeMlCnn.y_test), oJetscapeMlCnn.y_test.size, oJetscapeMlCnn.y_
 print(oJetscapeMlCnn.y_train[1500], oJetscapeMlCnn.y_test[99])
 print(oJetscapeMlCnn.y_train[1:500])
 print("Post-Load: DataType Checkpoint: End")
+print("#############################################################\n")
 
 
 # ## 3. Plot a bunch of records to see sample data  
 # Basically, use the same Matplotlib commands above in a for loop to show 20 records from the train set in a subplot figure. We also make the figsize a bit bigger and remove the tick marks for readability.
 # ** TODO: try to make the subplot like the below from the first project meeting
 
-# In[ ]:
+# In[66]:
 
 
 def plot_20_sample_events(events_matrix_items):
@@ -348,17 +370,22 @@ def plot_20_sample_events(events_matrix_items):
       current_plot= ax.imshow(x_train[i].reshape(32, 32), cmap=cm.Greys)
       ax.set_xticks([])
       ax.set_yticks([])     
-  plt.show
-  plt.savefig('hm_jetscape_ml_plot_20_sample_events.png')
+  
+
+  file_name='hm_jetscape_ml_plot_20_sample_events.png'
+  file_path=simulation_directory_path+file_name
+  plt.savefig(file_path)
+
+  plt.show()
 #Plotting 20 Sample Events Phase
-# events_matrix_items=[x_train[0:10],x_train[1500:10]]
-# plot_20_sample_events(events_matrix_items)
+events_matrix_items=[x_train[0:10],x_train[1500:10]]
+plot_20_sample_events(events_matrix_items)
 
 
 # ## 4. Show distribution of training data labels   
 # The training data is about evenly distributed across all nine digits. 
 
-# In[ ]:
+# In[67]:
 
 
 def plot_y_train_dataset_distribution(y_train):
@@ -367,13 +394,24 @@ def plot_y_train_dataset_distribution(y_train):
 
   counts = np.bincount(positions)
   plt.bar(unique_class_labels, counts)
+  plt.title("Dataset classification vector's distribution")
+  
+  
+  file_name='hm_jetscape_ml_plot_y_train_dataset_distribution.png'
+  file_path=simulation_directory_path+file_name
+  plt.savefig(file_path)
+
   plt.show()
-  plt.savefig('hm_jetscape_ml_plot_y_train_dataset_distribution.png')
-  print(counts)
+
+  print("\n#############################################################")
+  print("Classification vector statistics:")
   print(unique_class_labels)
   unique_class_labels,positions = np.unique(y_train,return_inverse=True)
+  print(counts)
   print(unique_class_labels)
-  print(positions[1:20])
+  print("Sample 20 head labels:")
+  print(positions[:20])
+  print("#############################################################\n")
 
 #Checking Train Dataset Y Distribution
 plot_y_train_dataset_distribution(y_train)
@@ -385,7 +423,7 @@ plot_y_train_dataset_distribution(y_train)
 # 
 # 
 
-# In[ ]:
+# In[68]:
 
 
 def convertDatasetYFromLiteralToNumeric(y_dataset):
@@ -393,29 +431,39 @@ def convertDatasetYFromLiteralToNumeric(y_dataset):
   y_test=y_dataset[1]
   y_train_unique_class_labels,y_train_positions = np.unique(y_train,return_inverse=True)
   y_test_unique_class_labels,y_test_positions = np.unique(y_test,return_inverse=True)
-
-  print(type(y_train), y_train.size, y_train.shape)
-  print(type(y_test), y_test.size, y_test.shape)
-  print(type(y_train[0]))
-  print(type(y_test[0]))
-
+  
   print(y_train_unique_class_labels)
   print(y_test_unique_class_labels)
+  
   y_train=y_train_positions
   y_test=y_test_positions
-  print(type(y_train), y_train.size, y_train.shape)
-  print(type(y_test), y_test.size, y_test.shape)
-
-  print(type(y_train[0]))
-  print(type(y_test[0]))
+  
   return ((y_train,y_test))
+
+
+print("\n#############################################################")
+print("Changing classification labels from Literal to Numeric:")
+print("\nBefore conversion:")
+print(type(y_train), y_train.size, y_train.shape)
+print(type(y_test), y_test.size, y_test.shape)
+print(type(y_train[0]))
+print(type(y_test[0]))
+
 y_train,y_test =convertDatasetYFromLiteralToNumeric((y_train,y_test))
+
+print("\nAfter conversion:")
+print(type(y_train), y_train.size, y_train.shape)
+print(type(y_test), y_test.size, y_test.shape)
+
+print(type(y_train[0]))
+print(type(y_test[0]))
+print("#############################################################\n")
 
 
 # ## Normalizing the Dataset X
 # For training the model, the dataset needs to be normalized, meaning all of the dataset values should me between zero and one. This can be done by finding the maximum values over the dataset X side values and devide all the element by it.
 
-# In[ ]:
+# In[69]:
 
 
 def calculate_dataset_x_max_value(x_dataset):
@@ -440,13 +488,17 @@ x_train,x_test=normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x)
 
 image_frame_size=32
 
+print("\n#############################################################")
+
 print("Normalizing Dataset X: maximum hit frequency in the dataset: ")
 print(max_x)
+
+print("#############################################################\n")
 
 
 # ##Defining Validation Dataset from Train Dataset
 
-# In[ ]:
+# In[70]:
 
 
 # Reserve 20% samples for validation dataset
@@ -462,18 +514,26 @@ def set_validation_dataset(x_train,y_train,validation_dataset_size):
   x_train = x_train[:-validation_dataset_size]
   y_train = y_train[:-validation_dataset_size]
   
-  print(type(y_train), y_train.size, y_train.shape)
-  print(type(x_train), x_train.size, x_train.shape)
-
-  print(type(y_val), y_val.size, y_val.shape)
-  print(type(x_val), x_val.size, x_val.shape)
-
-  print(type(y_test), y_test.size, y_test.shape)
-  print(type(x_test), x_test.size, x_test.shape)
+  
   return (x_train, y_train), (x_val, y_val)
 
 validation_dataset_size= calculate_validation_dataset_size(y_train.size,y_test.size)
 (x_train, y_train), (x_val, y_val)=set_validation_dataset(x_train,y_train,validation_dataset_size)
+print("\n#############################################################")
+print("Defining Validation Dataset from Train Dataset:")
+
+print("\nTrain data info:")
+print(type(y_train), y_train.size, y_train.shape)
+print(type(x_train), x_train.size, x_train.shape)
+
+print("\nValidation data info:")
+print(type(y_val), y_val.size, y_val.shape)
+print(type(x_val), x_val.size, x_val.shape)
+
+print("\nTest data info:")
+print(type(y_test), y_test.size, y_test.shape)
+print(type(x_test), x_test.size, x_test.shape)
+print("#############################################################\n")
 
 
 # ## 5.1 Apply Keras/TensorFlow with simple CNN
@@ -566,7 +626,7 @@ def build_and_train_model():
 # Previous research replication
 # 
 
-# In[ ]:
+# In[71]:
 
 
 ## event info
@@ -580,11 +640,10 @@ observables = ['pt']
 kind = 'Hadron'
 
 
-# In[ ]:
+# In[101]:
 
 
 ## create a directory to save the best model
-from os import path, makedirs
 
 save_dir = (dataset_directory_path+'models/Models_{}_vs_{}_{}_ch{}').format(Modules[0], Modules[1], kind, len(observables))
 if not path.exists(save_dir):
@@ -592,7 +651,7 @@ if not path.exists(save_dir):
 print('Directory to save models: {}'.format(save_dir))
 
 
-# In[ ]:
+# In[106]:
 
 
 from tensorflow.keras.models import Sequential, load_model
@@ -684,23 +743,30 @@ def CNN_model(input_shape, lr, dropout1, dropout2):
     return model
 
 
-# In[ ]:
+# In[74]:
 
 
+print("\n#############################################################")
+print("Reshaping dataset X-side dimention to be fit in the defined convolutional :")
+
+print("\nX train:")
 print(x_train.shape)
 print (x_train.shape[0],x_train.shape[1],x_train.shape[2])
 x_train_reshaped=x_train.reshape(x_train.shape[0],x_train.shape[1],x_train.shape[2],1)
 print(x_train_reshaped.shape)
 
+print("\nX val:")
 print(x_val.shape)
 print (x_val.shape[0],x_val.shape[1],x_val.shape[2])
 x_val_reshaped=x_val.reshape(x_val.shape[0],x_val.shape[1],x_val.shape[2],1)
 print(x_train_reshaped.shape)
 
+print("\nX test:")
 print(x_test.shape)
 print (x_test.shape[0],x_test.shape[1],x_test.shape[2])
 x_test_reshaped=x_test.reshape(x_test.shape[0],x_test.shape[1],x_test.shape[2],1)
 print(x_test_reshaped.shape)
+print("#############################################################\n")
 
 
 # In[ ]:
@@ -744,15 +810,40 @@ train_set, val_set = (x_train_reshaped, y_train), (x_val_reshaped, y_val)
 
 # train the network
 history, train_time = train_network(train_set, val_set, n_epochs, lr, batch_size, monitor)
-pd.DataFrame.from_dict(history.history).to_csv('hm_jetscape_ml_model_history.csv',index=False)
-
-np.save('hm_jetscape_ml_model_history.npy',history.history)
-
-#For Loading history later
-# history=np.load('m_jetscape_ml_model_history.npy',allow_pickle='TRUE').item()
+file_name='hm_jetscape_ml_model_history.csv'
+file_path=simulation_directory_path+file_name
+pd.DataFrame.from_dict(history.history).to_csv(file_path,index=False)
 
 
-# In[ ]:
+file_name='hm_jetscape_ml_model_history.npy'
+file_path=simulation_directory_path+file_name
+np.save(file_path,history.history)
+
+
+
+
+# In[95]:
+
+
+# This section shall be just used after training or for stand alone evaluations
+# Building a dictionary which is accessable by dot
+class dotdict(dict):
+    """dot.notation access to dictionary attributes"""
+    __getattr__ = dict.get
+    __setattr__ = dict.__setitem__
+    __delattr__ = dict.__delitem__
+
+#Loading learning history after training 
+file_name='hm_jetscape_ml_model_history.npy'
+file_path=simulation_directory_path+file_name
+
+
+history=dict({'history':np.load(file_path,allow_pickle='TRUE').item()})
+history=dotdict(history)
+print(history)
+
+
+# In[98]:
 
 
 from matplotlib import pyplot as plt
@@ -776,17 +867,19 @@ def plot_train_history(history):
     plt.xlabel('Epoch')
     plt.title('Accuracy history')
     plt.legend()
-    plt.savefig('hm_jetscape_ml_plot_train_history.png')
+    file_name='hm_jetscape_ml_plot_train_history.png'
+    file_path=simulation_directory_path+file_name
+    plt.savefig(file_path)
 
 
-# In[ ]:
+# In[99]:
 
 
 # plot the training history for each fold
 plot_train_history(history)
 
 
-# In[ ]:
+# In[104]:
 
 
 from tensorflow.keras.models import load_model
@@ -804,12 +897,14 @@ _, test_acc = best_model.evaluate(x_test_reshaped, y_test, verbose=0)
 outputStr+='{:.4f}%  {:.4f}%     {:.4f}%\n'.format(train_acc * 100, val_acc * 100, test_acc * 100)
 print(outputStr)
 
-evaluation_file = open("hm_jetscape_ml_model_evaluation.txt", "w")
+file_name="hm_jetscape_ml_model_evaluation.txt"
+file_path=simulation_directory_path+file_name
+evaluation_file = open(file_path, "w")
 evaluation_file.write(outputStr)
 evaluation_file.close()
 
 
-# In[ ]:
+# In[107]:
 
 
 from sklearn.metrics import confusion_matrix, classification_report
@@ -823,12 +918,16 @@ sns.heatmap(conf_mat, annot=True, cmap='Blues',
 plt.xlabel('True Label', fontsize=15)
 plt.ylabel('Prediction', fontsize=15)
 plt.show()
-plt.savefig('hm_jetscape_ml_model_confision_matrix.png')
+file_name='hm_jetscape_ml_model_confision_matrix.png'
+file_path=simulation_directory_path+file_name
+plt.savefig(file_path)
 
 classification_report_str= classification_report(y_test,y_pred)
 
 print (classification_report_str)
-evaluation_file = open("hm_jetscape_ml_model_evaluation.txt", "a")
+file_name="hm_jetscape_ml_model_evaluation.txt"
+file_path=simulation_directory_path+file_name
+evaluation_file = open(file_path, "a")
 evaluation_file.write(classification_report_str)
 evaluation_file.close()
 
