@@ -615,7 +615,7 @@ def get_callbacks(monitor, save_dir):
                       min_delta=0., verbose=1)
     rlp = ReduceLROnPlateau(monitor=monitor, mode=mode, factor=0.2, patience=5,
                             min_lr=0.001, verbose=1)
-    mcp = ModelCheckpoint(path.join(save_dir, 'best_model.h5'), monitor=monitor, 
+    mcp = ModelCheckpoint(path.join(save_dir, 'hm_jetscape_ml_model_best.h5'), monitor=monitor, 
                           save_best_only=True, mode=mode, verbose=1)
     
     return [es, rlp, mcp]
@@ -746,7 +746,7 @@ train_set, val_set = (x_train_reshaped, y_train), (x_val_reshaped, y_val)
 history, train_time = train_network(train_set, val_set, n_epochs, lr, batch_size, monitor)
 pd.DataFrame.from_dict(history.history).to_csv('hm_jetscape_ml_model_history.csv',index=False)
 
-np.save('m_jetscape_ml_model_history.npy',history.history)
+np.save('hm_jetscape_ml_model_history.npy',history.history)
 
 #For Loading history later
 # history=np.load('m_jetscape_ml_model_history.npy',allow_pickle='TRUE').item()
@@ -793,7 +793,7 @@ from tensorflow.keras.models import load_model
 ## load the best model
 best_model = load_model(path.join(save_dir,'hm_jetscape_ml_model_best.h5'))
 
-outputStr='Train   | Validation | Test sets\n';
+outputStr='Train   | Validation | Test sets\n'
 
 ## evaluate the model on train/val/test sets and append the results to lists
 _, train_acc = best_model.evaluate(x_train_reshaped, y_train, verbose=0)
