@@ -2,7 +2,7 @@
 
 # Job name
 
-#SBATCH --job-name Tensorflow
+#SBATCH --job-name HmJetscapeMlCnn
 
 # Submit to the GPU QoS
 
@@ -43,7 +43,7 @@
 
 ml python/3.7
 
-source /wsu/e17/pre-compiled/python/3.7/etc/profile.d/conda.sh
+source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
 
 conda activate tensorflow_env
 
