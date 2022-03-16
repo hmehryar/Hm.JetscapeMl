@@ -167,7 +167,6 @@ def build_randomized_dataset():
 # In[3]:
 
 
-import pickle
 def save_dataset(file_name,dataset):
     with open(file_name, 'wb') as dataset_file:
         pickle.dump(dataset,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
