@@ -16,7 +16,7 @@
 # 
 # Note that there's [tf.keras](https://www.tensorflow.org/guide/keras) (comes with TensorFlow) and there's [Keras](https://keras.io/) (standalone). You should be using [tf.keras](https://www.tensorflow.org/guide/keras) because (1) it comes with TensorFlow so you don't need to install anything extra and (2) it comes with powerful TensorFlow-specific features.
 
-# In[ ]:
+# In[11]:
 
 
 print('Loading/Installing Package => Begin\n\n')
@@ -93,11 +93,11 @@ print("Tensorflow version: "+tf.__version__)
 dataset_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
-  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/Hm.JetscapeMl.Data/'
+  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
 else:
-  dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\Hm.JetscapeMl.Data\\'
+  dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 print('\nLoading/Installing Package => End\n\n')
 
@@ -117,7 +117,7 @@ print('\nLoading/Installing Package => End\n\n')
 # **Building Randomized Dataset**
 # Before having the simulation data, researcher tried to implmenet a psudo random data to create the architecture for the project. I thought it could be useful for further usages.
 
-# In[ ]:
+# In[2]:
 
 
 def dataset_y_builder(y_size,y_class_label_items):
@@ -164,7 +164,7 @@ def build_randomized_dataset():
 
 # ##Saving and Loading Dataset 
 
-# In[ ]:
+# In[3]:
 
 
 import pickle
@@ -189,7 +189,7 @@ def load_dataset(file_name):
 # 2. Shuffling Test Dataset
 # 
 
-# In[ ]:
+# In[4]:
 
 
 def shuffle_training_dataset(x_train, y_train):
@@ -229,7 +229,7 @@ def shuffle_training_dataset_runner():
   #file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k.pkl'
   file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
   # file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
-  dataset_path=dataset_directory_path+file_name;
+  dataset_path=dataset_directory_path+file_name
 
   (x_train, y_train), (x_test, y_test) =load_dataset(dataset_path)
 
@@ -250,7 +250,7 @@ def shuffle_training_dataset_runner():
 
 # **Saving Dataset Benchmark as a file**
 
-# In[ ]:
+# In[5]:
 
 
 def save_dataset_runner():
@@ -262,7 +262,7 @@ def save_dataset_runner():
 # **Creatinng a random event and demostrate it in a 2-D histogram**
 # This module implemented for developemental purpose, just as an example of how the events can be shown in 2-D images with their hit frequency
 
-# In[ ]:
+# In[6]:
 
 
 def create_and_plot_random_event():
@@ -285,7 +285,7 @@ save_dataset('sampleRandomEventHistogram32x32.pkl',counts)
 # ## 2. Use Matplotlib to visualize one record.  
 # I set the colormap to Grey and ColorMap. There are a bunch of other colormap choices if you like bright visualizations. Try magma or any of the other  choice in the [docs](https://matplotlib.org/tutorials/colors/colormaps.html).
 
-# In[ ]:
+# In[7]:
 
 
 def plot_event(image_frame_size,event_matrix):
@@ -297,7 +297,7 @@ def plot_event(image_frame_size,event_matrix):
 # plot_event(image_frame_size,x_train[55])
 
 
-# In[ ]:
+# In[12]:
 
 
 class JetscapeMlCnn:
@@ -316,8 +316,9 @@ class JetscapeMlCnn:
 #file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
 # file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
 file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
-
-(x_train, y_train), (x_test, y_test) =load_dataset(dataset_directory_path+file_name)
+dataset_file_path=dataset_directory_path+file_name
+print(dataset_file_path)
+(x_train, y_train), (x_test, y_test) =load_dataset(dataset_file_path)
 
 oJetscapeMlCnn=JetscapeMlCnn(x_train, y_train, x_test, y_test)
 
