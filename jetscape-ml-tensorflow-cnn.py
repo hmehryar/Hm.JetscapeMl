@@ -16,7 +16,7 @@
 # 
 # Note that there's [tf.keras](https://www.tensorflow.org/guide/keras) (comes with TensorFlow) and there's [Keras](https://keras.io/) (standalone). You should be using [tf.keras](https://www.tensorflow.org/guide/keras) because (1) it comes with TensorFlow so you don't need to install anything extra and (2) it comes with powerful TensorFlow-specific features.
 
-# In[4]:
+# In[ ]:
 
 
 print('Loading/Installing Package => Begin\n\n')
@@ -63,11 +63,42 @@ install("IPython")
 import IPython
 from six.moves import urllib
 
+
+
+print('\nChecking the running platforms\n')
 import platform
+running_os=platform.system()
+print("OS: "+running_os)
+print("OS version: "+platform.release())
+
+try:
+  from google.colab import drive
+  COLAB = True
+except:
+  COLAB = False
+print("running on Colab: "+str(COLAB))
+
+# if 'google.colab' in str(get_ipython()):
+#   print('Running on CoLab')
+#   install("google.colab")
+#   from google.colab import drive
+#   drive.mount('/content/drive')
+# else:
+#   print('Not running on CoLab')
+
+
 print("Python version: "+platform.python_version())
 print("Tensorflow version: "+tf.__version__)
 
-
+dataset_directory_path=''
+if COLAB == True:
+  drive.mount('/content/drive')
+  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/Hm.JetscapeMl.Data/'
+elif 'Linux' in running_os:
+  dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
+else:
+  dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\Hm.JetscapeMl.Data\\'
+print('Dataset Directory Path: '+dataset_directory_path)
 print('\nLoading/Installing Package => End\n\n')
 
 
@@ -86,7 +117,7 @@ print('\nLoading/Installing Package => End\n\n')
 # **Building Randomized Dataset**
 # Before having the simulation data, researcher tried to implmenet a psudo random data to create the architecture for the project. I thought it could be useful for further usages.
 
-# In[5]:
+# In[ ]:
 
 
 def dataset_y_builder(y_size,y_class_label_items):
@@ -121,6 +152,14 @@ def build_randomized_dataset():
   print(type(y_test), y_test.size, y_test.shape)
   dataset=((x_train, y_train), (x_test, y_test))
   return dataset
+
+
+# # Checking operting system and Setting the file system configuration
+
+# In[ ]:
+
+
+
 
 
 # ##Saving and Loading Dataset 
@@ -184,12 +223,6 @@ def shuffle_training_dataset(x_train, y_train):
 #main method
 
 def shuffle_training_dataset_runner():
-  from google.colab import drive
-  drive.mount('/content/drive')
-  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/Hm.JetscapeMl.Data/'
-
-  #file_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\Hm.JetscapeMl.Data\\'
-
 
   start_time = time.time()
 
@@ -221,12 +254,9 @@ def shuffle_training_dataset_runner():
 
 
 def save_dataset_runner():
-  #file_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\Hm.JetscapeMl.Data\\'
-  file_directory_path= '/content/drive/MyDrive/Projects/110_JetscapeMl/Hm.JetscapeMl.Data/'
-
   file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
   dataset=((x_train,y_train),(x_test,y_test))
-  save_dataset(file_directory_path+file_name,dataset)
+  save_dataset(dataset_directory_path+file_name,dataset)
 
 
 # **Creatinng a random event and demostrate it in a 2-D histogram**
@@ -282,19 +312,12 @@ class JetscapeMlCnn:
 
 
 #Loading Dataset Phase
-from google.colab import drive
-drive.mount('/content/drive')
-file_directory_path= '/content/drive/MyDrive/Projects/110_JetscapeMl/Hm.JetscapeMl.Data/'
-
-
-
-#file_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\Hm.JetscapeMl.Data\\'
 
 #file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
 # file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
 file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
 
-(x_train, y_train), (x_test, y_test) =load_dataset(file_directory_path+file_name)
+(x_train, y_train), (x_test, y_test) =load_dataset(dataset_directory_path+file_name)
 
 oJetscapeMlCnn=JetscapeMlCnn(x_train, y_train, x_test, y_test)
 
@@ -562,11 +585,8 @@ kind = 'Hadron'
 
 ## create a directory to save the best model
 from os import path, makedirs
-from google.colab import drive
-drive.mount('/content/drive')
-file_directory_path= '/content/drive/MyDrive/Projects/110_JetscapeMl/Hm.JetscapeMl.Data/'
 
-save_dir = (file_directory_path+'models/Models_{}_vs_{}_{}_ch{}').format(Modules[0], Modules[1], kind, len(observables))
+save_dir = (dataset_directory_path+'models/Models_{}_vs_{}_{}_ch{}').format(Modules[0], Modules[1], kind, len(observables))
 if not path.exists(save_dir):
     makedirs(save_dir)
 print('Directory to save models: {}'.format(save_dir))
