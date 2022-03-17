@@ -16,7 +16,7 @@
 # 
 # Note that there's [tf.keras](https://www.tensorflow.org/guide/keras) (comes with TensorFlow) and there's [Keras](https://keras.io/) (standalone). You should be using [tf.keras](https://www.tensorflow.org/guide/keras) because (1) it comes with TensorFlow so you don't need to install anything extra and (2) it comes with powerful TensorFlow-specific features.
 
-# In[61]:
+# In[116]:
 
 
 print('Loading/Installing Package => Begin\n\n')
@@ -134,7 +134,7 @@ print('\nLoading/Installing Package => End\n\n')
 # **Building Randomized Dataset**
 # Before having the simulation data, researcher tried to implmenet a psudo random data to create the architecture for the project. I thought it could be useful for further usages.
 
-# In[ ]:
+# In[117]:
 
 
 def dataset_y_builder(y_size,y_class_label_items):
@@ -173,7 +173,7 @@ def build_randomized_dataset():
 
 # ##Saving and Loading Dataset Methods Implementation
 
-# In[62]:
+# In[118]:
 
 
 def save_dataset(file_name,dataset):
@@ -197,7 +197,7 @@ def load_dataset(file_name):
 # 2. Shuffling Test Dataset
 # 
 
-# In[ ]:
+# In[119]:
 
 
 def shuffle_training_dataset(x_train, y_train):
@@ -258,7 +258,7 @@ def shuffle_training_dataset_runner():
 
 # **Saving Dataset Benchmark as a file**
 
-# In[ ]:
+# In[120]:
 
 
 def save_dataset_runner():
@@ -270,7 +270,7 @@ def save_dataset_runner():
 # **Creatinng a random event and demostrate it in a 2-D histogram**
 # This module implemented for developemental purpose, just as an example of how the events can be shown in 2-D images with their hit frequency
 
-# In[63]:
+# In[121]:
 
 
 def create_and_plot_random_event():
@@ -300,7 +300,7 @@ def create_and_plot_random_event():
 # ## 2. Use Matplotlib to visualize one record.  
 # I set the colormap to Grey and ColorMap. There are a bunch of other colormap choices if you like bright visualizations. Try magma or any of the other  choice in the [docs](https://matplotlib.org/tutorials/colors/colormaps.html).
 
-# In[64]:
+# In[122]:
 
 
 def plot_event(image_frame_size,event_matrix,file_name):
@@ -319,7 +319,7 @@ def plot_event(image_frame_size,event_matrix,file_name):
 # #Loading Dataset
 # **First learning step**
 
-# In[65]:
+# In[123]:
 
 
 class JetscapeMlCnn:
@@ -357,7 +357,7 @@ print("#############################################################\n")
 # Basically, use the same Matplotlib commands above in a for loop to show 20 records from the train set in a subplot figure. We also make the figsize a bit bigger and remove the tick marks for readability.
 # ** TODO: try to make the subplot like the below from the first project meeting
 
-# In[66]:
+# In[126]:
 
 
 def plot_20_sample_events(events_matrix_items):
@@ -377,6 +377,7 @@ def plot_20_sample_events(events_matrix_items):
   plt.savefig(file_path)
 
   plt.show()
+  plt.close()
 #Plotting 20 Sample Events Phase
 events_matrix_items=[x_train[0:10],x_train[1500:10]]
 plot_20_sample_events(events_matrix_items)
@@ -385,7 +386,7 @@ plot_20_sample_events(events_matrix_items)
 # ## 4. Show distribution of training data labels   
 # The training data is about evenly distributed across all nine digits. 
 
-# In[67]:
+# In[127]:
 
 
 def plot_y_train_dataset_distribution(y_train):
@@ -402,7 +403,7 @@ def plot_y_train_dataset_distribution(y_train):
   plt.savefig(file_path)
 
   plt.show()
-
+  plt.close()
   print("\n#############################################################")
   print("Classification vector statistics:")
   print(unique_class_labels)
@@ -423,7 +424,7 @@ plot_y_train_dataset_distribution(y_train)
 # 
 # 
 
-# In[68]:
+# In[ ]:
 
 
 def convertDatasetYFromLiteralToNumeric(y_dataset):
@@ -463,7 +464,7 @@ print("#############################################################\n")
 # ## Normalizing the Dataset X
 # For training the model, the dataset needs to be normalized, meaning all of the dataset values should me between zero and one. This can be done by finding the maximum values over the dataset X side values and devide all the element by it.
 
-# In[69]:
+# In[ ]:
 
 
 def calculate_dataset_x_max_value(x_dataset):
@@ -498,7 +499,7 @@ print("#############################################################\n")
 
 # ##Defining Validation Dataset from Train Dataset
 
-# In[70]:
+# In[ ]:
 
 
 # Reserve 20% samples for validation dataset
@@ -617,7 +618,7 @@ def build_and_train_model():
   plt.ylabel('Accuracy')
   plt.legend()
   plt.show()
-  
+  plt.close()
   elapsed_time=time.perf_counter() - start_time
   print('Elapsed %.3f seconds.' % elapsed_time)
 
@@ -626,7 +627,7 @@ def build_and_train_model():
 # Previous research replication
 # 
 
-# In[71]:
+# In[ ]:
 
 
 ## event info
@@ -640,7 +641,7 @@ observables = ['pt']
 kind = 'Hadron'
 
 
-# In[101]:
+# In[ ]:
 
 
 ## create a directory to save the best model
@@ -651,7 +652,7 @@ if not path.exists(save_dir):
 print('Directory to save models: {}'.format(save_dir))
 
 
-# In[106]:
+# In[ ]:
 
 
 from tensorflow.keras.models import Sequential, load_model
@@ -743,7 +744,7 @@ def CNN_model(input_shape, lr, dropout1, dropout2):
     return model
 
 
-# In[74]:
+# In[ ]:
 
 
 print("\n#############################################################")
@@ -810,6 +811,8 @@ train_set, val_set = (x_train_reshaped, y_train), (x_val_reshaped, y_val)
 
 # train the network
 history, train_time = train_network(train_set, val_set, n_epochs, lr, batch_size, monitor)
+print("Elapsed Training Time:")
+print(train_time)
 file_name='hm_jetscape_ml_model_history.csv'
 file_path=simulation_directory_path+file_name
 pd.DataFrame.from_dict(history.history).to_csv(file_path,index=False)
@@ -822,7 +825,7 @@ np.save(file_path,history.history)
 
 
 
-# In[95]:
+# In[ ]:
 
 
 # This section shall be just used after training or for stand alone evaluations
@@ -843,7 +846,7 @@ history=dotdict(history)
 print(history)
 
 
-# In[98]:
+# In[ ]:
 
 
 from matplotlib import pyplot as plt
@@ -870,16 +873,18 @@ def plot_train_history(history):
     file_name='hm_jetscape_ml_plot_train_history.png'
     file_path=simulation_directory_path+file_name
     plt.savefig(file_path)
+    plt.show()
+    plt.close()
 
 
-# In[99]:
+# In[ ]:
 
 
 # plot the training history for each fold
 plot_train_history(history)
 
 
-# In[104]:
+# In[ ]:
 
 
 from tensorflow.keras.models import load_model
@@ -904,7 +909,7 @@ evaluation_file.write(outputStr)
 evaluation_file.close()
 
 
-# In[107]:
+# In[ ]:
 
 
 from sklearn.metrics import confusion_matrix, classification_report
@@ -915,12 +920,15 @@ y_pred = best_model.predict_classes(x_test_reshaped)
 conf_mat = confusion_matrix(y_pred, y_test)
 sns.heatmap(conf_mat, annot=True, cmap='Blues', 
             xticklabels=Modules, yticklabels=Modules, fmt='g')
-plt.xlabel('True Label', fontsize=15)
+plt.xlabel('Truth', fontsize=15)
 plt.ylabel('Prediction', fontsize=15)
-plt.show()
+
 file_name='hm_jetscape_ml_model_confision_matrix.png'
 file_path=simulation_directory_path+file_name
 plt.savefig(file_path)
+
+plt.show()
+plt.close()
 
 classification_report_str= classification_report(y_test,y_pred)
 
@@ -957,7 +965,7 @@ def plot_history():
     # plt.plot(hist['epoch'], hist['rmse'], label = 'RMSE')
     plt.legend()
     plt.ylim([0,1])
-
+    plt.close()
 # plot_history()
 
 

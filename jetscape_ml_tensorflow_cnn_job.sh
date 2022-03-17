@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: H. Mehryar
+# email: hmehryar@wayne.edu
+
 # Job name
 
 #SBATCH --job-name HmJetscapeMlCnn
@@ -8,9 +11,9 @@
 
 #SBATCH -q gpu
 
-# Request one node
+# Request the GPU type
 
-#SBATCH -N 1
+#SBATCH --gres=gpu:tesla
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
@@ -18,7 +21,7 @@
 
 # Request memory
 
-#SBATCH --mem=128G
+#SBATCH --mem=256G
 
 # Mail when the job begins, ends, fails, requeues
 
@@ -38,13 +41,24 @@
 
 # Set maximum time limit
 
-#SBATCH -t 36:0:0
+#SBATCH -t 0:30:0
 
 
+#Converting jupyter notebook to python script
+echo "Converting notebook to script"
+jupyter nbconvert --to script jetscape-ml-tensorflow-cnn.ipynb
+
+echo "Setting up python version and conda shell"
 ml python/3.7
 
 source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
 
-conda activate tensorflow_env
 
+#Activating conda environment
+echo "Activating conda environment"
+# conda activate tensorflow_env
+conda activate tensorflow_gpuenv_v2
+
+#Running simulation
+echo "Running simulation"
 python jetscape-ml-tensorflow-cnn.py
