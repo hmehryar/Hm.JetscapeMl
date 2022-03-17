@@ -101,7 +101,7 @@ if COLAB == True:
   simulation_directory_path=dataset_directory_path+'simulation_results/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results/'
+  simulation_directory_path=dataset_directory_path+'simulation_results_02/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
   simulation_directory_path=dataset_directory_path+'simulation_results\\'
@@ -634,7 +634,7 @@ def build_and_train_model():
 collision = 'PbPb'
 energy = 5020
 centrality = '0_10'
-Modules = ['PP19','LBT']
+Modules = ['Matter','LBT']
 JetptMinMax = '100_110'
 #observables = ['pt','charge','mass']
 observables = ['pt']
@@ -774,8 +774,8 @@ print("#############################################################\n")
 
 
 ## parameers for training
-# n_epochs = 30
-n_epochs=2
+n_epochs = 30
+# n_epochs=2
 batch_size = 256
 input_shape = x_train_reshaped.shape[1:]
 monitor='val_accuracy' #'val_accuracy' or 'val_loss'
