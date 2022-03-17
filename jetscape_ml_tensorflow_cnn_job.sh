@@ -41,7 +41,7 @@
 
 # Set maximum time limit
 
-#SBATCH -t 0:30:0
+#SBATCH -t 2:0:0
 
 
 #Converting jupyter notebook to python script
