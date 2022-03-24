@@ -101,7 +101,7 @@ if COLAB == True:
   simulation_directory_path=dataset_directory_path+'simulation_results/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results_02/'
+  simulation_directory_path=dataset_directory_path+'simulation_results_04_shuffle_02/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
   simulation_directory_path=dataset_directory_path+'simulation_results\\'
@@ -109,7 +109,9 @@ print('Dataset Directory Path: '+dataset_directory_path)
 
 #dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
-dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
+# dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
+dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-02.pkl'
+# dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-03.pkl'
 print("Dataset file name: "+dataset_file_name)
 
 if not path.exists(simulation_directory_path):
@@ -646,7 +648,7 @@ kind = 'Hadron'
 
 ## create a directory to save the best model
 
-save_dir = (dataset_directory_path+'models/Models_{}_vs_{}_{}_ch{}').format(Modules[0], Modules[1], kind, len(observables))
+save_dir = (simulation_directory_path+'Models_{}_vs_{}_{}_ch{}').format(Modules[0], Modules[1], kind, len(observables))
 if not path.exists(save_dir):
     makedirs(save_dir)
 print('Directory to save models: {}'.format(save_dir))
