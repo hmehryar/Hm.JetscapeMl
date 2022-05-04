@@ -17,11 +17,11 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 24
+#SBATCH -n 32
 
 # Request memory
 
-#SBATCH --mem=200G
+#SBATCH --mem=256G
 
 # Mail when the job begins, ends, fails, requeues
 
@@ -41,7 +41,7 @@
 
 # Set maximum time limit
 
-#SBATCH -t 30:0:0
+#SBATCH -t 150:0:0
 
 
 #Converting jupyter notebook to python script
