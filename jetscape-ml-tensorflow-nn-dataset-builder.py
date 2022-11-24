@@ -7,7 +7,7 @@
 # 
 # 
 
-# In[1]:
+# In[ ]:
 
 
 print('Loading/Installing Package => Begin\n\n')
@@ -19,7 +19,7 @@ import time
 from time import time
 import subprocess
 import sys
-
+sys.stdout = open("output.txt", "w")
 
 def install(package):
   print("Installing "+package) 
@@ -88,6 +88,8 @@ if not path.exists(simulation_directory_path):
     makedirs(simulation_directory_path)
 print('Simulation Results Path: '+simulation_directory_path)
 print('########################################################################\n')
+
+
 print('\nLoading/Installing Package => End\n\n')
 
 
@@ -119,10 +121,27 @@ def extracting_hit_items(
     # hit_data_items=np.loadtxt(file_directory_path+file_name, usecols=(x_col_num,y_col_num,momentum_col_num))
     hit_data_items=np.loadtxt(dataset_directory_path+file_name, usecols=(x_col_num,y_col_num,momentum_col_num))
     return hit_data_items
+
+
+#main
+print('extracting_hit_items => Begin\n\n')
+
+print("extracting_hit_items For MATTER")
+start = time()
+
 hit_data_items_matter=extracting_hit_items(file_name_matter,x_col_num,y_col_num,momentum_col_num)
-hit_data_items_matter_lbt=extracting_hit_items(file_name_matter_lbt,x_col_num,y_col_num,momentum_col_num)
+
+
+elapsed = time() - start
+print('extracting_hit_items For MATTER: Elapsed %.3f seconds.' % elapsed)
+
 print(hit_data_items_matter)
+
+
+hit_data_items_matter_lbt=extracting_hit_items(file_name_matter_lbt,x_col_num,y_col_num,momentum_col_num)
 print(hit_data_items_matter_lbt)
+
+print('extracting_hit_items => Ends\n\n')
 
 
 # **Setting the cone size and filtering extra hits**
@@ -376,5 +395,5 @@ saveDataset(dataset_directory_path+dataset_file_name,dataset)
 # In[ ]:
 
 
-
+sys.stdout.close()
 

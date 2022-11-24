@@ -389,6 +389,24 @@ def convert_events_to_images(image_grid_count,event_items):
             event_items_image=np.insert(event_items_image,0,event_item_image,axis=0)
     return event_items_image
  
+
+
+# In[ ]:
+
+
+print('\n########################################################################')
+print("Splitting the events array to smaller chunck")
+number_of_partition=10
+number_of_events_per_partition= data_size/number_of_partition
+event_items_chunks_array= np.array_split(event_items, number_of_partition)
+print("event_items_chunks_array type: ", type(event_items_chunks_array))
+print("event_items_chunks_array content: ", len(event_items_chunks_array))
+print('\n########################################################################')
+
+
+# In[ ]:
+
+
 # event_items=event_items_matter
 image_grid_count=32
 

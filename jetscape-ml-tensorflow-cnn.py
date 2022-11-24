@@ -97,21 +97,22 @@ simulation_directory_path=''
 
 if COLAB == True:
   drive.mount('/content/drive')
-  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results/'
+  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02/'
 elif 'Linux' in running_os:
-  dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results_04_shuffle_02/'
+  dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data//simulation_results/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02/'
 else:
-  dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
-  simulation_directory_path=dataset_directory_path+'simulation_results\\'
+  dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 #dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
-dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-02.pkl'
+# dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-02.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-03.pkl'
+dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 print("Dataset file name: "+dataset_file_name)
 
 if not path.exists(simulation_directory_path):
@@ -1214,7 +1215,3 @@ def calculate_test_loss_and_accuracy(x_test,):
 
 
 # In[ ]:
-
-
-
-
