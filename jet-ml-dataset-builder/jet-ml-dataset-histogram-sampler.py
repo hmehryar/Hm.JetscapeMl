@@ -240,6 +240,7 @@ def plot_20_sample_events(events_matrix_items):
       # current_plot= ax.imshow(x_train[i].reshape(32, 32), cmap=cm.Greys, extent=[-3.14, 3.14, -3.14, 3.14])
       current_plot= ax.imshow(counts, interpolation='nearest', origin='lower',
             extent=[-pi, pi, -pi, pi])
+      plt.colorbar(current_plot,ax=ax)
             # , cmap=cm.jet,vmin=0, vmax=3
     #   ticks = np.linspace(0, 31, endpoint=True)
       
@@ -256,7 +257,7 @@ def plot_20_sample_events(events_matrix_items):
   
   # cb_ax = fig.add_axes([0.83, 0.1, 0.02, 0.8])
   # cbar = fig.colorbar(current_plot, cax=cb_ax)
-  cbar=fig.colorbar(current_plot, ax=axes.ravel().tolist())
+  # cbar=fig.colorbar(current_plot, ax=axes.ravel().tolist())
   # set the colorbar ticks and tick labels
   
   # ticks = np.linspace(current_plot.min(), current_plot.max(), 5, endpoint=True)
