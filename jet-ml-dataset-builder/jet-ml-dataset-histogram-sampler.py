@@ -214,13 +214,12 @@ def convert_event_to_image(bin_count,event_item,draw_plot=False):
 
 bin_count=32
 event_item_sample=event_items_chunks_item[0]
-# print(event_item_sample)
 
-event_item_sample_image=convert_event_to_image(bin_count,event_item_sample,True)
-print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
-# print(event_item_sample_image)
-print(np.max(event_item_sample))
-print(np.max(event_item_sample_image))
+
+# event_item_sample_image=convert_event_to_image(bin_count,event_item_sample,True)
+# print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
+# print(np.max(event_item_sample))
+# print(np.max(event_item_sample_image))
 
 
 # In[ ]:
@@ -240,15 +239,16 @@ def plot_20_sample_events(events_matrix_items):
       counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
       # current_plot= ax.imshow(x_train[i].reshape(32, 32), cmap=cm.Greys, extent=[-3.14, 3.14, -3.14, 3.14])
       current_plot= ax.imshow(counts, interpolation='nearest', origin='lower',
-            extent=[-pi, pi, -pi, pi], cmap=cm.jet,vmin=0, vmax=3)
+            extent=[-pi, pi, -pi, pi])
+            # , cmap=cm.jet,vmin=0, vmax=3
     #   ticks = np.linspace(0, 31, endpoint=True)
       
       # ax.set_xticks( [0, 31, 5])  
       # ax.set_yticks( ticks) 
-      # ax.set_xticks( [-3.14, 3.14, 0.5],  [-3.14, 3.14, 0.5] )  
-      # ax.set_yticks( [-3.14, 3.14, 0.5],  [-3.14, 3.14, 0.5] )  
-      ax.set_xticks([])
-      ax.set_yticks([]) 
+      ax.set_xticks( [-3.14, 3.14, 0.5],  [-3.14, 3.14, 0.5] )  
+      ax.set_yticks( [-3.14, 3.14, 0.5],  [-3.14, 3.14, 0.5] )  
+      # ax.set_xticks([])
+      # ax.set_yticks([]) 
       
       # 
   # fig.subplots_adjust(bottom=0.1, top=0.9, left=0.1, right=0.8,
