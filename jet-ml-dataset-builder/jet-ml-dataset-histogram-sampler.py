@@ -233,21 +233,28 @@ def plot_20_sample_events(events_matrix_items):
   # fig, axes = plt.subplots(2, 10, figsize=[15,5])
   
   fig, axes = plt.subplots(2, 10, figsize=[40,8], dpi=100)
+  # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
+  # fig.text(0.04, 0.5, 'Sample Events common Y', va='center', rotation='vertical')
   for i, ax in enumerate(axes.flat):
       event_v = np.vstack(events_matrix_items[i])
       # print (event_v)
       counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
       # current_plot= ax.imshow(x_train[i].reshape(32, 32), cmap=cm.Greys, extent=[-3.14, 3.14, -3.14, 3.14])
-      current_plot= ax.imshow(counts, interpolation='nearest', origin='lower',
-            extent=[-pi, pi, -pi, pi])
+      current_plot= ax.imshow(counts, interpolation='nearest', origin='lower',extent=[-pi, pi, -pi, pi])
+      # 
+      
+      # set the colorbar ticks and tick labels
       plt.colorbar(current_plot,ax=ax)
             # , cmap=cm.jet,vmin=0, vmax=3
     #   ticks = np.linspace(0, 31, endpoint=True)
       
       # ax.set_xticks( [0, 31, 5])  
       # ax.set_yticks( ticks) 
-      ax.set_xticks( [-3.14, 3.14, 0.5],  [-3.14, 3.14, 0.5] )  
-      ax.set_yticks( [-3.14, 3.14, 0.5],  [-3.14, 3.14, 0.5] )  
+      # ax.set_xticks( [-pi, pi, 1] )  
+      # ax.set_yticks( [-pi, pi, 1] ) 
+      ax.set_xticks(np.arange(-3, pi, 1)) 
+      # ax.set_xlim(left=-pi, right=pi)
+      # ax.set_ylim(bottom=-pi, top=pi)
       # ax.set_xticks([])
       # ax.set_yticks([]) 
       
@@ -258,7 +265,7 @@ def plot_20_sample_events(events_matrix_items):
   # cb_ax = fig.add_axes([0.83, 0.1, 0.02, 0.8])
   # cbar = fig.colorbar(current_plot, cax=cb_ax)
   # cbar=fig.colorbar(current_plot, ax=axes.ravel().tolist())
-  # set the colorbar ticks and tick labels
+  
   
   # ticks = np.linspace(current_plot.min(), current_plot.max(), 5, endpoint=True)
   # cbar.set_ticks(ticks)
