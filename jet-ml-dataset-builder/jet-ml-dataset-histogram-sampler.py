@@ -226,13 +226,15 @@ event_item_sample=event_items_chunks_item[0]
 
 
 from matplotlib.pyplot import figure
+from matplotlib.ticker import LogFormatter 
 
 def plot_20_sample_events(events_matrix_items):
   
   images = events_matrix_items
   # fig, axes = plt.subplots(2, 10, figsize=[15,5])
   
-  fig, axes = plt.subplots(2, 10, figsize=[40,8], dpi=100)
+  # figsize=[40,8]
+  fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=100)
   # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
   # fig.text(0.04, 0.5, 'Sample Events common Y', va='center', rotation='vertical')
   for i, ax in enumerate(axes.flat):
@@ -244,9 +246,11 @@ def plot_20_sample_events(events_matrix_items):
       # 
       
       # set the colorbar ticks and tick labels
-      plt.colorbar(current_plot,ax=ax)
-            # , cmap=cm.jet,vmin=0, vmax=3
-    #   ticks = np.linspace(0, 31, endpoint=True)
+      # formatter = LogFormatter(10, labelOnlyBase=False) 
+      plt.colorbar(current_plot,ax=ax, cmap=cm.jet)
+      # ,ticks=[-100,-10,0,10,100,1000],format=formatter
+            # ,vmin=0, vmax=3
+    #   )
       
       # ax.set_xticks( [0, 31, 5])  
       # ax.set_yticks( ticks) 
