@@ -231,18 +231,10 @@ from matplotlib import pyplot as plt, colors
 
 def convert_event_to_image_with_white_bg(bin_count,event_item,draw_plot=False):
     event_v = np.vstack(event_item)
-    # print (event_v)
-    # counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
-
-
-
-    # event_v = np.vstack(events_matrix_items[0])
     fig, ax = plt.subplots()
     counts, xedges, yedges, image = ax.hist2d(event_v[:,0], event_v[:,1],
      bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2], cmap = plt.cm.jet)
-    
-
-    # 
+ 
     if draw_plot:
         plt.rcParams["figure.autolayout"] = True
         fig.colorbar(image, ax=ax)
@@ -257,7 +249,7 @@ def convert_event_to_image_with_white_bg(bin_count,event_item,draw_plot=False):
         plt.savefig(file_path)
         plt.show()
         plt.close()
-    #print(counts)
+        
     return counts
 
 bin_count=32
