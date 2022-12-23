@@ -227,23 +227,40 @@ event_item_sample=event_items_chunks_item[0]
 
 from matplotlib.pyplot import figure
 from matplotlib.ticker import LogFormatter 
+from matplotlib import pyplot as plt, colors
 
 def plot_20_sample_events(events_matrix_items):
   
   images = events_matrix_items
-  # fig, axes = plt.subplots(2, 10, figsize=[15,5])
   
-  # figsize=[40,8]
+  # fig, axes = plt.subplots(2, 10, figsize=[15,5])
+  # print (events_matrix_items[0])
+  # print(len(events_matrix_items[0]))
+  event_v = np.vstack(events_matrix_items[0])
+  fig, ax = plt.subplots()
+  hh = ax.hist2d(event_v[:,0], event_v[:,1], bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2])
+  fig.colorbar(hh[0], ax=ax)
+  # print(event_v)
+  # print(len(event_v))
+  file_name='hm_jetscape_ml_plot_hist.png'
+  file_path=simulation_directory_path+file_name
+  plt.savefig(file_path)
+  plt.show()
+  plt.close()
+
+  plt.rcParams["figure.autolayout"] = True
   fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=100)
   # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
   # fig.text(0.04, 0.5, 'Sample Events common Y', va='center', rotation='vertical')
   for i, ax in enumerate(axes.flat):
       event_v = np.vstack(events_matrix_items[i])
-      # print (event_v)
+      # print (events_matrix_items[i])
       counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
       # current_plot= ax.imshow(x_train[i].reshape(32, 32), cmap=cm.Greys, extent=[-3.14, 3.14, -3.14, 3.14])
-      current_plot= ax.imshow(counts, interpolation='nearest', origin='lower',extent=[-pi, pi, -pi, pi])
-      # 
+      current_plot= ax.imshow(counts, interpolation='none', origin='lower',extent=[-pi, pi, -pi, pi])
+      # nearest
+      
+      
       
       # set the colorbar ticks and tick labels
       # formatter = LogFormatter(10, labelOnlyBase=False) 
