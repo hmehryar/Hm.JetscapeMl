@@ -192,12 +192,10 @@ pi=3.14159
 
 def convert_event_to_image(bin_count,event_item,draw_plot=False):
     event_v = np.vstack(event_item)
-    # print (event_v)
     counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
-    # 
+    
     if draw_plot:
-#        plt.imshow(counts, interpolation='nearest', origin='lower',
-#            extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]])
+
         plt.imshow(counts, interpolation='nearest', origin='lower',
             extent=[-pi, pi, -pi, pi])
         cb = plt.colorbar()
@@ -209,7 +207,6 @@ def convert_event_to_image(bin_count,event_item,draw_plot=False):
         plt.savefig(file_path)
         plt.show()
         plt.close()
-    #print(counts)
     return counts
 
 bin_count=32
@@ -236,7 +233,7 @@ def convert_event_to_image_with_white_bg(bin_count,event_item,draw_plot=False):
      bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2], cmap = plt.cm.jet)
  
     if draw_plot:
-        plt.rcParams["figure.autolayout"] = True
+        # plt.rcParams["figure.autolayout"] = True
         fig.colorbar(image, ax=ax)
         ax.set_xticks(np.arange(-3, pi, 1)) 
         ax.set_yticks(np.arange(-3, pi, 1)) 
@@ -252,12 +249,12 @@ def convert_event_to_image_with_white_bg(bin_count,event_item,draw_plot=False):
         
     return counts
 
-bin_count=32
-event_item_sample=event_items_chunks_item[0] 
-event_item_sample_image=convert_event_to_image_with_white_bg(bin_count,event_item_sample,True)
-print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
-print(np.max(event_item_sample))
-print(np.max(event_item_sample_image))
+# bin_count=32
+# event_item_sample=event_items_chunks_item[0] 
+# event_item_sample_image=convert_event_to_image_with_white_bg(bin_count,event_item_sample,True)
+# print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
+# print(np.max(event_item_sample))
+# print(np.max(event_item_sample_image))
 
 
 # In[ ]:
@@ -268,7 +265,7 @@ from matplotlib.ticker import LogFormatter
 from matplotlib import pyplot as plt, colors
 
 def plot_20_sample_events(events_matrix_items):
-  plt.rcParams["figure.autolayout"] = True
+  # plt.rcParams["figure.autolayout"] = True
   fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=100)
   # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
   # fig.text(0.04, 0.5, 'Sample Events common Y', va='center', rotation='vertical')
@@ -291,7 +288,7 @@ def plot_20_sample_events(events_matrix_items):
   plt.close()
 #Plotting 20 Sample Events Phase  from shuffled dataset
 
-events_matrix_items=event_items_chunks_item[0:20]
+# events_matrix_items=event_items_chunks_item[0:20]
 
 # plot_20_sample_events(events_matrix_items)
 
@@ -302,13 +299,16 @@ events_matrix_items=event_items_chunks_item[0:20]
 from matplotlib.pyplot import figure
 from matplotlib.ticker import LogFormatter 
 from matplotlib import pyplot as plt, colors
+from matplotlib.transforms import offset_copy
+
 
 def plot_20_sample_events_with_white_bg(events_matrix_items):
 
-  plt.rcParams["figure.autolayout"] = True
-  fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=100)
+  # plt.rcParams["figure.autolayout"] = True
+  fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=200)
+  plt.setp(axes.flat, xlabel='X', ylabel='Y')
   # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
-  # fig.text(0.04, 0.5, 'Sample Events common Y', va='center', rotation='vertical')
+  # fig.text(0.04, 0.5, 'MATTER (MEDIUM)', va='center', rotation='vertical')
   for i, ax in enumerate(axes.flat):
       event_v = np.vstack(events_matrix_items[i])
       
@@ -316,17 +316,33 @@ def plot_20_sample_events_with_white_bg(events_matrix_items):
       bins=bin_count, 
       norm=colors.LogNorm(),
       weights=event_v[:,2], cmap = plt.cm.jet)
-      # current_plot= ax.imshow(counts, interpolation='none',extent=None)
-      # 
-      # plt.imshow(counts, origin = "lower", interpolation = "gaussian", aspect='equal')
-
-      # counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
-      # current_plot= ax.imshow(counts, interpolation='none', origin='lower',extent=[-pi, pi, -pi, pi])
-      # nearest
+     
       
       plt.colorbar(image,ax=ax, cmap=cm.jet)
       ax.set_xticks(np.arange(-3, pi, 1)) 
       ax.set_yticks(np.arange(-3, pi, 1))
+  
+  cols = ['Sample #{}'.format(col) for col in range(1, 10)]
+  rows = ['{}(Medium)'.format(row) for row in ['MATTER', 'MATTER+LBT']]
+
+  pad = 5 # in points
+
+  for ax, col in zip(axes[0], cols):
+      ax.annotate(col, xy=(0.5, 1), xytext=(0, pad),
+                  xycoords='axes fraction', textcoords='offset points',
+                  size='large', ha='center', va='baseline')
+
+  for ax, row in zip(axes[:,0], rows):
+      ax.annotate(row, xy=(0, 0.5), xytext=(-ax.yaxis.labelpad - pad, 0),
+                  xycoords=ax.yaxis.label, textcoords='offset points',
+                  size='20', ha='right', va='center')
+
+  fig.tight_layout()
+
+  # tight_layout doesn't take these labels into account. We'll need 
+  # to make some room. These numbers are are manually tweaked. 
+  # You could automatically calculate them, but it's a pain.
+  fig.subplots_adjust(left=0.15, top=0.95)
 
   file_name='hm_jetscape_ml_plot_20_sample_events_with_white_bg.png'
   file_path=simulation_directory_path+file_name
