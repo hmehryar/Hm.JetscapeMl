@@ -229,78 +229,124 @@ from matplotlib.pyplot import figure
 from matplotlib.ticker import LogFormatter 
 from matplotlib import pyplot as plt, colors
 
-def plot_20_sample_events(events_matrix_items):
-  
-  images = events_matrix_items
-  
-  # fig, axes = plt.subplots(2, 10, figsize=[15,5])
-  # print (events_matrix_items[0])
-  # print(len(events_matrix_items[0]))
-  event_v = np.vstack(events_matrix_items[0])
-  fig, ax = plt.subplots()
-  hh = ax.hist2d(event_v[:,0], event_v[:,1], bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2])
-  fig.colorbar(hh[0], ax=ax)
-  # print(event_v)
-  # print(len(event_v))
-  file_name='hm_jetscape_ml_plot_hist.png'
-  file_path=simulation_directory_path+file_name
-  plt.savefig(file_path)
-  plt.show()
-  plt.close()
+def convert_event_to_image_with_white_bg(bin_count,event_item,draw_plot=False):
+    event_v = np.vstack(event_item)
+    # print (event_v)
+    # counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
 
-  plt.rcParams["figure.autolayout"] = True
-  fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=100)
-  # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
-  # fig.text(0.04, 0.5, 'Sample Events common Y', va='center', rotation='vertical')
-  for i, ax in enumerate(axes.flat):
-      event_v = np.vstack(events_matrix_items[i])
-      # print (events_matrix_items[i])
-      counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
-      # current_plot= ax.imshow(x_train[i].reshape(32, 32), cmap=cm.Greys, extent=[-3.14, 3.14, -3.14, 3.14])
-      current_plot= ax.imshow(counts, interpolation='none', origin='lower',extent=[-pi, pi, -pi, pi])
-      # nearest
-      
-      
-      
-      # set the colorbar ticks and tick labels
-      # formatter = LogFormatter(10, labelOnlyBase=False) 
-      plt.colorbar(current_plot,ax=ax, cmap=cm.jet)
-      # ,ticks=[-100,-10,0,10,100,1000],format=formatter
-            # ,vmin=0, vmax=3
-    #   )
-      
-      # ax.set_xticks( [0, 31, 5])  
-      # ax.set_yticks( ticks) 
-      # ax.set_xticks( [-pi, pi, 1] )  
-      # ax.set_yticks( [-pi, pi, 1] ) 
-      ax.set_xticks(np.arange(-3, pi, 1)) 
-      # ax.set_xlim(left=-pi, right=pi)
-      # ax.set_ylim(bottom=-pi, top=pi)
-      # ax.set_xticks([])
-      # ax.set_yticks([]) 
-      
-      # 
-  # fig.subplots_adjust(bottom=0.1, top=0.9, left=0.1, right=0.8,
-  #                   wspace=0.02, hspace=0.02)
-  
-  # cb_ax = fig.add_axes([0.83, 0.1, 0.02, 0.8])
-  # cbar = fig.colorbar(current_plot, cax=cb_ax)
-  # cbar=fig.colorbar(current_plot, ax=axes.ravel().tolist())
-  
-  
-  # ticks = np.linspace(current_plot.min(), current_plot.max(), 5, endpoint=True)
-  # cbar.set_ticks(ticks)
-  # cbar.set_ticklabels(['low', 'medium', 'high'])
 
-  file_name='hm_jetscape_ml_plot_20_sample_events.png'
-  file_path=simulation_directory_path+file_name
-  plt.savefig(file_path)
 
-  plt.show()
-  plt.close()
-#Plotting 20 Sample Events Phase  from shuffled dataset
-# events_matrix_items=np.array(np.zeros((20,32,32)))
-events_matrix_items=event_items_chunks_item[0:20]
+    # event_v = np.vstack(events_matrix_items[0])
+    fig, ax = plt.subplots()
+    counts, xedges, yedges, image = ax.hist2d(event_v[:,0], event_v[:,1],
+     bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2], cmap = plt.cm.jet)
+    
 
-plot_20_sample_events(events_matrix_items)
+    # 
+    if draw_plot:
+        plt.rcParams["figure.autolayout"] = True
+        fig.colorbar(image, ax=ax)
+        ax.set_xticks(np.arange(-3, pi, 1)) 
+        ax.set_yticks(np.arange(-3, pi, 1)) 
+        print ("Saving Image: Begin")
+        file_name='hm_jetscape_ml_plot_hist_with_white_bg.png'
+        file_path=simulation_directory_path+file_name
+        plt.savefig(file_path)
+        print ("Saving Image: End")
+        file_path=simulation_directory_path+file_name
+        plt.savefig(file_path)
+        plt.show()
+        plt.close()
+    #print(counts)
+    return counts
+
+bin_count=32
+event_item_sample=event_items_chunks_item[0] 
+event_item_sample_image=convert_event_to_image_with_white_bg(bin_count,event_item_sample,True)
+print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
+print(np.max(event_item_sample))
+print(np.max(event_item_sample_image))
+
+
+# In[ ]:
+
+
+# from matplotlib.pyplot import figure
+# from matplotlib.ticker import LogFormatter 
+# from matplotlib import pyplot as plt, colors
+
+# def plot_20_sample_events(events_matrix_items):
+  
+#   images = events_matrix_items
+  
+#   # fig, axes = plt.subplots(2, 10, figsize=[15,5])
+#   # print (events_matrix_items[0])
+#   # print(len(events_matrix_items[0]))
+#   event_v = np.vstack(events_matrix_items[0])
+#   fig, ax = plt.subplots()
+#   hh = ax.hist2d(event_v[:,0], event_v[:,1], bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2])
+#   fig.colorbar(hh[3], ax=ax)
+#   # print(event_v)
+#   # print(len(event_v))
+#   file_name='hm_jetscape_ml_plot_hist.png'
+#   file_path=simulation_directory_path+file_name
+#   plt.savefig(file_path)
+#   plt.show()
+#   plt.close()
+
+#   plt.rcParams["figure.autolayout"] = True
+#   fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=100)
+#   # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
+#   # fig.text(0.04, 0.5, 'Sample Events common Y', va='center', rotation='vertical')
+#   for i, ax in enumerate(axes.flat):
+#       event_v = np.vstack(events_matrix_items[i])
+#       # print (events_matrix_items[i])
+#       counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
+#       # current_plot= ax.imshow(x_train[i].reshape(32, 32), cmap=cm.Greys, extent=[-3.14, 3.14, -3.14, 3.14])
+#       current_plot= ax.imshow(counts, interpolation='none', origin='lower',extent=[-pi, pi, -pi, pi])
+#       # nearest
+      
+      
+      
+#       # set the colorbar ticks and tick labels
+#       # formatter = LogFormatter(10, labelOnlyBase=False) 
+#       plt.colorbar(current_plot,ax=ax, cmap=cm.jet)
+#       # ,ticks=[-100,-10,0,10,100,1000],format=formatter
+#             # ,vmin=0, vmax=3
+#     #   )
+      
+#       # ax.set_xticks( [0, 31, 5])  
+#       # ax.set_yticks( ticks) 
+#       # ax.set_xticks( [-pi, pi, 1] )  
+#       # ax.set_yticks( [-pi, pi, 1] ) 
+#       ax.set_xticks(np.arange(-3, pi, 1)) 
+#       # ax.set_xlim(left=-pi, right=pi)
+#       # ax.set_ylim(bottom=-pi, top=pi)
+#       # ax.set_xticks([])
+#       # ax.set_yticks([]) 
+      
+#       # 
+#   # fig.subplots_adjust(bottom=0.1, top=0.9, left=0.1, right=0.8,
+#   #                   wspace=0.02, hspace=0.02)
+  
+#   # cb_ax = fig.add_axes([0.83, 0.1, 0.02, 0.8])
+#   # cbar = fig.colorbar(current_plot, cax=cb_ax)
+#   # cbar=fig.colorbar(current_plot, ax=axes.ravel().tolist())
+  
+  
+#   # ticks = np.linspace(current_plot.min(), current_plot.max(), 5, endpoint=True)
+#   # cbar.set_ticks(ticks)
+#   # cbar.set_ticklabels(['low', 'medium', 'high'])
+
+#   file_name='hm_jetscape_ml_plot_20_sample_events.png'
+#   file_path=simulation_directory_path+file_name
+#   plt.savefig(file_path)
+
+#   plt.show()
+#   plt.close()
+# #Plotting 20 Sample Events Phase  from shuffled dataset
+# # events_matrix_items=np.array(np.zeros((20,32,32)))
+# events_matrix_items=event_items_chunks_item[0:20]
+
+# plot_20_sample_events(events_matrix_items)
 
