@@ -66,7 +66,7 @@ echo "Running events file splitter"
 CONFIG_NUMBER=1
 
 
-# MVAC, MLBT
+# MMAT, MLBT
 ELOSS_TYPE_UPPERCASE="MMAT"
 
 # matter, matterlbt

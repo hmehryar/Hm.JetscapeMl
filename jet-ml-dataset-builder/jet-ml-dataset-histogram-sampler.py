@@ -57,14 +57,14 @@ simulation_directory_path=''
 
 if COLAB == True:
   drive.mount('/content/drive')
-  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results/'
+  dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-dataset-samples/'
 elif 'Linux' in running_os:
-  dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results/'
+  dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-dataset-samples/'
 else:
-  dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
-  simulation_directory_path=dataset_directory_path+'simulation_results\\'
+  dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-dataset-samples\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 
@@ -167,13 +167,14 @@ print("Loading the events chunks from small files")
 
 number_of_events_per_partition=int( data_size/number_of_partition)
 
+
 print("Loaing Event Items Chunck in multple Array stream")
 
 # for partition_index in range(number_of_partition):
 partition_index=0
 print("Loading Partition ",partition_index, "in the file")
 file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+".pkl"
-file_name=simulation_directory_path+file_name
+file_name=dataset_directory_path+file_name
 event_items_chunks_item=load_event_items_chunk(file_name)
 print("event_items_chunks_item type: ", type(event_items_chunks_item))
 print("event_items_chunks_item content: ", len(event_items_chunks_item))
@@ -190,7 +191,7 @@ print('\n#######################################################################
 #input
 pi=3.14159
 
-def convert_event_to_image(bin_count,event_item,draw_plot=False):
+def convert_event_to_image_with_dark_bg(bin_count,event_item,draw_plot=False):
     event_v = np.vstack(event_item)
     counts, xedges, yedges = np.histogram2d(event_v[:,0], event_v[:,1], bins=bin_count, weights=event_v[:,2])
     
@@ -201,7 +202,7 @@ def convert_event_to_image(bin_count,event_item,draw_plot=False):
         cb = plt.colorbar()
         cb.set_label("density")
         print ("Saving Image: Begin")
-        file_name='jet-ml-dataset-histogram-sampler.png'
+        file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+"-single-sample-event-darkbg.png"
         print ("Saving Image: End")
         file_path=simulation_directory_path+file_name
         plt.savefig(file_path)
@@ -213,6 +214,45 @@ bin_count=32
 event_item_sample=event_items_chunks_item[0]
 
 
+# event_item_sample_image=convert_event_to_image_with_dark_bg(bin_count,event_item_sample,True)
+# print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
+# print(np.max(event_item_sample))
+# print(np.max(event_item_sample_image))
+
+
+# In[ ]:
+
+
+from matplotlib.pyplot import figure
+from matplotlib.ticker import LogFormatter 
+from matplotlib import pyplot as plt, colors
+
+def convert_event_to_image(bin_count,event_item,draw_plot=False):
+    event_v = np.vstack(event_item)
+    fig, ax = plt.subplots()
+    counts, xedges, yedges, image = ax.hist2d(event_v[:,0], event_v[:,1],
+     bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2], cmap = plt.cm.jet)
+ 
+    if draw_plot:
+        # plt.rcParams["figure.autolayout"] = True
+        fig.colorbar(image, ax=ax)
+        ax.set_xticks(np.arange(-3, pi, 1)) 
+        ax.set_yticks(np.arange(-3, pi, 1)) 
+        print ("Saving Image: Begin")
+        file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+"-single-sample-event.png"
+        # file_name='hm_jetscape_ml_plot_hist_with_white_bg.png'
+        file_path=simulation_directory_path+file_name
+        plt.savefig(file_path)
+        print ("Saving Image: End")
+        file_path=simulation_directory_path+file_name
+        plt.savefig(file_path)
+        plt.show()
+        plt.close()
+        
+    return counts
+
+# bin_count=32
+# event_item_sample=event_items_chunks_item[0] 
 # event_item_sample_image=convert_event_to_image(bin_count,event_item_sample,True)
 # print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
 # print(np.max(event_item_sample))
@@ -226,45 +266,7 @@ from matplotlib.pyplot import figure
 from matplotlib.ticker import LogFormatter 
 from matplotlib import pyplot as plt, colors
 
-def convert_event_to_image_with_white_bg(bin_count,event_item,draw_plot=False):
-    event_v = np.vstack(event_item)
-    fig, ax = plt.subplots()
-    counts, xedges, yedges, image = ax.hist2d(event_v[:,0], event_v[:,1],
-     bins=bin_count, norm=colors.LogNorm(), weights=event_v[:,2], cmap = plt.cm.jet)
- 
-    if draw_plot:
-        # plt.rcParams["figure.autolayout"] = True
-        fig.colorbar(image, ax=ax)
-        ax.set_xticks(np.arange(-3, pi, 1)) 
-        ax.set_yticks(np.arange(-3, pi, 1)) 
-        print ("Saving Image: Begin")
-        file_name='hm_jetscape_ml_plot_hist_with_white_bg.png'
-        file_path=simulation_directory_path+file_name
-        plt.savefig(file_path)
-        print ("Saving Image: End")
-        file_path=simulation_directory_path+file_name
-        plt.savefig(file_path)
-        plt.show()
-        plt.close()
-        
-    return counts
-
-# bin_count=32
-# event_item_sample=event_items_chunks_item[0] 
-# event_item_sample_image=convert_event_to_image_with_white_bg(bin_count,event_item_sample,True)
-# print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
-# print(np.max(event_item_sample))
-# print(np.max(event_item_sample_image))
-
-
-# In[ ]:
-
-
-from matplotlib.pyplot import figure
-from matplotlib.ticker import LogFormatter 
-from matplotlib import pyplot as plt, colors
-
-def plot_20_sample_events(events_matrix_items):
+def plot_20_sample_events_with_dark_bg(events_matrix_items):
   # plt.rcParams["figure.autolayout"] = True
   fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=100)
   # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
@@ -280,17 +282,16 @@ def plot_20_sample_events(events_matrix_items):
       ax.set_xticks(np.arange(-3, pi, 1)) 
       ax.set_yticks(np.arange(-3, pi, 1))
 
-  file_name='hm_jetscape_ml_plot_20_sample_events.png'
+  file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+"-sample-events-with-dark-bg.png"
   file_path=simulation_directory_path+file_name
   plt.savefig(file_path)
 
   plt.show()
   plt.close()
+
 #Plotting 20 Sample Events Phase  from shuffled dataset
-
 # events_matrix_items=event_items_chunks_item[0:20]
-
-# plot_20_sample_events(events_matrix_items)
+# plot_20_sample_events_with_dark_bg(events_matrix_items)
 
 
 # In[ ]:
@@ -302,7 +303,7 @@ from matplotlib import pyplot as plt, colors
 from matplotlib.transforms import offset_copy
 
 
-def plot_20_sample_events_with_white_bg(events_matrix_items):
+def plot_sample_events(events_matrix_items):
 
   # plt.rcParams["figure.autolayout"] = True
   fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=200)
@@ -321,21 +322,23 @@ def plot_20_sample_events_with_white_bg(events_matrix_items):
       plt.colorbar(image,ax=ax, cmap=cm.jet)
       ax.set_xticks(np.arange(-3, pi, 1)) 
       ax.set_yticks(np.arange(-3, pi, 1))
+      ax.set_title('Sample #{}'.format(i+1))
   
-  cols = ['Sample #{}'.format(col) for col in range(1, 10)]
-  rows = ['{}(Medium)'.format(row) for row in ['MATTER', 'MATTER+LBT']]
 
-  pad = 5 # in points
+  # cols = ['Sample #{}'.format(col+1) for col in range(0, 10)]
+  # rows = ['{}(Medium)'.format(row) for row in ['MATTER', 'MATTER+LBT']]
 
-  for ax, col in zip(axes[0], cols):
-      ax.annotate(col, xy=(0.5, 1), xytext=(0, pad),
-                  xycoords='axes fraction', textcoords='offset points',
-                  size='large', ha='center', va='baseline')
+  # pad = 5 # in points
 
-  for ax, row in zip(axes[:,0], rows):
-      ax.annotate(row, xy=(0, 0.5), xytext=(-ax.yaxis.labelpad - pad, 0),
-                  xycoords=ax.yaxis.label, textcoords='offset points',
-                  size='20', ha='right', va='center')
+  # for ax, col in zip(axes[0], cols):
+  #     ax.annotate(str(col), xy=(0.5, 1), xytext=(0, pad),
+  #                 xycoords='axes fraction', textcoords='offset points',
+  #                 size='large', ha='center', va='baseline')
+
+  # for ax, row in zip(axes[:,0], rows):
+  #     ax.annotate(row, xy=(0, 0.5), xytext=(-ax.yaxis.labelpad - pad, 0),
+  #                 xycoords=ax.yaxis.label, textcoords='offset points',
+  #                 size='20', ha='right', va='center')
 
   fig.tight_layout()
 
@@ -343,16 +346,14 @@ def plot_20_sample_events_with_white_bg(events_matrix_items):
   # to make some room. These numbers are are manually tweaked. 
   # You could automatically calculate them, but it's a pain.
   fig.subplots_adjust(left=0.15, top=0.95)
-
-  file_name='hm_jetscape_ml_plot_20_sample_events_with_white_bg.png'
+  file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+"-sample-events.png"
   file_path=simulation_directory_path+file_name
   plt.savefig(file_path)
 
   plt.show()
   plt.close()
+
 #Plotting 20 Sample Events Phase  from shuffled dataset
-
 events_matrix_items=event_items_chunks_item[0:20]
-
-plot_20_sample_events_with_white_bg(events_matrix_items)
+plot_sample_events(events_matrix_items)
 
