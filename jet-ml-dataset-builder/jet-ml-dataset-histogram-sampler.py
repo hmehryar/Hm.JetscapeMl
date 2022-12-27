@@ -95,10 +95,10 @@ import getopt, sys
 argumentList = sys.argv[1:]
  
 # Options
-options = "hi:d:y:o:n:c:p:"
+options = "hi:d:y:o:n:c:p:q:a:"
  
 # Long options
-long_options = ["Help", "Input_file_name_hadrons","Data_size","Y_class_label_items","output_dataset_file_name=", "number_of_partition","configuration_directory","configuration_number"]
+long_options = ["Help", "Input_file_name_hadrons","Data_size","Y_class_label_items","output_dataset_file_name=", "number_of_partition","configuration_directory","configuration_number","q_0","alpha_s"]
  
 try:
     # Parsing argument
@@ -139,6 +139,14 @@ try:
             print ("configuration_number: ",currentValue)
             configuration_number=int(currentValue)
             print('Configuration number to reference which dataset it is: {} '.format(configuration_number))
+        elif currentArgument in ("-q", "--q_0"):
+            print ("q_0: ", currentValue) 
+            q_0=float(currentValue)
+            print('q_0 virtuality separation:  {} '.format(q_0))
+        elif currentArgument in ("-a", "--alpha_s"):
+            print ("alpha_s: ", currentValue) 
+            alpha_s=float(currentValue)
+            print('alpha_s:  {} '.format(alpha_s))
 except getopt.error as err:
     # output error, and return with an error code
     print (str(err))
@@ -307,9 +315,15 @@ def plot_sample_events(events_matrix_items):
   fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=200)
   
   # fig.subplots_adjust(top=0.8)
-
+  # q0=1
+  # alpha_s=0.2
   # Set titles for the figure 
-  suptitle=r'MATTER, In Medium, \begin{math}Q_{ 0 } = 1\end{math}, \begin{math}\alpha_{ s } = 1\end{math}'
+  # suptitle=r'MATTER, In Medium, \begin{math}Q_{ 0 } = {{0}}\end{math}, \begin{math}\alpha_{ s } = {{1}}\end{math}'.format(q0,alpha_s)
+  if y_class_label_items[0]=='MMAT':
+    matter_lbt_str='MATTER, In Medium'
+  else:
+    matter_lbt_str='MATTER+LBT, In Medium'
+  suptitle=r'$Config No.{0}: {1}, Q_{{0}}=  {2}, \alpha_{{s}}= {3}$  '.format(configuration_number,matter_lbt_str,q_0,alpha_s)
  
   fig.suptitle(suptitle, fontsize=20, fontweight='bold')
   plt.setp(axes.flat, xlabel=r'$x$', ylabel=r'$y$')
@@ -352,7 +366,7 @@ def plot_sample_events(events_matrix_items):
   # to make some room. These numbers are are manually tweaked. 
   # You could automatically calculate them, but it's a pain.
   # fig.subplots_adjust(left=0.15, top=0.95)
-  file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+"-sample-events.png"
+  file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+"-q0-"+str(q_0)+"-alphas-"+str(alpha_s)+"-sample-events.png"
   file_path=simulation_directory_path+file_name
   plt.savefig(file_path)
 

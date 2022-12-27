@@ -59,20 +59,16 @@ conda activate tensorflow_gpuenv_v2
 
 
 #Execution
-echo "Running events file splitter"
+echo "Running dataset histogram sampler"
 
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
 CONFIG_NUMBER=1
-
-
 # MMAT, MLBT
 ELOSS_TYPE_UPPERCASE="MMAT"
-
 # matter, matterlbt
 ELOSS_TYPE_LOWERCASE="matter"
-
-echo "Running events file splitter for $ELOSS_TYPE_LOWERCASE"
-
-
-python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER
+Q_0=1
+ALPHA_S=0.2
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
