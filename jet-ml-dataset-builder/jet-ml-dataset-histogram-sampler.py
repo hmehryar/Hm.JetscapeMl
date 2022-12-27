@@ -184,12 +184,25 @@ print("event_items_chunks_item content: ", len(event_items_chunks_item))
 print('\n########################################################################')
 
 
+# Adding required packages and constants
+
 # In[ ]:
 
 
 
+from matplotlib.pyplot import figure
+from matplotlib.ticker import LogFormatter 
+from matplotlib import pyplot as plt, colors
+from matplotlib.transforms import offset_copy
+
 #input
 pi=3.14159
+bin_count=32
+
+
+# In[ ]:
+
+
 
 def convert_event_to_image_with_dark_bg(bin_count,event_item,draw_plot=False):
     event_v = np.vstack(event_item)
@@ -210,10 +223,10 @@ def convert_event_to_image_with_dark_bg(bin_count,event_item,draw_plot=False):
         plt.close()
     return counts
 
-bin_count=32
-event_item_sample=event_items_chunks_item[0]
 
 
+
+# event_item_sample=event_items_chunks_item[0]
 # event_item_sample_image=convert_event_to_image_with_dark_bg(bin_count,event_item_sample,True)
 # print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
 # print(np.max(event_item_sample))
@@ -222,10 +235,6 @@ event_item_sample=event_items_chunks_item[0]
 
 # In[ ]:
 
-
-from matplotlib.pyplot import figure
-from matplotlib.ticker import LogFormatter 
-from matplotlib import pyplot as plt, colors
 
 def convert_event_to_image(bin_count,event_item,draw_plot=False):
     event_v = np.vstack(event_item)
@@ -251,7 +260,6 @@ def convert_event_to_image(bin_count,event_item,draw_plot=False):
         
     return counts
 
-# bin_count=32
 # event_item_sample=event_items_chunks_item[0] 
 # event_item_sample_image=convert_event_to_image(bin_count,event_item_sample,True)
 # print(type(event_item_sample_image), event_item_sample_image.size, event_item_sample_image.shape)
@@ -261,10 +269,6 @@ def convert_event_to_image(bin_count,event_item,draw_plot=False):
 
 # In[ ]:
 
-
-from matplotlib.pyplot import figure
-from matplotlib.ticker import LogFormatter 
-from matplotlib import pyplot as plt, colors
 
 def plot_20_sample_events_with_dark_bg(events_matrix_items):
   # plt.rcParams["figure.autolayout"] = True
@@ -297,17 +301,18 @@ def plot_20_sample_events_with_dark_bg(events_matrix_items):
 # In[ ]:
 
 
-from matplotlib.pyplot import figure
-from matplotlib.ticker import LogFormatter 
-from matplotlib import pyplot as plt, colors
-from matplotlib.transforms import offset_copy
-
-
 def plot_sample_events(events_matrix_items):
-
+  plt.rcParams['text.usetex'] = True
   # plt.rcParams["figure.autolayout"] = True
   fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=200)
-  plt.setp(axes.flat, xlabel='X', ylabel='Y')
+  
+  # fig.subplots_adjust(top=0.8)
+
+  # Set titles for the figure 
+  suptitle=r'MATTER, In Medium, \begin{math}Q_{ 0 } = 1\end{math}, \begin{math}\alpha_{ s } = 1\end{math}'
+ 
+  fig.suptitle(suptitle, fontsize=20, fontweight='bold')
+  plt.setp(axes.flat, xlabel=r'$x$', ylabel=r'$y$')
   # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
   # fig.text(0.04, 0.5, 'MATTER (MEDIUM)', va='center', rotation='vertical')
   for i, ax in enumerate(axes.flat):
@@ -322,7 +327,8 @@ def plot_sample_events(events_matrix_items):
       plt.colorbar(image,ax=ax, cmap=cm.jet)
       ax.set_xticks(np.arange(-3, pi, 1)) 
       ax.set_yticks(np.arange(-3, pi, 1))
-      ax.set_title('Sample #{}'.format(i+1))
+      # Set titles for the subplot
+      ax.set_title(r'Sample {}'.format(i+1))
   
 
   # cols = ['Sample #{}'.format(col+1) for col in range(0, 10)]
@@ -340,12 +346,12 @@ def plot_sample_events(events_matrix_items):
   #                 xycoords=ax.yaxis.label, textcoords='offset points',
   #                 size='20', ha='right', va='center')
 
-  fig.tight_layout()
-
+ 
+  # fig.tight_layout()
   # tight_layout doesn't take these labels into account. We'll need 
   # to make some room. These numbers are are manually tweaked. 
   # You could automatically calculate them, but it's a pain.
-  fig.subplots_adjust(left=0.15, top=0.95)
+  # fig.subplots_adjust(left=0.15, top=0.95)
   file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-partition"+str(partition_index)+"-numofevents"+str(number_of_events_per_partition)+"-sample-events.png"
   file_path=simulation_directory_path+file_name
   plt.savefig(file_path)
@@ -356,4 +362,93 @@ def plot_sample_events(events_matrix_items):
 #Plotting 20 Sample Events Phase  from shuffled dataset
 events_matrix_items=event_items_chunks_item[0:20]
 plot_sample_events(events_matrix_items)
+
+
+# In[ ]:
+
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+
+plt.rcParams['text.usetex'] = True
+
+
+t = np.linspace(0.0, 1.0, 100)
+s = np.cos(4 * np.pi * t) + 2
+
+fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
+ax.plot(t, s)
+
+ax.set_xlabel(r'\textbf{time (s)}')
+ax.set_ylabel('\\textit{Velocity (\N{DEGREE SIGN}/sec)}', fontsize=16)
+ax.set_title(r'\TeX\ is Number $\displaystyle\sum_{n=1}^\infty'
+             r'\frac{-e^{i\pi}}{2^n}$!', fontsize=16, color='r')
+file_name="sample-equation"
+file_path=simulation_directory_path+file_name
+plt.savefig(file_path)     
+
+
+# In[ ]:
+
+
+fig, ax = plt.subplots()
+# interface tracking profiles
+N = 500
+delta = 0.6
+X = np.linspace(-1, 1, N)
+ax.plot(X, (1 - np.tanh(4 * X / delta)) / 2,    # phase field tanh profiles
+        X, (1.4 + np.tanh(4 * X / delta)) / 4, "C2",  # composition profile
+        X, X < 0, "k--")                        # sharp interface
+
+# legend
+ax.legend(("phase field", "level set", "sharp interface"),
+          shadow=True, loc=(0.01, 0.48), handlelength=1.5, fontsize=16)
+
+# the arrow
+ax.annotate("", xy=(-delta / 2., 0.1), xytext=(delta / 2., 0.1),
+            arrowprops=dict(arrowstyle="<->", connectionstyle="arc3"))
+ax.text(0, 0.1, r"$\delta$",
+        color="black", fontsize=24,
+        horizontalalignment="center", verticalalignment="center",
+        bbox=dict(boxstyle="round", fc="white", ec="black", pad=0.2))
+
+# Use tex in labels
+ax.set_xticks([-1, 0, 1])
+ax.set_xticklabels(["$-1$", r"$\pm 0$", "$+1$"], color="k", size=20)
+
+# Left Y-axis labels, combine math mode and text mode
+ax.set_ylabel(r"\bf{phase field} $\phi$", color="C0", fontsize=20)
+ax.set_yticks([0, 0.5, 1])
+ax.set_yticklabels([r"\bf{0}", r"\bf{.5}", r"\bf{1}"], color="k", size=20)
+
+# Right Y-axis labels
+ax.text(1.02, 0.5, r"\bf{level set} $\phi$",
+        color="C2", fontsize=20, rotation=90,
+        horizontalalignment="left", verticalalignment="center",
+        clip_on=False, transform=ax.transAxes)
+
+# Use multiline environment inside a `text`.
+# level set equations
+eq1 = (r"\begin{eqnarray*}"
+       r"|\nabla\phi| &=& 1,\\"
+       r"\frac{\partial \phi}{\partial t} + U|\nabla \phi| &=& 0 "
+       r"\end{eqnarray*}")
+ax.text(1, 0.9, eq1, color="C2", fontsize=18,
+        horizontalalignment="right", verticalalignment="top")
+
+# phase field equations
+eq2 = (r"\begin{eqnarray*}"
+       r"\mathcal{F} &=& \int f\left( \phi, c \right) dV, \\ "
+       r"\frac{ \partial \phi } { \partial t } &=& -M_{ \phi } "
+       r"\frac{ \delta \mathcal{F} } { \delta \phi }"
+       r"\end{eqnarray*}")
+ax.text(0.18, 0.18, eq2, color="C0", fontsize=16)
+
+ax.text(-1, .30, r"gamma: $\gamma$", color="r", fontsize=20)
+ax.text(-1, .18, r"Omega: $\Omega$", color="b", fontsize=20)
+
+plt.show()
+file_name="complex-equation"
+file_path=simulation_directory_path+file_name
+plt.savefig(file_path)    
 
