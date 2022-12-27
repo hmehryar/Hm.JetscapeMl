@@ -61,14 +61,187 @@ conda activate tensorflow_gpuenv_v2
 #Execution
 echo "Running dataset histogram sampler"
 
+# MMAT, MLBT
+# matter, matterlbt
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
+#####################################
+#1
 CONFIG_NUMBER=1
-# MMAT, MLBT
 ELOSS_TYPE_UPPERCASE="MMAT"
-# matter, matterlbt
 ELOSS_TYPE_LOWERCASE="matter"
 Q_0=1
 ALPHA_S=0.2
 echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
 python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#2
+CONFIG_NUMBER=1
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=1.5
+ALPHA_S=0.2
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#3
+CONFIG_NUMBER=2
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.3
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#4
+CONFIG_NUMBER=2
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=1.5
+ALPHA_S=0.3
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#5
+CONFIG_NUMBER=3
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.4
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#6
+CONFIG_NUMBER=3
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=1.5
+ALPHA_S=0.4
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#7
+CONFIG_NUMBER=4
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.2
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#8
+CONFIG_NUMBER=4
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=2
+ALPHA_S=0.2
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#9
+CONFIG_NUMBER=5
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.3
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#10
+CONFIG_NUMBER=5
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=2
+ALPHA_S=0.3
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#11
+CONFIG_NUMBER=6
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.4
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#12
+CONFIG_NUMBER=6
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=2
+ALPHA_S=0.4
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#13
+CONFIG_NUMBER=7
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.2
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#14
+CONFIG_NUMBER=7
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=2.5
+ALPHA_S=0.2
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#15
+CONFIG_NUMBER=8
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.3
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#16
+CONFIG_NUMBER=8
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=2.5
+ALPHA_S=0.3
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#17
+CONFIG_NUMBER=9
+ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_LOWERCASE="matter"
+Q_0=1
+ALPHA_S=0.4
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
+#####################################
+#18
+CONFIG_NUMBER=9
+ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_LOWERCASE="matterlbt"
+Q_0=2.5
+ALPHA_S=0.4
+echo "Running histogram sample on Config $CONFIG_NUMBER $ELOSS_TYPE_LOWERCASE"
+python jet-ml-dataset-histogram-sampler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -q $Q_0 -a $ALPHA_S
+#####################################
