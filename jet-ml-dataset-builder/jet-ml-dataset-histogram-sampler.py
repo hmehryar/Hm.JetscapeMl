@@ -312,13 +312,12 @@ def plot_20_sample_events_with_dark_bg(events_matrix_items):
 def plot_sample_events(events_matrix_items):
   plt.rcParams['text.usetex'] = True
   # plt.rcParams["figure.autolayout"] = True
-  fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=200)
+  # fig, axes = plt.subplots(2, 10, figsize=[70,10], dpi=200)
+  fig, axes = plt.subplots(2, 5, figsize=[30,10], dpi=200)
   
   # fig.subplots_adjust(top=0.8)
-  # q0=1
-  # alpha_s=0.2
+
   # Set titles for the figure 
-  # suptitle=r'MATTER, In Medium, \begin{math}Q_{ 0 } = {{0}}\end{math}, \begin{math}\alpha_{ s } = {{1}}\end{math}'.format(q0,alpha_s)
   if y_class_label_items[0]=='MMAT':
     matter_lbt_str='MATTER, In Medium'
   else:
@@ -327,8 +326,7 @@ def plot_sample_events(events_matrix_items):
  
   fig.suptitle(suptitle, fontsize=20, fontweight='bold')
   plt.setp(axes.flat, xlabel=r'$x$', ylabel=r'$y$')
-  # fig.text(0.5, 0.04, 'Sample Events Common X', ha='center')
-  # fig.text(0.04, 0.5, 'MATTER (MEDIUM)', va='center', rotation='vertical')
+ 
   for i, ax in enumerate(axes.flat):
       event_v = np.vstack(events_matrix_items[i])
       
@@ -374,95 +372,96 @@ def plot_sample_events(events_matrix_items):
   plt.close()
 
 #Plotting 20 Sample Events Phase  from shuffled dataset
-events_matrix_items=event_items_chunks_item[0:20]
+events_matrix_items=event_items_chunks_item[0:10]
 plot_sample_events(events_matrix_items)
 
 
 # In[ ]:
 
 
-# import numpy as np
-# import matplotlib.pyplot as plt
+def simple_plot_with_latex():
+    plt.rcParams['text.usetex'] = True
+    t = np.linspace(0.0, 1.0, 100)
+    s = np.cos(4 * np.pi * t) + 2
 
-plt.rcParams['text.usetex'] = True
+    fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
+    ax.plot(t, s)
 
-
-t = np.linspace(0.0, 1.0, 100)
-s = np.cos(4 * np.pi * t) + 2
-
-fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
-ax.plot(t, s)
-
-ax.set_xlabel(r'\textbf{time (s)}')
-ax.set_ylabel('\\textit{Velocity (\N{DEGREE SIGN}/sec)}', fontsize=16)
-ax.set_title(r'\TeX\ is Number $\displaystyle\sum_{n=1}^\infty'
-             r'\frac{-e^{i\pi}}{2^n}$!', fontsize=16, color='r')
-file_name="sample-equation"
-file_path=simulation_directory_path+file_name
-plt.savefig(file_path)     
+    ax.set_xlabel(r'\textbf{time (s)}')
+    ax.set_ylabel('\\textit{Velocity (\N{DEGREE SIGN}/sec)}', fontsize=16)
+    ax.set_title(r'\TeX\ is Number $\displaystyle\sum_{n=1}^\infty'
+                r'\frac{-e^{i\pi}}{2^n}$!', fontsize=16, color='r')
+    file_name="sample-equation"
+    file_path=simulation_directory_path+file_name
+    plt.savefig(file_path) 
+# simple_plot_with_latex()    
 
 
 # In[ ]:
 
 
-fig, ax = plt.subplots()
-# interface tracking profiles
-N = 500
-delta = 0.6
-X = np.linspace(-1, 1, N)
-ax.plot(X, (1 - np.tanh(4 * X / delta)) / 2,    # phase field tanh profiles
-        X, (1.4 + np.tanh(4 * X / delta)) / 4, "C2",  # composition profile
-        X, X < 0, "k--")                        # sharp interface
+def complex_plot_with_latex():
+        plt.rcParams['text.usetex'] = True
+        fig, ax = plt.subplots()
+        # interface tracking profiles
+        N = 500
+        delta = 0.6
+        X = np.linspace(-1, 1, N)
+        ax.plot(X, (1 - np.tanh(4 * X / delta)) / 2,    # phase field tanh profiles
+                X, (1.4 + np.tanh(4 * X / delta)) / 4, "C2",  # composition profile
+                X, X < 0, "k--")                        # sharp interface
 
-# legend
-ax.legend(("phase field", "level set", "sharp interface"),
-          shadow=True, loc=(0.01, 0.48), handlelength=1.5, fontsize=16)
+        # legend
+        ax.legend(("phase field", "level set", "sharp interface"),
+                shadow=True, loc=(0.01, 0.48), handlelength=1.5, fontsize=16)
 
-# the arrow
-ax.annotate("", xy=(-delta / 2., 0.1), xytext=(delta / 2., 0.1),
-            arrowprops=dict(arrowstyle="<->", connectionstyle="arc3"))
-ax.text(0, 0.1, r"$\delta$",
-        color="black", fontsize=24,
-        horizontalalignment="center", verticalalignment="center",
-        bbox=dict(boxstyle="round", fc="white", ec="black", pad=0.2))
+        # the arrow
+        ax.annotate("", xy=(-delta / 2., 0.1), xytext=(delta / 2., 0.1),
+                arrowprops=dict(arrowstyle="<->", connectionstyle="arc3"))
+        ax.text(0, 0.1, r"$\delta$",
+                color="black", fontsize=24,
+                horizontalalignment="center", verticalalignment="center",
+                bbox=dict(boxstyle="round", fc="white", ec="black", pad=0.2))
 
-# Use tex in labels
-ax.set_xticks([-1, 0, 1])
-ax.set_xticklabels(["$-1$", r"$\pm 0$", "$+1$"], color="k", size=20)
+        # Use tex in labels
+        ax.set_xticks([-1, 0, 1])
+        ax.set_xticklabels(["$-1$", r"$\pm 0$", "$+1$"], color="k", size=20)
 
-# Left Y-axis labels, combine math mode and text mode
-ax.set_ylabel(r"\bf{phase field} $\phi$", color="C0", fontsize=20)
-ax.set_yticks([0, 0.5, 1])
-ax.set_yticklabels([r"\bf{0}", r"\bf{.5}", r"\bf{1}"], color="k", size=20)
+        # Left Y-axis labels, combine math mode and text mode
+        ax.set_ylabel(r"\bf{phase field} $\phi$", color="C0", fontsize=20)
+        ax.set_yticks([0, 0.5, 1])
+        ax.set_yticklabels([r"\bf{0}", r"\bf{.5}", r"\bf{1}"], color="k", size=20)
 
-# Right Y-axis labels
-ax.text(1.02, 0.5, r"\bf{level set} $\phi$",
-        color="C2", fontsize=20, rotation=90,
-        horizontalalignment="left", verticalalignment="center",
-        clip_on=False, transform=ax.transAxes)
+        # Right Y-axis labels
+        ax.text(1.02, 0.5, r"\bf{level set} $\phi$",
+                color="C2", fontsize=20, rotation=90,
+                horizontalalignment="left", verticalalignment="center",
+                clip_on=False, transform=ax.transAxes)
 
-# Use multiline environment inside a `text`.
-# level set equations
-eq1 = (r"\begin{eqnarray*}"
-       r"|\nabla\phi| &=& 1,\\"
-       r"\frac{\partial \phi}{\partial t} + U|\nabla \phi| &=& 0 "
-       r"\end{eqnarray*}")
-ax.text(1, 0.9, eq1, color="C2", fontsize=18,
-        horizontalalignment="right", verticalalignment="top")
+        # Use multiline environment inside a `text`.
+        # level set equations
+        eq1 = (r"\begin{eqnarray*}"
+        r"|\nabla\phi| &=& 1,\\"
+        r"\frac{\partial \phi}{\partial t} + U|\nabla \phi| &=& 0 "
+        r"\end{eqnarray*}")
+        ax.text(1, 0.9, eq1, color="C2", fontsize=18,
+                horizontalalignment="right", verticalalignment="top")
 
-# phase field equations
-eq2 = (r"\begin{eqnarray*}"
-       r"\mathcal{F} &=& \int f\left( \phi, c \right) dV, \\ "
-       r"\frac{ \partial \phi } { \partial t } &=& -M_{ \phi } "
-       r"\frac{ \delta \mathcal{F} } { \delta \phi }"
-       r"\end{eqnarray*}")
-ax.text(0.18, 0.18, eq2, color="C0", fontsize=16)
+        # phase field equations
+        eq2 = (r"\begin{eqnarray*}"
+        r"\mathcal{F} &=& \int f\left( \phi, c \right) dV, \\ "
+        r"\frac{ \partial \phi } { \partial t } &=& -M_{ \phi } "
+        r"\frac{ \delta \mathcal{F} } { \delta \phi }"
+        r"\end{eqnarray*}")
+        ax.text(0.18, 0.18, eq2, color="C0", fontsize=16)
 
-ax.text(-1, .30, r"gamma: $\gamma$", color="r", fontsize=20)
-ax.text(-1, .18, r"Omega: $\Omega$", color="b", fontsize=20)
+        ax.text(-1, .30, r"gamma: $\gamma$", color="r", fontsize=20)
+        ax.text(-1, .18, r"Omega: $\Omega$", color="b", fontsize=20)
 
-plt.show()
-file_name="complex-equation"
-file_path=simulation_directory_path+file_name
-plt.savefig(file_path)    
+        plt.show()
+        file_name="complex-equation"
+        file_path=simulation_directory_path+file_name
+        plt.savefig(file_path)
+
+# complex_plot_with_latex()
 
