@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name e-splitter-config-09-mat
+#SBATCH --job-name e-splitter-config-05-matlbt
 
 # Submit to the GPU QoS
 
@@ -31,13 +31,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be event-splitter-config-09-mat-output-<jobid>.out
+# Create an output file that will be event-splitter-config-05-matlbt-output-<jobid>.out
 
-#SBATCH -o event-splitter-config-09-mat-output-%j.out
+#SBATCH -o event-splitter-config-05-matlbt-output-%j.out
 
-# Create an error file that will be event-splitter-config-09-mat-error-<jobid>.out
+# Create an error file that will be event-splitter-config-05-matlbt-error-<jobid>.out
 
-#SBATCH -e event-splitter-config-09-mat-error-%j.err
+#SBATCH -e event-splitter-config-05-matlbt-error-%j.err
 
 # Set maximum time limit
 
@@ -62,32 +62,16 @@ conda activate tensorflow_gpuenv_v2
 #Execution
 echo "Running events file splitter"
 
-# Old configuration
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-file-event-splitter.py -i finalStateHadrons-Matter-1k.dat -d 1000 -y MVAC -o jetscape-ml-benchmark-dataset-1k-matter.pkl -n 40
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-file-event-splitter.py -i finalStateHadrons-Matter-600k.dat -d 600000 -y MVAC -o jetscape-ml-benchmark-dataset-600k-matter.pkl -n 40
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-file-event-splitter.py -i finalStateHadrons-MatterLbt-600k.dat -d 600000 -y MLBT -o jetscape-ml-benchmark-dataset-600k-lbt.pkl -n 40
-
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
-CONFIG_NUMBER=9
+CONFIG_NUMBER=5
 
 
-# # MVAC, MLBT
-# ELOSS_TYPE_UPPERCASE="MVAC"
-
-# # matter, matterlbt
-# ELOSS_TYPE_LOWERCASE="matter"
-
-# echo "Running events file splitter for $ELOSS_TYPE_LOWERCASE"
-
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-file-event-splitter.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER
-
-
-# MVAC, MLBT
-ELOSS_TYPE_UPPERCASE="MMAT"
+# MMAT, MLBT
+ELOSS_TYPE_UPPERCASE="MLBT"
 
 # matter, matterlbt
-ELOSS_TYPE_LOWERCASE="matter"
+ELOSS_TYPE_LOWERCASE="matterlbt"
 
 echo "Running events file splitter for $ELOSS_TYPE_LOWERCASE"
 
