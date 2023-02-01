@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name e-img-convtr-cnf-09-mat
+#SBATCH --job-name e-img-convtr-cnf-05-matlbt
 
 # Submit to the GPU QoS
 
@@ -33,13 +33,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be event-to-image-convertor-config-09-matter-output-<jobid>.out
+# Create an output file that will be event-to-image-convertor-config-05-matterlbt-output-<jobid>.out
 
-#SBATCH -o event-to-image-convertor-config-09-matter-output-%j.out
+#SBATCH -o event-to-image-convertor-config-05-matterlbt-output-%j.out
 
-# Create an error file that will be event-to-image-convertor-config-09-matter-error-<jobid>.out
+# Create an error file that will be event-to-image-convertor-config-05-matterlbt-error-<jobid>.out
 
-#SBATCH -e event-to-image-convertor-config-09-matter-error-%j.err
+#SBATCH -e event-to-image-convertor-config-05-matterlbt-error-%j.err
 
 # Set maximum time limit
 
@@ -62,21 +62,16 @@ conda activate tensorflow_gpuenv_v2
 
 #Execution
 # echo "Running chunck image convertor"
-# # python jetscape-ml-tensorflow-nn-dataset-builder-single-image-file-merger.py -i finalStateHadrons-Matter-1k.dat -d 1000 -y MVAC -o jetscape-ml-benchmark-dataset-1k-matter.pkl -n 20
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-image-file-merger.py -i finalStateHadrons-Matter-600k.dat -d 600000 -y MVAC -o jetscape-ml-benchmark-dataset-600k-matter.pkl -n 40
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-image-file-merger.py -i finalStateHadrons-MatterLbt-600k.dat -d 600000 -y MLBT -o jetscape-ml-benchmark-dataset-600k-lbt.pkl -n 40
-
-
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
-CONFIG_NUMBER=9
+CONFIG_NUMBER=5
 
 
 # MVAC, MLBT, MMAT
-ELOSS_TYPE_UPPERCASE="MMAT"
+ELOSS_TYPE_UPPERCASE="MLBT"
 
 # matter, matterlbt
-ELOSS_TYPE_LOWERCASE="matter"
+ELOSS_TYPE_LOWERCASE="matterlbt"
 
 echo "Running chunck image convertor for $ELOSS_TYPE_LOWERCASE"
 

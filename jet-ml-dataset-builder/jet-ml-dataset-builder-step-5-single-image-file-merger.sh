@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name e-img-chunk-merger-cnf-09-mat
+#SBATCH --job-name e-img-chunk-merger-cnf-05-mat
 
 #SBATCH -q primary
 # # Submit to the GPU QoS
@@ -32,13 +32,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be event-to-image-chunk-merger-config-09-mat-output-<jobid>.out
+# Create an output file that will be event-to-image-chunk-merger-config-05-mat-output-<jobid>.out
 
-#SBATCH -o event-to-image-chunk-merger-config-09-mat-output-%j.out
+#SBATCH -o event-to-image-chunk-merger-config-05-mat-output-%j.out
 
-# Create an error file that will be event-to-image-chunk-merger-config-09-mat-error-<jobid>.out
+# Create an error file that will be event-to-image-chunk-merger-config-05-mat-error-<jobid>.out
 
-#SBATCH -e event-to-image-chunk-merger-config-09-mat-error-%j.err
+#SBATCH -e event-to-image-chunk-merger-config-05-mat-error-%j.err
 
 # Set maximum time limit
 
@@ -60,14 +60,10 @@ echo "Activating conda environment"
 conda activate tensorflow_gpuenv_v2
 
 #Execution
-echo "Running events file splitter"
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-image-file-merger.py -i finalStateHadrons-Matter-1k.dat -d 1000 -y MVAC -o jetscape-ml-benchmark-dataset-1k-matter.pkl -n 20
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-image-file-merger.py -i finalStateHadrons-Matter-600k.dat -d 600000 -y MVAC -o jetscape-ml-benchmark-dataset-600k-matter.pkl -n 40
-# python jetscape-ml-tensorflow-nn-dataset-builder-single-image-file-merger.py -i finalStateHadrons-MatterLbt-600k.dat -d 600000 -y MLBT -o jetscape-ml-benchmark-dataset-600k-lbt.pkl -n 40
-
+echo "Running image file merger"
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
-CONFIG_NUMBER=9
+CONFIG_NUMBER=5
 
 
 # MVAC, MLBT, MMAT
