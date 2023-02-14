@@ -16,7 +16,7 @@
 # 
 # Note that there's [tf.keras](https://www.tensorflow.org/guide/keras) (comes with TensorFlow) and there's [Keras](https://keras.io/) (standalone). You should be using [tf.keras](https://www.tensorflow.org/guide/keras) because (1) it comes with TensorFlow so you don't need to install anything extra and (2) it comes with powerful TensorFlow-specific features.
 
-# In[1]:
+# In[ ]:
 
 
 print('Loading/Installing Package => Begin\n\n')
@@ -80,14 +80,6 @@ except:
   COLAB = False
 print("running on Colab: "+str(COLAB))
 
-# if 'google.colab' in str(get_ipython()):
-#   print('Running on CoLab')
-#   install("google.colab")
-#   from google.colab import drive
-#   drive.mount('/content/drive')
-# else:
-#   print('Not running on CoLab')
-
 
 print("Python version: "+platform.python_version())
 print("Tensorflow version: "+tf.__version__)
@@ -98,24 +90,24 @@ simulation_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-01-03/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-01-03/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
-  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-01-03\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 # dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2k-shuffled.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-1200k-momentum-shuffled.pkl'
-dataset_file_name='config-01-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+# dataset_file_name='config-01-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-02-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-03-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-04-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
-# dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-06-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-07-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-08-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
@@ -141,47 +133,7 @@ print('\nLoading/Installing Package => End\n\n')
 # x_test contains 20k arrays of 32x32.  
 # The y_test vector contains the corresponding labels for these.
 
-# **Building Randomized Dataset**
-# Before having the simulation data, researcher tried to implmenet a psudo random data to create the architecture for the project. I thought it could be useful for further usages.
-
-# In[ ]:
-
-
-def dataset_y_builder(y_size,y_class_label_items):
-    class_size=int(y_size/len(y_class_label_items))
-    y=[]
-    for class_label_item in y_class_label_items:
-        y = np.append (y, [class_label_item]*class_size)
-    return y
-
-def dataset_x_builder_randomized(x_size,dataset_frame_size):
-    x=np.arange(x_size*dataset_frame_size*dataset_frame_size)    .reshape((x_size,dataset_frame_size,dataset_frame_size))
-    return x
-
-def build_randomized_dataset():
-  dataset_frame_size=32
-  #train_size=600
-  #test_size=100
-  train_size=1600
-  test_size=400
-
-  y_class_label_items=['MVAC','MMED','MLBT','MMAR']
-  y_train=dataset_y_builder(train_size,y_class_label_items)
-  y_test=dataset_y_builder(test_size,y_class_label_items)
-
-
-  x_train=dataset_x_builder_randomized(train_size,dataset_frame_size)
-  x_test=dataset_x_builder_randomized(test_size,dataset_frame_size)
-
-  print(type(x_train), x_train.size, x_train.shape)
-  print(type(y_train), y_train.size, y_train.shape)
-  print(type(x_test), x_test.size, x_test.shape)
-  print(type(y_test), y_test.size, y_test.shape)
-  dataset=((x_train, y_train), (x_test, y_test))
-  return dataset
-
-
-# ##Saving and Loading Dataset Methods Implementation
+# #Saving and Loading Dataset Methods Implementation
 
 # In[2]:
 
@@ -196,115 +148,6 @@ def load_dataset(file_name):
         (x_train, y_train), (x_test, y_test) = pickle.load(dataset_file, encoding='latin1')
         dataset=((x_train, y_train), (x_test, y_test))
         return dataset
-
-
-# ##Suffling the dataset and Saving the shuffling result
-# Shuffle function doesn't work in this case, because we need to change both x, and y array together. Therefore, take function is used to make a random permutation. For shuffling the x data, the axis shall be mentioned, so it will shuffle over the first dimension.
-# 
-# 
-# ---
-# 1. Shuffling Train Dataset
-# 2. Shuffling Test Dataset
-# 
-
-# In[ ]:
-
-
-def shuffle_training_dataset(x_train, y_train):
-  
-  print("Train Dataset Permutation Array:")
-  train_permutation_array_indices=np.random.permutation(y_train.size)
-  #print(train_permutation_array_indices[1:100])
-
-  print("y_train:")
-  print(y_train, type(y_train),y_train.size, y_train.shape)
-  #print(y_train[1:100])
-
-  print("y_train_shuffled:")
-  y_train_shuffled=np.take(y_train, train_permutation_array_indices)
-  print(y_train_shuffled, type(y_train_shuffled),y_train_shuffled.size, y_train_shuffled.shape)
-  #print(y_train_shuffled[1:100])
-
-  print("x_train:")
-  print(x_train, type(x_train),x_train.size, x_train.shape)
-  #print(x_train[1:100])
-
-  print("x_train_shuffled:")
-  x_train_shuffled=np.take(x_train, train_permutation_array_indices,axis=0)
-  print(x_train_shuffled, type(x_train_shuffled),x_train_shuffled.size, x_train_shuffled.shape)
-  #print(x_train_shuffled[1:100])
-
-  dataset_train_shuffled=(x_train_shuffled, y_train_shuffled)
-  return dataset_train_shuffled
-
-
-#main method
-
-def shuffle_training_dataset_runner():
-
-  start_time = time.time()
-
-  #file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k.pkl'
-  file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000.pkl'
-  # file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
-  dataset_path=dataset_directory_path+file_name
-
-  (x_train, y_train), (x_test, y_test) =load_dataset(dataset_path)
-
-  (x_train_shuffled, y_train_shuffled)=shuffle_training_dataset(x_train, y_train)
-
-  #file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-03.pkl'
-  file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2000-shuffled.pkl'
-  # file_name='jetscape-ml-benchmark-dataset-2k-randomized-shuffled.pkl'
-  shuffled_dataset_path=dataset_directory_path+file_name
-  dataset=((x_train_shuffled,y_train_shuffled),(x_test,y_test))
-  save_dataset(shuffled_dataset_path,dataset)
-  end_time=time.time()
-
-  elapsed_time=end_time-start_time
-  print('Elapsed Time: ')
-  print(elapsed_time)
-
-
-# **Saving Dataset Benchmark as a file**
-
-# In[ ]:
-
-
-def save_dataset_runner():
-  file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
-  dataset=((x_train,y_train),(x_test,y_test))
-  save_dataset(dataset_directory_path+file_name,dataset)
-
-
-# **Creatinng a random event and demostrate it in a 2-D histogram**
-# This module implemented for developemental purpose, just as an example of how the events can be shown in 2-D images with their hit frequency
-
-# In[ ]:
-
-
-def create_and_plot_random_event():
-  pi=3.14
-  current_event_hits=np.random.uniform(-pi, pi, size=(2, 10000))
-  counts, xedges, yedges = np.histogram2d(current_event_hits[0], current_event_hits[1], bins=32)
-  print(counts)
-  #plt.imshow(counts.reshape(32, 32), cmap=cm.Greys)
-  plt.imshow(counts, interpolation='nearest', origin='lower',
-        extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]])
-  cb = plt.colorbar()
-  cb.set_label("Hit Frequency")
-  
-  file_name='sample_random_event_histogram_32x32.png'
-  file_path=simulation_directory_path+file_name
-  plt.savefig(file_path)
-
-  return counts
-
-# # # Funtionality Testing
-# counts=create_and_plot_random_event()
-# sample_random_event_file_name='sample_random_event_histogram_32x32.pkl'
-# sample_random_event_file_path=simulation_directory_path+sample_random_event_file_name
-# save_dataset(sample_random_event_file_path,counts)
 
 
 # ## 2. Use Matplotlib to visualize one record.  
@@ -576,94 +419,6 @@ print("\nTest data info:")
 print(type(y_test), y_test.size, y_test.shape)
 print(type(x_test), x_test.size, x_test.shape)
 print("#############################################################\n")
-
-
-# ## 5.1 Apply Keras/TensorFlow with simple CNN
-
-# In[ ]:
-
-
-# import tensorflow as tf
-
-
-# from tensorflow import keras
-# from keras_preprocessing import image
-# from keras_preprocessing.image import ImageDataGenerator
-def build_and_train_model():
-  model = tf.keras.models.Sequential([
-      tf.keras.layers.Conv2D(32,(3,3), activation='relu', input_shape=(image_frame_size,image_frame_size,1)),
-      tf.keras.layers.MaxPool2D((2,2)),
-      tf.keras.layers.Conv2D(64,(3,3),activation='relu'),
-      tf.keras.layers.MaxPool2D(2,2),
-      tf.keras.layers.Conv2D(128,(3,3), activation='relu'),
-      tf.keras.layers.MaxPool2D(2,2),
-      # tf.keras.layers.Conv2D(128,(3,3), activation='relu'),
-      # tf.keras.layers.MaxPool2D(2,2),
-      tf.keras.layers.Flatten(),
-      tf.keras.layers.Dropout(0.5),
-      tf.keras.layers.Dense(128, activation=tf.nn.relu),
-      tf.keras.layers.Dense(1, activation=tf.nn.sigmoid)
-      ])
-
-  model.summary()
-
-  model.compile(optimizer=tf.optimizers.Adam(), 
-                loss='binary_crossentropy',
-                metrics=['acc'])
-
-
-
-  print("Fit model on training data")
-  # fit(object, x = NULL, y = NULL, batch_size = NULL, epochs = 10,
-  #   verbose = getOption("keras.fit_verbose", default = 1),
-  #   callbacks = NULL, view_metrics = getOption("keras.view_metrics",
-  #   default = "auto"), validation_split = 0, validation_data = NULL,
-  #   shuffle = TRUE, class_weight = NULL, sample_weight = NULL,
-  #   initial_epoch = 0, steps_per_epoch = NULL, validation_steps = NULL,
-  #   ...)
-  # -> object : the model to train.      
-  # -> X : our training data. Can be Vector, array or matrix      
-  # -> Y : our training labels. Can be Vector, array or matrix       
-  # -> Batch_size : it can take any integer value or NULL and by default, it will
-  # be set to 32. It specifies no. of samples per gradient.      
-  # -> Epochs : an integer and number of epochs we want to train our model for.      
-  # -> Verbose : specifies verbosity mode(0 = silent, 1= progress bar, 2 = one
-  # line per epoch).      
-  # -> Shuffle : whether we want to shuffle our training data before each epoch.      
-  # -> steps_per_epoch : it specifies the total number of steps taken before
-  # one epoch has finished and started the next epoch. By default it values is set to NULL.
-
-  start_time =time.perf_counter()
-
-  no_epoch=50
-  history = model.fit(
-      x_train,
-      y_train,
-      batch_size=64,
-      epochs=no_epoch,
-      # We pass some validation for
-      # monitoring validation loss and metrics
-      # at the end of each epoch
-      validation_data=(x_val, y_val))
-
-  file_name='trained_model.h5'
-  file_path=simulation_directory_path+file_name
-  model.save(file_path)
-  acc_train = history.history['acc']
-  acc_val = history.history['val_acc']
-  print(acc_train)
-  print(acc_train)
-  epochs = range(1,no_epoch+1)
-  plt.plot(epochs,acc_train, 'g', label='training accuracy')
-  plt.plot(epochs, acc_val, 'b', label= 'validation accuracy')
-  plt.title('Training and Validation accuracy')
-  plt.xlabel('Epochs')
-  plt.ylabel('Accuracy')
-  plt.legend()
-  plt.show()
-  
-  elapsed_time=time.perf_counter() - start_time
-  print('Elapsed %.3f seconds.' % elapsed_time)
 
 
 # ## 5.2 Apply Keras/TensorFlow with complicated CNN
@@ -974,35 +729,6 @@ evaluation_file.write(classification_report_str)
 evaluation_file.close()
 
 
-# #Validation Phase
-
-# In[ ]:
-
-
-def plot_history():
-    hist = pd.DataFrame(history.history)
-
-    hist['epoch'] = history.epoch
-    # hist['rmse']=np.sqrt( hist.loss)
-    hist['accuracy']=np.sqrt( hist.accuracy)
-
-    print(hist)
-    print("Mean Training Accuracy", np.mean(hist.accuracy))
-    # rmse_final = np.sqrt(float(hist['loss']))
-
-    plt.figure()
-    plt.xlabel('Epoch')
-    # plt.ylabel('Mean Square Error')
-    plt.ylabel('Loss(Blue)/Accuracy(Orange)')
-    plt.plot(hist['epoch'], hist['loss'], label='loss')
-    plt.plot(hist['epoch'], hist['accuracy'], label='accuracy')
-    # plt.plot(hist['epoch'], hist['rmse'], label = 'RMSE')
-    plt.legend()
-    plt.ylim([0,1])
-
-# plot_history()
-
-
 # #Binary Classification Results
 # 
 # 
@@ -1092,161 +818,4 @@ def calcualte_mse(x_test):
   print("Final score (MSE): {}".format(mse))
   rmse = np.sqrt(mse)
   print('Root Mean Square Error on test set: {}'.format(round(rmse, 3)))
-
-
-# ### Evaluate accuracy
-# 
-# To predict new values, the Neural Network uses classifier.predict. I'm going to pass it the test values for x_test (which the Neural Network hasn't previously seen) and it will give me back a set of predictions. These predicitons will be probabilities, so I will clean them up by saying that if thye are greater than .5, I'll make them 1, else I'll make them 0.
-# Next, compare how the model performs on the test dataset:
-# 
-
-# In[ ]:
-
-
-def calculate_test_loss_and_accuracy(x_test,):
-  y_test_prediction=model.predict(x_test)
-
-  y_test_prediction = [ 1 if y_test>0.5 else 0 for y_test in y_test_prediction ]
-  print(y_test_prediction)
-  total = 0
-  correct = 0
-  wrong = 0
-  for i in y_test_prediction:
-    total=total+1
-    if(y_test[i] == y_test_prediction[i]):
-      correct=correct+1
-    else:
-      wrong=wrong+1
-
-  print("Total " + str(total))
-  print("Correct " + str(correct))
-  print("Wrong " + str(wrong))
-  print(correct/total)
-  print(wrong/total)
-
-  test_loss, test_acc = model.evaluate(x_test, y_test)
-  return (test_loss,test_acc)
-
-
-# Often times, the accuracy on the test dataset is a little less than the accuracy on the training dataset. This gap between training accuracy and test accuracy is an example of *overfitting*. In our case, the accuracy is better at 60.5. This is, in part, due to successful regularization accomplished with the Dropout layers.
-
-# ### Make predictions
-# 
-# With the model trained, we can use it to make predictions about some events. Let's step outside the dataset for that and go with the beautiful high-resolution images generated by a real world expiremental dataset.
-
-# In[ ]:
-
-
-# import cv2
-# mnist_dream_path = 'images/mnist_dream.mp4'
-# mnist_prediction_path = 'images/mnist_dream_predicted.mp4'
-
-# # download the video if running in Colab
-# if not os.path.isfile(mnist_dream_path): 
-#     print('downloading the sample video...')
-#     vid_url = this_tutorial_url + '/' + mnist_dream_path
-    
-#     mnist_dream_path = urllib.request.urlretrieve(vid_url)[0]
-                                                                                                  
-# def cv2_imshow(img):
-#     ret = cv2.imencode('.png', img)[1].tobytes() 
-#     img_ip = IPython.display.Image(data=ret)
-#     IPython.display.display(img_ip)
-# def cap_read(frame):
-#     img= x_test[frame-1]
-#     if img is not None:
-#       ret=True
-#     else:
-#       ret=False
-#     return ret, img 
-# # cap = cv2.VideoCapture(mnist_dream_path) 
-# cap = x_test[100:300]
-# vw = None
-# frame = -1 # counter for debugging (mostly), 0-indexed
-
-# # go through all the frames and run our classifier on the high res MNIST images as they morph from number to number
-# while True: # should 481 frames
-#     frame += 1
-#     # ret, img = cap.read()
-#     ret, img = cap.read(frame)
-#     if not ret: break
-               
-#     assert img.shape[0] == img.shape[1] # should be a square
-#     if img.shape[0] != 32:
-#         img = cv2.resize(img, (32, 32))
-       
-#     #preprocess the image for prediction
-#     img_proc = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#     img_proc = cv2.resize(img_proc, (32, 32))
-#     img_proc = preprocess_images(img_proc)
-#     img_proc = 1 - img_proc # inverse since training dataset is white text with black background
-
-#     net_in = np.expand_dims(img_proc, axis=0) # expand dimension to specify batch size of 1
-#     net_in = np.expand_dims(net_in, axis=3) # expand dimension to specify number of channels
-    
-#     preds = model.predict(net_in)[0]
-#     guess = np.argmax(preds)
-#     perc = np.rint(preds * 100).astype(int)
-    
-#     img = 255 - img
-#     pad_color = 0
-#     img = np.pad(img, ((0,0), (0,1280-720), (0,0)), mode='constant', constant_values=(pad_color))  
-    
-#     line_type = cv2.LINE_AA
-#     font_face = cv2.FONT_HERSHEY_SIMPLEX
-#     font_scale = 1.3        
-#     thickness = 2
-#     x, y = 740, 60
-#     color = (255, 255, 255)
-    
-#     text = "Neural Network Output:"
-#     cv2.putText(img, text=text, org=(x, y), fontScale=font_scale, fontFace=font_face, thickness=thickness,
-#                     color=color, lineType=line_type)
-    
-#     text = "Input:"
-#     cv2.putText(img, text=text, org=(30, y), fontScale=font_scale, fontFace=font_face, thickness=thickness,
-#                     color=color, lineType=line_type)   
-        
-#     y = 130
-#     for i, p in enumerate(perc):
-#         if i == guess: color = (255, 218, 158)
-#         else: color = (100, 100, 100)
-            
-#         rect_width = 0
-#         if p > 0: rect_width = int(p * 3.3)
-        
-#         rect_start = 180
-#         cv2.rectangle(img, (x+rect_start, y-5), (x+rect_start+rect_width, y-20), color, -1)
-
-#         text = '{}: {:>3}%'.format(i, int(p))
-#         cv2.putText(img, text=text, org=(x, y), fontScale=font_scale, fontFace=font_face, thickness=thickness,
-#                     color=color, lineType=line_type)
-#         y += 60
-    
-#     # if you don't want to save the output as a video, set this to False
-#     save_video = True
-    
-#     if save_video:
-#         if vw is None:
-#             codec = cv2.VideoWriter_fourcc(*'DIVX')
-#             vid_width_height = img.shape[1], img.shape[0]
-#             vw = cv2.VideoWriter(mnist_prediction_path, codec, 30, vid_width_height)
-#         # 15 fps above doesn't work robustly so we right frame twice at 30 fps
-#         vw.write(img)
-#         vw.write(img)
-    
-#     # scale down image for display
-#     img_disp = cv2.resize(img, (0,0), fx=0.5, fy=0.5)
-#     cv2_imshow(img_disp)
-#     IPython.display.clear_output(wait=True)
-        
-# cap.release()
-# if vw is not None:
-#     vw.release()
-
-
-# In[ ]:
-
-
-
 

@@ -98,13 +98,13 @@ simulation_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-03/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data//simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-03/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
-  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-02\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-cnn-01-1200K-config-05-03\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 #dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'

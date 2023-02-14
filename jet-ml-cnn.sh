@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name ml-cnn-config-01
+#SBATCH --job-name ml-cnn-config-09
 
 # Submit to the GPU QoS
 
@@ -19,11 +19,13 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 32
+#SBATCH -n 16
+
+# #SBATCH -c 32
 
 # Request memory
 
-#SBATCH --mem=256G
+#SBATCH --mem=64G
 
 # Mail when the job begins, ends, fails, requeues
 
@@ -33,13 +35,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be ml-cnn-config-01-output-<jobid>.out
+# Create an output file that will be ml-cnn-config-05-output-<jobid>.out
 
-#SBATCH -o ml-cnn-config-01-output-%j.out
+#SBATCH -o ml-cnn-config-05-output-%j.out
 
-# Create an error file that will be ml-cnn-config-01-error-<jobid>.out
+# Create an error file that will be ml-cnn-config-05-error-<jobid>.out
 
-#SBATCH -e ml-cnn-config-01-error-%j.err
+#SBATCH -e ml-cnn-config-05-error-%j.err
 
 # Set maximum time limit
 

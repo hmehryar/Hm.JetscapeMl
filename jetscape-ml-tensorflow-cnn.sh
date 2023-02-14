@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name ml-cnn-config-05-200k
+#SBATCH --job-name ml-cnn-config-05-1200k
 
 # Submit to the GPU QoS
 
