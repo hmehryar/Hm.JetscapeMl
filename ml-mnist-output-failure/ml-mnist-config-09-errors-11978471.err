@@ -1,0 +1,15 @@
+[NbConvertApp] Converting notebook jet-ml-pretrained-mnist.ipynb to python
+[NbConvertApp] Writing 26866 bytes to jet-ml-pretrained-mnist.py
+2023-02-08 18:48:38.822479: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2023-02-08 18:48:38.836753: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2023-02-08 18:48:38.836828: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: voh5
+2023-02-08 18:48:38.836847: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: voh5
+2023-02-08 18:48:38.837023: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:200] libcuda reported version is: 515.76.0
+2023-02-08 18:48:38.837075: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:204] kernel reported version is: 515.76.0
+2023-02-08 18:48:38.837091: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:310] kernel version seems to match DSO: 515.76.0
+2023-02-08 18:48:38.837520: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+2023-02-08 18:48:38.877822: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2400000000 Hz
+2023-02-08 18:48:38.878498: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55da25c16a40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-02-08 18:48:38.878549: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+/var/spool/slurm/d/job11978471/slurm_script: line 65: 142806 Killed                  python jet-ml-pretrained-mnist.py
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=11978471.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

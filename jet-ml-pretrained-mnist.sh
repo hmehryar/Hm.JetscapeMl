@@ -5,12 +5,12 @@
 
 # Job name
 
-#SBATCH --job-name ml-mnist-config-08
+#SBATCH --job-name ml-mnist-config-09
 
 # Submit to the GPU QoS
-#SBATCH -q primary
+# #SBATCH -q primary
 
-# #SBATCH -q gpu
+#SBATCH -q gpu
 
 # # Request the GPU type
 
@@ -18,11 +18,11 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 16
+#SBATCH -n 8
 
 # Request memory
 
-#SBATCH --mem=128G
+#SBATCH --mem=64G
 
 # Mail when the job begins, ends, fails, requeues
 
@@ -32,13 +32,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be ml-mnist-config-08-output-<jobid>.out
+# Create an output file that will be ml-mnist-config-09-output-<jobid>.out
 
-#SBATCH -o ml-mnist-config-08-output-%j.out
+#SBATCH -o ml-mnist-config-09-output-%j.out
 
-# Create an error file that will be ml-mnist-config-08-error-<jobid>.out
+# Create an error file that will be ml-mnist-config-09-error-<jobid>.out
 
-#SBATCH -e ml-mnist-config-08-errors-%j.err
+#SBATCH -e ml-mnist-config-09-errors-%j.err
 
 # Set maximum time limit
 
