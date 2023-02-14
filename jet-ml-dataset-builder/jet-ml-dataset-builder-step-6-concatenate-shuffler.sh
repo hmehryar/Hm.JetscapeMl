@@ -69,7 +69,7 @@ conda activate tensorflow_gpuenv_v2
 CONFIG_NUMBER=9
 
 
-# MVAC, MLBT, MMAT
+# MLBT, MMAT
 ELOSS_TYPE_UPPERCASE="MMAT"
 
 # matter, matterlbt

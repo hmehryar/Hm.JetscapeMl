@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name e-img-convtr-cnf-05-matlbt
+#SBATCH --job-name e-img-convtr-cnf-09-mat
 
 # Submit to the GPU QoS
 
@@ -33,13 +33,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be event-to-image-convertor-config-05-matterlbt-output-<jobid>.out
+# Create an output file that will be event-to-image-convertor-config-09-matter-output-<jobid>.out
 
-#SBATCH -o event-to-image-convertor-config-05-matterlbt-output-%j.out
+#SBATCH -o event-to-image-convertor-config-09-matter-output-%j.out
 
-# Create an error file that will be event-to-image-convertor-config-05-matterlbt-error-<jobid>.out
+# Create an error file that will be event-to-image-convertor-config-09-matter-error-<jobid>.out
 
-#SBATCH -e event-to-image-convertor-config-05-matterlbt-error-%j.err
+#SBATCH -e event-to-image-convertor-config-09-matter-error-%j.err
 
 # Set maximum time limit
 
@@ -64,14 +64,14 @@ conda activate tensorflow_gpuenv_v2
 # echo "Running chunck image convertor"
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
-CONFIG_NUMBER=5
+CONFIG_NUMBER=9
 
 
-# MVAC, MLBT, MMAT
-ELOSS_TYPE_UPPERCASE="MLBT"
+# MLBT, MMAT
+ELOSS_TYPE_UPPERCASE="MMAT"
 
 # matter, matterlbt
-ELOSS_TYPE_LOWERCASE="matterlbt"
+ELOSS_TYPE_LOWERCASE="matter"
 
 echo "Running chunck image convertor for $ELOSS_TYPE_LOWERCASE"
 

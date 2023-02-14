@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name e-splitter-config-05-matlbt
+#SBATCH --job-name e-splitter-config-09-mat
 
 # Submit to the GPU QoS
 
@@ -31,13 +31,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be event-splitter-config-05-matlbt-output-<jobid>.out
+# Create an output file that will be event-splitter-config-09-mat-output-<jobid>.out
 
-#SBATCH -o event-splitter-config-05-matlbt-output-%j.out
+#SBATCH -o event-splitter-config-09-mat-output-%j.out
 
-# Create an error file that will be event-splitter-config-05-matlbt-error-<jobid>.out
+# Create an error file that will be event-splitter-config-09-mat-error-<jobid>.out
 
-#SBATCH -e event-splitter-config-05-matlbt-error-%j.err
+#SBATCH -e event-splitter-config-09-mat-error-%j.err
 
 # Set maximum time limit
 
@@ -64,14 +64,14 @@ echo "Running events file splitter"
 
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
-CONFIG_NUMBER=5
+CONFIG_NUMBER=9
 
 
 # MMAT, MLBT
-ELOSS_TYPE_UPPERCASE="MLBT"
+ELOSS_TYPE_UPPERCASE="MMAT"
 
 # matter, matterlbt
-ELOSS_TYPE_LOWERCASE="matterlbt"
+ELOSS_TYPE_LOWERCASE="matter"
 
 echo "Running events file splitter for $ELOSS_TYPE_LOWERCASE"
 

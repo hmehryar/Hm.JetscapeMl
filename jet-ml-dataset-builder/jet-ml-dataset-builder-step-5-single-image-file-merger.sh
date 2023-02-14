@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name e-img-chunk-merger-cnf-05-mat
+#SBATCH --job-name e-img-chunk-merger-cnf-09-mat
 
 #SBATCH -q primary
 # # Submit to the GPU QoS
@@ -32,13 +32,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be event-to-image-chunk-merger-config-05-mat-output-<jobid>.out
+# Create an output file that will be event-to-image-chunk-merger-config-09-mat-output-<jobid>.out
 
-#SBATCH -o event-to-image-chunk-merger-config-05-mat-output-%j.out
+#SBATCH -o event-to-image-chunk-merger-config-09-mat-output-%j.out
 
-# Create an error file that will be event-to-image-chunk-merger-config-05-mat-error-<jobid>.out
+# Create an error file that will be event-to-image-chunk-merger-config-09-mat-error-<jobid>.out
 
-#SBATCH -e event-to-image-chunk-merger-config-05-mat-error-%j.err
+#SBATCH -e event-to-image-chunk-merger-config-09-mat-error-%j.err
 
 # Set maximum time limit
 
@@ -63,10 +63,10 @@ conda activate tensorflow_gpuenv_v2
 echo "Running image file merger"
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
-CONFIG_NUMBER=5
+CONFIG_NUMBER=9
 
 
-# MVAC, MLBT, MMAT
+# MLBT, MMAT
 ELOSS_TYPE_UPPERCASE="MMAT"
 
 # matter, matterlbt
