@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Part 0: Prerequisites:
-# 
-# We recommend that you run this this notebook in the cloud on Google Colab (see link with icon at the top) if you're not already doing so. It's the simplest way to get started. You can also [install TensorFlow locally](https://www.tensorflow.org/install/).
-# 
-# Note that there's [tf.keras](https://www.tensorflow.org/guide/keras) (comes with TensorFlow) and there's [Keras](https://keras.io/) (standalone). You should be using [tf.keras](https://www.tensorflow.org/guide/keras) because (1) it comes with TensorFlow so you don't need to install anything extra and (2) it comes with powerful TensorFlow-specific features.
-# 
-
 # In[ ]:
 
 
@@ -113,17 +106,44 @@ print('########################################################################\
 print('\nLoading/Installing Package => End\n\n')
 
 
-# ## 1. Load Data into a Numpy Array  
-# I downloaded the data file onto my desktop and loaded it locally.  
-# You can also load it directly from the cloud as follows:  
-# ```mnist = tf.keras.datasets.mnist  
-# (x_train, y_train), (x_test, y_test) = jetscapeMl.load_data()  
-# ```  
-# **After the load:**   
-# x_train contains 1080k arrays of 32x32.  
-# The y_train vector contains the corresponding labels for these.  
-# x_test contains 120k arrays of 32x32.  
-# The y_test vector contains the corresponding labels for these.
+# In[ ]:
+
+
+from os import path, makedirs
+from glob import glob
+import random
+import numpy as np
+import tensorflow as tf
+import json
+import shutil
+from time import time
+
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+
+seed = np.random.randint(1,100)
+print('Seed for random numbers: {}'.format(seed))
+print('Tensorflow version: {}'.format(tf.__version__))
+if tf.test.gpu_device_name():
+    print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
+
+
+# In[ ]:
+
+
+## event info
+collision = 'PbPb'
+energy = 5020
+centrality = '0_10'
+Modules = ['PP19','LBT']
+JetptMinMax = '100_110'
+#observables = ['pt','charge','mass']
+observables = ['pt']
+kind = 'Hadron'
+
 
 # In[ ]:
 
@@ -139,9 +159,6 @@ def load_dataset(file_name):
         dataset=((x_train, y_train), (x_test, y_test))
         return dataset
 
-
-# #Loading Dataset
-# **First learning step**
 
 # In[ ]:
 
@@ -176,44 +193,6 @@ print(oJetscapeMlCnn.y_train[1:500])
 print("Post-Load: DataType Checkpoint: End")
 print("#############################################################\n")
 
-
-# ## 4. Show distribution of training data labels   
-# The training data is about evenly distributed across all nine digits. 
-
-# In[ ]:
-
-
-def plot_y_train_dataset_distribution(y_train):
-  unique_class_labels,positions = np.unique(y_train,return_inverse=True)
-
-
-  counts = np.bincount(positions)
-  plt.bar(unique_class_labels, counts)
-  plt.title("Dataset classification vector's distribution")
-  
-  
-  file_name='hm_jetscape_ml_plot_y_train_dataset_distribution.png'
-  file_path=simulation_directory_path+file_name
-  plt.savefig(file_path)
-
-  plt.show()
-  plt.close()
-  print("\n#############################################################")
-  print("Classification vector statistics:")
-  print(unique_class_labels)
-  unique_class_labels,positions = np.unique(y_train,return_inverse=True)
-  print(counts)
-  print(unique_class_labels)
-  print("Sample 20 head labels:")
-  print(positions[:20])
-  print("#############################################################\n")
-
-#Checking Train Dataset Y Distribution
-plot_y_train_dataset_distribution(y_train)
-
-
-# # Changing classification labels from Literal to Numeric
-# 
 
 # In[ ]:
 
@@ -251,45 +230,6 @@ print(type(y_train[0]))
 print(type(y_test[0]))
 print("#############################################################\n")
 
-
-# ## Normalizing the Dataset X
-# For training the model, the dataset needs to be normalized, meaning all of the dataset values should me between zero and one. This can be done by finding the maximum values over the dataset X side values and devide all the element by it.
-
-# In[ ]:
-
-
-def calculate_dataset_x_max_value(x_dataset):
-  x_train=x_dataset[0]
-  x_test=x_dataset[1]
-  max_x=np.amax([np.amax(x_train), np.amax(x_test)])
-  return max_x
-
-def normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x):
-  x_train=x_dataset[0]
-  x_test=x_dataset[1]
-
-  # Normalize the data to a 0.0 to 1.0 scale for faster processing
-  x_train, x_test = x_train / max_x, x_test / max_x
-  return (x_train, x_test)
-
-
-#Normalizing Phase
-# x_dataset=(x_train,x_test)
-# max_x=calculate_dataset_x_max_value(x_dataset)
-# x_train,x_test=normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x)
-
-# image_frame_size=32
-
-# print("\n#############################################################")
-
-# print("Normalizing Dataset X: maximum hit frequency in the dataset: ")
-# print(max_x)
-
-# print("#############################################################\n")
-
-
-
-# ## Defining Validation Dataset from Train Dataset
 
 # In[ ]:
 
@@ -329,21 +269,30 @@ print(type(x_test), x_test.size, x_test.shape)
 print("#############################################################\n")
 
 
-# ## 5.2 Apply Keras/TensorFlow with complicated CNN
-# Previous research replication
-
 # In[ ]:
 
 
-## event info
-collision = 'PbPb'
-energy = 5020
-centrality = '0_10'
-Modules = ['MATTER','LBT']
-JetptMinMax = '100_110'
-#observables = ['pt','charge','mass']
-observables = ['pt']
-kind = 'Hadron'
+print("\n#############################################################")
+print("Reshaping dataset X-side dimension to be fit in the defined convolutional :")
+
+print("\nX train:")
+print(x_train.shape)
+print (x_train.shape[0],x_train.shape[1],x_train.shape[2])
+x_train_reshaped=x_train.reshape(x_train.shape[0],x_train.shape[1],x_train.shape[2],1)
+print(x_train_reshaped.shape)
+
+print("\nX val:")
+print(x_val.shape)
+print (x_val.shape[0],x_val.shape[1],x_val.shape[2])
+x_val_reshaped=x_val.reshape(x_val.shape[0],x_val.shape[1],x_val.shape[2],1)
+print(x_train_reshaped.shape)
+
+print("\nX test:")
+print(x_test.shape)
+print (x_test.shape[0],x_test.shape[1],x_test.shape[2])
+x_test_reshaped=x_test.reshape(x_test.shape[0],x_test.shape[1],x_test.shape[2],1)
+print(x_test_reshaped.shape)
+print("#############################################################\n")
 
 
 # In[ ]:
@@ -380,7 +329,7 @@ def get_callbacks(monitor, save_dir):
                       min_delta=0., verbose=1)
     rlp = ReduceLROnPlateau(monitor=monitor, mode=mode, factor=0.2, patience=5,
                             min_lr=0.001, verbose=1)
-    mcp = ModelCheckpoint(path.join(save_dir, 'hm_jetscape_ml_model_best.h5'), monitor=monitor, 
+    mcp = ModelCheckpoint(path.join(save_dir, 'best_model.h5'), monitor=monitor, 
                           save_best_only=True, mode=mode, verbose=1)
     
     return [es, rlp, mcp]
@@ -400,7 +349,7 @@ def conv2d_layer_block(prev_layer, filters, dropout_rate, input_shape=None):
                               kernel_initializer='he_uniform',
                               padding='same',
                               activation='relu',
-                              kernel_regularizer=l2(l=0.02),
+                              kernel_regularizer=l2(l=0.02)
                              )
                       )
     prev_layer.add(Conv2D(filters=filters, kernel_size=5,
@@ -452,35 +401,8 @@ def CNN_model(input_shape, lr, dropout1, dropout2):
 # In[ ]:
 
 
-print("\n#############################################################")
-print("Reshaping dataset X-side dimension to be fit in the defined convolutional :")
-
-print("\nX train:")
-print(x_train.shape)
-print (x_train.shape[0],x_train.shape[1],x_train.shape[2])
-x_train_reshaped=x_train.reshape(x_train.shape[0],x_train.shape[1],x_train.shape[2],1)
-print(x_train_reshaped.shape)
-
-print("\nX val:")
-print(x_val.shape)
-print (x_val.shape[0],x_val.shape[1],x_val.shape[2])
-x_val_reshaped=x_val.reshape(x_val.shape[0],x_val.shape[1],x_val.shape[2],1)
-print(x_train_reshaped.shape)
-
-print("\nX test:")
-print(x_test.shape)
-print (x_test.shape[0],x_test.shape[1],x_test.shape[2])
-x_test_reshaped=x_test.reshape(x_test.shape[0],x_test.shape[1],x_test.shape[2],1)
-print(x_test_reshaped.shape)
-print("#############################################################\n")
-
-
-# In[ ]:
-
-
 ## parameers for training
-n_epochs = 50
-# n_epochs=2
+n_epochs = 30
 batch_size = 256
 input_shape = x_train_reshaped.shape[1:]
 monitor='val_accuracy' #'val_accuracy' or 'val_loss'
@@ -491,7 +413,6 @@ dropout1, dropout2 = 0.2, 0.2
 # In[ ]:
 
 
-from time import time
 def train_network(train_set, val_set, n_epochs, lr, batch_size, monitor):
     tf.keras.backend.clear_session()
     X_train = train_set[0]
@@ -504,6 +425,7 @@ def train_network(train_set, val_set, n_epochs, lr, batch_size, monitor):
     start = time()
     history = model.fit(X_train, Y_train, epochs=n_epochs, verbose=1, batch_size=batch_size, 
                         validation_data=val_set, shuffle=True, callbacks=callbacks)
+
     train_time = (time()-start)/60.
     return history, train_time
 
@@ -516,35 +438,6 @@ train_set, val_set = (x_train_reshaped, y_train), (x_val_reshaped, y_val)
 
 # train the network
 history, train_time = train_network(train_set, val_set, n_epochs, lr, batch_size, monitor)
-file_name='hm_jetscape_ml_model_history.csv'
-file_path=simulation_directory_path+file_name
-pd.DataFrame.from_dict(history.history).to_csv(file_path,index=False)
-
-
-file_name='hm_jetscape_ml_model_history.npy'
-file_path=simulation_directory_path+file_name
-np.save(file_path,history.history)
-
-
-# In[ ]:
-
-
-# This section shall be just used after training or for stand alone evaluations
-# Building a dictionary which is accessable by dot
-class dotdict(dict):
-    """dot.notation access to dictionary attributes"""
-    __getattr__ = dict.get
-    __setattr__ = dict.__setitem__
-    __delattr__ = dict.__delitem__
-
-#Loading learning history after training 
-file_name='hm_jetscape_ml_model_history.npy'
-file_path=simulation_directory_path+file_name
-
-
-history=dict({'history':np.load(file_path,allow_pickle='TRUE').item()})
-history=dotdict(history)
-print(history)
 
 
 # In[ ]:
@@ -583,53 +476,7 @@ plot_train_history(history)
 # In[ ]:
 
 
-from tensorflow.keras.models import load_model
-## load the best model
-best_model = load_model(path.join(save_dir,'hm_jetscape_ml_model_best.h5'))
-
-outputStr='Train   | Validation | Test sets\n'
-
-## evaluate the model on train/val/test sets and append the results to lists
-_, train_acc = best_model.evaluate(x_train_reshaped, y_train, verbose=0)
-_, val_acc = best_model.evaluate(x_val_reshaped, y_val, verbose=0)
-_, test_acc = best_model.evaluate(x_test_reshaped, y_test, verbose=0)
-    
-## print out the accuracy
-outputStr+='{:.4f}%  {:.4f}%     {:.4f}%\n'.format(train_acc * 100, val_acc * 100, test_acc * 100)
-print(outputStr)
-
-file_name="hm_jetscape_ml_model_evaluation.txt"
-file_path=simulation_directory_path+file_name
-evaluation_file = open(file_path, "w")
-evaluation_file.write(outputStr)
-evaluation_file.close()
-
-
-# In[ ]:
-
-
-from sklearn.metrics import confusion_matrix, classification_report
-import seaborn as sns
-## plot confution matrix
-y_pred = best_model.predict_classes(x_test_reshaped)
-
-conf_mat = confusion_matrix(y_pred, y_test)
-sns.heatmap(conf_mat, annot=True, cmap='Blues', 
-            xticklabels=Modules, yticklabels=Modules, fmt='g')
-plt.xlabel('True Label', fontsize=15)
-plt.ylabel('Prediction', fontsize=15)
-file_name='hm_jetscape_ml_model_confision_matrix.png'
-file_path=simulation_directory_path+file_name
-plt.savefig(file_path)
-plt.show()
-plt.close()
-
-classification_report_str= classification_report(y_test,y_pred)
-
-print (classification_report_str)
-file_name="hm_jetscape_ml_model_evaluation.txt"
-file_path=simulation_directory_path+file_name
-evaluation_file = open(file_path, "a")
-evaluation_file.write(classification_report_str)
-evaluation_file.close()
+# X_train, Y_train = load_data(Modules, JetptMinMax, kind, observables, 'train')
+# X_val, Y_val = load_data(Modules, JetptMinMax, kind, observables, 'val')
+# X_test, Y_test = load_data(Modules, JetptMinMax, kind, observables, 'test')
 
