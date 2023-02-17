@@ -68,3 +68,45 @@ coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.77GiB deviceMemoryBandwidt
 2023-02-17 15:17:01.058292: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
 2023-02-17 15:17:05.278726: W tensorflow/stream_executor/gpu/redzone_allocator.cc:312] Not found: ./bin/ptxas not found
 Relying on driver to perform ptx compilation. This message will be only logged once.
+WARNING:tensorflow:Early stopping conditioned on metric `val_accuracy` which is not available. Available metrics are: loss,accuracy
+WARNING:tensorflow:Reduce LR on plateau conditioned on metric `val_accuracy` which is not available. Available metrics are: loss,accuracy,lr
+WARNING:tensorflow:Can save best model only with val_accuracy available, skipping.
+Traceback (most recent call last):
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 767, in on_epoch
+    yield epoch_logs
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 342, in fit
+    total_epochs=epochs)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 181, in run_one_epoch
+    step += 1
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/contextlib.py", line 119, in __exit__
+    next(self.gen)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 789, in on_batch
+    self.progbar.on_batch_end(step, batch_logs)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/callbacks.py", line 781, in on_batch_end
+    self.progbar.update(self.seen, self.log_values)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/utils/generic_utils.py", line 575, in update
+    sys.stdout.flush()
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "jet-ml-deep-model-cnn-legacy-replica.py", line 474, in <module>
+    history, train_time = train_network(train_set, val_set, n_epochs, lr, batch_size, monitor)
+  File "jet-ml-deep-model-cnn-legacy-replica.py", line 461, in train_network
+    validation_data=val_set, shuffle=True, callbacks=callbacks)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training.py", line 819, in fit
+    use_multiprocessing=use_multiprocessing)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 397, in fit
+    prefix='val_')
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/engine/training_v2.py", line 772, in on_epoch
+    self.progbar.on_epoch_end(epoch, epoch_logs)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/callbacks.py", line 789, in on_epoch_end
+    self.progbar.update(self.seen, self.log_values)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/utils/generic_utils.py", line 575, in update
+    sys.stdout.flush()
+OSError: [Errno 5] Input/output error
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+OSError: [Errno 5] Input/output error
