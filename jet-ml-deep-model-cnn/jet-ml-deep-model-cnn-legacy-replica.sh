@@ -25,7 +25,7 @@
 
 # Request memory
 
-#SBATCH --mem=64G
+#SBATCH --mem=128G
 
 # Mail when the job begins, ends, fails, requeues
 

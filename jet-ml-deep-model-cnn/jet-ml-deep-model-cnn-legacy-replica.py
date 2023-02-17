@@ -75,13 +75,13 @@ simulation_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-01/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-01/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-01\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 # dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
@@ -138,7 +138,7 @@ if tf.test.gpu_device_name():
 collision = 'PbPb'
 energy = 5020
 centrality = '0_10'
-Modules = ['PP19','LBT']
+Modules = ['MATTER','LBT']
 JetptMinMax = '100_110'
 #observables = ['pt','charge','mass']
 observables = ['pt']
@@ -229,6 +229,40 @@ print(type(y_test), y_test.size, y_test.shape)
 print(type(y_train[0]))
 print(type(y_test[0]))
 print("#############################################################\n")
+
+
+# In[ ]:
+
+
+def calculate_dataset_x_max_value(x_dataset):
+  x_train=x_dataset[0]
+  x_test=x_dataset[1]
+  max_x=np.amax([np.amax(x_train), np.amax(x_test)])
+  return max_x
+
+def normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x):
+  x_train=x_dataset[0]
+  x_test=x_dataset[1]
+
+  # Normalize the data to a 0.0 to 1.0 scale for faster processing
+  x_train, x_test = x_train / max_x, x_test / max_x
+  return (x_train, x_test)
+
+
+#Normalizing Phase
+x_dataset=(x_train,x_test)
+max_x=calculate_dataset_x_max_value(x_dataset)
+x_train,x_test=normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x)
+
+# image_frame_size=32
+
+print("\n#############################################################")
+
+print("Normalizing Dataset X: maximum hit frequency in the dataset: ")
+print(max_x)
+
+print("#############################################################\n")
+
 
 
 # In[ ]:
@@ -438,6 +472,35 @@ train_set, val_set = (x_train_reshaped, y_train), (x_val_reshaped, y_val)
 
 # train the network
 history, train_time = train_network(train_set, val_set, n_epochs, lr, batch_size, monitor)
+file_name='hm_jetscape_ml_model_history.csv'
+file_path=simulation_directory_path+file_name
+pd.DataFrame.from_dict(history.history).to_csv(file_path,index=False)
+
+
+file_name='hm_jetscape_ml_model_history.npy'
+file_path=simulation_directory_path+file_name
+np.save(file_path,history.history)
+
+
+# In[ ]:
+
+
+# This section shall be just used after training or for stand alone evaluations
+# Building a dictionary which is accessable by dot
+class dotdict(dict):
+    """dot.notation access to dictionary attributes"""
+    __getattr__ = dict.get
+    __setattr__ = dict.__setitem__
+    __delattr__ = dict.__delitem__
+
+#Loading learning history after training 
+file_name='hm_jetscape_ml_model_history.npy'
+file_path=simulation_directory_path+file_name
+
+
+history=dict({'history':np.load(file_path,allow_pickle='TRUE').item()})
+history=dotdict(history)
+print(history)
 
 
 # In[ ]:
@@ -448,21 +511,21 @@ def plot_train_history(history):
 
     color_list = ['red','blue','black','green']
 
-    plt.figure(figsize=(8, 2.5), dpi=100)
+    plt.figure(figsize=(8, 2.5), dpi=200)
 
     plt.subplot(121)
-    plt.plot(history.history['loss'], label='loss')
-    plt.plot(history.history['val_loss'], label='val_loss')
+    plt.plot(history.history['loss'], label='Loss')
+    plt.plot(history.history['val_loss'], label='Validation Loss')
     plt.yscale('log')
     plt.xlabel('Epoch')
-    plt.title('Loss history')
+    plt.title('Loss History')
     plt.legend()
     
     plt.subplot(122)
-    plt.plot(history.history['accuracy'], label='accuracy')
-    plt.plot(history.history['val_accuracy'], label='val_accuracy')
+    plt.plot(history.history['accuracy'], label='Accuracy')
+    plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
     plt.xlabel('Epoch')
-    plt.title('Accuracy history')
+    plt.title('Accuracy History')
     plt.legend()
     file_name='hm_jetscape_ml_plot_train_history.png'
     file_path=simulation_directory_path+file_name
@@ -476,7 +539,53 @@ plot_train_history(history)
 # In[ ]:
 
 
-# X_train, Y_train = load_data(Modules, JetptMinMax, kind, observables, 'train')
-# X_val, Y_val = load_data(Modules, JetptMinMax, kind, observables, 'val')
-# X_test, Y_test = load_data(Modules, JetptMinMax, kind, observables, 'test')
+from tensorflow.keras.models import load_model
+## load the best model
+best_model = load_model(path.join(save_dir,'hm_jetscape_ml_model_best.h5'))
+
+outputStr='Train   | Validation | Test sets\n'
+
+## evaluate the model on train/val/test sets and append the results to lists
+_, train_acc = best_model.evaluate(x_train_reshaped, y_train, verbose=0)
+_, val_acc = best_model.evaluate(x_val_reshaped, y_val, verbose=0)
+_, test_acc = best_model.evaluate(x_test_reshaped, y_test, verbose=0)
+    
+## print out the accuracy
+outputStr+='{:.4f}%  {:.4f}%     {:.4f}%\n'.format(train_acc * 100, val_acc * 100, test_acc * 100)
+print(outputStr)
+
+file_name="hm_jetscape_ml_model_evaluation.txt"
+file_path=simulation_directory_path+file_name
+evaluation_file = open(file_path, "w")
+evaluation_file.write(outputStr)
+evaluation_file.close()
+
+
+# In[ ]:
+
+
+from sklearn.metrics import confusion_matrix, classification_report
+import seaborn as sns
+## plot confution matrix
+y_pred = best_model.predict_classes(x_test_reshaped)
+
+conf_mat = confusion_matrix(y_pred, y_test)
+sns.heatmap(conf_mat, annot=True, cmap='Blues', 
+            xticklabels=Modules, yticklabels=Modules, fmt='g')
+plt.xlabel('True Label', fontsize=15)
+plt.ylabel('Prediction', fontsize=15)
+file_name='hm_jetscape_ml_model_confision_matrix.png'
+file_path=simulation_directory_path+file_name
+plt.savefig(file_path)
+plt.show()
+plt.close()
+
+classification_report_str= classification_report(y_test,y_pred)
+
+print (classification_report_str)
+file_name="hm_jetscape_ml_model_evaluation.txt"
+file_path=simulation_directory_path+file_name
+evaluation_file = open(file_path, "a")
+evaluation_file.write(classification_report_str)
+evaluation_file.close()
 
