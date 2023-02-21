@@ -1,0 +1,6 @@
+[NbConvertApp] Converting notebook jet-ml-validation-calculator.ipynb to python
+[NbConvertApp] Writing 7359 bytes to jet-ml-validation-calculator.py
+Traceback (most recent call last):
+  File "jet-ml-validation-calculator.py", line 186, in <module>
+    best_model = load_model(path.join(save_dir,'hm_jetscape_ml_model_best.h5'))
+NameError: name 'save_dir' is not defined
