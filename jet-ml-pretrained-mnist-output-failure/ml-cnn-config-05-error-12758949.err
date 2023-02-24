@@ -1,0 +1,48 @@
+[NbConvertApp] Converting notebook jet-ml-deep-model-cnn-legacy-replica.ipynb to python
+[NbConvertApp] Writing 18986 bytes to jet-ml-deep-model-cnn-legacy-replica.py
+2023-02-17 19:01:10.806552: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+2023-02-17 19:01:10.836796: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2400000000 Hz
+2023-02-17 19:01:10.840566: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55e3d788b890 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-02-17 19:01:10.840634: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-02-17 19:01:10.844984: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2023-02-17 19:01:10.895445: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties: 
+pciBusID: 0000:1a:00.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.77GiB deviceMemoryBandwidth: 836.37GiB/s
+2023-02-17 19:01:10.930581: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2023-02-17 19:01:11.453624: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2023-02-17 19:01:11.706650: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2023-02-17 19:01:11.900503: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2023-02-17 19:01:12.481222: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2023-02-17 19:01:12.667515: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2023-02-17 19:01:13.479267: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2023-02-17 19:01:13.480333: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2023-02-17 19:01:13.484066: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2023-02-17 19:01:13.588024: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2023-02-17 19:01:13.588073: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0 
+2023-02-17 19:01:13.588090: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N 
+2023-02-17 19:01:13.589230: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/device:GPU:0 with 15049 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:1a:00.0, compute capability: 7.0)
+2023-02-17 19:01:13.594297: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55e3d8846560 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-02-17 19:01:13.594325: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-16GB, Compute Capability 7.0
+2023-02-17 19:01:13.595402: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties: 
+pciBusID: 0000:1a:00.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.77GiB deviceMemoryBandwidth: 836.37GiB/s
+2023-02-17 19:01:13.595464: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2023-02-17 19:01:13.595481: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2023-02-17 19:01:13.595497: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2023-02-17 19:01:13.595515: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2023-02-17 19:01:13.595530: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2023-02-17 19:01:13.595545: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2023-02-17 19:01:13.595561: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2023-02-17 19:01:13.596153: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2023-02-17 19:01:13.596181: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2023-02-17 19:01:13.596191: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0 
+2023-02-17 19:01:13.596201: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N 
+2023-02-17 19:01:13.596792: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/device:GPU:0 with 15049 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:1a:00.0, compute capability: 7.0)
+Traceback (most recent call last):
+  File "jet-ml-deep-model-cnn-legacy-replica.py", line 475, in <module>
+    history, train_time = train_network(train_set, val_set, n_epochs, lr, batch_size, monitor)
+  File "jet-ml-deep-model-cnn-legacy-replica.py", line 455, in train_network
+    model = CNN_model(input_shape, lr, dropout1, dropout2)
+  File "jet-ml-deep-model-cnn-legacy-replica.py", line 416, in CNN_model
+    model.add(tf.keras.layers.Rescaling(1./max_x))
+AttributeError: module 'tensorflow_core.keras.layers' has no attribute 'Rescaling'

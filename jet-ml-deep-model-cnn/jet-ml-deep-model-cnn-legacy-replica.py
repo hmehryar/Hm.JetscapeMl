@@ -23,6 +23,8 @@ def install(package):
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense
+
+
 from tensorflow.keras.models import load_model
 
 # !pip3 install sklearn
@@ -75,13 +77,13 @@ simulation_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-01/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-07-epoch-50/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-01/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-07-epoch-50/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-01\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-07-epoch-50\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 # dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
@@ -92,9 +94,9 @@ print('Dataset Directory Path: '+dataset_directory_path)
 # dataset_file_name='config-02-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-03-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-04-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
-dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+# dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-06-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
-# dataset_file_name='config-07-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+dataset_file_name='config-07-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-08-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-09-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 print("Dataset file name: "+dataset_file_name)
@@ -234,11 +236,31 @@ print("#############################################################\n")
 # In[ ]:
 
 
-def calculate_dataset_x_max_value(x_dataset):
+
+def calculate_dataset_x_amax_value(x_dataset):
   x_train=x_dataset[0]
   x_test=x_dataset[1]
   max_x=np.amax([np.amax(x_train), np.amax(x_test)])
   return max_x
+
+def calculate_dataset_x_max_value(x_dataset):
+  x_train=x_dataset[0]
+  x_test=x_dataset[1]
+  max_x=np.max([np.max(x_train), np.max(x_test)])
+  return max_x
+
+def calculate_dataset_x_norm_value(x_dataset):
+  x_train=x_dataset[0]
+  x_test=x_dataset[1]
+  x_train_norm = np.linalg.norm(x_train)       # To find the norm of the array
+  print("x_train_norm",x_train_norm)
+  x_test_norm = np.linalg.norm(x_test)       # To find the norm of the array
+  print("x_test_norm",x_test_norm)
+  max_x=np.max([np.max(x_train_norm), np.max(x_test_norm)])
+  return max_x
+  
+  # max_x=np.max([np.max(x_train), np.max(x_test)])
+  # return max_x
 
 def normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x):
   x_train=x_dataset[0]
@@ -251,18 +273,23 @@ def normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x):
 
 #Normalizing Phase
 x_dataset=(x_train,x_test)
-max_x=calculate_dataset_x_max_value(x_dataset)
-x_train,x_test=normalize_dataset_x_value_range_between_0_and_1(x_dataset,max_x)
+# norm_max_x=calculate_dataset_x_norm_value(x_dataset)
+# amax_x=calculate_dataset_x_amax_value(x_dataset)
+# max_x=calculate_dataset_x_max_value(x_dataset)
+# x_train,x_test=normalize_dataset_x_value_range_between_0_and_1(x_dataset,norm_max_x)
 
 # image_frame_size=32
 
 print("\n#############################################################")
 
-print("Normalizing Dataset X: maximum hit frequency in the dataset: ")
-print(max_x)
+print("Normalizing Dataset X: maximum sum of transfer momentum in the dataset: ")
+# print("norm_max_x",norm_max_x)
+# print("amax",amax_x)
+# print("max_x",max_x)
 
 print("#############################################################\n")
 
+# exit()
 
 
 # In[ ]:
@@ -363,7 +390,7 @@ def get_callbacks(monitor, save_dir):
                       min_delta=0., verbose=1)
     rlp = ReduceLROnPlateau(monitor=monitor, mode=mode, factor=0.2, patience=5,
                             min_lr=0.001, verbose=1)
-    mcp = ModelCheckpoint(path.join(save_dir, 'best_model.h5'), monitor=monitor, 
+    mcp = ModelCheckpoint(path.join(save_dir, 'hm_jetscape_ml_model_best.h5'), monitor=monitor, 
                           save_best_only=True, mode=mode, verbose=1)
     
     return [es, rlp, mcp]
@@ -413,6 +440,7 @@ def fc_layer_block(prev_layer, units, dropout_rate, last_layer=False):
 
 def CNN_model(input_shape, lr, dropout1, dropout2):
     model = Sequential()
+    # model.add(Rescaling(1./max_x))
     model = conv2d_layer_block(model, 256, dropout1, input_shape)
     model = conv2d_layer_block(model, 256, dropout1)
     model = conv2d_layer_block(model, 256, dropout1)
@@ -436,7 +464,7 @@ def CNN_model(input_shape, lr, dropout1, dropout2):
 
 
 ## parameers for training
-n_epochs = 30
+n_epochs = 50
 batch_size = 256
 input_shape = x_train_reshaped.shape[1:]
 monitor='val_accuracy' #'val_accuracy' or 'val_loss'

@@ -5,12 +5,12 @@
 
 # Job name
 
-#SBATCH --job-name ml-validation-cal-deep-01-config-01
+#SBATCH --job-name val-cal-deep-01-config-05-e-30
 
 # Submit to the GPU QoS
-# #SBATCH -q primary
+#SBATCH -q primary
 
-#SBATCH -q gpu
+# #SBATCH -q gpu
 
 # # Request the GPU type
 
@@ -18,11 +18,11 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 1
+#SBATCH -n 64
 
 # Request memory
 
-#SBATCH --mem=8G
+#SBATCH --mem=128G
 
 # Mail when the job begins, ends, fails, requeues
 
@@ -32,13 +32,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be ml-validation-cal-deep-01-config-01-output-<jobid>.out
+# Create an output file that will be ml-validation-cal-deep-01-config-05-epoch-30-output-<jobid>.out
 
-#SBATCH -o ml-validation-cal-deep-01-config-01-output-%j.out
+#SBATCH -o ml-validation-cal-deep-01-config-05-epoch-30-output-%j.out
 
-# Create an error file that will be ml-validation-cal-deep-01-config-01-error-<jobid>.out
+# Create an error file that will be ml-validation-cal-deep-01-config-05-epoch-30-error-<jobid>.out
 
-#SBATCH -e ml-validation-cal-deep-01-config-01-errors-%j.err
+#SBATCH -e ml-validation-cal-deep-01-config-05-epoch-30-errors-%j.err
 
 # Set maximum time limit
 

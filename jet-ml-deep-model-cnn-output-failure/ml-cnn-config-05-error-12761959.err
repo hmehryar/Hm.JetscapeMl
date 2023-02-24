@@ -1,0 +1,6 @@
+[NbConvertApp] Converting notebook jet-ml-deep-model-cnn-legacy-replica.ipynb to python
+[NbConvertApp] Writing 19012 bytes to jet-ml-deep-model-cnn-legacy-replica.py
+Traceback (most recent call last):
+  File "jet-ml-deep-model-cnn-legacy-replica.py", line 26, in <module>
+    import tensorflow.keras.layers.Rescaling
+ModuleNotFoundError: No module named 'tensorflow.keras.layers.Rescaling'

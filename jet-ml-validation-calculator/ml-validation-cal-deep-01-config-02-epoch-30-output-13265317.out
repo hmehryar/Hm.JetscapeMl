@@ -1,0 +1,204 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: sklearn in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0)
+Requirement already satisfied: scikit-learn in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from sklearn) (1.0.2)
+Requirement already satisfied: scipy>=1.1.0 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from scikit-learn->sklearn) (1.4.1)
+Requirement already satisfied: joblib>=0.11 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from scikit-learn->sklearn) (1.1.0)
+Requirement already satisfied: numpy>=1.14.6 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from scikit-learn->sklearn) (1.18.1)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from scikit-learn->sklearn) (3.1.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: seaborn in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.11.2)
+Requirement already satisfied: pandas>=0.23 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from seaborn) (0.24.2)
+Requirement already satisfied: matplotlib>=2.2 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from seaborn) (3.1.3)
+Requirement already satisfied: numpy>=1.15 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from seaborn) (1.18.1)
+Requirement already satisfied: scipy>=1.0 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from seaborn) (1.4.1)
+Requirement already satisfied: pytz>=2011k in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from pandas>=0.23->seaborn) (2020.1)
+Requirement already satisfied: python-dateutil>=2.5.0 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from pandas>=0.23->seaborn) (2.8.1)
+Requirement already satisfied: cycler>=0.10 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from matplotlib>=2.2->seaborn) (0.10.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from matplotlib>=2.2->seaborn) (1.1.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from matplotlib>=2.2->seaborn) (2.4.6)
+Requirement already satisfied: six>=1.5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from python-dateutil>=2.5.0->pandas>=0.23->seaborn) (1.12.0)
+Requirement already satisfied: setuptools in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from kiwisolver>=1.0.1->matplotlib>=2.2->seaborn) (46.1.1.post20200323)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: IPython in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (5.5.0)
+Requirement already satisfied: setuptools>=18.5 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from IPython) (46.1.1.post20200323)
+Requirement already satisfied: pygments in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (2.11.2)
+Requirement already satisfied: simplegeneric>0.8 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (0.8.1)
+Requirement already satisfied: decorator in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (5.1.1)
+Requirement already satisfied: pickleshare in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (0.7.5)
+Requirement already satisfied: pexpect; sys_platform != "win32" in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (4.8.0)
+Requirement already satisfied: traitlets>=4.2 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (5.1.1)
+Requirement already satisfied: prompt-toolkit<2.0.0,>=1.0.4 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (1.0.18)
+Requirement already satisfied: ptyprocess>=0.5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from pexpect; sys_platform != "win32"->IPython) (0.7.0)
+Requirement already satisfied: wcwidth in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from prompt-toolkit<2.0.0,>=1.0.4->IPython) (0.2.5)
+Requirement already satisfied: six>=1.9.0 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from prompt-toolkit<2.0.0,>=1.0.4->IPython) (1.12.0)
+Loading/Installing Package => Begin
+
+
+Installing sklearn
+Installed sklearn
+
+Installing seaborn
+Installed seaborn
+
+Installing pickle5
+Installed pickle5
+
+Installing IPython
+Installed IPython
+
+
+########################################################################
+Checking the running platforms
+
+OS: Linux
+OS version: 3.10.0-1160.76.1.el7.x86_64
+running on Colab: False
+Python version: 3.7.7
+Tensorflow version: 2.1.0
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset file name: config-02-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/simulation-results-deep-model-cnn-01-1200K-config-02-epoch-30/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Dataset file path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl
+
+#############################################################
+Post-Load: DataType Checkpoint: Begin
+<class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+<class 'numpy.ndarray'> 1080000 (1080000,)
+<class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+<class 'numpy.ndarray'> 120000 (120000,)
+MMAT MMAT
+['MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MMAT'
+ 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT'
+ 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT'
+ 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT'
+ 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT'
+ 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MLBT'
+ 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT'
+ 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT'
+ 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT'
+ 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT'
+ 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT'
+ 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT'
+ 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT'
+ 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT'
+ 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT'
+ 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT'
+ 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT'
+ 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT'
+ 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT'
+ 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT'
+ 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MLBT'
+ 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MLBT'
+ 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT'
+ 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT'
+ 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT'
+ 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT'
+ 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT'
+ 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT'
+ 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MLBT'
+ 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT'
+ 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT'
+ 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT'
+ 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT'
+ 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT'
+ 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT'
+ 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT'
+ 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT'
+ 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT'
+ 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MLBT'
+ 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT'
+ 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT'
+ 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT'
+ 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT'
+ 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MLBT'
+ 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT'
+ 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MLBT' 'MMAT'
+ 'MLBT' 'MLBT' 'MMAT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT'
+ 'MLBT' 'MLBT' 'MLBT' 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MLBT'
+ 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT'
+ 'MMAT' 'MMAT' 'MMAT' 'MLBT' 'MMAT' 'MLBT' 'MMAT' 'MMAT' 'MLBT']
+Post-Load: DataType Checkpoint: End
+#############################################################
+
+
+#############################################################
+Changing classification labels from Literal to Numeric:
+
+Before conversion:
+<class 'numpy.ndarray'> 1080000 (1080000,)
+<class 'numpy.ndarray'> 120000 (120000,)
+<class 'numpy.str_'>
+<class 'numpy.str_'>
+['MLBT' 'MMAT']
+['MLBT' 'MMAT']
+
+After conversion:
+<class 'numpy.ndarray'> 1080000 (1080000,)
+<class 'numpy.ndarray'> 120000 (120000,)
+<class 'numpy.int64'>
+<class 'numpy.int64'>
+#############################################################
+
+
+#############################################################
+Defining Validation Dataset from Train Dataset:
+
+Train data info:
+<class 'numpy.ndarray'> 840000 (840000,)
+<class 'numpy.ndarray'> 860160000 (840000, 32, 32)
+
+Validation data info:
+<class 'numpy.ndarray'> 240000 (240000,)
+<class 'numpy.ndarray'> 245760000 (240000, 32, 32)
+
+Test data info:
+<class 'numpy.ndarray'> 120000 (120000,)
+<class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+#############################################################
+
+
+#############################################################
+Reshaping dataset X-side dimension to be fit in the defined convolutional :
+
+X train:
+(840000, 32, 32)
+840000 32 32
+(840000, 32, 32, 1)
+
+X val:
+(240000, 32, 32)
+240000 32 32
+(840000, 32, 32, 1)
+
+X test:
+(120000, 32, 32)
+120000 32 32
+(120000, 32, 32, 1)
+#############################################################
+
+Directory to save models: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/simulation-results-deep-model-cnn-01-1200K-config-02-epoch-30/models_MATTER_vs_LBT_Hadron_ch1
+{'history': {'loss': [193.02352260044643, 93.41238732910156, 41.1835617947533, 20.590614487420947, 12.453190372503371, 9.77242325759161, 8.529605506279355, 7.579406695665632, 6.776558788335891, 6.087551887366885, 5.475502408781506, 4.928964953031994, 4.4500650181361605, 4.019842708387829, 3.621820089739845, 3.2615165272122337, 2.9428432171412875, 2.6607224137442453, 2.4146065902165006, 2.1988654865991504, 2.0107692469460625, 1.8454156796591623, 1.6996102577391126, 1.572963144611177, 1.461043257359096, 1.36354717120216, 1.278273685718718, 1.1995256740479243, 1.1308621693929037, 1.0687377317428588], 'accuracy': [0.55480474, 0.6620726, 0.833675, 0.8798012, 0.8902048, 0.89596546, 0.8997607, 0.9022643, 0.9036, 0.9053095, 0.9068488, 0.90715, 0.9080155, 0.9086393, 0.9102024, 0.9109643, 0.9109512, 0.9116321, 0.91159165, 0.91196907, 0.9111655, 0.91168094, 0.9118964, 0.91192025, 0.91150117, 0.91183335, 0.9118238, 0.9126512, 0.9121619, 0.91238093], 'val_loss': [137.52539334309895, 58.930243098958336, 28.39605844828288, 16.01262590942383, 11.077074185180663, 9.580218571472168, 8.303543522644043, 7.683091026814779, 6.674832466379802, 5.992955815887451, 5.294258310699463, 4.837666830698649, 4.524846163431803, 3.96075244140625, 3.748492288208008, 3.214655251566569, 3.0960042775472005, 2.578603987375895, 2.4748682395935058, 2.3594196535746255, 1.9959733806610107, 1.929329732131958, 1.6568047323862711, 1.5954080540974935, 1.4829757617950439, 1.3176440745035807, 1.370501096089681, 1.2315391003926595, 1.1891848992665608, 1.1201025959650674], 'val_accuracy': [0.5841042, 0.6953, 0.6891208, 0.5827417, 0.6869, 0.6698167, 0.74473333, 0.66129583, 0.75532085, 0.77398336, 0.84155416, 0.80497915, 0.7441875, 0.8193625, 0.73545414, 0.83510834, 0.7407167, 0.8809125, 0.8061417, 0.76489586, 0.86614585, 0.814125, 0.89562917, 0.86137086, 0.8643875, 0.91057914, 0.83214164, 0.87014586, 0.85597914, 0.8626], 'lr': [5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06, 5e-06]}}
+Train   | Validation | Test sets
+91.0310%  91.0596%     91.5408%
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.88      0.91     60000
+           1       0.89      0.95      0.92     60000
+
+    accuracy                           0.92    120000
+   macro avg       0.92      0.92      0.92    120000
+weighted avg       0.92      0.92      0.92    120000
+
