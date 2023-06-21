@@ -84,13 +84,13 @@ simulation_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-02-epoch-30/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-epoch-30/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-02-epoch-30/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-epoch-30/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-02-epoch-30\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-05-epoch-30\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 #dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
@@ -98,10 +98,10 @@ print('Dataset Directory Path: '+dataset_directory_path)
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-1200k-momentum-shuffled.pkl'
 # dataset_file_name='config-01-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
-dataset_file_name='config-02-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+# dataset_file_name='config-02-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-03-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-04-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
-# dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-06-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-07-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-08-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'

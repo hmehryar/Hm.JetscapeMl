@@ -77,13 +77,13 @@ simulation_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-07-epoch-50/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-03-epoch-30/'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-07-epoch-50/'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-03-epoch-30/'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\simulation_results\\'
-  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-07-epoch-50\\'
+  simulation_directory_path=dataset_directory_path+'simulation-results-deep-model-cnn-01-1200K-config-03-epoch-30\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 # dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
@@ -92,11 +92,11 @@ print('Dataset Directory Path: '+dataset_directory_path)
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-1200k-momentum-shuffled.pkl'
 # dataset_file_name='config-01-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-02-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
-# dataset_file_name='config-03-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+dataset_file_name='config-03-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-04-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-05-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-06-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
-dataset_file_name='config-07-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
+# dataset_file_name='config-07-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-08-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 # dataset_file_name='config-09-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'
 print("Dataset file name: "+dataset_file_name)
@@ -361,7 +361,7 @@ print("#############################################################\n")
 
 ## create a directory to save the best model
 
-save_dir = (simulation_directory_path+'Models_{}_vs_{}_{}_ch{}').format(Modules[0], Modules[1], kind, len(observables))
+save_dir = (simulation_directory_path+'models_{}_vs_{}_{}_ch{}').format(Modules[0], Modules[1], kind, len(observables))
 if not path.exists(save_dir):
     makedirs(save_dir)
 print('Directory to save models: {}'.format(save_dir))
@@ -464,7 +464,7 @@ def CNN_model(input_shape, lr, dropout1, dropout2):
 
 
 ## parameers for training
-n_epochs = 50
+n_epochs = 30
 batch_size = 256
 input_shape = x_train_reshaped.shape[1:]
 monitor='val_accuracy' #'val_accuracy' or 'val_loss'

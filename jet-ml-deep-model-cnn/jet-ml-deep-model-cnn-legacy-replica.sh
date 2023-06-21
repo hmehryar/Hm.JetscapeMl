@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name ml-cnn-config-07-e-50
+#SBATCH --job-name ml-cnn-config-03-e-30
 
 # Submit to the GPU QoS
 
@@ -22,11 +22,11 @@
 
 # #SBATCH -n 64
 
-#SBATCH -c 16
+#SBATCH -c 32
 
 # Request memory
 
-#SBATCH --mem=32G
+#SBATCH --mem=128G
 
 # Mail when the job begins, ends, fails, requeues
 
@@ -36,13 +36,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be ml-cnn-config-07-epoch-50-output-<jobid>.out
+# Create an output file that will be ml-cnn-config-03-epoch-30-output-<jobid>.out
 
-#SBATCH -o ml-cnn-config-07-epoch-50-output-%j.out
+#SBATCH -o ml-cnn-config-03-epoch-30-output-%j.out
 
-# Create an error file that will be ml-cnn-config-07-epoch-50-error-<jobid>.out
+# Create an error file that will be ml-cnn-config-03-epoch-30-error-<jobid>.out
 
-#SBATCH -e ml-cnn-config-07-epoch-50-error-%j.err
+#SBATCH -e ml-cnn-config-03-epoch-30-error-%j.err
 
 # Set maximum time limit
 
