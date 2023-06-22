@@ -191,7 +191,7 @@ if dataset_mvac is None:
 print("Loading dataset_mlbt")
 dataset_mlbt=None
 if dataset_mlbt is None:
-    dataset_mlbt=load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_items[0])
+    dataset_mlbt=load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_items[1])
     ((dataset_mlbt_x_train,dataset_mlbt_y_train),(dataset_mlbt_x_test,dataset_mlbt_y_test))=dataset_mlbt
 
 
@@ -202,16 +202,19 @@ from jet_ml_dataset_builder_utilities import construct_proportional_y_column
 slice_total=10
 slice_train=9
 
+print ("Constructing proportional alpha_s y column for y_test and y_train for both MATTER and LBT datasets")
 column_values=[alpha_s]
 (y_train_alpha_s,y_test_alpha_s)=construct_proportional_y_column(slice_total,slice_train,column_values, data_size)
 print("y_train_alpha_s",y_train_alpha_s[0:100])
 print("y_test_alpha_s",y_test_alpha_s[0:100])
 
+print ("Constructing proportional q0 y column for y_test and y_train for both MATTER dataset")
 column_values=[1]
 (y_train_q0_mvac,y_test_q0_mvac)=construct_proportional_y_column(slice_total,slice_train,column_values, data_size)
 print("y_train_q0",y_train_q0_mvac[0:100])
 print("y_test_q0",y_test_q0_mvac[0:100])
 
+print ("Constructing proportional q0 y column for y_test and y_train for both LBT dataset")
 column_values=[q0]
 (y_train_q0_mlbt,y_test_q0_mlbt)=construct_proportional_y_column(slice_total,slice_train,column_values, data_size)
 print("y_train_q0",y_train_q0_mlbt[0:100])
@@ -222,15 +225,51 @@ print("y_test_q0",y_test_q0_mlbt[0:100])
 
 
 from jet_ml_dataset_builder_utilities import concatenate_y_columns_into_dataset
+
+print("Concatenating y_columns (Eloss Module Label, alpha_s, and Q0) into MATTER dataset")
 ((dataset_mvac_x_train,dataset_mvac_y_train),(dataset_mvac_x_test,dataset_mvac_y_test))=concatenate_y_columns_into_dataset(dataset_mvac,(y_train_alpha_s,y_test_alpha_s),(y_train_q0_mvac,y_test_q0_mvac))
 print("dataset_mvac.x_train:",type(dataset_mvac_x_train), dataset_mvac_x_train.size, dataset_mvac_x_train.shape)
 print("dataset_mvac.x_test:",type(dataset_mvac_x_test), dataset_mvac_x_test.size, dataset_mvac_x_test.shape)
 print("dataset_mvac.y_train:",type(dataset_mvac_y_train), dataset_mvac_y_train.size,dataset_mvac_y_train.shape)
 print("dataset_mvac.y_test:",type(dataset_mvac_y_test), dataset_mvac_y_test.size, dataset_mvac_y_test.shape)
 
+print("Concatenating y_columns (Eloss Module Label, alpha_s, and Q0) into LBT dataset")
 ((dataset_mlbt_x_train,dataset_lbt_y_train),(dataset_lbt_x_test,datasetlbt_y_test))=concatenate_y_columns_into_dataset(dataset_mlbt,(y_train_alpha_s,y_test_alpha_s),(y_train_q0_mlbt,y_test_q0_mlbt))
 print("dataset_mlbt.x_train:",type(dataset_mlbt_x_train), dataset_mlbt_x_train.size, dataset_mlbt_x_train.shape)
 print("dataset_lbt.x_test:",type(dataset_lbt_x_test), dataset_lbt_x_test.size, dataset_lbt_x_test.shape)
 print("dataset_lbt.y_train:",type(dataset_lbt_y_train), dataset_lbt_y_train.size,dataset_lbt_y_train.shape)
 print("datasetlbt.y_test:",type(datasetlbt_y_test), datasetlbt_y_test.size, datasetlbt_y_test.shape)
+
+
+# In[ ]:
+
+
+from jet_ml_dataset_builder_utilities import store_into_dataset_file
+
+print ("Storing the concaternated dataset with y_columns (Eloss Module Label, alpha_s, and Q0) into file: MATTER")
+dataset_mvac=((dataset_mvac_x_train,dataset_mvac_y_train),(dataset_mvac_x_test,dataset_mvac_y_test))
+store_into_dataset_file(configuration_number,y_class_label_items[0],data_size,simulation_directory_path,alpha_s,1,dataset_mvac)
+
+print ("Storing the concaternated dataset with y_columns (Eloss Module Label, alpha_s, and Q0) into file: LBT")
+dataset_mvac=((dataset_mlbt_x_train,dataset_lbt_y_train),(dataset_lbt_x_test,datasetlbt_y_test))
+store_into_dataset_file(configuration_number,y_class_label_items[1],data_size,simulation_directory_path,alpha_s,q0,dataset_mlbt)
+
+
+# In[ ]:
+
+
+from jet_ml_dataset_builder_utilities import load_dataset_by_y_class_label
+print ("Test: Loading dataset MATTER side and Printing Y side to make sure, 3 colums are")
+
+print("Loading dataset_mvac")
+dataset_mvac=None
+if dataset_mvac is None:
+    dataset_mvac=load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_items[0],alpha_s=0.4,q0=1)
+    ((dataset_mvac_x_train,dataset_mvac_y_train),(dataset_mvac_x_test,dataset_mvac_y_test))=dataset_mvac
+
+print("Loading dataset_mlbt")
+dataset_mlbt=None
+if dataset_mlbt is None:
+    dataset_mlbt=load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_items[1],alpha_s=0.4,q0=2.5)
+    ((dataset_mlbt_x_train,dataset_mlbt_y_train),(dataset_mlbt_x_test,dataset_mlbt_y_test))=dataset_mlbt
 

@@ -25,7 +25,15 @@ def load_dataset(file_name):
         (x_train, y_train), (x_test, y_test) = pickle.load(dataset_file, encoding='latin1')
         dataset=((x_train, y_train), (x_test, y_test))
         return dataset
-    
+
+def store_into_dataset_file(configuration_number,y_class_label_item,data_size,simulation_directory_path,alpha_s,q0,dataset):
+    file_name="config-0"+str(configuration_number)+"-"+y_class_label_item+"-alpha_s-"+str(alpha_s)+"-q0-"+str(q0)+"-simulationsize"+str(data_size)+"-dataset.pkl"
+    file_name=simulation_directory_path+file_name
+    print('\n########################################################################')
+    print('Saving Constructed Benchmark Dataset as a file')
+    save_dataset(file_name,dataset)
+    print('\n########################################################################')
+
 def save_event_items_chunk(file_name,event_items_chunks_item):
     with open(file_name, 'wb') as dataset_file:
         pickle.dump(event_items_chunks_item,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
@@ -36,20 +44,22 @@ def load_event_items_chunk(file_name):
         event_items = pickle.load(dataset_file, encoding='latin1')
         return event_items
     
-def load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_item):
+def load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_item,alpha_s=None,q0=None):
     print('\n########################################################################')
     print('Loading separate datasets')
-    
-
-    file_name="config-0"+str(configuration_number)+"-"+y_class_label_item+"-simulationsize"+str(data_size)+"-dataset.pkl"
+    if ( alpha_s is None  or q0 is None):
+        file_name="config-0"+str(configuration_number)+"-"+y_class_label_item+"-simulationsize"+str(data_size)+"-dataset.pkl"
+    else:
+        file_name="config-0"+str(configuration_number)+"-"+y_class_label_item+"-alpha_s-"+str(alpha_s)+"-q0-"+str(q0)+"-simulationsize"+str(data_size)+"-dataset.pkl"
     file_name=simulation_directory_path+file_name
-    
+    print("Loading Dataset from",file_name)
     ((dataset_x_train,dataset_y_train),(dataset_x_test,dataset_y_test))= load_dataset(file_name)
     print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
     print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
     print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
     print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
-    
+    print("Sample dataset.y_test")
+    print(dataset_y_test[1:100])
     dataset= ((dataset_x_train,dataset_y_train),(dataset_x_test,dataset_y_test))
     print('\n########################################################################')
     return dataset
