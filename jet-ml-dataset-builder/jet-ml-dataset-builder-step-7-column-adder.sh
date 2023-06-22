@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name dataset-column-adder-cnf-09
+#SBATCH --job-name dataset-column-adder-cnf-01
 
 # Submit to the GPU QoS
 #SBATCH -q primary
@@ -69,7 +69,7 @@ ELOSS_TYPE_UPPERCASE="MMAT"
 ELOSS_TYPE_LOWERCASE="matter"
 
 ALPHA_S="0.4"
-Q0=1
+Q0=2.5
 
 echo "Running dataset step-7-column-adder for $CONFIG_NUMBER"
 

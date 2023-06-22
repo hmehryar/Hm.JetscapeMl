@@ -151,3 +151,86 @@ except getopt.error as err:
     print (str(err))
 print('########################################################################\n')
 
+
+# In[ ]:
+
+
+from jet_ml_dataset_builder_utilities import load_event_items_chunk
+def load_x_set():
+    print('\n########################################################################')
+    start = time()
+    print ("Loading X dataset")
+    file_name="config-0"+str(configuration_number)+"-"+y_class_label_items[0]+"-simulationsize"+str(data_size)+"-img-chunk.pkl"
+    file_name=simulation_directory_path+file_name
+    event_items_image=load_event_items_chunk(file_name)
+    
+    print ("Loaded: ",file_name)
+    print("Dataset type: ", type(event_items_image))
+    print("Dataset length: ", len(event_items_image))
+    print('\n########################################################################')
+    
+    elapsed = time() - start
+    print('Loading x Dataset Elapsed %.3f seconds.' % elapsed)
+    print('\n########################################################################')
+    return (event_items_image)
+# (x)=load_x_set()
+
+
+# In[ ]:
+
+
+from jet_ml_dataset_builder_utilities import load_dataset_by_y_class_label
+y_class_label_items=['MMAT','MLBT']
+
+print("Loading dataset_mvac")
+dataset_mvac=None
+if dataset_mvac is None:
+    dataset_mvac=load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_items[0])
+    ((dataset_mvac_x_train,dataset_mvac_y_train),(dataset_mvac_x_test,dataset_mvac_y_test))=dataset_mvac
+
+print("Loading dataset_mlbt")
+dataset_mlbt=None
+if dataset_mlbt is None:
+    dataset_mlbt=load_dataset_by_y_class_label(configuration_number,data_size,simulation_directory_path,y_class_label_items[0])
+    ((dataset_mlbt_x_train,dataset_mlbt_y_train),(dataset_mlbt_x_test,dataset_mlbt_y_test))=dataset_mlbt
+
+
+# In[ ]:
+
+
+from jet_ml_dataset_builder_utilities import construct_proportional_y_column
+slice_total=10
+slice_train=9
+
+column_values=[alpha_s]
+(y_train_alpha_s,y_test_alpha_s)=construct_proportional_y_column(slice_total,slice_train,column_values, data_size)
+print("y_train_alpha_s",y_train_alpha_s[0:100])
+print("y_test_alpha_s",y_test_alpha_s[0:100])
+
+column_values=[1]
+(y_train_q0_mvac,y_test_q0_mvac)=construct_proportional_y_column(slice_total,slice_train,column_values, data_size)
+print("y_train_q0",y_train_q0_mvac[0:100])
+print("y_test_q0",y_test_q0_mvac[0:100])
+
+column_values=[q0]
+(y_train_q0_mlbt,y_test_q0_mlbt)=construct_proportional_y_column(slice_total,slice_train,column_values, data_size)
+print("y_train_q0",y_train_q0_mlbt[0:100])
+print("y_test_q0",y_test_q0_mlbt[0:100])
+
+
+# In[ ]:
+
+
+from jet_ml_dataset_builder_utilities import concatenate_y_columns_into_dataset
+((dataset_mvac_x_train,dataset_mvac_y_train),(dataset_mvac_x_test,dataset_mvac_y_test))=concatenate_y_columns_into_dataset(dataset_mvac,(y_train_alpha_s,y_test_alpha_s),(y_train_q0_mvac,y_test_q0_mvac))
+print("dataset_mvac.x_train:",type(dataset_mvac_x_train), dataset_mvac_x_train.size, dataset_mvac_x_train.shape)
+print("dataset_mvac.x_test:",type(dataset_mvac_x_test), dataset_mvac_x_test.size, dataset_mvac_x_test.shape)
+print("dataset_mvac.y_train:",type(dataset_mvac_y_train), dataset_mvac_y_train.size,dataset_mvac_y_train.shape)
+print("dataset_mvac.y_test:",type(dataset_mvac_y_test), dataset_mvac_y_test.size, dataset_mvac_y_test.shape)
+
+((dataset_mlbt_x_train,dataset_lbt_y_train),(dataset_lbt_x_test,datasetlbt_y_test))=concatenate_y_columns_into_dataset(dataset_mlbt,(y_train_alpha_s,y_test_alpha_s),(y_train_q0_mlbt,y_test_q0_mlbt))
+print("dataset_mlbt.x_train:",type(dataset_mlbt_x_train), dataset_mlbt_x_train.size, dataset_mlbt_x_train.shape)
+print("dataset_lbt.x_test:",type(dataset_lbt_x_test), dataset_lbt_x_test.size, dataset_lbt_x_test.shape)
+print("dataset_lbt.y_train:",type(dataset_lbt_y_train), dataset_lbt_y_train.size,dataset_lbt_y_train.shape)
+print("datasetlbt.y_test:",type(datasetlbt_y_test), datasetlbt_y_test.size, datasetlbt_y_test.shape)
+
