@@ -32,17 +32,11 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be dataset-dataset-column-adder-config-01-output-<jobid>.out
+# Create an output file that will be dataset-column-adder-config-01-output-<jobid>.out
+#SBATCH -o dataset-column-adder-config-01-output-%j.out
 
-
-
-
-
-#SBATCH -o ataset-dataset-column-adder-config-01-output-%j.out
-
-# Create an error file that will be ataset-dataset-column-adder-config-01-error-<jobid>.out
-
-#SBATCH -e ataset-dataset-column-adder-config-01-error-%j.err
+# Create an error file that will be dataset-column-adder-config-01-error-<jobid>.out
+#SBATCH -e dataset-column-adder-config-01-error-%j.err
 
 # Set maximum time limit
 
@@ -50,7 +44,7 @@
 
 #Converting jupyter notebook to python script
 echo "Converting notebook to script"
-jupyter nbconvert --to python jet-ml-dataset-builder-step-7-concatenate-shuffler.ipynb
+jupyter nbconvert --to python jet-ml-dataset-builder-step-7-column-adder.ipynb
 
 echo "Setting up python version and conda shell"
 ml python/3.7
@@ -63,14 +57,9 @@ echo "Activating conda environment"
 # conda activate tensorflow_env
 conda activate tensorflow_gpuenv_v2
 
-#Execution
-# echo "Running dataset concatenator and shuffler"
-# python jetscape-ml-tensorflow-nn-dataset-concatenate-shuffler.py -i finalStateHadrons-Matter-600k.dat -d 600000 -y MVAC -o jetscape-ml-benchmark-dataset-600k-matter.pkl -n 40
-
-
 
 #User must assign the correct CONFIG_NUMBER after jetscape simulation is done
-CONFIG_NUMBER=9
+CONFIG_NUMBER=1
 
 
 # MLBT, MMAT
@@ -79,7 +68,9 @@ ELOSS_TYPE_UPPERCASE="MMAT"
 # matter, matterlbt
 ELOSS_TYPE_LOWERCASE="matter"
 
-echo "Running dataset concatenator and shuffler for $CONFIG_NUMBER"
+ALPHA_S="0.4"
+Q0=1
 
-# python jetscape-ml-tensorflow-nn-dataset-concatenate-shuffler.py -i finalStateHadrons-Matter-600k.dat -d 600000 -y MVAC -o jetscape-ml-benchmark-dataset-600k-matter.pkl -n 40
-python jet-ml-dataset-builder-step-6-concatenate-shuffler.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER
+echo "Running dataset step-7-column-adder for $CONFIG_NUMBER"
+
+python jet-ml-dataset-builder-step-7-column-adder.py -i config-0$CONFIG_NUMBER-final-state-hadrons-$ELOSS_TYPE_LOWERCASE-600k.dat -d 600000 -y $ELOSS_TYPE_UPPERCASE -o jetscape-ml-benchmark-dataset-600k-$ELOSS_TYPE_LOWERCASE.pkl -n 40 -c ~/Projects/110_JetscapeMl/Source/config-0$CONFIG_NUMBER-final-state-hadrons/ -p $CONFIG_NUMBER -a $ALPHA_S -q $Q0
