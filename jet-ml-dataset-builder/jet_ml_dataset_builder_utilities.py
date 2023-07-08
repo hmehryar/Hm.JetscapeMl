@@ -105,3 +105,28 @@ def concatenate_y_columns_into_dataset(dataset,alpha_s,q0):
     y_test=np.array([dataset_y_test,y_test_alpha_s,y_test_q0])
     print("y_test:",type(y_test), y_test.size, y_test.shape)
     return ((dataset_x_train,y_train),(dataset_x_test,y_test))
+
+def add_alpha_s_and_q0_to_dataset(dataset,alpha_s,q0):
+    import numpy as np
+
+    # Assuming you have already loaded your dataset into the following variables:
+    # dataset.x_train, dataset.x_test, dataset.y_train, dataset.y_test
+    ((dataset_x_train,dataset_y_train),(dataset_x_test,dataset_y_test))=dataset
+    # Create a new column with a value of 0.4
+    alpha_s_train_column = np.full(dataset_y_train.shape, alpha_s)
+    alpha_s_test_column = np.full(dataset_y_test.shape, alpha_s)
+
+    q0_train_column = np.full(dataset_y_train.shape, q0)
+    q0_test_column = np.full(dataset_y_test.shape, q0)
+
+    # Concatenate the new column with the target variable
+    y_train_with_columns = np.column_stack((dataset_y_train, alpha_s_train_column,q0_train_column))
+    y_test_with_columns = np.column_stack((dataset_y_test, alpha_s_test_column,q0_test_column))
+
+    # Print the updated shapes and values of the resulting two columns
+    print("Updated y_train shape:", y_train_with_columns.shape)
+    print("Updated y_test shape:", y_test_with_columns.shape)
+    print("Updated y_train values:\n", y_train_with_columns[1:100])
+    print("Updated y_test values:\n", y_test_with_columns[1:100])
+
+    return ((dataset_x_train,y_train_with_columns),(dataset_x_test,y_test_with_columns))

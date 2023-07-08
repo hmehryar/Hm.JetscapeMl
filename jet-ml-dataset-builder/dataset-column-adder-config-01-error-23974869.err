@@ -1,5 +1,5 @@
 [NbConvertApp] Converting notebook jet-ml-dataset-builder-step-7-column-adder.ipynb to python
-[NbConvertApp] Writing 11179 bytes to jet-ml-dataset-builder-step-7-column-adder.py
+[NbConvertApp] Writing 11814 bytes to jet-ml-dataset-builder-step-7-column-adder.py
 
 EnvironmentNameNotFound: Could not find conda environment: tensorflow_gpuenv_v2
 You can list all discoverable environments with `conda info --envs`.
