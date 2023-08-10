@@ -49,3 +49,13 @@ Once you have the repository set up and the dependencies installed, you can star
 4. Customization: Feel free to customize and extend the code to suit your specific needs and experiments.
    
    
+## Contributing
+Contributions are welcome and encouraged! If you'd like to contribute to Hm.JetscapeMl, follow these steps:
+
+1. Fork the repository to your GitHub account.
+2. Create a new branch from the main branch for your changes.
+3. Make your changes and commit them with descriptive commit messages.
+4. Push your changes to your forked repository.
+5. Open a pull request (PR) to the original repository, describing the changes you've made.
+   
+Please ensure your contributions adhere to the project's coding standards and follow best practices.
