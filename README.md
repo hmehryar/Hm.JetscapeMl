@@ -59,3 +59,8 @@ Contributions are welcome and encouraged! If you'd like to contribute to Hm.Jets
 5. Open a pull request (PR) to the original repository, describing the changes you've made.
    
 Please ensure your contributions adhere to the project's coding standards and follow best practices.
+
+## License
+This project is licensed under the MIT License.
+Feel free to customize this template according to your project's specifics and additional information you want to provide.
+
