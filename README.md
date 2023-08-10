@@ -61,6 +61,6 @@ Contributions are welcome and encouraged! If you'd like to contribute to Hm.Jets
 Please ensure your contributions adhere to the project's coding standards and follow best practices.
 
 ## License
-This project is licensed under the [MIT License](#LICENSE).
+This project is licensed under the [MIT License](https://github.com/hmehryar/Hm.JetscapeMl/blob/main/LICENSE).
 Feel free to customize this template according to your project's specifics and additional information you want to provide.
 
