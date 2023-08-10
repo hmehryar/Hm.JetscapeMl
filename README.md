@@ -22,12 +22,13 @@ To get started with Hm.JetscapeMl, follow these steps:
 
 ```bash
 git clone https://github.com/hmehryar/Hm.JetscapeMl.git
-
+```
 
 2. Navigate to the repository's directory:
 
 ```bash
 cd Hm.JetscapeMl
+```
 
 3. Install the required dependencies. It's recommended to set up a virtual environment before installing dependencies:
 
@@ -38,3 +39,4 @@ source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
+```
