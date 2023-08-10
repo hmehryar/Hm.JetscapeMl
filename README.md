@@ -40,3 +40,12 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 ```
+
+## Usage
+Once you have the repository set up and the dependencies installed, you can start utilizing the project:
+1. Data Preprocessing: Use the provided scripts to preprocess and prepare Jetscape simulation data for analysis.
+2. Machine Learning Models: Explore the models directory to find pre-implemented machine learning models tailored for analyzing Jetscape data.
+3. Example Notebooks: Check out the notebooks directory for example Jupyter notebooks that demonstrate how to use the machine learning models with Jetscape data.
+4. Customization: Feel free to customize and extend the code to suit your specific needs and experiments.
+   
+   
