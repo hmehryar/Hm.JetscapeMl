@@ -1,3 +1,4 @@
+
 [NbConvertApp] Converting notebook jet-ml-deep-model-cnn-legacy-replica.ipynb to python
 [NbConvertApp] Writing 15672 bytes to jet-ml-deep-model-cnn-legacy-replica.py
 2023-02-16 11:19:03.767231: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
