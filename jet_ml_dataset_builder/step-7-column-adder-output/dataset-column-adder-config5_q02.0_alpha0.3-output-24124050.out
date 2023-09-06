@@ -82,7 +82,8 @@ Loading dataset_mlbt
 ########################################################################
 Loading separate datasets
 Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-05-MLBT-simulationsize600000-dataset.pkl
-dataset.x_train: <class 'numpy.ndarray'> 552950784 (539991, 32, 32)
+dataset.x_train: <class 'numpy.ndarray'> 552950784 (
+    , 32, 32)
 dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
 dataset.y_train: <class 'numpy.ndarray'> 540000 (540000,)
 dataset.y_test: <class 'numpy.ndarray'> 60000 (60000,)
