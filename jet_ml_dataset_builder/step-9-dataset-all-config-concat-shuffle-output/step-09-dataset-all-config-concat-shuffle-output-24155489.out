@@ -1,0 +1,199 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running dataset step-9-all-config-cocatenate-shuffler
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Installing pickle5
+Installed pickle5
+
+Python version: 3.7.3
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Tokenized Arguments:
+
+Tokenized Values:
+Test: Loading dataset all config 1 to 9 datasets
+Loading load_datasets
+------------------------
+Loading configuration  1
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_01_alpha_0.2_q0_1.5_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  1
+------------------------
+------------------------
+Loading configuration  2
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_02_alpha_0.3_q0_1.5_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  2
+merged_dataset x_train shape: (2160000, 32, 32)
+merged_dataset x_test shape: (2160000, 3)
+merged_dataset y_train shape: (240000, 32, 32)
+merged_dataset y_test shape: (240000, 3)
+------------------------
+------------------------
+Loading configuration  3
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_03_alpha_0.4_q0_1.5_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  3
+merged_dataset x_train shape: (3240000, 32, 32)
+merged_dataset x_test shape: (3240000, 3)
+merged_dataset y_train shape: (360000, 32, 32)
+merged_dataset y_test shape: (360000, 3)
+------------------------
+------------------------
+Loading configuration  4
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_04_alpha_0.2_q0_2.0_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  4
+merged_dataset x_train shape: (4320000, 32, 32)
+merged_dataset x_test shape: (4320000, 3)
+merged_dataset y_train shape: (480000, 32, 32)
+merged_dataset y_test shape: (480000, 3)
+------------------------
+------------------------
+Loading configuration  5
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_05_alpha_0.3_q0_2.0_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105910784 (1079991, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3239973 (1079991, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105910784 (1079991, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3239973 (1079991, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  5
+merged_dataset x_train shape: (5399991, 32, 32)
+merged_dataset x_test shape: (5399991, 3)
+merged_dataset y_train shape: (600000, 32, 32)
+merged_dataset y_test shape: (600000, 3)
+------------------------
+------------------------
+Loading configuration  6
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_06_alpha_0.4_q0_2.0_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  6
+merged_dataset x_train shape: (6479991, 32, 32)
+merged_dataset x_test shape: (6479991, 3)
+merged_dataset y_train shape: (720000, 32, 32)
+merged_dataset y_test shape: (720000, 3)
+------------------------
+------------------------
+Loading configuration  7
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_07_alpha_0.2_q0_2.5_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  7
+merged_dataset x_train shape: (7559991, 32, 32)
+merged_dataset x_test shape: (7559991, 3)
+merged_dataset y_train shape: (840000, 32, 32)
+merged_dataset y_test shape: (840000, 3)
+------------------------
+------------------------
+Loading configuration  8
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_08_alpha_0.3_q0_2.5_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  8
+merged_dataset x_train shape: (8639991, 32, 32)
+merged_dataset x_test shape: (8639991, 3)
+merged_dataset y_train shape: (960000, 32, 32)
+merged_dataset y_test shape: (960000, 3)
+------------------------
+------------------------
+Loading configuration  9
+filename: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_09_alpha_0.4_q0_2.5_MMAT_MLBT_size_1200000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+post load
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset.y_train: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 360000 (120000, 3)
+Mergining configuration  9
+merged_dataset x_train shape: (9719991, 32, 32)
+merged_dataset x_test shape: (9719991, 3)
+merged_dataset y_train shape: (1080000, 32, 32)
+merged_dataset y_test shape: (1080000, 3)
+------------------------
+Storing the dataset before shuffle

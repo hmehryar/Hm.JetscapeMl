@@ -1,0 +1,19 @@
+[NbConvertApp] Converting notebook jet-ml-dataset-builder-step-9-all-config-cocatenate-shuffler.ipynb to python
+[NbConvertApp] Writing 4666 bytes to jet-ml-dataset-builder-step-9-all-config-cocatenate-shuffler.py
+
+EnvironmentNameNotFound: Could not find conda environment: tensorflow_gpuenv_v2
+You can list all discoverable environments with `conda info --envs`.
+
+
+
+[notice] A new release of pip available: 23.0.1 -> 23.2.1
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip available: 23.0.1 -> 23.2.1
+[notice] To update, run: pip install --upgrade pip
+Traceback (most recent call last):
+  File "jet-ml-dataset-builder-step-9-all-config-cocatenate-shuffler.py", line 133, in <module>
+    shuffled_dataset = shuffle_dataset(dataset)
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-dataset-builder/jet_ml_dataset_builder_utilities.py", line 311, in shuffle_dataset
+    dataset_y_train = dataset_y_train[indices]
+IndexError: index 7529017 is out of bounds for axis 0 with size 1080000
