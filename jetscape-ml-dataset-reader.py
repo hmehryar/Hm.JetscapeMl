@@ -98,17 +98,17 @@ simulation_directory_path=''
 if COLAB == True:
   drive.mount('/content/drive')
   dataset_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results_1200K_03\\'
+  simulation_directory_path=dataset_directory_path+'simulation_results\\'
 elif 'Linux' in running_os:
   dataset_directory_path='/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
-  simulation_directory_path=dataset_directory_path+'simulation_results_1200K_03\\'
+  simulation_directory_path=dataset_directory_path+'simulation_results\\'
 else:
   dataset_directory_path= 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
-  simulation_directory_path=dataset_directory_path+'simulation_results_1200K_03\\'
+  simulation_directory_path=dataset_directory_path+'simulation_results\\'
 print('Dataset Directory Path: '+dataset_directory_path)
 
 #dataset_file_name='jetscape-ml-benchmark-dataset-2k-randomized.pkl'
-dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-2k.pkl'
+dataset_file_name='config_01_alpha_0.2_q0_1.5_MMAT_MLBT_size_1200000_shuffled.npz'
 # dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-200k-shuffled-01.pkl'
 #dataset_file_name='jetscape-ml-benchmark-dataset-matter-vs-lbt-1200k-momentum-shuffled.pkl'
 print("Dataset file name: "+dataset_file_name)
@@ -199,7 +199,6 @@ print(type(oJetscapeMlCnn.x_train), oJetscapeMlCnn.x_train.size, oJetscapeMlCnn.
 print(type(oJetscapeMlCnn.y_train), oJetscapeMlCnn.y_train.size, oJetscapeMlCnn.y_train.shape)
 print(type(oJetscapeMlCnn.x_test), oJetscapeMlCnn.x_test.size, oJetscapeMlCnn.x_test.shape)
 print(type(oJetscapeMlCnn.y_test), oJetscapeMlCnn.y_test.size, oJetscapeMlCnn.y_test.shape)
-print(oJetscapeMlCnn.y_train[1500], oJetscapeMlCnn.y_test[99])
 print(oJetscapeMlCnn.y_train[1:500])
 print("Post-Load: DataType Checkpoint: End")
 print("#############################################################\n")
