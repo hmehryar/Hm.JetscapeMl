@@ -1,0 +1,1705 @@
+[Info] ------------------------------[0m
+[Info] | ... JetScape Framework ... |[0m
+[Info] ------------------------------[0m
+[Info] [0m
+[Info] *--------------------------------------------------------------*[0m
+[Info] |                                                              |[0m
+[Info] |                  /\                                          |[0m
+[Info] |                 /  \                                         |[0m
+[Info] |                / |  \                                        |[0m
+[Info] |               /  |   \              /\                       |[0m
+[Info] |              /   |    \          /\/  \                      |[0m
+[Info] |             / \  |  /  \      /\/   |  \/\                   |[0m
+[Info] |            /   \ | /    \    /    % | %   \                  |[0m
+[Info] |         __/     \|/      \__/      %|%     \/\__             |[0m
+[Info] |                                                              |[0m
+[Info] |                          JETSCAPE                            |[0m
+[Info] |                                                              |[0m
+[Info] |     The Jet Energy-loss Tomography with a Statistically      |[0m
+[Info] |       and Computationally Advanced Program Envelope          |[0m
+[Info] |                     http://jetscape.org                      |[0m
+[Info] |                                                              |[0m
+[Info] | Please cite arXiv:1903.07706 if you use this package for     |[0m
+[Info] | scientific work.                                             |[0m
+[Info] |                                                              |[0m
+[Info] | JETSCAPE is provided without warranty under the terms        |[0m
+[Info] | of the GNU GPLv3. It uses xxx code(s).                       |[0m
+[Info] | See COPYING file for details.                                |[0m
+[Info] |                                                              |[0m
+[Info] *--------------------------------------------------------------*[0m
+[Info] 90MB  [1m[31mIntialize JetScape ...[0m
+[Info] 90MB  Created JetScapeXML Instance[0m
+[Info] 90MB  Open XML Master file : ../config/jetscape_master.xml[0m
+[Info] 90MB  Open XML User file : ../config/jetscape_user_06.xml[0m
+[Info] 90MB  ================================================================[0m
+[Info] 90MB  nEvents = 15000[0m
+[Info] 90MB  Reuse Hydro:  true [0m
+[Info] 90MB  nReuseHydro: 500000[0m
+[Info] 90MB  JetScapeTaskSupport found seed 0, using one engine for all and reseeding to 2116738851[0m
+[Info] 90MB  Intialize CausalLiquefier ...[0m
+[Info] 90MB  Created liquefier.[0m
+[Info] 90MB  JetScape::DetermineTaskList() -- Initial state: Added InitialFromFile to task list.[0m
+[Info] 90MB  JetScape::DetermineTaskList() -- Hard Process: Added PGun to task list.[0m
+[Info] 90MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
+[Info] 90MB  JetScape::DetermineTaskList() -- Hydro: Added hydro_from_file to task list.[0m
+[Info] 90MB  Set ID to: Hydro from file[0m
+[Info] 90MB  JetScape::DetermineTaskList() -- Added liquefier to Eloss.[0m
+[Info] 91MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 91MB  JetScape::DetermineTaskList() -- Added PartonPrinter to task list.[0m
+[Info] 91MB  JetScape::DetermineTaskList() -- Hadronization: Added liquefier to ColorlessHadronization[0m
+[Info] 91MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
+[Info] 91MB  JetScape::DetermineTaskList() -- Added HadronPrinter to task list.[0m
+[Info] 91MB  ================================================================[0m
+[Info] 91MB  Found 8 Modules Initialize them ... [0m
+[Info] 91MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 91MB  Created JetScapeSignalManager Instance[0m
+[Info] 91MB  Calling JetScape InitTasks()...[0m
+[Info] 91MB  Intialize InitialState ... InitialFromFile ...[0m
+[Info] 91MB  x range for bulk evolution = [-15, 15][0m
+[Info] 91MB  Intialize HardProcess : PGun ...[0m
+[Info] 91MB  Parton Gun with fixed pT = 100[0m
+[Info] 91MB  Parton Gun with parID = 21[0m
+[Info] 91MB  Use hybrid hadronization? 0[0m
+[Info] 91MB  Intialize PreequilibriumDynamics : NullPreDynamics ...[0m
+[Info] 91MB  Intialize FluidDynamics : Hydro from file ...[0m
+[Info] 91MB  Intialize JetEnergyLoss Manager ...[0m
+[Info] 91MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 91MB  Intialize JetEnergyLoss ...[0m
+[Info] 91MB  Eloss shower with deltaT = 0.1 and maxT = 200[0m
+[Info] 91MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 91MB  Intialize Matter ...[0m
+[Info] 91MB  [35mMATTER input parameter[0m
+[Info] 91MB  [35muse hybrid hadronization later? 0[0m
+[Info] 91MB  [35mmatter shower on: 1[0m
+[Info] 91MB  [35min_vac: 0  brick_med: 0  recoil_on: 1, tStart =0.6[0m
+[Info] 91MB  [35mQ0: 1 vir_factor: 0.25  qhat0: -2 alphas: 0.4, QhatParametrizationType=1  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 91MB  Running alphas will be used as 4*pi/(9.0*log(2*enerLoc*tempLoc/LambdaQCDS))[0m
+[Info] 91MB  [35mReminder: download LBT tables first and cmake .. if recoil is switched on in MATTER.[0m
+Erro openning HQ data file!
+Erro openning data file distB.dat!
+Erro openning data file distF.dat!
+[Info] 91MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 91MB  Intialize PartonPrinter ...[0m
+[Info] 91MB  Intialize Hadronization Manager ...[0m
+[Info] 91MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 91MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 91MB  Weak decays are turned on[0m
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | Next:numberShowProcess                        |                        0 |            1           0             | 
+ | ParticleDecays:limitTau0                      |                       on |          off                         | 
+ | PartonLevel:FSR                               |                      off |           on                         | 
+ | ProcessLevel:all                              |                      off |           on                         | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  PYTHIA Particle Data Table (changed only)  ------------------------------------------------------------------------------
+ 
+      id   name            antiName         spn chg col      m0        mWidth      mMin       mMax       tau0    res dec ext vis wid
+             no onMode   bRatio   meMode     products 
+
+ no particle data has been changed from its default value 
+
+ --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
+
+[Info] 91MB  Connect HadronizationManager Signal to Energy Loss ...[0m
+[Info] 91MB  [1m[31mRun JetScape ...[0m
+[Info] 91MB  [1m[31mNumber of Events = 15000[0m
+[Info] 91MB  [1m[31mRun Event # = 0[0m
+[Info] 91MB  clear initial condition vectors[0m
+[Info] 91MB  Read initial condition from file[0m
+[Info] 91MB  External initial profile path is../../JETSCAPE-Hydro-Profiles/event-0/initial.hdf5[0m
+[Info] 91MB  event_group=/event_0[0m
+[Info] 92MB  Read initial state configurations from file[0m
+[Info] 92MB  xmax = 15[0m
+[Info] 92MB  Read number of binary collisions from file[0m
+[Info] 96MB  Read initial entropy density distribution from file[0m
+[Info] 112MB  read in a VISHNew hydro event from file ../../JETSCAPE-Hydro-Profiles//event-0/JetData.h5[0m
+-----------------------------------------
+-----------hydro grid info---------------
+-----------------------------------------
+XL = -96
+XH = 96
+DX = 0.2 fm
+YL = -96
+YH = 96
+DY = 0.2 fm
+Tau0 = 0.1 fm
+dTau = 0.1 fm
+Number of Frames: 150
+Taumax = 15 fm
+Read in viscous information?  No!
+-----------------------------------------
+[Info] 2556MB  [1m[31mRun Event # = 10[0m
+[Info] 2556MB  [1m[31mRun Event # = 20[0m
+[Info] 2556MB  [1m[31mRun Event # = 30[0m
+[Info] 2556MB  [1m[31mRun Event # = 40[0m
+[Info] 2556MB  [1m[31mRun Event # = 50[0m
+[Info] 2556MB  [1m[31mRun Event # = 60[0m
+[Info] 2556MB  [1m[31mRun Event # = 70[0m
+[Info] 2556MB  [1m[31mRun Event # = 80[0m
+[Info] 2556MB  [1m[31mRun Event # = 90[0m
+[Info] 2556MB  [1m[31mRun Event # = 100[0m
+[Info] 2556MB  [1m[31mRun Event # = 110[0m
+[Info] 2556MB  [1m[31mRun Event # = 120[0m
+[Info] 2556MB  [1m[31mRun Event # = 130[0m
+[Info] 2556MB  [1m[31mRun Event # = 140[0m
+[Info] 2556MB  [1m[31mRun Event # = 150[0m
+[Info] 2556MB  [1m[31mRun Event # = 160[0m
+[Info] 2556MB  [1m[31mRun Event # = 170[0m
+[Info] 2556MB  [1m[31mRun Event # = 180[0m
+[Info] 2556MB  [1m[31mRun Event # = 190[0m
+[Info] 2556MB  [1m[31mRun Event # = 200[0m
+[Info] 2556MB  [1m[31mRun Event # = 210[0m
+[Info] 2556MB  [1m[31mRun Event # = 220[0m
+[Info] 2556MB  [1m[31mRun Event # = 230[0m
+[Info] 2556MB  [1m[31mRun Event # = 240[0m
+[Info] 2556MB  [1m[31mRun Event # = 250[0m
+[Info] 2556MB  [1m[31mRun Event # = 260[0m
+[Info] 2556MB  [1m[31mRun Event # = 270[0m
+[Info] 2556MB  [1m[31mRun Event # = 280[0m
+[Info] 2556MB  [1m[31mRun Event # = 290[0m
+[Info] 2556MB  [1m[31mRun Event # = 300[0m
+[Info] 2556MB  [1m[31mRun Event # = 310[0m
+[Info] 2556MB  [1m[31mRun Event # = 320[0m
+[Info] 2556MB  [1m[31mRun Event # = 330[0m
+[Info] 2556MB  [1m[31mRun Event # = 340[0m
+[Info] 2556MB  [1m[31mRun Event # = 350[0m
+[Info] 2556MB  [1m[31mRun Event # = 360[0m
+[Info] 2556MB  [1m[31mRun Event # = 370[0m
+[Info] 2556MB  [1m[31mRun Event # = 380[0m
+[Info] 2556MB  [1m[31mRun Event # = 390[0m
+[Info] 2556MB  [1m[31mRun Event # = 400[0m
+[Info] 2556MB  [1m[31mRun Event # = 410[0m
+[Info] 2556MB  [1m[31mRun Event # = 420[0m
+[Info] 2556MB  [1m[31mRun Event # = 430[0m
+[Info] 2556MB  [1m[31mRun Event # = 440[0m
+[Info] 2556MB  [1m[31mRun Event # = 450[0m
+[Info] 2556MB  [1m[31mRun Event # = 460[0m
+[Info] 2556MB  [1m[31mRun Event # = 470[0m
+[Info] 2556MB  [1m[31mRun Event # = 480[0m
+[Info] 2556MB  [1m[31mRun Event # = 490[0m
+[Info] 2556MB  [1m[31mRun Event # = 500[0m
+[Info] 2556MB  [1m[31mRun Event # = 510[0m
+[Info] 2556MB  [1m[31mRun Event # = 520[0m
+[Info] 2556MB  [1m[31mRun Event # = 530[0m
+[Info] 2556MB  [1m[31mRun Event # = 540[0m
+[Info] 2556MB  [1m[31mRun Event # = 550[0m
+[Info] 2556MB  [1m[31mRun Event # = 560[0m
+cannot sample final states for HQ scattering ...
+[Info] 2556MB  [1m[31mRun Event # = 570[0m
+[Info] 2556MB  [1m[31mRun Event # = 580[0m
+[Info] 2556MB  [1m[31mRun Event # = 590[0m
+[Info] 2556MB  [1m[31mRun Event # = 600[0m
+[Info] 2556MB  [1m[31mRun Event # = 610[0m
+[Info] 2556MB  [1m[31mRun Event # = 620[0m
+[Info] 2556MB  [1m[31mRun Event # = 630[0m
+[Info] 2556MB  [1m[31mRun Event # = 640[0m
+[Info] 2556MB  [1m[31mRun Event # = 650[0m
+[Info] 2556MB  [1m[31mRun Event # = 660[0m
+[Info] 2556MB  [1m[31mRun Event # = 670[0m
+[Info] 2556MB  [1m[31mRun Event # = 680[0m
+[Info] 2556MB  [1m[31mRun Event # = 690[0m
+[Info] 2556MB  [1m[31mRun Event # = 700[0m
+[Info] 2556MB  [1m[31mRun Event # = 710[0m
+[Info] 2556MB  [1m[31mRun Event # = 720[0m
+[Info] 2556MB  [1m[31mRun Event # = 730[0m
+[Info] 2556MB  [1m[31mRun Event # = 740[0m
+[Info] 2556MB  [1m[31mRun Event # = 750[0m
+[Info] 2556MB  [1m[31mRun Event # = 760[0m
+[Info] 2556MB  [1m[31mRun Event # = 770[0m
+[Info] 2556MB  [1m[31mRun Event # = 780[0m
+[Info] 2556MB  [1m[31mRun Event # = 790[0m
+[Info] 2556MB  [1m[31mRun Event # = 800[0m
+[Info] 2556MB  [1m[31mRun Event # = 810[0m
+[Info] 2556MB  [1m[31mRun Event # = 820[0m
+[Info] 2556MB  [1m[31mRun Event # = 830[0m
+[Info] 2556MB  [1m[31mRun Event # = 840[0m
+[Info] 2556MB  [1m[31mRun Event # = 850[0m
+[Info] 2556MB  [1m[31mRun Event # = 860[0m
+[Info] 2556MB  [1m[31mRun Event # = 870[0m
+[Info] 2556MB  [1m[31mRun Event # = 880[0m
+[Info] 2556MB  [1m[31mRun Event # = 890[0m
+[Info] 2556MB  [1m[31mRun Event # = 900[0m
+[Info] 2556MB  [1m[31mRun Event # = 910[0m
+[Info] 2556MB  [1m[31mRun Event # = 920[0m
+[Info] 2556MB  [1m[31mRun Event # = 930[0m
+[Info] 2556MB  [1m[31mRun Event # = 940[0m
+[Info] 2556MB  [1m[31mRun Event # = 950[0m
+[Info] 2556MB  [1m[31mRun Event # = 960[0m
+[Info] 2556MB  [1m[31mRun Event # = 970[0m
+[Info] 2556MB  [1m[31mRun Event # = 980[0m
+[Info] 2556MB  [1m[31mRun Event # = 990[0m
+[Info] 2556MB  [1m[31mRun Event # = 1000[0m
+
+ Pythia::next(): 1000 events have been generated 
+[Info] 2557MB  [1m[31mRun Event # = 1010[0m
+[Info] 2557MB  [1m[31mRun Event # = 1020[0m
+[Info] 2557MB  [1m[31mRun Event # = 1030[0m
+[Info] 2557MB  [1m[31mRun Event # = 1040[0m
+[Info] 2557MB  [1m[31mRun Event # = 1050[0m
+[Info] 2557MB  [1m[31mRun Event # = 1060[0m
+[Info] 2557MB  [1m[31mRun Event # = 1070[0m
+[Info] 2557MB  [1m[31mRun Event # = 1080[0m
+[Info] 2557MB  [1m[31mRun Event # = 1090[0m
+[Info] 2557MB  [1m[31mRun Event # = 1100[0m
+[Info] 2557MB  [1m[31mRun Event # = 1110[0m
+[Info] 2557MB  [1m[31mRun Event # = 1120[0m
+[Info] 2557MB  [1m[31mRun Event # = 1130[0m
+[Info] 2557MB  [1m[31mRun Event # = 1140[0m
+[Info] 2557MB  [1m[31mRun Event # = 1150[0m
+[Info] 2557MB  [1m[31mRun Event # = 1160[0m
+[Info] 2557MB  [1m[31mRun Event # = 1170[0m
+[Info] 2557MB  [1m[31mRun Event # = 1180[0m
+[Info] 2557MB  [1m[31mRun Event # = 1190[0m
+[Info] 2557MB  [1m[31mRun Event # = 1200[0m
+[Info] 2557MB  [1m[31mRun Event # = 1210[0m
+[Info] 2557MB  [1m[31mRun Event # = 1220[0m
+[Info] 2557MB  [1m[31mRun Event # = 1230[0m
+[Info] 2557MB  [1m[31mRun Event # = 1240[0m
+[Info] 2557MB  [1m[31mRun Event # = 1250[0m
+[Info] 2557MB  [1m[31mRun Event # = 1260[0m
+[Info] 2557MB  [1m[31mRun Event # = 1270[0m
+[Info] 2557MB  [1m[31mRun Event # = 1280[0m
+[Info] 2557MB  [1m[31mRun Event # = 1290[0m
+[Info] 2557MB  [1m[31mRun Event # = 1300[0m
+[Info] 2557MB  [1m[31mRun Event # = 1310[0m
+[Info] 2557MB  [1m[31mRun Event # = 1320[0m
+[Info] 2557MB  [1m[31mRun Event # = 1330[0m
+[Info] 2557MB  [1m[31mRun Event # = 1340[0m
+[Info] 2557MB  [1m[31mRun Event # = 1350[0m
+[Info] 2557MB  [1m[31mRun Event # = 1360[0m
+[Info] 2557MB  [1m[31mRun Event # = 1370[0m
+[Info] 2557MB  [1m[31mRun Event # = 1380[0m
+[Info] 2557MB  [1m[31mRun Event # = 1390[0m
+[Info] 2557MB  [1m[31mRun Event # = 1400[0m
+[Info] 2557MB  [1m[31mRun Event # = 1410[0m
+[Info] 2557MB  [1m[31mRun Event # = 1420[0m
+[Info] 2557MB  [1m[31mRun Event # = 1430[0m
+[Info] 2557MB  [1m[31mRun Event # = 1440[0m
+[Info] 2557MB  [1m[31mRun Event # = 1450[0m
+[Info] 2557MB  [1m[31mRun Event # = 1460[0m
+[Info] 2557MB  [1m[31mRun Event # = 1470[0m
+[Info] 2557MB  [1m[31mRun Event # = 1480[0m
+[Info] 2557MB  [1m[31mRun Event # = 1490[0m
+[Info] 2557MB  [1m[31mRun Event # = 1500[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 1510[0m
+[Info] 2557MB  [1m[31mRun Event # = 1520[0m
+[Info] 2557MB  [1m[31mRun Event # = 1530[0m
+[Info] 2557MB  [1m[31mRun Event # = 1540[0m
+[Info] 2557MB  [1m[31mRun Event # = 1550[0m
+[Info] 2557MB  [1m[31mRun Event # = 1560[0m
+[Info] 2557MB  [1m[31mRun Event # = 1570[0m
+[Info] 2557MB  [1m[31mRun Event # = 1580[0m
+[Info] 2557MB  [1m[31mRun Event # = 1590[0m
+[Info] 2557MB  [1m[31mRun Event # = 1600[0m
+[Info] 2557MB  [1m[31mRun Event # = 1610[0m
+[Info] 2557MB  [1m[31mRun Event # = 1620[0m
+[Info] 2557MB  [1m[31mRun Event # = 1630[0m
+[Info] 2557MB  [1m[31mRun Event # = 1640[0m
+[Info] 2557MB  [1m[31mRun Event # = 1650[0m
+[Info] 2557MB  [1m[31mRun Event # = 1660[0m
+[Info] 2557MB  [1m[31mRun Event # = 1670[0m
+[Info] 2557MB  [1m[31mRun Event # = 1680[0m
+[Info] 2557MB  [1m[31mRun Event # = 1690[0m
+[Info] 2557MB  [1m[31mRun Event # = 1700[0m
+[Info] 2557MB  [1m[31mRun Event # = 1710[0m
+[Info] 2557MB  [1m[31mRun Event # = 1720[0m
+[Info] 2557MB  [1m[31mRun Event # = 1730[0m
+[Info] 2557MB  [1m[31mRun Event # = 1740[0m
+[Info] 2557MB  [1m[31mRun Event # = 1750[0m
+[Info] 2557MB  [1m[31mRun Event # = 1760[0m
+[Info] 2557MB  [1m[31mRun Event # = 1770[0m
+[Info] 2557MB  [1m[31mRun Event # = 1780[0m
+[Info] 2557MB  [1m[31mRun Event # = 1790[0m
+[Info] 2557MB  [1m[31mRun Event # = 1800[0m
+[Info] 2557MB  [1m[31mRun Event # = 1810[0m
+[Info] 2557MB  [1m[31mRun Event # = 1820[0m
+[Info] 2557MB  [1m[31mRun Event # = 1830[0m
+[Info] 2557MB  [1m[31mRun Event # = 1840[0m
+[Info] 2557MB  [1m[31mRun Event # = 1850[0m
+[Info] 2557MB  [1m[31mRun Event # = 1860[0m
+[Info] 2557MB  [1m[31mRun Event # = 1870[0m
+[Info] 2557MB  [1m[31mRun Event # = 1880[0m
+[Info] 2557MB  [1m[31mRun Event # = 1890[0m
+[Info] 2557MB  [1m[31mRun Event # = 1900[0m
+[Info] 2557MB  [1m[31mRun Event # = 1910[0m
+[Info] 2557MB  [1m[31mRun Event # = 1920[0m
+[Info] 2557MB  [1m[31mRun Event # = 1930[0m
+[Info] 2557MB  [1m[31mRun Event # = 1940[0m
+[Info] 2557MB  [1m[31mRun Event # = 1950[0m
+[Info] 2557MB  [1m[31mRun Event # = 1960[0m
+[Info] 2557MB  [1m[31mRun Event # = 1970[0m
+[Info] 2557MB  [1m[31mRun Event # = 1980[0m
+[Info] 2557MB  [1m[31mRun Event # = 1990[0m
+[Info] 2557MB  [1m[31mRun Event # = 2000[0m
+
+ Pythia::next(): 2000 events have been generated 
+[Info] 2557MB  [1m[31mRun Event # = 2010[0m
+[Info] 2557MB  [1m[31mRun Event # = 2020[0m
+[Info] 2557MB  [1m[31mRun Event # = 2030[0m
+[Info] 2557MB  [1m[31mRun Event # = 2040[0m
+[Info] 2557MB  [1m[31mRun Event # = 2050[0m
+[Info] 2557MB  [1m[31mRun Event # = 2060[0m
+[Info] 2557MB  [1m[31mRun Event # = 2070[0m
+[Info] 2557MB  [1m[31mRun Event # = 2080[0m
+[Info] 2557MB  [1m[31mRun Event # = 2090[0m
+[Info] 2557MB  [1m[31mRun Event # = 2100[0m
+[Info] 2557MB  [1m[31mRun Event # = 2110[0m
+[Info] 2557MB  [1m[31mRun Event # = 2120[0m
+[Info] 2557MB  [1m[31mRun Event # = 2130[0m
+[Info] 2557MB  [1m[31mRun Event # = 2140[0m
+[Info] 2557MB  [1m[31mRun Event # = 2150[0m
+[Info] 2557MB  [1m[31mRun Event # = 2160[0m
+[Info] 2557MB  [1m[31mRun Event # = 2170[0m
+[Info] 2557MB  [1m[31mRun Event # = 2180[0m
+[Info] 2557MB  [1m[31mRun Event # = 2190[0m
+[Info] 2557MB  [1m[31mRun Event # = 2200[0m
+[Info] 2557MB  [1m[31mRun Event # = 2210[0m
+[Info] 2557MB  [1m[31mRun Event # = 2220[0m
+[Info] 2557MB  [1m[31mRun Event # = 2230[0m
+[Info] 2557MB  [1m[31mRun Event # = 2240[0m
+[Info] 2557MB  [1m[31mRun Event # = 2250[0m
+[Info] 2557MB  [1m[31mRun Event # = 2260[0m
+[Info] 2557MB  [1m[31mRun Event # = 2270[0m
+[Info] 2557MB  [1m[31mRun Event # = 2280[0m
+[Info] 2557MB  [1m[31mRun Event # = 2290[0m
+[Info] 2557MB  [1m[31mRun Event # = 2300[0m
+[Info] 2557MB  [1m[31mRun Event # = 2310[0m
+[Info] 2557MB  [1m[31mRun Event # = 2320[0m
+[Info] 2557MB  [1m[31mRun Event # = 2330[0m
+[Info] 2557MB  [1m[31mRun Event # = 2340[0m
+[Info] 2557MB  [1m[31mRun Event # = 2350[0m
+[Info] 2557MB  [1m[31mRun Event # = 2360[0m
+[Info] 2557MB  [1m[31mRun Event # = 2370[0m
+[Info] 2557MB  [1m[31mRun Event # = 2380[0m
+[Info] 2557MB  [1m[31mRun Event # = 2390[0m
+[Info] 2557MB  [1m[31mRun Event # = 2400[0m
+[Info] 2557MB  [1m[31mRun Event # = 2410[0m
+[Info] 2557MB  [1m[31mRun Event # = 2420[0m
+[Info] 2557MB  [1m[31mRun Event # = 2430[0m
+[Info] 2557MB  [1m[31mRun Event # = 2440[0m
+[Info] 2557MB  [1m[31mRun Event # = 2450[0m
+[Info] 2557MB  [1m[31mRun Event # = 2460[0m
+[Info] 2557MB  [1m[31mRun Event # = 2470[0m
+[Info] 2557MB  [1m[31mRun Event # = 2480[0m
+[Info] 2557MB  [1m[31mRun Event # = 2490[0m
+[Info] 2557MB  [1m[31mRun Event # = 2500[0m
+[Info] 2557MB  [1m[31mRun Event # = 2510[0m
+[Info] 2557MB  [1m[31mRun Event # = 2520[0m
+[Info] 2557MB  [1m[31mRun Event # = 2530[0m
+[Info] 2557MB  [1m[31mRun Event # = 2540[0m
+[Info] 2557MB  [1m[31mRun Event # = 2550[0m
+[Info] 2557MB  [1m[31mRun Event # = 2560[0m
+[Info] 2557MB  [1m[31mRun Event # = 2570[0m
+[Info] 2557MB  [1m[31mRun Event # = 2580[0m
+[Info] 2557MB  [1m[31mRun Event # = 2590[0m
+[Info] 2557MB  [1m[31mRun Event # = 2600[0m
+[Info] 2557MB  [1m[31mRun Event # = 2610[0m
+[Info] 2557MB  [1m[31mRun Event # = 2620[0m
+[Info] 2557MB  [1m[31mRun Event # = 2630[0m
+[Info] 2557MB  [1m[31mRun Event # = 2640[0m
+[Info] 2557MB  [1m[31mRun Event # = 2650[0m
+[Info] 2557MB  [1m[31mRun Event # = 2660[0m
+[Info] 2557MB  [1m[31mRun Event # = 2670[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 2680[0m
+[Info] 2557MB  [1m[31mRun Event # = 2690[0m
+[Info] 2557MB  [1m[31mRun Event # = 2700[0m
+[Info] 2557MB  [1m[31mRun Event # = 2710[0m
+[Info] 2557MB  [1m[31mRun Event # = 2720[0m
+[Info] 2557MB  [1m[31mRun Event # = 2730[0m
+[Info] 2557MB  [1m[31mRun Event # = 2740[0m
+[Info] 2557MB  [1m[31mRun Event # = 2750[0m
+[Info] 2557MB  [1m[31mRun Event # = 2760[0m
+[Info] 2557MB  [1m[31mRun Event # = 2770[0m
+[Info] 2557MB  [1m[31mRun Event # = 2780[0m
+[Info] 2557MB  [1m[31mRun Event # = 2790[0m
+[Info] 2557MB  [1m[31mRun Event # = 2800[0m
+[Info] 2557MB  [1m[31mRun Event # = 2810[0m
+[Info] 2557MB  [1m[31mRun Event # = 2820[0m
+[Info] 2557MB  [1m[31mRun Event # = 2830[0m
+[Info] 2557MB  [1m[31mRun Event # = 2840[0m
+[Info] 2557MB  [1m[31mRun Event # = 2850[0m
+[Info] 2557MB  [1m[31mRun Event # = 2860[0m
+[Info] 2557MB  [1m[31mRun Event # = 2870[0m
+[Info] 2557MB  [1m[31mRun Event # = 2880[0m
+[Info] 2557MB  [1m[31mRun Event # = 2890[0m
+[Info] 2557MB  [1m[31mRun Event # = 2900[0m
+[Info] 2557MB  [1m[31mRun Event # = 2910[0m
+[Info] 2557MB  [1m[31mRun Event # = 2920[0m
+[Info] 2557MB  [1m[31mRun Event # = 2930[0m
+[Info] 2557MB  [1m[31mRun Event # = 2940[0m
+[Info] 2557MB  [1m[31mRun Event # = 2950[0m
+[Info] 2557MB  [1m[31mRun Event # = 2960[0m
+[Info] 2557MB  [1m[31mRun Event # = 2970[0m
+[Info] 2557MB  [1m[31mRun Event # = 2980[0m
+[Info] 2557MB  [1m[31mRun Event # = 2990[0m
+[Info] 2557MB  [1m[31mRun Event # = 3000[0m
+
+ Pythia::next(): 3000 events have been generated 
+[Info] 2557MB  [1m[31mRun Event # = 3010[0m
+[Info] 2557MB  [1m[31mRun Event # = 3020[0m
+[Info] 2557MB  [1m[31mRun Event # = 3030[0m
+[Info] 2557MB  [1m[31mRun Event # = 3040[0m
+[Info] 2557MB  [1m[31mRun Event # = 3050[0m
+[Info] 2557MB  [1m[31mRun Event # = 3060[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 3070[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 3080[0m
+[Info] 2557MB  [1m[31mRun Event # = 3090[0m
+[Info] 2557MB  [1m[31mRun Event # = 3100[0m
+[Info] 2557MB  [1m[31mRun Event # = 3110[0m
+[Info] 2557MB  [1m[31mRun Event # = 3120[0m
+[Info] 2557MB  [1m[31mRun Event # = 3130[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 3140[0m
+[Info] 2557MB  [1m[31mRun Event # = 3150[0m
+[Info] 2557MB  [1m[31mRun Event # = 3160[0m
+[Info] 2557MB  [1m[31mRun Event # = 3170[0m
+[Info] 2557MB  [1m[31mRun Event # = 3180[0m
+[Info] 2557MB  [1m[31mRun Event # = 3190[0m
+[Info] 2557MB  [1m[31mRun Event # = 3200[0m
+[Info] 2557MB  [1m[31mRun Event # = 3210[0m
+[Info] 2557MB  [1m[31mRun Event # = 3220[0m
+[Info] 2557MB  [1m[31mRun Event # = 3230[0m
+[Info] 2557MB  [1m[31mRun Event # = 3240[0m
+[Info] 2557MB  [1m[31mRun Event # = 3250[0m
+[Info] 2557MB  [1m[31mRun Event # = 3260[0m
+[Info] 2557MB  [1m[31mRun Event # = 3270[0m
+[Info] 2557MB  [1m[31mRun Event # = 3280[0m
+[Info] 2557MB  [1m[31mRun Event # = 3290[0m
+[Info] 2557MB  [1m[31mRun Event # = 3300[0m
+[Info] 2557MB  [1m[31mRun Event # = 3310[0m
+[Info] 2557MB  [1m[31mRun Event # = 3320[0m
+[Info] 2557MB  [1m[31mRun Event # = 3330[0m
+[Info] 2557MB  [1m[31mRun Event # = 3340[0m
+[Info] 2557MB  [1m[31mRun Event # = 3350[0m
+[Info] 2557MB  [1m[31mRun Event # = 3360[0m
+[Info] 2557MB  [1m[31mRun Event # = 3370[0m
+[Info] 2557MB  [1m[31mRun Event # = 3380[0m
+[Info] 2557MB  [1m[31mRun Event # = 3390[0m
+[Info] 2557MB  [1m[31mRun Event # = 3400[0m
+[Info] 2557MB  [1m[31mRun Event # = 3410[0m
+[Info] 2557MB  [1m[31mRun Event # = 3420[0m
+[Info] 2557MB  [1m[31mRun Event # = 3430[0m
+[Info] 2557MB  [1m[31mRun Event # = 3440[0m
+[Info] 2557MB  [1m[31mRun Event # = 3450[0m
+[Info] 2557MB  [1m[31mRun Event # = 3460[0m
+[Info] 2557MB  [1m[31mRun Event # = 3470[0m
+[Info] 2557MB  [1m[31mRun Event # = 3480[0m
+[Info] 2557MB  [1m[31mRun Event # = 3490[0m
+[Info] 2557MB  [1m[31mRun Event # = 3500[0m
+[Info] 2557MB  [1m[31mRun Event # = 3510[0m
+[Info] 2557MB  [1m[31mRun Event # = 3520[0m
+[Info] 2557MB  [1m[31mRun Event # = 3530[0m
+[Info] 2557MB  [1m[31mRun Event # = 3540[0m
+[Info] 2557MB  [1m[31mRun Event # = 3550[0m
+[Info] 2557MB  [1m[31mRun Event # = 3560[0m
+[Info] 2557MB  [1m[31mRun Event # = 3570[0m
+[Info] 2557MB  [1m[31mRun Event # = 3580[0m
+[Info] 2557MB  [1m[31mRun Event # = 3590[0m
+[Info] 2557MB  [1m[31mRun Event # = 3600[0m
+[Info] 2557MB  [1m[31mRun Event # = 3610[0m
+[Info] 2557MB  [1m[31mRun Event # = 3620[0m
+[Info] 2557MB  [1m[31mRun Event # = 3630[0m
+[Info] 2557MB  [1m[31mRun Event # = 3640[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 3650[0m
+[Info] 2557MB  [1m[31mRun Event # = 3660[0m
+[Info] 2557MB  [1m[31mRun Event # = 3670[0m
+[Info] 2557MB  [1m[31mRun Event # = 3680[0m
+[Info] 2557MB  [1m[31mRun Event # = 3690[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 3700[0m
+[Info] 2557MB  [1m[31mRun Event # = 3710[0m
+[Info] 2557MB  [1m[31mRun Event # = 3720[0m
+[Info] 2557MB  [1m[31mRun Event # = 3730[0m
+[Info] 2557MB  [1m[31mRun Event # = 3740[0m
+[Info] 2557MB  [1m[31mRun Event # = 3750[0m
+cannot sample final states for HQ scattering ...
+[Info] 2557MB  [1m[31mRun Event # = 3760[0m
+[Info] 2557MB  [1m[31mRun Event # = 3770[0m
+[Info] 2557MB  [1m[31mRun Event # = 3780[0m
+[Info] 2557MB  [1m[31mRun Event # = 3790[0m
+[Info] 2557MB  [1m[31mRun Event # = 3800[0m
+[Info] 2557MB  [1m[31mRun Event # = 3810[0m
+[Info] 2557MB  [1m[31mRun Event # = 3820[0m
+[Info] 2557MB  [1m[31mRun Event # = 3830[0m
+[Info] 2557MB  [1m[31mRun Event # = 3840[0m
+[Info] 2557MB  [1m[31mRun Event # = 3850[0m
+[Info] 2557MB  [1m[31mRun Event # = 3860[0m
+[Info] 2557MB  [1m[31mRun Event # = 3870[0m
+[Info] 2557MB  [1m[31mRun Event # = 3880[0m
+[Info] 2557MB  [1m[31mRun Event # = 3890[0m
+[Info] 2558MB  [1m[31mRun Event # = 3900[0m
+[Info] 2558MB  [1m[31mRun Event # = 3910[0m
+[Info] 2558MB  [1m[31mRun Event # = 3920[0m
+[Info] 2558MB  [1m[31mRun Event # = 3930[0m
+[Info] 2558MB  [1m[31mRun Event # = 3940[0m
+[Info] 2558MB  [1m[31mRun Event # = 3950[0m
+[Info] 2558MB  [1m[31mRun Event # = 3960[0m
+[Info] 2558MB  [1m[31mRun Event # = 3970[0m
+[Info] 2558MB  [1m[31mRun Event # = 3980[0m
+[Info] 2558MB  [1m[31mRun Event # = 3990[0m
+[Info] 2558MB  [1m[31mRun Event # = 4000[0m
+
+ Pythia::next(): 4000 events have been generated 
+[Info] 2558MB  [1m[31mRun Event # = 4010[0m
+[Info] 2558MB  [1m[31mRun Event # = 4020[0m
+[Info] 2558MB  [1m[31mRun Event # = 4030[0m
+[Info] 2558MB  [1m[31mRun Event # = 4040[0m
+[Info] 2558MB  [1m[31mRun Event # = 4050[0m
+[Info] 2558MB  [1m[31mRun Event # = 4060[0m
+[Info] 2558MB  [1m[31mRun Event # = 4070[0m
+[Info] 2558MB  [1m[31mRun Event # = 4080[0m
+[Info] 2558MB  [1m[31mRun Event # = 4090[0m
+[Info] 2558MB  [1m[31mRun Event # = 4100[0m
+[Info] 2558MB  [1m[31mRun Event # = 4110[0m
+[Info] 2558MB  [1m[31mRun Event # = 4120[0m
+[Info] 2558MB  [1m[31mRun Event # = 4130[0m
+[Info] 2558MB  [1m[31mRun Event # = 4140[0m
+[Info] 2558MB  [1m[31mRun Event # = 4150[0m
+cannot sample final states for HQ scattering ...
+[Info] 2558MB  [1m[31mRun Event # = 4160[0m
+[Info] 2558MB  [1m[31mRun Event # = 4170[0m
+[Info] 2558MB  [1m[31mRun Event # = 4180[0m
+[Info] 2558MB  [1m[31mRun Event # = 4190[0m
+[Info] 2558MB  [1m[31mRun Event # = 4200[0m
+[Info] 2558MB  [1m[31mRun Event # = 4210[0m
+[Info] 2558MB  [1m[31mRun Event # = 4220[0m
+[Info] 2558MB  [1m[31mRun Event # = 4230[0m
+[Info] 2558MB  [1m[31mRun Event # = 4240[0m
+[Info] 2558MB  [1m[31mRun Event # = 4250[0m
+[Info] 2558MB  [1m[31mRun Event # = 4260[0m
+[Info] 2558MB  [1m[31mRun Event # = 4270[0m
+[Info] 2558MB  [1m[31mRun Event # = 4280[0m
+[Info] 2558MB  [1m[31mRun Event # = 4290[0m
+[Info] 2558MB  [1m[31mRun Event # = 4300[0m
+[Info] 2558MB  [1m[31mRun Event # = 4310[0m
+cannot sample final states for HQ scattering ...
+[Info] 2558MB  [1m[31mRun Event # = 4320[0m
+[Info] 2558MB  [1m[31mRun Event # = 4330[0m
+[Info] 2558MB  [1m[31mRun Event # = 4340[0m
+[Info] 2558MB  [1m[31mRun Event # = 4350[0m
+[Info] 2558MB  [1m[31mRun Event # = 4360[0m
+[Info] 2558MB  [1m[31mRun Event # = 4370[0m
+[Info] 2558MB  [1m[31mRun Event # = 4380[0m
+[Info] 2558MB  [1m[31mRun Event # = 4390[0m
+[Info] 2558MB  [1m[31mRun Event # = 4400[0m
+[Info] 2558MB  [1m[31mRun Event # = 4410[0m
+[Info] 2558MB  [1m[31mRun Event # = 4420[0m
+[Info] 2558MB  [1m[31mRun Event # = 4430[0m
+[Info] 2558MB  [1m[31mRun Event # = 4440[0m
+[Info] 2558MB  [1m[31mRun Event # = 4450[0m
+[Info] 2558MB  [1m[31mRun Event # = 4460[0m
+[Info] 2558MB  [1m[31mRun Event # = 4470[0m
+[Info] 2558MB  [1m[31mRun Event # = 4480[0m
+[Info] 2558MB  [1m[31mRun Event # = 4490[0m
+[Info] 2558MB  [1m[31mRun Event # = 4500[0m
+[Info] 2558MB  [1m[31mRun Event # = 4510[0m
+[Info] 2558MB  [1m[31mRun Event # = 4520[0m
+[Info] 2558MB  [1m[31mRun Event # = 4530[0m
+[Info] 2558MB  [1m[31mRun Event # = 4540[0m
+[Info] 2558MB  [1m[31mRun Event # = 4550[0m
+[Info] 2558MB  [1m[31mRun Event # = 4560[0m
+[Info] 2558MB  [1m[31mRun Event # = 4570[0m
+[Info] 2558MB  [1m[31mRun Event # = 4580[0m
+[Info] 2558MB  [1m[31mRun Event # = 4590[0m
+[Info] 2558MB  [1m[31mRun Event # = 4600[0m
+[Info] 2558MB  [1m[31mRun Event # = 4610[0m
+[Info] 2558MB  [1m[31mRun Event # = 4620[0m
+[Info] 2558MB  [1m[31mRun Event # = 4630[0m
+[Info] 2558MB  [1m[31mRun Event # = 4640[0m
+[Info] 2558MB  [1m[31mRun Event # = 4650[0m
+[Info] 2558MB  [1m[31mRun Event # = 4660[0m
+[Info] 2558MB  [1m[31mRun Event # = 4670[0m
+[Info] 2558MB  [1m[31mRun Event # = 4680[0m
+[Info] 2558MB  [1m[31mRun Event # = 4690[0m
+[Info] 2558MB  [1m[31mRun Event # = 4700[0m
+[Info] 2558MB  [1m[31mRun Event # = 4710[0m
+[Info] 2558MB  [1m[31mRun Event # = 4720[0m
+[Info] 2558MB  [1m[31mRun Event # = 4730[0m
+[Info] 2558MB  [1m[31mRun Event # = 4740[0m
+[Info] 2558MB  [1m[31mRun Event # = 4750[0m
+[Info] 2558MB  [1m[31mRun Event # = 4760[0m
+[Info] 2558MB  [1m[31mRun Event # = 4770[0m
+[Info] 2558MB  [1m[31mRun Event # = 4780[0m
+[Info] 2558MB  [1m[31mRun Event # = 4790[0m
+[Info] 2558MB  [1m[31mRun Event # = 4800[0m
+[Info] 2558MB  [1m[31mRun Event # = 4810[0m
+[Info] 2558MB  [1m[31mRun Event # = 4820[0m
+[Info] 2558MB  [1m[31mRun Event # = 4830[0m
+[Info] 2558MB  [1m[31mRun Event # = 4840[0m
+[Info] 2558MB  [1m[31mRun Event # = 4850[0m
+[Info] 2558MB  [1m[31mRun Event # = 4860[0m
+[Info] 2558MB  [1m[31mRun Event # = 4870[0m
+[Info] 2558MB  [1m[31mRun Event # = 4880[0m
+[Info] 2558MB  [1m[31mRun Event # = 4890[0m
+[Info] 2558MB  [1m[31mRun Event # = 4900[0m
+[Info] 2558MB  [1m[31mRun Event # = 4910[0m
+[Info] 2558MB  [1m[31mRun Event # = 4920[0m
+[Info] 2558MB  [1m[31mRun Event # = 4930[0m
+[Info] 2558MB  [1m[31mRun Event # = 4940[0m
+[Info] 2558MB  [1m[31mRun Event # = 4950[0m
+[Info] 2558MB  [1m[31mRun Event # = 4960[0m
+[Info] 2558MB  [1m[31mRun Event # = 4970[0m
+[Info] 2558MB  [1m[31mRun Event # = 4980[0m
+[Info] 2558MB  [1m[31mRun Event # = 4990[0m
+[Info] 2558MB  [1m[31mRun Event # = 5000[0m
+
+ Pythia::next(): 5000 events have been generated 
+[Info] 2558MB  [1m[31mRun Event # = 5010[0m
+[Info] 2558MB  [1m[31mRun Event # = 5020[0m
+[Info] 2558MB  [1m[31mRun Event # = 5030[0m
+cannot sample final states for HQ scattering ...
+[Info] 2558MB  [1m[31mRun Event # = 5040[0m
+[Info] 2558MB  [1m[31mRun Event # = 5050[0m
+[Info] 2558MB  [1m[31mRun Event # = 5060[0m
+[Info] 2558MB  [1m[31mRun Event # = 5070[0m
+[Info] 2558MB  [1m[31mRun Event # = 5080[0m
+[Info] 2558MB  [1m[31mRun Event # = 5090[0m
+[Info] 2558MB  [1m[31mRun Event # = 5100[0m
+[Info] 2558MB  [1m[31mRun Event # = 5110[0m
+[Info] 2558MB  [1m[31mRun Event # = 5120[0m
+[Info] 2558MB  [1m[31mRun Event # = 5130[0m
+[Info] 2558MB  [1m[31mRun Event # = 5140[0m
+[Info] 2558MB  [1m[31mRun Event # = 5150[0m
+[Info] 2558MB  [1m[31mRun Event # = 5160[0m
+[Info] 2558MB  [1m[31mRun Event # = 5170[0m
+[Info] 2558MB  [1m[31mRun Event # = 5180[0m
+[Info] 2558MB  [1m[31mRun Event # = 5190[0m
+[Info] 2558MB  [1m[31mRun Event # = 5200[0m
+[Info] 2558MB  [1m[31mRun Event # = 5210[0m
+[Info] 2558MB  [1m[31mRun Event # = 5220[0m
+[Info] 2558MB  [1m[31mRun Event # = 5230[0m
+[Info] 2558MB  [1m[31mRun Event # = 5240[0m
+[Info] 2558MB  [1m[31mRun Event # = 5250[0m
+[Info] 2558MB  [1m[31mRun Event # = 5260[0m
+[Info] 2558MB  [1m[31mRun Event # = 5270[0m
+[Info] 2558MB  [1m[31mRun Event # = 5280[0m
+[Info] 2558MB  [1m[31mRun Event # = 5290[0m
+[Info] 2558MB  [1m[31mRun Event # = 5300[0m
+[Info] 2558MB  [1m[31mRun Event # = 5310[0m
+[Info] 2558MB  [1m[31mRun Event # = 5320[0m
+[Info] 2558MB  [1m[31mRun Event # = 5330[0m
+[Info] 2558MB  [1m[31mRun Event # = 5340[0m
+[Info] 2558MB  [1m[31mRun Event # = 5350[0m
+[Info] 2558MB  [1m[31mRun Event # = 5360[0m
+[Info] 2558MB  [1m[31mRun Event # = 5370[0m
+[Info] 2558MB  [1m[31mRun Event # = 5380[0m
+[Info] 2558MB  [1m[31mRun Event # = 5390[0m
+[Info] 2558MB  [1m[31mRun Event # = 5400[0m
+[Info] 2558MB  [1m[31mRun Event # = 5410[0m
+[Info] 2558MB  [1m[31mRun Event # = 5420[0m
+[Info] 2558MB  [1m[31mRun Event # = 5430[0m
+[Info] 2558MB  [1m[31mRun Event # = 5440[0m
+[Info] 2558MB  [1m[31mRun Event # = 5450[0m
+[Info] 2558MB  [1m[31mRun Event # = 5460[0m
+[Info] 2558MB  [1m[31mRun Event # = 5470[0m
+[Info] 2558MB  [1m[31mRun Event # = 5480[0m
+[Info] 2558MB  [1m[31mRun Event # = 5490[0m
+[Info] 2558MB  [1m[31mRun Event # = 5500[0m
+[Info] 2558MB  [1m[31mRun Event # = 5510[0m
+[Info] 2558MB  [1m[31mRun Event # = 5520[0m
+[Info] 2558MB  [1m[31mRun Event # = 5530[0m
+[Info] 2558MB  [1m[31mRun Event # = 5540[0m
+[Info] 2558MB  [1m[31mRun Event # = 5550[0m
+[Info] 2558MB  [1m[31mRun Event # = 5560[0m
+[Info] 2558MB  [1m[31mRun Event # = 5570[0m
+[Info] 2558MB  [1m[31mRun Event # = 5580[0m
+[Info] 2558MB  [1m[31mRun Event # = 5590[0m
+[Info] 2558MB  [1m[31mRun Event # = 5600[0m
+[Info] 2558MB  [1m[31mRun Event # = 5610[0m
+[Info] 2558MB  [1m[31mRun Event # = 5620[0m
+[Info] 2558MB  [1m[31mRun Event # = 5630[0m
+[Info] 2558MB  [1m[31mRun Event # = 5640[0m
+[Info] 2558MB  [1m[31mRun Event # = 5650[0m
+[Info] 2558MB  [1m[31mRun Event # = 5660[0m
+[Info] 2558MB  [1m[31mRun Event # = 5670[0m
+[Info] 2558MB  [1m[31mRun Event # = 5680[0m
+[Info] 2558MB  [1m[31mRun Event # = 5690[0m
+[Info] 2558MB  [1m[31mRun Event # = 5700[0m
+[Info] 2558MB  [1m[31mRun Event # = 5710[0m
+[Info] 2558MB  [1m[31mRun Event # = 5720[0m
+[Info] 2558MB  [1m[31mRun Event # = 5730[0m
+cannot sample final states for HQ scattering ...
+[Info] 2558MB  [1m[31mRun Event # = 5740[0m
+[Info] 2558MB  [1m[31mRun Event # = 5750[0m
+[Info] 2558MB  [1m[31mRun Event # = 5760[0m
+[Info] 2558MB  [1m[31mRun Event # = 5770[0m
+[Info] 2558MB  [1m[31mRun Event # = 5780[0m
+[Info] 2558MB  [1m[31mRun Event # = 5790[0m
+[Info] 2558MB  [1m[31mRun Event # = 5800[0m
+[Info] 2558MB  [1m[31mRun Event # = 5810[0m
+[Info] 2558MB  [1m[31mRun Event # = 5820[0m
+cannot sample final states for HQ scattering ...
+cannot sample final states for HQ scattering ...
+[Info] 2558MB  [1m[31mRun Event # = 5830[0m
+[Info] 2558MB  [1m[31mRun Event # = 5840[0m
+[Info] 2558MB  [1m[31mRun Event # = 5850[0m
+[Info] 2558MB  [1m[31mRun Event # = 5860[0m
+[Info] 2558MB  [1m[31mRun Event # = 5870[0m
+[Info] 2558MB  [1m[31mRun Event # = 5880[0m
+[Info] 2558MB  [1m[31mRun Event # = 5890[0m
+[Info] 2558MB  [1m[31mRun Event # = 5900[0m
+[Info] 2558MB  [1m[31mRun Event # = 5910[0m
+[Info] 2558MB  [1m[31mRun Event # = 5920[0m
+[Info] 2558MB  [1m[31mRun Event # = 5930[0m
+[Info] 2558MB  [1m[31mRun Event # = 5940[0m
+[Info] 2558MB  [1m[31mRun Event # = 5950[0m
+[Info] 2558MB  [1m[31mRun Event # = 5960[0m
+[Info] 2558MB  [1m[31mRun Event # = 5970[0m
+[Info] 2558MB  [1m[31mRun Event # = 5980[0m
+[Info] 2558MB  [1m[31mRun Event # = 5990[0m
+[Info] 2558MB  [1m[31mRun Event # = 6000[0m
+
+ Pythia::next(): 6000 events have been generated 
+[Info] 2558MB  [1m[31mRun Event # = 6010[0m
+[Info] 2558MB  [1m[31mRun Event # = 6020[0m
+[Info] 2558MB  [1m[31mRun Event # = 6030[0m
+[Info] 2558MB  [1m[31mRun Event # = 6040[0m
+[Info] 2558MB  [1m[31mRun Event # = 6050[0m
+[Info] 2558MB  [1m[31mRun Event # = 6060[0m
+[Info] 2558MB  [1m[31mRun Event # = 6070[0m
+[Info] 2558MB  [1m[31mRun Event # = 6080[0m
+[Info] 2558MB  [1m[31mRun Event # = 6090[0m
+[Info] 2558MB  [1m[31mRun Event # = 6100[0m
+[Info] 2558MB  [1m[31mRun Event # = 6110[0m
+[Info] 2558MB  [1m[31mRun Event # = 6120[0m
+[Info] 2558MB  [1m[31mRun Event # = 6130[0m
+[Info] 2558MB  [1m[31mRun Event # = 6140[0m
+[Info] 2558MB  [1m[31mRun Event # = 6150[0m
+[Info] 2558MB  [1m[31mRun Event # = 6160[0m
+[Info] 2558MB  [1m[31mRun Event # = 6170[0m
+[Info] 2558MB  [1m[31mRun Event # = 6180[0m
+[Info] 2558MB  [1m[31mRun Event # = 6190[0m
+[Info] 2558MB  [1m[31mRun Event # = 6200[0m
+[Info] 2558MB  [1m[31mRun Event # = 6210[0m
+[Info] 2558MB  [1m[31mRun Event # = 6220[0m
+[Info] 2558MB  [1m[31mRun Event # = 6230[0m
+[Info] 2558MB  [1m[31mRun Event # = 6240[0m
+[Info] 2558MB  [1m[31mRun Event # = 6250[0m
+[Info] 2558MB  [1m[31mRun Event # = 6260[0m
+[Info] 2558MB  [1m[31mRun Event # = 6270[0m
+[Info] 2558MB  [1m[31mRun Event # = 6280[0m
+[Info] 2558MB  [1m[31mRun Event # = 6290[0m
+[Info] 2558MB  [1m[31mRun Event # = 6300[0m
+[Info] 2558MB  [1m[31mRun Event # = 6310[0m
+[Info] 2558MB  [1m[31mRun Event # = 6320[0m
+[Info] 2558MB  [1m[31mRun Event # = 6330[0m
+[Info] 2558MB  [1m[31mRun Event # = 6340[0m
+[Info] 2558MB  [1m[31mRun Event # = 6350[0m
+[Info] 2558MB  [1m[31mRun Event # = 6360[0m
+[Info] 2558MB  [1m[31mRun Event # = 6370[0m
+[Info] 2558MB  [1m[31mRun Event # = 6380[0m
+[Info] 2558MB  [1m[31mRun Event # = 6390[0m
+[Info] 2558MB  [1m[31mRun Event # = 6400[0m
+[Info] 2558MB  [1m[31mRun Event # = 6410[0m
+[Info] 2558MB  [1m[31mRun Event # = 6420[0m
+[Info] 2558MB  [1m[31mRun Event # = 6430[0m
+[Info] 2558MB  [1m[31mRun Event # = 6440[0m
+[Info] 2558MB  [1m[31mRun Event # = 6450[0m
+[Info] 2558MB  [1m[31mRun Event # = 6460[0m
+[Info] 2558MB  [1m[31mRun Event # = 6470[0m
+[Info] 2558MB  [1m[31mRun Event # = 6480[0m
+[Info] 2558MB  [1m[31mRun Event # = 6490[0m
+[Info] 2558MB  [1m[31mRun Event # = 6500[0m
+[Info] 2558MB  [1m[31mRun Event # = 6510[0m
+[Info] 2558MB  [1m[31mRun Event # = 6520[0m
+[Info] 2558MB  [1m[31mRun Event # = 6530[0m
+[Info] 2558MB  [1m[31mRun Event # = 6540[0m
+[Info] 2558MB  [1m[31mRun Event # = 6550[0m
+[Info] 2558MB  [1m[31mRun Event # = 6560[0m
+[Info] 2558MB  [1m[31mRun Event # = 6570[0m
+[Info] 2558MB  [1m[31mRun Event # = 6580[0m
+[Info] 2558MB  [1m[31mRun Event # = 6590[0m
+[Info] 2558MB  [1m[31mRun Event # = 6600[0m
+[Info] 2558MB  [1m[31mRun Event # = 6610[0m
+[Info] 2558MB  [1m[31mRun Event # = 6620[0m
+[Info] 2558MB  [1m[31mRun Event # = 6630[0m
+[Info] 2558MB  [1m[31mRun Event # = 6640[0m
+[Info] 2558MB  [1m[31mRun Event # = 6650[0m
+[Info] 2558MB  [1m[31mRun Event # = 6660[0m
+[Info] 2558MB  [1m[31mRun Event # = 6670[0m
+[Info] 2558MB  [1m[31mRun Event # = 6680[0m
+[Info] 2558MB  [1m[31mRun Event # = 6690[0m
+[Info] 2558MB  [1m[31mRun Event # = 6700[0m
+[Info] 2558MB  [1m[31mRun Event # = 6710[0m
+[Info] 2558MB  [1m[31mRun Event # = 6720[0m
+[Info] 2558MB  [1m[31mRun Event # = 6730[0m
+[Info] 2558MB  [1m[31mRun Event # = 6740[0m
+[Info] 2558MB  [1m[31mRun Event # = 6750[0m
+[Info] 2558MB  [1m[31mRun Event # = 6760[0m
+[Info] 2558MB  [1m[31mRun Event # = 6770[0m
+[Info] 2558MB  [1m[31mRun Event # = 6780[0m
+[Info] 2558MB  [1m[31mRun Event # = 6790[0m
+[Info] 2558MB  [1m[31mRun Event # = 6800[0m
+[Info] 2558MB  [1m[31mRun Event # = 6810[0m
+[Info] 2558MB  [1m[31mRun Event # = 6820[0m
+[Info] 2558MB  [1m[31mRun Event # = 6830[0m
+[Info] 2558MB  [1m[31mRun Event # = 6840[0m
+[Info] 2558MB  [1m[31mRun Event # = 6850[0m
+[Info] 2558MB  [1m[31mRun Event # = 6860[0m
+[Info] 2558MB  [1m[31mRun Event # = 6870[0m
+[Info] 2558MB  [1m[31mRun Event # = 6880[0m
+[Info] 2558MB  [1m[31mRun Event # = 6890[0m
+[Info] 2558MB  [1m[31mRun Event # = 6900[0m
+cannot sample final states for HQ scattering ...
+[Info] 2558MB  [1m[31mRun Event # = 6910[0m
+[Info] 2558MB  [1m[31mRun Event # = 6920[0m
+[Info] 2558MB  [1m[31mRun Event # = 6930[0m
+[Info] 2558MB  [1m[31mRun Event # = 6940[0m
+[Info] 2558MB  [1m[31mRun Event # = 6950[0m
+[Info] 2558MB  [1m[31mRun Event # = 6960[0m
+[Info] 2558MB  [1m[31mRun Event # = 6970[0m
+[Info] 2558MB  [1m[31mRun Event # = 6980[0m
+[Info] 2558MB  [1m[31mRun Event # = 6990[0m
+[Info] 2558MB  [1m[31mRun Event # = 7000[0m
+
+ Pythia::next(): 7000 events have been generated 
+[Info] 2558MB  [1m[31mRun Event # = 7010[0m
+[Info] 2558MB  [1m[31mRun Event # = 7020[0m
+[Info] 2558MB  [1m[31mRun Event # = 7030[0m
+[Info] 2558MB  [1m[31mRun Event # = 7040[0m
+[Info] 2558MB  [1m[31mRun Event # = 7050[0m
+[Info] 2558MB  [1m[31mRun Event # = 7060[0m
+[Info] 2558MB  [1m[31mRun Event # = 7070[0m
+[Info] 2558MB  [1m[31mRun Event # = 7080[0m
+[Info] 2558MB  [1m[31mRun Event # = 7090[0m
+[Info] 2558MB  [1m[31mRun Event # = 7100[0m
+[Info] 2558MB  [1m[31mRun Event # = 7110[0m
+[Info] 2558MB  [1m[31mRun Event # = 7120[0m
+cannot sample final states for HQ scattering ...
+[Info] 2558MB  [1m[31mRun Event # = 7130[0m
+[Info] 2558MB  [1m[31mRun Event # = 7140[0m
+[Info] 2558MB  [1m[31mRun Event # = 7150[0m
+[Info] 2558MB  [1m[31mRun Event # = 7160[0m
+[Info] 2558MB  [1m[31mRun Event # = 7170[0m
+[Info] 2558MB  [1m[31mRun Event # = 7180[0m
+[Info] 2558MB  [1m[31mRun Event # = 7190[0m
+[Info] 2558MB  [1m[31mRun Event # = 7200[0m
+[Info] 2558MB  [1m[31mRun Event # = 7210[0m
+[Info] 2558MB  [1m[31mRun Event # = 7220[0m
+[Info] 2558MB  [1m[31mRun Event # = 7230[0m
+[Info] 2558MB  [1m[31mRun Event # = 7240[0m
+[Info] 2558MB  [1m[31mRun Event # = 7250[0m
+[Info] 2558MB  [1m[31mRun Event # = 7260[0m
+[Info] 2558MB  [1m[31mRun Event # = 7270[0m
+[Info] 2558MB  [1m[31mRun Event # = 7280[0m
+[Info] 2558MB  [1m[31mRun Event # = 7290[0m
+[Info] 2558MB  [1m[31mRun Event # = 7300[0m
+[Info] 2558MB  [1m[31mRun Event # = 7310[0m
+[Info] 2558MB  [1m[31mRun Event # = 7320[0m
+[Info] 2558MB  [1m[31mRun Event # = 7330[0m
+cannot sample final states for HQ scattering ...
+cannot sample final states for HQ scattering ...
+[Info] 2560MB  [1m[31mRun Event # = 7340[0m
+[Info] 2565MB  [1m[31mRun Event # = 7350[0m
+[Info] 2565MB  [1m[31mRun Event # = 7360[0m
+[Info] 2566MB  [1m[31mRun Event # = 7370[0m
+cannot sample final states for HQ scattering ...
+[Info] 2566MB  [1m[31mRun Event # = 7380[0m
+[Info] 2566MB  [1m[31mRun Event # = 7390[0m
+[Info] 2566MB  [1m[31mRun Event # = 7400[0m
+[Info] 2566MB  [1m[31mRun Event # = 7410[0m
+[Info] 2566MB  [1m[31mRun Event # = 7420[0m
+[Info] 2566MB  [1m[31mRun Event # = 7430[0m
+[Info] 2566MB  [1m[31mRun Event # = 7440[0m
+[Info] 2566MB  [1m[31mRun Event # = 7450[0m
+cannot sample final states for HQ scattering ...
+[Info] 2566MB  [1m[31mRun Event # = 7460[0m
+[Info] 2566MB  [1m[31mRun Event # = 7470[0m
+[Info] 2566MB  [1m[31mRun Event # = 7480[0m
+[Info] 2566MB  [1m[31mRun Event # = 7490[0m
+[Info] 2566MB  [1m[31mRun Event # = 7500[0m
+[Info] 2566MB  [1m[31mRun Event # = 7510[0m
+[Info] 2566MB  [1m[31mRun Event # = 7520[0m
+[Info] 2566MB  [1m[31mRun Event # = 7530[0m
+[Info] 2566MB  [1m[31mRun Event # = 7540[0m
+[Info] 2566MB  [1m[31mRun Event # = 7550[0m
+[Info] 2566MB  [1m[31mRun Event # = 7560[0m
+[Info] 2566MB  [1m[31mRun Event # = 7570[0m
+[Info] 2566MB  [1m[31mRun Event # = 7580[0m
+[Info] 2566MB  [1m[31mRun Event # = 7590[0m
+[Info] 2566MB  [1m[31mRun Event # = 7600[0m
+[Info] 2566MB  [1m[31mRun Event # = 7610[0m
+[Info] 2566MB  [1m[31mRun Event # = 7620[0m
+[Info] 2566MB  [1m[31mRun Event # = 7630[0m
+[Info] 2566MB  [1m[31mRun Event # = 7640[0m
+[Info] 2566MB  [1m[31mRun Event # = 7650[0m
+[Info] 2566MB  [1m[31mRun Event # = 7660[0m
+[Info] 2566MB  [1m[31mRun Event # = 7670[0m
+[Info] 2566MB  [1m[31mRun Event # = 7680[0m
+[Info] 2566MB  [1m[31mRun Event # = 7690[0m
+[Info] 2566MB  [1m[31mRun Event # = 7700[0m
+[Info] 2566MB  [1m[31mRun Event # = 7710[0m
+[Info] 2566MB  [1m[31mRun Event # = 7720[0m
+[Info] 2566MB  [1m[31mRun Event # = 7730[0m
+[Info] 2566MB  [1m[31mRun Event # = 7740[0m
+[Info] 2566MB  [1m[31mRun Event # = 7750[0m
+[Info] 2566MB  [1m[31mRun Event # = 7760[0m
+[Info] 2566MB  [1m[31mRun Event # = 7770[0m
+[Info] 2566MB  [1m[31mRun Event # = 7780[0m
+[Info] 2566MB  [1m[31mRun Event # = 7790[0m
+[Info] 2566MB  [1m[31mRun Event # = 7800[0m
+[Info] 2566MB  [1m[31mRun Event # = 7810[0m
+[Info] 2566MB  [1m[31mRun Event # = 7820[0m
+[Info] 2566MB  [1m[31mRun Event # = 7830[0m
+[Info] 2568MB  [1m[31mRun Event # = 7840[0m
+[Info] 2568MB  [1m[31mRun Event # = 7850[0m
+[Info] 2568MB  [1m[31mRun Event # = 7860[0m
+[Info] 2568MB  [1m[31mRun Event # = 7870[0m
+[Info] 2568MB  [1m[31mRun Event # = 7880[0m
+[Info] 2568MB  [1m[31mRun Event # = 7890[0m
+[Info] 2568MB  [1m[31mRun Event # = 7900[0m
+[Info] 2568MB  [1m[31mRun Event # = 7910[0m
+[Info] 2568MB  [1m[31mRun Event # = 7920[0m
+[Info] 2568MB  [1m[31mRun Event # = 7930[0m
+[Info] 2568MB  [1m[31mRun Event # = 7940[0m
+[Info] 2568MB  [1m[31mRun Event # = 7950[0m
+[Info] 2568MB  [1m[31mRun Event # = 7960[0m
+[Info] 2568MB  [1m[31mRun Event # = 7970[0m
+[Info] 2568MB  [1m[31mRun Event # = 7980[0m
+[Info] 2568MB  [1m[31mRun Event # = 7990[0m
+[Info] 2568MB  [1m[31mRun Event # = 8000[0m
+
+ Pythia::next(): 8000 events have been generated 
+[Info] 2568MB  [1m[31mRun Event # = 8010[0m
+[Info] 2568MB  [1m[31mRun Event # = 8020[0m
+[Info] 2568MB  [1m[31mRun Event # = 8030[0m
+[Info] 2568MB  [1m[31mRun Event # = 8040[0m
+[Info] 2568MB  [1m[31mRun Event # = 8050[0m
+[Info] 2568MB  [1m[31mRun Event # = 8060[0m
+[Info] 2568MB  [1m[31mRun Event # = 8070[0m
+[Info] 2568MB  [1m[31mRun Event # = 8080[0m
+[Info] 2568MB  [1m[31mRun Event # = 8090[0m
+[Info] 2568MB  [1m[31mRun Event # = 8100[0m
+[Info] 2568MB  [1m[31mRun Event # = 8110[0m
+[Info] 2568MB  [1m[31mRun Event # = 8120[0m
+[Info] 2568MB  [1m[31mRun Event # = 8130[0m
+[Info] 2568MB  [1m[31mRun Event # = 8140[0m
+[Info] 2568MB  [1m[31mRun Event # = 8150[0m
+[Info] 2568MB  [1m[31mRun Event # = 8160[0m
+[Info] 2568MB  [1m[31mRun Event # = 8170[0m
+[Info] 2568MB  [1m[31mRun Event # = 8180[0m
+[Info] 2568MB  [1m[31mRun Event # = 8190[0m
+[Info] 2568MB  [1m[31mRun Event # = 8200[0m
+[Info] 2568MB  [1m[31mRun Event # = 8210[0m
+[Info] 2568MB  [1m[31mRun Event # = 8220[0m
+[Info] 2568MB  [1m[31mRun Event # = 8230[0m
+[Info] 2568MB  [1m[31mRun Event # = 8240[0m
+[Info] 2568MB  [1m[31mRun Event # = 8250[0m
+[Info] 2568MB  [1m[31mRun Event # = 8260[0m
+[Info] 2568MB  [1m[31mRun Event # = 8270[0m
+[Info] 2568MB  [1m[31mRun Event # = 8280[0m
+[Info] 2568MB  [1m[31mRun Event # = 8290[0m
+[Info] 2568MB  [1m[31mRun Event # = 8300[0m
+[Info] 2568MB  [1m[31mRun Event # = 8310[0m
+[Info] 2568MB  [1m[31mRun Event # = 8320[0m
+[Info] 2568MB  [1m[31mRun Event # = 8330[0m
+[Info] 2568MB  [1m[31mRun Event # = 8340[0m
+[Info] 2568MB  [1m[31mRun Event # = 8350[0m
+[Info] 2568MB  [1m[31mRun Event # = 8360[0m
+[Info] 2568MB  [1m[31mRun Event # = 8370[0m
+[Info] 2568MB  [1m[31mRun Event # = 8380[0m
+[Info] 2568MB  [1m[31mRun Event # = 8390[0m
+[Info] 2568MB  [1m[31mRun Event # = 8400[0m
+[Info] 2568MB  [1m[31mRun Event # = 8410[0m
+[Info] 2568MB  [1m[31mRun Event # = 8420[0m
+[Info] 2568MB  [1m[31mRun Event # = 8430[0m
+[Info] 2568MB  [1m[31mRun Event # = 8440[0m
+[Info] 2568MB  [1m[31mRun Event # = 8450[0m
+[Info] 2568MB  [1m[31mRun Event # = 8460[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 8470[0m
+[Info] 2568MB  [1m[31mRun Event # = 8480[0m
+[Info] 2568MB  [1m[31mRun Event # = 8490[0m
+[Info] 2568MB  [1m[31mRun Event # = 8500[0m
+[Info] 2568MB  [1m[31mRun Event # = 8510[0m
+[Info] 2568MB  [1m[31mRun Event # = 8520[0m
+[Info] 2568MB  [1m[31mRun Event # = 8530[0m
+[Info] 2568MB  [1m[31mRun Event # = 8540[0m
+[Info] 2568MB  [1m[31mRun Event # = 8550[0m
+[Info] 2568MB  [1m[31mRun Event # = 8560[0m
+[Info] 2568MB  [1m[31mRun Event # = 8570[0m
+[Info] 2568MB  [1m[31mRun Event # = 8580[0m
+[Info] 2568MB  [1m[31mRun Event # = 8590[0m
+[Info] 2568MB  [1m[31mRun Event # = 8600[0m
+[Info] 2568MB  [1m[31mRun Event # = 8610[0m
+[Info] 2568MB  [1m[31mRun Event # = 8620[0m
+[Info] 2568MB  [1m[31mRun Event # = 8630[0m
+[Info] 2568MB  [1m[31mRun Event # = 8640[0m
+[Info] 2568MB  [1m[31mRun Event # = 8650[0m
+[Info] 2568MB  [1m[31mRun Event # = 8660[0m
+[Info] 2568MB  [1m[31mRun Event # = 8670[0m
+[Info] 2568MB  [1m[31mRun Event # = 8680[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 8690[0m
+[Info] 2568MB  [1m[31mRun Event # = 8700[0m
+[Info] 2568MB  [1m[31mRun Event # = 8710[0m
+[Info] 2568MB  [1m[31mRun Event # = 8720[0m
+[Info] 2568MB  [1m[31mRun Event # = 8730[0m
+[Info] 2568MB  [1m[31mRun Event # = 8740[0m
+[Info] 2568MB  [1m[31mRun Event # = 8750[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 8760[0m
+[Info] 2568MB  [1m[31mRun Event # = 8770[0m
+[Info] 2568MB  [1m[31mRun Event # = 8780[0m
+[Info] 2568MB  [1m[31mRun Event # = 8790[0m
+[Info] 2568MB  [1m[31mRun Event # = 8800[0m
+[Info] 2568MB  [1m[31mRun Event # = 8810[0m
+[Info] 2568MB  [1m[31mRun Event # = 8820[0m
+[Info] 2568MB  [1m[31mRun Event # = 8830[0m
+[Info] 2568MB  [1m[31mRun Event # = 8840[0m
+[Info] 2568MB  [1m[31mRun Event # = 8850[0m
+[Info] 2568MB  [1m[31mRun Event # = 8860[0m
+[Info] 2568MB  [1m[31mRun Event # = 8870[0m
+[Info] 2568MB  [1m[31mRun Event # = 8880[0m
+[Info] 2568MB  [1m[31mRun Event # = 8890[0m
+[Info] 2568MB  [1m[31mRun Event # = 8900[0m
+[Info] 2568MB  [1m[31mRun Event # = 8910[0m
+[Info] 2568MB  [1m[31mRun Event # = 8920[0m
+[Info] 2568MB  [1m[31mRun Event # = 8930[0m
+[Info] 2568MB  [1m[31mRun Event # = 8940[0m
+[Info] 2568MB  [1m[31mRun Event # = 8950[0m
+[Info] 2568MB  [1m[31mRun Event # = 8960[0m
+[Info] 2568MB  [1m[31mRun Event # = 8970[0m
+[Info] 2568MB  [1m[31mRun Event # = 8980[0m
+[Info] 2568MB  [1m[31mRun Event # = 8990[0m
+[Info] 2568MB  [1m[31mRun Event # = 9000[0m
+
+ Pythia::next(): 9000 events have been generated 
+[Info] 2568MB  [1m[31mRun Event # = 9010[0m
+[Info] 2568MB  [1m[31mRun Event # = 9020[0m
+[Info] 2568MB  [1m[31mRun Event # = 9030[0m
+[Info] 2568MB  [1m[31mRun Event # = 9040[0m
+[Info] 2568MB  [1m[31mRun Event # = 9050[0m
+[Info] 2568MB  [1m[31mRun Event # = 9060[0m
+[Info] 2568MB  [1m[31mRun Event # = 9070[0m
+[Info] 2568MB  [1m[31mRun Event # = 9080[0m
+[Info] 2568MB  [1m[31mRun Event # = 9090[0m
+[Info] 2568MB  [1m[31mRun Event # = 9100[0m
+[Info] 2568MB  [1m[31mRun Event # = 9110[0m
+[Info] 2568MB  [1m[31mRun Event # = 9120[0m
+[Info] 2568MB  [1m[31mRun Event # = 9130[0m
+[Info] 2568MB  [1m[31mRun Event # = 9140[0m
+[Info] 2568MB  [1m[31mRun Event # = 9150[0m
+[Info] 2568MB  [1m[31mRun Event # = 9160[0m
+[Info] 2568MB  [1m[31mRun Event # = 9170[0m
+[Info] 2568MB  [1m[31mRun Event # = 9180[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 9190[0m
+[Info] 2568MB  [1m[31mRun Event # = 9200[0m
+[Info] 2568MB  [1m[31mRun Event # = 9210[0m
+[Info] 2568MB  [1m[31mRun Event # = 9220[0m
+[Info] 2568MB  [1m[31mRun Event # = 9230[0m
+[Info] 2568MB  [1m[31mRun Event # = 9240[0m
+[Info] 2568MB  [1m[31mRun Event # = 9250[0m
+[Info] 2568MB  [1m[31mRun Event # = 9260[0m
+[Info] 2568MB  [1m[31mRun Event # = 9270[0m
+[Info] 2568MB  [1m[31mRun Event # = 9280[0m
+[Info] 2568MB  [1m[31mRun Event # = 9290[0m
+[Info] 2568MB  [1m[31mRun Event # = 9300[0m
+[Info] 2568MB  [1m[31mRun Event # = 9310[0m
+[Info] 2568MB  [1m[31mRun Event # = 9320[0m
+[Info] 2568MB  [1m[31mRun Event # = 9330[0m
+[Info] 2568MB  [1m[31mRun Event # = 9340[0m
+[Info] 2568MB  [1m[31mRun Event # = 9350[0m
+[Info] 2568MB  [1m[31mRun Event # = 9360[0m
+[Info] 2568MB  [1m[31mRun Event # = 9370[0m
+[Info] 2568MB  [1m[31mRun Event # = 9380[0m
+[Info] 2568MB  [1m[31mRun Event # = 9390[0m
+[Info] 2568MB  [1m[31mRun Event # = 9400[0m
+[Info] 2568MB  [1m[31mRun Event # = 9410[0m
+[Info] 2568MB  [1m[31mRun Event # = 9420[0m
+[Info] 2568MB  [1m[31mRun Event # = 9430[0m
+[Info] 2568MB  [1m[31mRun Event # = 9440[0m
+[Info] 2568MB  [1m[31mRun Event # = 9450[0m
+[Info] 2568MB  [1m[31mRun Event # = 9460[0m
+[Info] 2568MB  [1m[31mRun Event # = 9470[0m
+[Info] 2568MB  [1m[31mRun Event # = 9480[0m
+[Info] 2568MB  [1m[31mRun Event # = 9490[0m
+[Info] 2568MB  [1m[31mRun Event # = 9500[0m
+[Info] 2568MB  [1m[31mRun Event # = 9510[0m
+[Info] 2568MB  [1m[31mRun Event # = 9520[0m
+[Info] 2568MB  [1m[31mRun Event # = 9530[0m
+[Info] 2568MB  [1m[31mRun Event # = 9540[0m
+[Info] 2568MB  [1m[31mRun Event # = 9550[0m
+[Info] 2568MB  [1m[31mRun Event # = 9560[0m
+[Info] 2568MB  [1m[31mRun Event # = 9570[0m
+[Info] 2568MB  [1m[31mRun Event # = 9580[0m
+[Info] 2568MB  [1m[31mRun Event # = 9590[0m
+[Info] 2568MB  [1m[31mRun Event # = 9600[0m
+[Info] 2568MB  [1m[31mRun Event # = 9610[0m
+[Info] 2568MB  [1m[31mRun Event # = 9620[0m
+[Info] 2568MB  [1m[31mRun Event # = 9630[0m
+[Info] 2568MB  [1m[31mRun Event # = 9640[0m
+[Info] 2568MB  [1m[31mRun Event # = 9650[0m
+[Info] 2568MB  [1m[31mRun Event # = 9660[0m
+[Info] 2568MB  [1m[31mRun Event # = 9670[0m
+[Info] 2568MB  [1m[31mRun Event # = 9680[0m
+[Info] 2568MB  [1m[31mRun Event # = 9690[0m
+[Info] 2568MB  [1m[31mRun Event # = 9700[0m
+[Info] 2568MB  [1m[31mRun Event # = 9710[0m
+[Info] 2568MB  [1m[31mRun Event # = 9720[0m
+[Info] 2568MB  [1m[31mRun Event # = 9730[0m
+[Info] 2568MB  [1m[31mRun Event # = 9740[0m
+[Info] 2568MB  [1m[31mRun Event # = 9750[0m
+[Info] 2568MB  [1m[31mRun Event # = 9760[0m
+[Info] 2568MB  [1m[31mRun Event # = 9770[0m
+[Info] 2568MB  [1m[31mRun Event # = 9780[0m
+[Info] 2568MB  [1m[31mRun Event # = 9790[0m
+[Info] 2568MB  [1m[31mRun Event # = 9800[0m
+[Info] 2568MB  [1m[31mRun Event # = 9810[0m
+[Info] 2568MB  [1m[31mRun Event # = 9820[0m
+[Info] 2568MB  [1m[31mRun Event # = 9830[0m
+[Info] 2568MB  [1m[31mRun Event # = 9840[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 9850[0m
+[Info] 2568MB  [1m[31mRun Event # = 9860[0m
+[Info] 2568MB  [1m[31mRun Event # = 9870[0m
+[Info] 2568MB  [1m[31mRun Event # = 9880[0m
+[Info] 2568MB  [1m[31mRun Event # = 9890[0m
+[Info] 2568MB  [1m[31mRun Event # = 9900[0m
+[Info] 2568MB  [1m[31mRun Event # = 9910[0m
+[Info] 2568MB  [1m[31mRun Event # = 9920[0m
+[Info] 2568MB  [1m[31mRun Event # = 9930[0m
+[Info] 2568MB  [1m[31mRun Event # = 9940[0m
+[Info] 2568MB  [1m[31mRun Event # = 9950[0m
+[Info] 2568MB  [1m[31mRun Event # = 9960[0m
+[Info] 2568MB  [1m[31mRun Event # = 9970[0m
+[Info] 2568MB  [1m[31mRun Event # = 9980[0m
+[Info] 2568MB  [1m[31mRun Event # = 9990[0m
+[Info] 2568MB  [1m[31mRun Event # = 10000[0m
+
+ Pythia::next(): 10000 events have been generated 
+[Info] 2568MB  [1m[31mRun Event # = 10010[0m
+[Info] 2568MB  [1m[31mRun Event # = 10020[0m
+[Info] 2568MB  [1m[31mRun Event # = 10030[0m
+[Info] 2568MB  [1m[31mRun Event # = 10040[0m
+[Info] 2568MB  [1m[31mRun Event # = 10050[0m
+[Info] 2568MB  [1m[31mRun Event # = 10060[0m
+[Info] 2568MB  [1m[31mRun Event # = 10070[0m
+[Info] 2568MB  [1m[31mRun Event # = 10080[0m
+[Info] 2568MB  [1m[31mRun Event # = 10090[0m
+[Info] 2568MB  [1m[31mRun Event # = 10100[0m
+[Info] 2568MB  [1m[31mRun Event # = 10110[0m
+[Info] 2568MB  [1m[31mRun Event # = 10120[0m
+[Info] 2568MB  [1m[31mRun Event # = 10130[0m
+[Info] 2568MB  [1m[31mRun Event # = 10140[0m
+[Info] 2568MB  [1m[31mRun Event # = 10150[0m
+[Info] 2568MB  [1m[31mRun Event # = 10160[0m
+[Info] 2568MB  [1m[31mRun Event # = 10170[0m
+[Info] 2568MB  [1m[31mRun Event # = 10180[0m
+[Info] 2568MB  [1m[31mRun Event # = 10190[0m
+[Info] 2568MB  [1m[31mRun Event # = 10200[0m
+[Info] 2568MB  [1m[31mRun Event # = 10210[0m
+[Info] 2568MB  [1m[31mRun Event # = 10220[0m
+[Info] 2568MB  [1m[31mRun Event # = 10230[0m
+[Info] 2568MB  [1m[31mRun Event # = 10240[0m
+[Info] 2568MB  [1m[31mRun Event # = 10250[0m
+[Info] 2568MB  [1m[31mRun Event # = 10260[0m
+[Info] 2568MB  [1m[31mRun Event # = 10270[0m
+[Info] 2568MB  [1m[31mRun Event # = 10280[0m
+[Info] 2568MB  [1m[31mRun Event # = 10290[0m
+[Info] 2568MB  [1m[31mRun Event # = 10300[0m
+[Info] 2568MB  [1m[31mRun Event # = 10310[0m
+[Info] 2568MB  [1m[31mRun Event # = 10320[0m
+[Info] 2568MB  [1m[31mRun Event # = 10330[0m
+[Info] 2568MB  [1m[31mRun Event # = 10340[0m
+[Info] 2568MB  [1m[31mRun Event # = 10350[0m
+[Info] 2568MB  [1m[31mRun Event # = 10360[0m
+[Info] 2568MB  [1m[31mRun Event # = 10370[0m
+[Info] 2568MB  [1m[31mRun Event # = 10380[0m
+[Info] 2568MB  [1m[31mRun Event # = 10390[0m
+[Info] 2568MB  [1m[31mRun Event # = 10400[0m
+[Info] 2568MB  [1m[31mRun Event # = 10410[0m
+[Info] 2568MB  [1m[31mRun Event # = 10420[0m
+[Info] 2568MB  [1m[31mRun Event # = 10430[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 10440[0m
+[Info] 2568MB  [1m[31mRun Event # = 10450[0m
+[Info] 2568MB  [1m[31mRun Event # = 10460[0m
+[Info] 2568MB  [1m[31mRun Event # = 10470[0m
+[Info] 2568MB  [1m[31mRun Event # = 10480[0m
+[Info] 2568MB  [1m[31mRun Event # = 10490[0m
+[Info] 2568MB  [1m[31mRun Event # = 10500[0m
+[Info] 2568MB  [1m[31mRun Event # = 10510[0m
+[Info] 2568MB  [1m[31mRun Event # = 10520[0m
+[Info] 2568MB  [1m[31mRun Event # = 10530[0m
+[Info] 2568MB  [1m[31mRun Event # = 10540[0m
+[Info] 2568MB  [1m[31mRun Event # = 10550[0m
+[Info] 2568MB  [1m[31mRun Event # = 10560[0m
+[Info] 2568MB  [1m[31mRun Event # = 10570[0m
+[Info] 2568MB  [1m[31mRun Event # = 10580[0m
+[Info] 2568MB  [1m[31mRun Event # = 10590[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 10600[0m
+[Info] 2568MB  [1m[31mRun Event # = 10610[0m
+[Info] 2568MB  [1m[31mRun Event # = 10620[0m
+[Info] 2568MB  [1m[31mRun Event # = 10630[0m
+[Info] 2568MB  [1m[31mRun Event # = 10640[0m
+[Info] 2568MB  [1m[31mRun Event # = 10650[0m
+[Info] 2568MB  [1m[31mRun Event # = 10660[0m
+[Info] 2568MB  [1m[31mRun Event # = 10670[0m
+[Info] 2568MB  [1m[31mRun Event # = 10680[0m
+[Info] 2568MB  [1m[31mRun Event # = 10690[0m
+[Info] 2568MB  [1m[31mRun Event # = 10700[0m
+[Info] 2568MB  [1m[31mRun Event # = 10710[0m
+[Info] 2568MB  [1m[31mRun Event # = 10720[0m
+[Info] 2568MB  [1m[31mRun Event # = 10730[0m
+[Info] 2568MB  [1m[31mRun Event # = 10740[0m
+[Info] 2568MB  [1m[31mRun Event # = 10750[0m
+[Info] 2568MB  [1m[31mRun Event # = 10760[0m
+[Info] 2568MB  [1m[31mRun Event # = 10770[0m
+[Info] 2568MB  [1m[31mRun Event # = 10780[0m
+[Info] 2568MB  [1m[31mRun Event # = 10790[0m
+[Info] 2568MB  [1m[31mRun Event # = 10800[0m
+[Info] 2568MB  [1m[31mRun Event # = 10810[0m
+[Info] 2568MB  [1m[31mRun Event # = 10820[0m
+[Info] 2568MB  [1m[31mRun Event # = 10830[0m
+[Info] 2568MB  [1m[31mRun Event # = 10840[0m
+[Info] 2568MB  [1m[31mRun Event # = 10850[0m
+[Info] 2568MB  [1m[31mRun Event # = 10860[0m
+[Info] 2568MB  [1m[31mRun Event # = 10870[0m
+[Info] 2568MB  [1m[31mRun Event # = 10880[0m
+[Info] 2568MB  [1m[31mRun Event # = 10890[0m
+[Info] 2568MB  [1m[31mRun Event # = 10900[0m
+[Info] 2568MB  [1m[31mRun Event # = 10910[0m
+[Info] 2568MB  [1m[31mRun Event # = 10920[0m
+[Info] 2568MB  [1m[31mRun Event # = 10930[0m
+[Info] 2568MB  [1m[31mRun Event # = 10940[0m
+[Info] 2568MB  [1m[31mRun Event # = 10950[0m
+[Info] 2568MB  [1m[31mRun Event # = 10960[0m
+[Info] 2568MB  [1m[31mRun Event # = 10970[0m
+[Info] 2568MB  [1m[31mRun Event # = 10980[0m
+[Info] 2568MB  [1m[31mRun Event # = 10990[0m
+[Info] 2568MB  [1m[31mRun Event # = 11000[0m
+
+ Pythia::next(): 11000 events have been generated 
+[Info] 2568MB  [1m[31mRun Event # = 11010[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 11020[0m
+[Info] 2568MB  [1m[31mRun Event # = 11030[0m
+[Info] 2568MB  [1m[31mRun Event # = 11040[0m
+[Info] 2568MB  [1m[31mRun Event # = 11050[0m
+[Info] 2568MB  [1m[31mRun Event # = 11060[0m
+[Info] 2568MB  [1m[31mRun Event # = 11070[0m
+[Info] 2568MB  [1m[31mRun Event # = 11080[0m
+[Info] 2568MB  [1m[31mRun Event # = 11090[0m
+[Info] 2568MB  [1m[31mRun Event # = 11100[0m
+[Info] 2568MB  [1m[31mRun Event # = 11110[0m
+[Info] 2568MB  [1m[31mRun Event # = 11120[0m
+[Info] 2568MB  [1m[31mRun Event # = 11130[0m
+[Info] 2568MB  [1m[31mRun Event # = 11140[0m
+[Info] 2568MB  [1m[31mRun Event # = 11150[0m
+[Info] 2568MB  [1m[31mRun Event # = 11160[0m
+[Info] 2568MB  [1m[31mRun Event # = 11170[0m
+[Info] 2568MB  [1m[31mRun Event # = 11180[0m
+[Info] 2568MB  [1m[31mRun Event # = 11190[0m
+[Info] 2568MB  [1m[31mRun Event # = 11200[0m
+[Info] 2568MB  [1m[31mRun Event # = 11210[0m
+[Info] 2568MB  [1m[31mRun Event # = 11220[0m
+[Info] 2568MB  [1m[31mRun Event # = 11230[0m
+[Info] 2568MB  [1m[31mRun Event # = 11240[0m
+[Info] 2568MB  [1m[31mRun Event # = 11250[0m
+[Info] 2568MB  [1m[31mRun Event # = 11260[0m
+[Info] 2568MB  [1m[31mRun Event # = 11270[0m
+[Info] 2568MB  [1m[31mRun Event # = 11280[0m
+[Info] 2568MB  [1m[31mRun Event # = 11290[0m
+[Info] 2568MB  [1m[31mRun Event # = 11300[0m
+[Info] 2568MB  [1m[31mRun Event # = 11310[0m
+[Info] 2568MB  [1m[31mRun Event # = 11320[0m
+[Info] 2568MB  [1m[31mRun Event # = 11330[0m
+[Info] 2568MB  [1m[31mRun Event # = 11340[0m
+[Info] 2568MB  [1m[31mRun Event # = 11350[0m
+[Info] 2568MB  [1m[31mRun Event # = 11360[0m
+[Info] 2568MB  [1m[31mRun Event # = 11370[0m
+[Info] 2568MB  [1m[31mRun Event # = 11380[0m
+[Info] 2568MB  [1m[31mRun Event # = 11390[0m
+[Info] 2568MB  [1m[31mRun Event # = 11400[0m
+[Info] 2568MB  [1m[31mRun Event # = 11410[0m
+[Info] 2568MB  [1m[31mRun Event # = 11420[0m
+[Info] 2568MB  [1m[31mRun Event # = 11430[0m
+[Info] 2568MB  [1m[31mRun Event # = 11440[0m
+[Info] 2568MB  [1m[31mRun Event # = 11450[0m
+[Info] 2568MB  [1m[31mRun Event # = 11460[0m
+[Info] 2568MB  [1m[31mRun Event # = 11470[0m
+[Info] 2568MB  [1m[31mRun Event # = 11480[0m
+[Info] 2568MB  [1m[31mRun Event # = 11490[0m
+[Info] 2568MB  [1m[31mRun Event # = 11500[0m
+[Info] 2568MB  [1m[31mRun Event # = 11510[0m
+[Info] 2568MB  [1m[31mRun Event # = 11520[0m
+[Info] 2568MB  [1m[31mRun Event # = 11530[0m
+[Info] 2568MB  [1m[31mRun Event # = 11540[0m
+[Info] 2568MB  [1m[31mRun Event # = 11550[0m
+[Info] 2568MB  [1m[31mRun Event # = 11560[0m
+[Info] 2568MB  [1m[31mRun Event # = 11570[0m
+[Info] 2568MB  [1m[31mRun Event # = 11580[0m
+[Info] 2568MB  [1m[31mRun Event # = 11590[0m
+[Info] 2568MB  [1m[31mRun Event # = 11600[0m
+[Info] 2568MB  [1m[31mRun Event # = 11610[0m
+[Info] 2568MB  [1m[31mRun Event # = 11620[0m
+[Info] 2568MB  [1m[31mRun Event # = 11630[0m
+[Info] 2568MB  [1m[31mRun Event # = 11640[0m
+[Info] 2568MB  [1m[31mRun Event # = 11650[0m
+[Info] 2568MB  [1m[31mRun Event # = 11660[0m
+[Info] 2568MB  [1m[31mRun Event # = 11670[0m
+[Info] 2568MB  [1m[31mRun Event # = 11680[0m
+[Info] 2568MB  [1m[31mRun Event # = 11690[0m
+[Info] 2568MB  [1m[31mRun Event # = 11700[0m
+[Info] 2568MB  [1m[31mRun Event # = 11710[0m
+[Info] 2568MB  [1m[31mRun Event # = 11720[0m
+[Info] 2568MB  [1m[31mRun Event # = 11730[0m
+[Info] 2568MB  [1m[31mRun Event # = 11740[0m
+[Info] 2568MB  [1m[31mRun Event # = 11750[0m
+[Info] 2568MB  [1m[31mRun Event # = 11760[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 11770[0m
+[Info] 2568MB  [1m[31mRun Event # = 11780[0m
+[Info] 2568MB  [1m[31mRun Event # = 11790[0m
+[Info] 2568MB  [1m[31mRun Event # = 11800[0m
+[Info] 2568MB  [1m[31mRun Event # = 11810[0m
+[Info] 2568MB  [1m[31mRun Event # = 11820[0m
+[Info] 2568MB  [1m[31mRun Event # = 11830[0m
+[Info] 2568MB  [1m[31mRun Event # = 11840[0m
+[Info] 2568MB  [1m[31mRun Event # = 11850[0m
+[Info] 2568MB  [1m[31mRun Event # = 11860[0m
+[Info] 2568MB  [1m[31mRun Event # = 11870[0m
+[Info] 2568MB  [1m[31mRun Event # = 11880[0m
+[Info] 2568MB  [1m[31mRun Event # = 11890[0m
+[Info] 2568MB  [1m[31mRun Event # = 11900[0m
+[Info] 2568MB  [1m[31mRun Event # = 11910[0m
+[Info] 2568MB  [1m[31mRun Event # = 11920[0m
+[Info] 2568MB  [1m[31mRun Event # = 11930[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 11940[0m
+[Info] 2568MB  [1m[31mRun Event # = 11950[0m
+[Info] 2568MB  [1m[31mRun Event # = 11960[0m
+[Info] 2568MB  [1m[31mRun Event # = 11970[0m
+[Info] 2568MB  [1m[31mRun Event # = 11980[0m
+[Info] 2568MB  [1m[31mRun Event # = 11990[0m
+[Info] 2568MB  [1m[31mRun Event # = 12000[0m
+
+ Pythia::next(): 12000 events have been generated 
+[Info] 2568MB  [1m[31mRun Event # = 12010[0m
+[Info] 2568MB  [1m[31mRun Event # = 12020[0m
+[Info] 2568MB  [1m[31mRun Event # = 12030[0m
+[Info] 2568MB  [1m[31mRun Event # = 12040[0m
+[Info] 2568MB  [1m[31mRun Event # = 12050[0m
+[Info] 2568MB  [1m[31mRun Event # = 12060[0m
+[Info] 2568MB  [1m[31mRun Event # = 12070[0m
+[Info] 2568MB  [1m[31mRun Event # = 12080[0m
+[Info] 2568MB  [1m[31mRun Event # = 12090[0m
+[Info] 2568MB  [1m[31mRun Event # = 12100[0m
+[Info] 2568MB  [1m[31mRun Event # = 12110[0m
+[Info] 2568MB  [1m[31mRun Event # = 12120[0m
+[Info] 2568MB  [1m[31mRun Event # = 12130[0m
+[Info] 2568MB  [1m[31mRun Event # = 12140[0m
+[Info] 2568MB  [1m[31mRun Event # = 12150[0m
+[Info] 2568MB  [1m[31mRun Event # = 12160[0m
+[Info] 2568MB  [1m[31mRun Event # = 12170[0m
+[Info] 2568MB  [1m[31mRun Event # = 12180[0m
+[Info] 2568MB  [1m[31mRun Event # = 12190[0m
+[Info] 2568MB  [1m[31mRun Event # = 12200[0m
+[Info] 2568MB  [1m[31mRun Event # = 12210[0m
+[Info] 2568MB  [1m[31mRun Event # = 12220[0m
+[Info] 2568MB  [1m[31mRun Event # = 12230[0m
+[Info] 2568MB  [1m[31mRun Event # = 12240[0m
+[Info] 2568MB  [1m[31mRun Event # = 12250[0m
+[Info] 2568MB  [1m[31mRun Event # = 12260[0m
+[Info] 2568MB  [1m[31mRun Event # = 12270[0m
+[Info] 2568MB  [1m[31mRun Event # = 12280[0m
+[Info] 2568MB  [1m[31mRun Event # = 12290[0m
+[Info] 2568MB  [1m[31mRun Event # = 12300[0m
+[Info] 2568MB  [1m[31mRun Event # = 12310[0m
+[Info] 2568MB  [1m[31mRun Event # = 12320[0m
+[Info] 2568MB  [1m[31mRun Event # = 12330[0m
+[Info] 2568MB  [1m[31mRun Event # = 12340[0m
+[Info] 2568MB  [1m[31mRun Event # = 12350[0m
+[Info] 2568MB  [1m[31mRun Event # = 12360[0m
+[Info] 2568MB  [1m[31mRun Event # = 12370[0m
+[Info] 2568MB  [1m[31mRun Event # = 12380[0m
+[Info] 2568MB  [1m[31mRun Event # = 12390[0m
+[Info] 2568MB  [1m[31mRun Event # = 12400[0m
+[Info] 2568MB  [1m[31mRun Event # = 12410[0m
+[Info] 2568MB  [1m[31mRun Event # = 12420[0m
+[Info] 2568MB  [1m[31mRun Event # = 12430[0m
+[Info] 2568MB  [1m[31mRun Event # = 12440[0m
+[Info] 2568MB  [1m[31mRun Event # = 12450[0m
+[Info] 2568MB  [1m[31mRun Event # = 12460[0m
+[Info] 2568MB  [1m[31mRun Event # = 12470[0m
+[Info] 2568MB  [1m[31mRun Event # = 12480[0m
+[Info] 2568MB  [1m[31mRun Event # = 12490[0m
+[Info] 2568MB  [1m[31mRun Event # = 12500[0m
+[Info] 2568MB  [1m[31mRun Event # = 12510[0m
+[Info] 2568MB  [1m[31mRun Event # = 12520[0m
+[Info] 2568MB  [1m[31mRun Event # = 12530[0m
+[Info] 2568MB  [1m[31mRun Event # = 12540[0m
+[Info] 2568MB  [1m[31mRun Event # = 12550[0m
+[Info] 2568MB  [1m[31mRun Event # = 12560[0m
+[Info] 2568MB  [1m[31mRun Event # = 12570[0m
+[Info] 2568MB  [1m[31mRun Event # = 12580[0m
+[Info] 2568MB  [1m[31mRun Event # = 12590[0m
+[Info] 2568MB  [1m[31mRun Event # = 12600[0m
+[Info] 2568MB  [1m[31mRun Event # = 12610[0m
+[Info] 2568MB  [1m[31mRun Event # = 12620[0m
+[Info] 2568MB  [1m[31mRun Event # = 12630[0m
+[Info] 2568MB  [1m[31mRun Event # = 12640[0m
+[Info] 2568MB  [1m[31mRun Event # = 12650[0m
+[Info] 2568MB  [1m[31mRun Event # = 12660[0m
+[Info] 2568MB  [1m[31mRun Event # = 12670[0m
+[Info] 2568MB  [1m[31mRun Event # = 12680[0m
+[Info] 2568MB  [1m[31mRun Event # = 12690[0m
+[Info] 2568MB  [1m[31mRun Event # = 12700[0m
+[Info] 2568MB  [1m[31mRun Event # = 12710[0m
+[Info] 2568MB  [1m[31mRun Event # = 12720[0m
+[Info] 2568MB  [1m[31mRun Event # = 12730[0m
+[Info] 2568MB  [1m[31mRun Event # = 12740[0m
+[Info] 2568MB  [1m[31mRun Event # = 12750[0m
+[Info] 2568MB  [1m[31mRun Event # = 12760[0m
+[Info] 2568MB  [1m[31mRun Event # = 12770[0m
+[Info] 2568MB  [1m[31mRun Event # = 12780[0m
+[Info] 2568MB  [1m[31mRun Event # = 12790[0m
+[Info] 2568MB  [1m[31mRun Event # = 12800[0m
+[Info] 2568MB  [1m[31mRun Event # = 12810[0m
+[Info] 2568MB  [1m[31mRun Event # = 12820[0m
+[Info] 2568MB  [1m[31mRun Event # = 12830[0m
+[Info] 2568MB  [1m[31mRun Event # = 12840[0m
+[Info] 2568MB  [1m[31mRun Event # = 12850[0m
+[Info] 2568MB  [1m[31mRun Event # = 12860[0m
+[Info] 2568MB  [1m[31mRun Event # = 12870[0m
+[Info] 2568MB  [1m[31mRun Event # = 12880[0m
+[Info] 2568MB  [1m[31mRun Event # = 12890[0m
+[Info] 2568MB  [1m[31mRun Event # = 12900[0m
+[Info] 2568MB  [1m[31mRun Event # = 12910[0m
+[Info] 2568MB  [1m[31mRun Event # = 12920[0m
+[Info] 2568MB  [1m[31mRun Event # = 12930[0m
+[Info] 2568MB  [1m[31mRun Event # = 12940[0m
+[Info] 2568MB  [1m[31mRun Event # = 12950[0m
+[Info] 2568MB  [1m[31mRun Event # = 12960[0m
+[Info] 2568MB  [1m[31mRun Event # = 12970[0m
+[Info] 2568MB  [1m[31mRun Event # = 12980[0m
+[Info] 2568MB  [1m[31mRun Event # = 12990[0m
+[Info] 2568MB  [1m[31mRun Event # = 13000[0m
+
+ Pythia::next(): 13000 events have been generated 
+[Info] 2568MB  [1m[31mRun Event # = 13010[0m
+[Info] 2568MB  [1m[31mRun Event # = 13020[0m
+[Info] 2568MB  [1m[31mRun Event # = 13030[0m
+[Info] 2568MB  [1m[31mRun Event # = 13040[0m
+[Info] 2568MB  [1m[31mRun Event # = 13050[0m
+[Info] 2568MB  [1m[31mRun Event # = 13060[0m
+[Info] 2568MB  [1m[31mRun Event # = 13070[0m
+[Info] 2568MB  [1m[31mRun Event # = 13080[0m
+[Info] 2568MB  [1m[31mRun Event # = 13090[0m
+[Info] 2568MB  [1m[31mRun Event # = 13100[0m
+[Info] 2568MB  [1m[31mRun Event # = 13110[0m
+[Info] 2568MB  [1m[31mRun Event # = 13120[0m
+[Info] 2568MB  [1m[31mRun Event # = 13130[0m
+[Info] 2568MB  [1m[31mRun Event # = 13140[0m
+[Info] 2568MB  [1m[31mRun Event # = 13150[0m
+[Info] 2568MB  [1m[31mRun Event # = 13160[0m
+[Info] 2568MB  [1m[31mRun Event # = 13170[0m
+[Info] 2568MB  [1m[31mRun Event # = 13180[0m
+[Info] 2568MB  [1m[31mRun Event # = 13190[0m
+[Info] 2568MB  [1m[31mRun Event # = 13200[0m
+[Info] 2568MB  [1m[31mRun Event # = 13210[0m
+[Info] 2568MB  [1m[31mRun Event # = 13220[0m
+[Info] 2568MB  [1m[31mRun Event # = 13230[0m
+[Info] 2568MB  [1m[31mRun Event # = 13240[0m
+[Info] 2568MB  [1m[31mRun Event # = 13250[0m
+[Info] 2568MB  [1m[31mRun Event # = 13260[0m
+[Info] 2568MB  [1m[31mRun Event # = 13270[0m
+[Info] 2568MB  [1m[31mRun Event # = 13280[0m
+[Info] 2568MB  [1m[31mRun Event # = 13290[0m
+[Info] 2568MB  [1m[31mRun Event # = 13300[0m
+[Info] 2568MB  [1m[31mRun Event # = 13310[0m
+[Info] 2568MB  [1m[31mRun Event # = 13320[0m
+[Info] 2568MB  [1m[31mRun Event # = 13330[0m
+[Info] 2568MB  [1m[31mRun Event # = 13340[0m
+[Info] 2568MB  [1m[31mRun Event # = 13350[0m
+[Info] 2568MB  [1m[31mRun Event # = 13360[0m
+[Info] 2568MB  [1m[31mRun Event # = 13370[0m
+[Info] 2568MB  [1m[31mRun Event # = 13380[0m
+[Info] 2568MB  [1m[31mRun Event # = 13390[0m
+[Info] 2568MB  [1m[31mRun Event # = 13400[0m
+[Info] 2568MB  [1m[31mRun Event # = 13410[0m
+[Info] 2568MB  [1m[31mRun Event # = 13420[0m
+[Info] 2568MB  [1m[31mRun Event # = 13430[0m
+[Info] 2568MB  [1m[31mRun Event # = 13440[0m
+[Info] 2568MB  [1m[31mRun Event # = 13450[0m
+[Info] 2568MB  [1m[31mRun Event # = 13460[0m
+[Info] 2568MB  [1m[31mRun Event # = 13470[0m
+[Info] 2568MB  [1m[31mRun Event # = 13480[0m
+[Info] 2568MB  [1m[31mRun Event # = 13490[0m
+[Info] 2568MB  [1m[31mRun Event # = 13500[0m
+[Info] 2568MB  [1m[31mRun Event # = 13510[0m
+[Info] 2568MB  [1m[31mRun Event # = 13520[0m
+[Info] 2568MB  [1m[31mRun Event # = 13530[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 13540[0m
+[Info] 2568MB  [1m[31mRun Event # = 13550[0m
+[Info] 2568MB  [1m[31mRun Event # = 13560[0m
+[Info] 2568MB  [1m[31mRun Event # = 13570[0m
+[Info] 2568MB  [1m[31mRun Event # = 13580[0m
+[Info] 2568MB  [1m[31mRun Event # = 13590[0m
+[Info] 2568MB  [1m[31mRun Event # = 13600[0m
+[Info] 2568MB  [1m[31mRun Event # = 13610[0m
+[Info] 2568MB  [1m[31mRun Event # = 13620[0m
+[Info] 2568MB  [1m[31mRun Event # = 13630[0m
+[Info] 2568MB  [1m[31mRun Event # = 13640[0m
+[Info] 2568MB  [1m[31mRun Event # = 13650[0m
+[Info] 2568MB  [1m[31mRun Event # = 13660[0m
+[Info] 2568MB  [1m[31mRun Event # = 13670[0m
+[Info] 2568MB  [1m[31mRun Event # = 13680[0m
+[Info] 2568MB  [1m[31mRun Event # = 13690[0m
+[Info] 2568MB  [1m[31mRun Event # = 13700[0m
+[Info] 2568MB  [1m[31mRun Event # = 13710[0m
+[Info] 2568MB  [1m[31mRun Event # = 13720[0m
+[Info] 2568MB  [1m[31mRun Event # = 13730[0m
+[Info] 2568MB  [1m[31mRun Event # = 13740[0m
+[Info] 2568MB  [1m[31mRun Event # = 13750[0m
+[Info] 2568MB  [1m[31mRun Event # = 13760[0m
+[Info] 2568MB  [1m[31mRun Event # = 13770[0m
+[Info] 2568MB  [1m[31mRun Event # = 13780[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 13790[0m
+[Info] 2568MB  [1m[31mRun Event # = 13800[0m
+[Info] 2568MB  [1m[31mRun Event # = 13810[0m
+[Info] 2568MB  [1m[31mRun Event # = 13820[0m
+[Info] 2568MB  [1m[31mRun Event # = 13830[0m
+[Info] 2568MB  [1m[31mRun Event # = 13840[0m
+[Info] 2568MB  [1m[31mRun Event # = 13850[0m
+[Info] 2568MB  [1m[31mRun Event # = 13860[0m
+[Info] 2568MB  [1m[31mRun Event # = 13870[0m
+[Info] 2568MB  [1m[31mRun Event # = 13880[0m
+[Info] 2568MB  [1m[31mRun Event # = 13890[0m
+[Info] 2568MB  [1m[31mRun Event # = 13900[0m
+[Info] 2568MB  [1m[31mRun Event # = 13910[0m
+[Info] 2568MB  [1m[31mRun Event # = 13920[0m
+[Info] 2568MB  [1m[31mRun Event # = 13930[0m
+[Info] 2568MB  [1m[31mRun Event # = 13940[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 13950[0m
+cannot sample final states for HQ scattering ...
+[Info] 2568MB  [1m[31mRun Event # = 13960[0m
+[Info] 2568MB  [1m[31mRun Event # = 13970[0m
+[Info] 2568MB  [1m[31mRun Event # = 13980[0m
+[Info] 2568MB  [1m[31mRun Event # = 13990[0m
+[Info] 2568MB  [1m[31mRun Event # = 14000[0m
+
+ Pythia::next(): 14000 events have been generated 
+[Info] 2568MB  [1m[31mRun Event # = 14010[0m
+[Info] 2568MB  [1m[31mRun Event # = 14020[0m
+[Info] 2568MB  [1m[31mRun Event # = 14030[0m
+[Info] 2568MB  [1m[31mRun Event # = 14040[0m
+[Info] 2568MB  [1m[31mRun Event # = 14050[0m
+[Info] 2568MB  [1m[31mRun Event # = 14060[0m
+[Info] 2568MB  [1m[31mRun Event # = 14070[0m
+[Info] 2568MB  [1m[31mRun Event # = 14080[0m
+[Info] 2568MB  [1m[31mRun Event # = 14090[0m
+[Info] 2568MB  [1m[31mRun Event # = 14100[0m
+[Info] 2568MB  [1m[31mRun Event # = 14110[0m
+[Info] 2568MB  [1m[31mRun Event # = 14120[0m
+[Info] 2568MB  [1m[31mRun Event # = 14130[0m
+[Info] 2568MB  [1m[31mRun Event # = 14140[0m
+[Info] 2568MB  [1m[31mRun Event # = 14150[0m
+[Info] 2568MB  [1m[31mRun Event # = 14160[0m
+[Info] 2568MB  [1m[31mRun Event # = 14170[0m
+[Info] 2568MB  [1m[31mRun Event # = 14180[0m
+[Info] 2568MB  [1m[31mRun Event # = 14190[0m
+[Info] 2568MB  [1m[31mRun Event # = 14200[0m
+[Info] 2568MB  [1m[31mRun Event # = 14210[0m
+[Info] 2568MB  [1m[31mRun Event # = 14220[0m
+[Info] 2568MB  [1m[31mRun Event # = 14230[0m
+[Info] 2568MB  [1m[31mRun Event # = 14240[0m
+[Info] 2568MB  [1m[31mRun Event # = 14250[0m
+[Info] 2568MB  [1m[31mRun Event # = 14260[0m
+[Info] 2568MB  [1m[31mRun Event # = 14270[0m
+[Info] 2568MB  [1m[31mRun Event # = 14280[0m
+[Info] 2568MB  [1m[31mRun Event # = 14290[0m
+[Info] 2568MB  [1m[31mRun Event # = 14300[0m
+[Info] 2568MB  [1m[31mRun Event # = 14310[0m
+[Info] 2568MB  [1m[31mRun Event # = 14320[0m
+[Info] 2568MB  [1m[31mRun Event # = 14330[0m
+[Info] 2568MB  [1m[31mRun Event # = 14340[0m
+[Info] 2568MB  [1m[31mRun Event # = 14350[0m
+[Info] 2568MB  [1m[31mRun Event # = 14360[0m
+[Info] 2568MB  [1m[31mRun Event # = 14370[0m
+[Info] 2568MB  [1m[31mRun Event # = 14380[0m
+[Info] 2568MB  [1m[31mRun Event # = 14390[0m
+[Info] 2568MB  [1m[31mRun Event # = 14400[0m
+[Info] 2568MB  [1m[31mRun Event # = 14410[0m
+[Info] 2568MB  [1m[31mRun Event # = 14420[0m
+[Info] 2568MB  [1m[31mRun Event # = 14430[0m
+[Info] 2568MB  [1m[31mRun Event # = 14440[0m
+[Info] 2568MB  [1m[31mRun Event # = 14450[0m
+[Info] 2568MB  [1m[31mRun Event # = 14460[0m
+[Info] 2568MB  [1m[31mRun Event # = 14470[0m
+[Info] 2568MB  [1m[31mRun Event # = 14480[0m
+[Info] 2568MB  [1m[31mRun Event # = 14490[0m
+[Info] 2568MB  [1m[31mRun Event # = 14500[0m
+[Info] 2568MB  [1m[31mRun Event # = 14510[0m
+[Info] 2568MB  [1m[31mRun Event # = 14520[0m
+[Info] 2568MB  [1m[31mRun Event # = 14530[0m
+[Info] 2568MB  [1m[31mRun Event # = 14540[0m
+[Info] 2568MB  [1m[31mRun Event # = 14550[0m
+[Info] 2568MB  [1m[31mRun Event # = 14560[0m
+[Info] 2568MB  [1m[31mRun Event # = 14570[0m
+[Info] 2568MB  [1m[31mRun Event # = 14580[0m
+[Info] 2568MB  [1m[31mRun Event # = 14590[0m
+[Info] 2568MB  [1m[31mRun Event # = 14600[0m
+[Info] 2568MB  [1m[31mRun Event # = 14610[0m
+[Info] 2568MB  [1m[31mRun Event # = 14620[0m
+[Info] 2568MB  [1m[31mRun Event # = 14630[0m
+[Info] 2568MB  [1m[31mRun Event # = 14640[0m
+[Info] 2568MB  [1m[31mRun Event # = 14650[0m
+[Info] 2568MB  [1m[31mRun Event # = 14660[0m
+[Info] 2568MB  [1m[31mRun Event # = 14670[0m
+[Info] 2568MB  [1m[31mRun Event # = 14680[0m
+[Info] 2568MB  [1m[31mRun Event # = 14690[0m
+[Info] 2568MB  [1m[31mRun Event # = 14700[0m
+[Info] 2568MB  [1m[31mRun Event # = 14710[0m
+[Info] 2568MB  [1m[31mRun Event # = 14720[0m
+[Info] 2568MB  [1m[31mRun Event # = 14730[0m
+[Info] 2568MB  [1m[31mRun Event # = 14740[0m
+[Info] 2568MB  [1m[31mRun Event # = 14750[0m
+[Info] 2568MB  [1m[31mRun Event # = 14760[0m
+[Info] 2568MB  [1m[31mRun Event # = 14770[0m
+[Info] 2568MB  [1m[31mRun Event # = 14780[0m
+[Info] 2568MB  [1m[31mRun Event # = 14790[0m
+[Info] 2568MB  [1m[31mRun Event # = 14800[0m
+[Info] 2568MB  [1m[31mRun Event # = 14810[0m
+[Info] 2568MB  [1m[31mRun Event # = 14820[0m
+[Info] 2568MB  [1m[31mRun Event # = 14830[0m
+[Info] 2568MB  [1m[31mRun Event # = 14840[0m
+[Info] 2568MB  [1m[31mRun Event # = 14850[0m
+[Info] 2568MB  [1m[31mRun Event # = 14860[0m
+[Info] 2568MB  [1m[31mRun Event # = 14870[0m
+[Info] 2568MB  [1m[31mRun Event # = 14880[0m
+[Info] 2568MB  [1m[31mRun Event # = 14890[0m
+[Info] 2568MB  [1m[31mRun Event # = 14900[0m
+[Info] 2568MB  [1m[31mRun Event # = 14910[0m
+[Info] 2568MB  [1m[31mRun Event # = 14920[0m
+[Info] 2568MB  [1m[31mRun Event # = 14930[0m
+[Info] 2568MB  [1m[31mRun Event # = 14940[0m
+[Info] 2568MB  [1m[31mRun Event # = 14950[0m
+[Info] 2568MB  [1m[31mRun Event # = 14960[0m
+[Info] 2568MB  [1m[31mRun Event # = 14970[0m
+[Info] 2568MB  [1m[31mRun Event # = 14980[0m
+[Info] 2568MB  [1m[31mRun Event # = 14990[0m
+[Info] 2568MB  [1m[30mJetScape finished after 15000 events![0m
+[Info] Finished![0m
+
+CPU time: 37284.871094 seconds.
+Real time: 37380.000000 seconds.
+[Info] 2568MB   clean up the loaded hydro event ...[0m
