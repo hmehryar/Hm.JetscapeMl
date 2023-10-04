@@ -1,0 +1,218 @@
+Converting notebook to script
+Running dataset step-8-dataset-concat-shuffler for CONFIG_NUMBER 6, q0=2.0, alpha_s=0.4
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Installing pickle5
+Installed pickle5
+
+Python version: 3.7.3
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+data_size:  600000
+configuration_number:  6
+alpha_s:  0.4
+q0:  2.0
+Tokenized Arguments:
+data_size
+configuration_number
+alpha_s
+q0
+
+Tokenized Values:
+data_size: 600000
+configuration_number: 6
+alpha_s: 0.4
+q0: 2.0
+Test: Loading dataset MATTER side and Printing Y side to make sure, 3 colums are
+Loading dataset_mvac
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-06-MMAT-alpha_s-0.4-q0-1-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 1620000 (540000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 180000 (60000, 3)
+Sample dataset.y_test
+[['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']]
+
+########################################################################
+Loading dataset_mlbt
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-06-MLBT-alpha_s-0.4-q0-2.0-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 1620000 (540000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 180000 (60000, 3)
+Sample dataset.y_test
+[['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']]
+
+########################################################################
+indices [ 205669  123716   51755  773777  674868  959862  739203  645190  170952
+  773173  731678  596762  702068  204292  595007  836095  112297    9776
+  142826  117631  151978  178761  306804  624279  795186  185670  332065
+  877285 1071929  213199  456646  767024  429957  132313  387203  457955
+  611669  382334  951161  670279  681577  200234  158137   97879  235606
+  589905  677492  473694 1003992  122584  126849  428882  135170   23690
+  857839  668895  824953  181881  828586  756434  448196   92031  774865
+  162396   18615  625976  805950  832141   22814 1022837  492536  171228
+  102076  440525  631548  173934  594470  208362  966973  801726   30392
+  523906  397311  468280   13595  900498  308312  221650  445998  695936
+  317606   33578  660729  132328  825853  306921   25620  501247 1058924]
+merged_dataset x_train shape: (1080000, 32, 32)
+merged_dataset x_test shape: (120000, 32, 32)
+merged_dataset y_train shape: (1080000, 3)
+merged_dataset y_test shape: (120000, 3)
+merged_dataset y_train values:
+ [['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MLBT' '0.4' '2.0']]
+merged_dataset y_test values:
+ [['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']]
+Save merged dataset as  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_06_alpha_0.4_q0_2.0_MMAT_MLBT_size_1200000_shuffled.npz
+Merged dataset saved as: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_06_alpha_0.4_q0_2.0_MMAT_MLBT_size_1200000_shuffled.npz

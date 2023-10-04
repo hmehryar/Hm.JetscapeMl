@@ -1,0 +1,299 @@
+[Info] ------------------------------[0m
+[Info] | ... JetScape Framework ... |[0m
+[Info] ------------------------------[0m
+[Info] [0m
+[Info] *--------------------------------------------------------------*[0m
+[Info] |                                                              |[0m
+[Info] |                  /\                                          |[0m
+[Info] |                 /  \                                         |[0m
+[Info] |                / |  \                                        |[0m
+[Info] |               /  |   \              /\                       |[0m
+[Info] |              /   |    \          /\/  \                      |[0m
+[Info] |             / \  |  /  \      /\/   |  \/\                   |[0m
+[Info] |            /   \ | /    \    /    % | %   \                  |[0m
+[Info] |         __/     \|/      \__/      %|%     \/\__             |[0m
+[Info] |                                                              |[0m
+[Info] |                          JETSCAPE                            |[0m
+[Info] |                                                              |[0m
+[Info] |     The Jet Energy-loss Tomography with a Statistically      |[0m
+[Info] |       and Computationally Advanced Program Envelope          |[0m
+[Info] |                     http://jetscape.org                      |[0m
+[Info] |                                                              |[0m
+[Info] | Please cite arXiv:1903.07706 if you use this package for     |[0m
+[Info] | scientific work.                                             |[0m
+[Info] |                                                              |[0m
+[Info] | JETSCAPE is provided without warranty under the terms        |[0m
+[Info] | of the GNU GPLv3. It uses xxx code(s).                       |[0m
+[Info] | See COPYING file for details.                                |[0m
+[Info] |                                                              |[0m
+[Info] *--------------------------------------------------------------*[0m
+[Info] 86MB  [1m[31mIntialize JetScape ...[0m
+[Info] 86MB  Created JetScapeXML Instance[0m
+[Info] 86MB  Open XML Master file : ../config/jetscape_master.xml[0m
+[Info] 87MB  Open XML User file : ../config/jetscape_user_03.xml[0m
+[Info] 87MB  ================================================================[0m
+[Info] 87MB  nEvents = 20000[0m
+[Info] 87MB  Reuse Hydro:  true [0m
+[Info] 87MB  nReuseHydro: 500000[0m
+[Info] 87MB  JetScapeTaskSupport found seed 0, using one engine for all and reseeding to 1276602760[0m
+[Info] 87MB  Intialize CausalLiquefier ...[0m
+[Info] 87MB  Created liquefier.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Initial state: Added InitialFromFile to task list.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Hard Process: Added PGun to task list.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Hydro: Added hydro_from_file to task list.[0m
+[Info] 87MB  Set ID to: Hydro from file[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Added liquefier to Eloss.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Added PartonPrinter to task list.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Hadronization: Added liquefier to ColorlessHadronization[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
+[Info] 87MB  JetScape::DetermineTaskList() -- Added HadronPrinter to task list.[0m
+[Info] 87MB  ================================================================[0m
+[Info] 87MB  Found 8 Modules Initialize them ... [0m
+[Info] 87MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 87MB  Created JetScapeSignalManager Instance[0m
+[Info] 87MB  Calling JetScape InitTasks()...[0m
+[Info] 87MB  Intialize InitialState ... InitialFromFile ...[0m
+[Info] 87MB  x range for bulk evolution = [-15, 15][0m
+[Info] 87MB  Intialize HardProcess : PGun ...[0m
+[Info] 87MB  Parton Gun with fixed pT = 100[0m
+[Info] 87MB  Parton Gun with parID = 21[0m
+[Info] 87MB  Use hybrid hadronization? 0[0m
+[Info] 87MB  Intialize PreequilibriumDynamics : NullPreDynamics ...[0m
+[Info] 87MB  Intialize FluidDynamics : Hydro from file ...[0m
+[Info] 87MB  Intialize JetEnergyLoss Manager ...[0m
+[Info] 87MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 87MB  Intialize JetEnergyLoss ...[0m
+[Info] 87MB  Eloss shower with deltaT = 0.1 and maxT = 200[0m
+[Info] 87MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 87MB  Intialize Matter ...[0m
+[Info] 87MB  [35mMATTER input parameter[0m
+[Info] 87MB  [35muse hybrid hadronization later? 0[0m
+[Info] 87MB  [35mmatter shower on: 1[0m
+[Info] 87MB  [35min_vac: 0  brick_med: 0  recoil_on: 1, tStart =0.6[0m
+[Info] 87MB  [35mQ0: 1 vir_factor: 0.25  qhat0: -2 alphas: 0.4, QhatParametrizationType=1  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 87MB  Running alphas will be used as 4*pi/(9.0*log(2*enerLoc*tempLoc/LambdaQCDS))[0m
+[Info] 87MB  [35mReminder: download LBT tables first and cmake .. if recoil is switched on in MATTER.[0m
+Erro openning HQ data file!
+Erro openning data file distB.dat!
+Erro openning data file distF.dat!
+[Info] 87MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 87MB  Intialize PartonPrinter ...[0m
+[Info] 87MB  Intialize Hadronization Manager ...[0m
+[Info] 87MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 87MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 87MB  Weak decays are turned on[0m
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | Next:numberShowProcess                        |                        0 |            1           0             | 
+ | ParticleDecays:limitTau0                      |                       on |          off                         | 
+ | PartonLevel:FSR                               |                      off |           on                         | 
+ | ProcessLevel:all                              |                      off |           on                         | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  PYTHIA Particle Data Table (changed only)  ------------------------------------------------------------------------------
+ 
+      id   name            antiName         spn chg col      m0        mWidth      mMin       mMax       tau0    res dec ext vis wid
+             no onMode   bRatio   meMode     products 
+
+ no particle data has been changed from its default value 
+
+ --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
+
+[Info] 88MB  Connect HadronizationManager Signal to Energy Loss ...[0m
+[Info] 88MB  [1m[31mRun JetScape ...[0m
+[Info] 88MB  [1m[31mNumber of Events = 20000[0m
+[Info] 88MB  [1m[31mRun Event # = 0[0m
+[Info] 88MB  clear initial condition vectors[0m
+[Info] 88MB  Read initial condition from file[0m
+[Info] 88MB  External initial profile path is../../JETSCAPE-Hydro-Profiles/event-0/initial.hdf5[0m
+[Info] 88MB  event_group=/event_0[0m
+[Info] 89MB  Read initial state configurations from file[0m
+[Info] 89MB  xmax = 15[0m
+[Info] 89MB  Read number of binary collisions from file[0m
+[Info] 92MB  Read initial entropy density distribution from file[0m
+[Info] 109MB  read in a VISHNew hydro event from file ../../JETSCAPE-Hydro-Profiles//event-0/JetData.h5[0m
+-----------------------------------------
+-----------hydro grid info---------------
+-----------------------------------------
+XL = -96
+XH = 96
+DX = 0.2 fm
+YL = -96
+YH = 96
+DY = 0.2 fm
+Tau0 = 0.1 fm
+dTau = 0.1 fm
+Number of Frames: 150
+Taumax = 15 fm
+Read in viscous information?  No!
+-----------------------------------------
+[Info] 2552MB  [1m[31mRun Event # = 10[0m
+[Info] 2552MB  [1m[31mRun Event # = 20[0m
+[Info] 2552MB  [1m[31mRun Event # = 30[0m
+[Info] 2552MB  [1m[31mRun Event # = 40[0m
+[Info] 2552MB  [1m[31mRun Event # = 50[0m
+[Info] 2552MB  [1m[31mRun Event # = 60[0m
+[Info] 2552MB  [1m[31mRun Event # = 70[0m
+[Info] 2552MB  [1m[31mRun Event # = 80[0m
+[Info] 2552MB  [1m[31mRun Event # = 90[0m
+[Info] 2552MB  [1m[31mRun Event # = 100[0m
+[Info] 2552MB  [1m[31mRun Event # = 110[0m
+[Info] 2552MB  [1m[31mRun Event # = 120[0m
+[Info] 2552MB  [1m[31mRun Event # = 130[0m
+[Info] 2552MB  [1m[31mRun Event # = 140[0m
+[Info] 2552MB  [1m[31mRun Event # = 150[0m
+[Info] 2552MB  [1m[31mRun Event # = 160[0m
+[Info] 2552MB  [1m[31mRun Event # = 170[0m
+[Info] 2552MB  [1m[31mRun Event # = 180[0m
+[Info] 2552MB  [1m[31mRun Event # = 190[0m
+[Info] 2552MB  [1m[31mRun Event # = 200[0m
+[Info] 2552MB  [1m[31mRun Event # = 210[0m
+[Info] 2552MB  [1m[31mRun Event # = 220[0m
+[Info] 2552MB  [1m[31mRun Event # = 230[0m
+[Info] 2552MB  [1m[31mRun Event # = 240[0m
+[Info] 2552MB  [1m[31mRun Event # = 250[0m
+[Info] 2552MB  [1m[31mRun Event # = 260[0m
+[Info] 2552MB  [1m[31mRun Event # = 270[0m
+[Info] 2552MB  [1m[31mRun Event # = 280[0m
+[Info] 2552MB  [1m[31mRun Event # = 290[0m
+[Info] 2552MB  [1m[31mRun Event # = 300[0m
+[Info] 2552MB  [1m[31mRun Event # = 310[0m
+[Info] 2552MB  [1m[31mRun Event # = 320[0m
+[Info] 2552MB  [1m[31mRun Event # = 330[0m
+[Info] 2552MB  [1m[31mRun Event # = 340[0m
+[Info] 2552MB  [1m[31mRun Event # = 350[0m
+[Info] 2552MB  [1m[31mRun Event # = 360[0m
+[Info] 2552MB  [1m[31mRun Event # = 370[0m
+[Info] 2552MB  [1m[31mRun Event # = 380[0m
+[Info] 2552MB  [1m[31mRun Event # = 390[0m
+[Info] 2552MB  [1m[31mRun Event # = 400[0m
+[Info] 2552MB  [1m[31mRun Event # = 410[0m
+[Info] 2552MB  [1m[31mRun Event # = 420[0m
+[Info] 2552MB  [1m[31mRun Event # = 430[0m
+[Info] 2552MB  [1m[31mRun Event # = 440[0m
+[Info] 2552MB  [1m[31mRun Event # = 450[0m
+[Info] 2552MB  [1m[31mRun Event # = 460[0m
+[Info] 2552MB  [1m[31mRun Event # = 470[0m
+[Info] 2552MB  [1m[31mRun Event # = 480[0m
+[Info] 2552MB  [1m[31mRun Event # = 490[0m
+[Info] 2552MB  [1m[31mRun Event # = 500[0m
+[Info] 2552MB  [1m[31mRun Event # = 510[0m
+[Info] 2552MB  [1m[31mRun Event # = 520[0m
+[Info] 2552MB  [1m[31mRun Event # = 530[0m
+[Info] 2552MB  [1m[31mRun Event # = 540[0m
+[Info] 2552MB  [1m[31mRun Event # = 550[0m
+[Info] 2552MB  [1m[31mRun Event # = 560[0m
+[Info] 2552MB  [1m[31mRun Event # = 570[0m
+[Info] 2552MB  [1m[31mRun Event # = 580[0m
+[Info] 2552MB  [1m[31mRun Event # = 590[0m
+[Info] 2552MB  [1m[31mRun Event # = 600[0m
+[Info] 2552MB  [1m[31mRun Event # = 610[0m
+[Info] 2552MB  [1m[31mRun Event # = 620[0m
+[Info] 2552MB  [1m[31mRun Event # = 630[0m
+[Info] 2552MB  [1m[31mRun Event # = 640[0m
+[Info] 2552MB  [1m[31mRun Event # = 650[0m
+[Info] 2552MB  [1m[31mRun Event # = 660[0m
+[Info] 2552MB  [1m[31mRun Event # = 670[0m
+[Info] 2552MB  [1m[31mRun Event # = 680[0m
+[Info] 2552MB  [1m[31mRun Event # = 690[0m
+[Info] 2552MB  [1m[31mRun Event # = 700[0m
+[Info] 2552MB  [1m[31mRun Event # = 710[0m
+[Info] 2552MB  [1m[31mRun Event # = 720[0m
+[Info] 2552MB  [1m[31mRun Event # = 730[0m
+[Info] 2552MB  [1m[31mRun Event # = 740[0m
+[Info] 2552MB  [1m[31mRun Event # = 750[0m
+cannot sample final states for HQ scattering ...
+[Info] 2552MB  [1m[31mRun Event # = 760[0m
+[Info] 2552MB  [1m[31mRun Event # = 770[0m
+[Info] 2552MB  [1m[31mRun Event # = 780[0m
+[Info] 2552MB  [1m[31mRun Event # = 790[0m
+[Info] 2552MB  [1m[31mRun Event # = 800[0m
+[Info] 2552MB  [1m[31mRun Event # = 810[0m
+[Info] 2552MB  [1m[31mRun Event # = 820[0m
+[Info] 2552MB  [1m[31mRun Event # = 830[0m
+[Info] 2552MB  [1m[31mRun Event # = 840[0m
+[Info] 2552MB  [1m[31mRun Event # = 850[0m
+[Info] 2552MB  [1m[31mRun Event # = 860[0m
+[Info] 2552MB  [1m[31mRun Event # = 870[0m
+[Info] 2552MB  [1m[31mRun Event # = 880[0m
+[Info] 2552MB  [1m[31mRun Event # = 890[0m
+[Info] 2552MB  [1m[31mRun Event # = 900[0m
+[Info] 2552MB  [1m[31mRun Event # = 910[0m
+[Info] 2552MB  [1m[31mRun Event # = 920[0m
+[Info] 2552MB  [1m[31mRun Event # = 930[0m
+[Info] 2552MB  [1m[31mRun Event # = 940[0m
+[Info] 2552MB  [1m[31mRun Event # = 950[0m
+[Info] 2552MB  [1m[31mRun Event # = 960[0m
+[Info] 2552MB  [1m[31mRun Event # = 970[0m
+[Info] 2552MB  [1m[31mRun Event # = 980[0m
+[Info] 2552MB  [1m[31mRun Event # = 990[0m
+[Info] 2553MB  [1m[31mRun Event # = 1000[0m
+
+ Pythia::next(): 1000 events have been generated 
+[Info] 2553MB  [1m[31mRun Event # = 1010[0m
+[Info] 2553MB  [1m[31mRun Event # = 1020[0m
+[Info] 2553MB  [1m[31mRun Event # = 1030[0m
+[Info] 2553MB  [1m[31mRun Event # = 1040[0m
+[Info] 2553MB  [1m[31mRun Event # = 1050[0m
+[Info] 2553MB  [1m[31mRun Event # = 1060[0m
+[Info] 2553MB  [1m[31mRun Event # = 1070[0m
+[Info] 2553MB  [1m[31mRun Event # = 1080[0m
+[Info] 2553MB  [1m[31mRun Event # = 1090[0m
+[Info] 2553MB  [1m[31mRun Event # = 1100[0m
+[Info] 2553MB  [1m[31mRun Event # = 1110[0m
+[Info] 2553MB  [1m[31mRun Event # = 1120[0m
+[Info] 2553MB  [1m[31mRun Event # = 1130[0m
+[Info] 2553MB  [1m[31mRun Event # = 1140[0m
+[Info] 2553MB  [1m[31mRun Event # = 1150[0m
+[Info] 2553MB  [1m[31mRun Event # = 1160[0m
+[Info] 2553MB  [1m[31mRun Event # = 1170[0m
+[Info] 2553MB  [1m[31mRun Event # = 1180[0m
+[Info] 2553MB  [1m[31mRun Event # = 1190[0m
+[Info] 2553MB  [1m[31mRun Event # = 1200[0m
+[Info] 2553MB  [1m[31mRun Event # = 1210[0m
+[Info] 2553MB  [1m[31mRun Event # = 1220[0m
+[Info] 2553MB  [1m[31mRun Event # = 1230[0m
+[Info] 2553MB  [1m[31mRun Event # = 1240[0m
+[Info] 2553MB  [1m[31mRun Event # = 1250[0m
+[Info] 2553MB  [1m[31mRun Event # = 1260[0m
+[Info] 2553MB  [1m[31mRun Event # = 1270[0m
+[Info] 2553MB  [1m[31mRun Event # = 1280[0m
+[Info] 2553MB  [1m[31mRun Event # = 1290[0m
+[Info] 2553MB  [1m[31mRun Event # = 1300[0m
+[Info] 2553MB  [1m[31mRun Event # = 1310[0m
+[Info] 2553MB  [1m[31mRun Event # = 1320[0m
+[Info] 2553MB  [1m[31mRun Event # = 1330[0m
+[Info] 2553MB  [1m[31mRun Event # = 1340[0m
+[Info] 2553MB  [1m[31mRun Event # = 1350[0m
+[Info] 2553MB  [1m[31mRun Event # = 1360[0m
+[Info] 2553MB  [1m[31mRun Event # = 1370[0m
+[Info] 2553MB  [1m[31mRun Event # = 1380[0m
+[Info] 2553MB  [1m[31mRun Event # = 1390[0m
+[Info] 2553MB  [1m[31mRun Event # = 1400[0m
+[Info] 2553MB  [1m[31mRun Event # = 1410[0m
+[Info] 2553MB  [1m[31mRun Event # = 1420[0m
+[Info] 2553MB  [1m[31mRun Event # = 1430[0m
+[Info] 2553MB  [1m[31mRun Event # = 1440[0m
+[Info] 2553MB  [1m[31mRun Event # = 1450[0m
+[Info] 2553MB  [1m[31mRun Event # = 1460[0m
+[Info] 2553MB  [1m[31mRun Event # = 1470[0m
+[Info] 2553MB  [1m[31mRun Event # = 1480[0m
+[Info] 2553MB  [1m[31mRun Event # = 1490[0m
+[Info] 2553MB  [1m[31mRun Event # = 1500[0m
+[Info] 2553MB  [1m[31mRun Event # = 1510[0m
+[Info] 2553MB  [1m[31mRun Event # = 1520[0m
+[Info] 2553MB  [1m[31mRun Event # = 1530[0m
+[Info] 2553MB  [1m[31mRun Event # = 1540[0m
+[Info] 2553MB  [1m[31mRun Event # = 1550[0m
+[Info] 2553MB  [1m[31mRun Event # = 1560[0m
+cannot sample final states for HQ scattering ...
+[Info] 2553MB  [1m[31mRun Event # = 1570[0m
+[Info] 2553MB  [1m[31mRun Event # = 1580[0m
