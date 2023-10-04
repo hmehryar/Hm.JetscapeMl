@@ -1,0 +1,1 @@
+user should copy the config files into config directory of JETSCAPE instance to generetate the events and/or duplicate research work
