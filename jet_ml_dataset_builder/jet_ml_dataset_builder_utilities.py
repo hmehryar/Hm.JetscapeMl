@@ -18,8 +18,8 @@ def install(package):
   subprocess.check_call([sys.executable,"-m" ,"pip", "install", package])
   print("Installed "+package+"\n") 
 
-#reading/writing into files
-# !pip3 install pickle5
+# #reading/writing into files
+# # !pip3 install pickle5
 install("pickle5")
 import pickle5 as pickle
 

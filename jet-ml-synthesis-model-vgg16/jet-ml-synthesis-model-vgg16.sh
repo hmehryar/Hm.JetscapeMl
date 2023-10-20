@@ -15,13 +15,13 @@
 
 # Request the GPU type
 
-#SBATCH --gres=gpu:tesla
+# #SBATCH --gres=gpu:tesla
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 16
+#SBATCH -n 2
 
-# #SBATCH -c 32
+#SBATCH -c 16
 
 # Request memory
 
@@ -37,7 +37,7 @@
 
 # Create an output file that will be ml_synthesis-vgg16_output_<jobid>.out
 
-#SBATCH -o ml_synthesis-vgg16_output_output_%j.out
+#SBATCH -o ml_synthesis-vgg16_output_%j.out
 
 # Create an error file that will be ml_synthesis-vgg16_error_<jobid>.out
 
