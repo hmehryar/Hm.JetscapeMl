@@ -9,9 +9,9 @@
 
 # Submit to the GPU QoS
 
-#SBATCH -q primary
+# #SBATCH -q primary
 
-# #SBATCH -q gpu
+#SBATCH -q gpu
 
 # Request the GPU type
 
@@ -25,7 +25,7 @@
 
 # Request memory
 
-#SBATCH --mem=128G
+#SBATCH --mem=256G
 
 # Mail when the job begins, ends, fails, requeues
 

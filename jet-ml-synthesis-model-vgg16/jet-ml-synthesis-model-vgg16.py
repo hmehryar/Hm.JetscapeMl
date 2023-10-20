@@ -94,54 +94,54 @@ print("dataset y_test values:\n", y_test[1:10])
 # In[ ]:
 
 
-# import numpy as np
-# from sklearn.preprocessing import OneHotEncoder, StandardScaler
-# from sklearn.model_selection import train_test_split
+import numpy as np
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.model_selection import train_test_split
 
-# # Assuming you have the dataset stored in variables: x_train, x_test, y_train, y_test
+# Assuming you have the dataset stored in variables: x_train, x_test, y_train, y_test
 
-# # Preprocess y_train and y_test
-# # One-hot encode the categorical variable
-# y_train_categorical = np.array(y_train[:, 0]).reshape(-1, 1)
-# y_test_categorical = np.array(y_test[:, 0]).reshape(-1, 1)
+# Preprocess y_train and y_test
+# One-hot encode the categorical variable
+y_train_categorical = np.array(y_train[:, 0]).reshape(-1, 1)
+y_test_categorical = np.array(y_test[:, 0]).reshape(-1, 1)
 
-# encoder = OneHotEncoder(sparse=False)
-# y_train_categorical_encoded = encoder.fit_transform(y_train_categorical)
-# y_test_categorical_encoded = encoder.transform(y_test_categorical)
-
-
-# # Standardize the numerical variables
-# scaler = StandardScaler()
-# y_train_numerical = np.array(y_train[:, 1:])
-# y_test_numerical = np.array(y_test[:, 1:])
-
-# y_train_numerical_scaled = scaler.fit_transform(y_train_numerical)
-# y_test_numerical_scaled = scaler.transform(y_test_numerical)
-
-# # Combine the encoded categorical and scaled numerical columns
-# y_train_processed = np.hstack((y_train_categorical_encoded, y_train_numerical_scaled))
-# y_test_processed = np.hstack((y_test_categorical_encoded, y_test_numerical_scaled))
-
-# print ("Saving the processed dataset")
-# from jet_ml_dataset_builder.jet_ml_dataset_builder_utilities import save_dataset
-# dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{total_size}_shuffled_y_processed.pkl"
-# dataset_file_name=simulation_directory_path+dataset_file_name
-# dataset_processed=((x_train,y_train_processed),(x_test,y_test_processed))
-# save_dataset(dataset_file_name,dataset_processed)
+encoder = OneHotEncoder(sparse=False)
+y_train_categorical_encoded = encoder.fit_transform(y_train_categorical)
+y_test_categorical_encoded = encoder.transform(y_test_categorical)
 
 
-# # Split the data into training and validation sets
-# x_train_processed, x_val_processed, y_train_processed, y_val_processed = train_test_split(
-#     x_train, y_train_processed, test_size=0.1, random_state=42
-# )
+# Standardize the numerical variables
+scaler = StandardScaler()
+y_train_numerical = np.array(y_train[:, 1:])
+y_test_numerical = np.array(y_test[:, 1:])
 
-# # Print the shapes of processed data for verification
-# print("Shape of x_train_processed:", x_train_processed.shape)
-# print("Shape of x_val_processed:", x_val_processed.shape)
-# print("Shape of y_train_processed:", y_train_processed.shape)
-# print("Shape of y_val_processed:", y_val_processed.shape)
-# print("Shape of x_test:", x_test.shape)
-# print("Shape of y_test_processed:", y_test_processed.shape)
+y_train_numerical_scaled = scaler.fit_transform(y_train_numerical)
+y_test_numerical_scaled = scaler.transform(y_test_numerical)
+
+# Combine the encoded categorical and scaled numerical columns
+y_train_processed = np.hstack((y_train_categorical_encoded, y_train_numerical_scaled))
+y_test_processed = np.hstack((y_test_categorical_encoded, y_test_numerical_scaled))
+
+print ("Saving the processed dataset")
+from jet_ml_dataset_builder.jet_ml_dataset_builder_utilities import save_dataset
+dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{total_size}_shuffled_y_processed.pkl"
+dataset_file_name=simulation_directory_path+dataset_file_name
+dataset_processed=((x_train,y_train_processed),(x_test,y_test_processed))
+save_dataset(dataset_file_name,dataset_processed)
+
+
+# Split the data into training and validation sets
+x_train_processed, x_val_processed, y_train_processed, y_val_processed = train_test_split(
+    x_train, y_train_processed, test_size=0.1, random_state=42
+)
+
+# Print the shapes of processed data for verification
+print("Shape of x_train_processed:", x_train_processed.shape)
+print("Shape of x_val_processed:", x_val_processed.shape)
+print("Shape of y_train_processed:", y_train_processed.shape)
+print("Shape of y_val_processed:", y_val_processed.shape)
+print("Shape of x_test:", x_test.shape)
+print("Shape of y_test_processed:", y_test_processed.shape)
 
 
 # In[ ]:
