@@ -1,0 +1,4 @@
+[NbConvertApp] Converting notebook jet-ml-synthesis-model-vgg16.ipynb to python
+[NbConvertApp] Writing 12940 bytes to jet-ml-synthesis-model-vgg16.py
+/var/spool/slurm/d/job24989550/slurm_script: line 70: 27160 Killed                  python jet-ml-synthesis-model-vgg16.py
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=24989550.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

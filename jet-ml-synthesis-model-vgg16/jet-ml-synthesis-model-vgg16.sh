@@ -19,13 +19,15 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 2
+#SBATCH -n 3
 
 #SBATCH -c 16
 
 # Request memory
 
-#SBATCH --mem=256G
+#SBATCH --mem=512G
+
+# #SBATCH --mem-per-cpu=32
 
 # Mail when the job begins, ends, fails, requeues
 
@@ -61,8 +63,8 @@ source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
 #Activating conda environment
 echo "Activating conda environment"
 # conda activate tensorflow_env
-conda activate tensorflow_gpuenv_v2
+conda activate tensorflow-gpu-v2.8
 
 #Running simulation
 echo "Running simulation"
-python jet-ml-synthesis-model-vgg16.py
+python -u jet-ml-synthesis-model-vgg16.py
