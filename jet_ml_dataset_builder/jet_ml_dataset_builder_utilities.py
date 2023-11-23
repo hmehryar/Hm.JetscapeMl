@@ -28,39 +28,46 @@ def save_dataset(file_name,dataset):
         pickle.dump(dataset,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
 
         
-def load_dataset(file_name,is_array=False,has_validation=False):
+def load_dataset(file_name,is_array=False,has_validation=False, has_test=True):
     try:
         with open(file_name, 'rb') as dataset_file:
             loaded_data = pickle.load(dataset_file, encoding='latin1')
             if loaded_data is not None:
-                if has_validation==False:
-                    if is_array==False:
-                        ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test)) = loaded_data
+                if has_test==True:
+                    if has_validation==False:
+                        if is_array==False:
+                            ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test)) = loaded_data
+                        else:
+                            dataset_x_train = loaded_data['x_train']
+                            dataset_x_test= loaded_data['x_test']
+                            dataset_y_train= loaded_data['y_train']
+                            dataset_y_test= loaded_data['y_test']
+                        del loaded_data
+                        print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
+                        print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
+
+                        print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
+                        print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
+                        return ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test))
                     else:
-                        dataset_x_train = loaded_data['x_train']
-                        dataset_x_test= loaded_data['x_test']
-                        dataset_y_train= loaded_data['y_train']
-                        dataset_y_test= loaded_data['y_test']
-                    del loaded_data
-                    print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
-                    print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
+                        ((dataset_x_train,dataset_y_train),(dataset_x_val,dataset_y_val),(dataset_x_test,dataset_y_test)) = loaded_data
+                        del loaded_data
+                        print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
+                        print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
 
-                    print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
-                    print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
-                    return ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test))
+                        print("dataset.x_val:",type(dataset_x_val), dataset_x_val.size, dataset_x_val.shape)
+                        print("dataset.y_val:",type(dataset_y_val), dataset_y_val.size,dataset_y_val.shape)
+
+                        print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
+                        print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
+
+                        return ((dataset_x_train,dataset_y_train),(dataset_x_val,dataset_y_val),(dataset_x_test,dataset_y_test))
                 else:
-                    ((dataset_x_train,dataset_y_train),(dataset_x_val,dataset_y_val),(dataset_x_test,dataset_y_test)) = loaded_data
+                    (dataset_x, dataset_y) = loaded_data
+                    print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
+                    print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
                     del loaded_data
-                    print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
-                    print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
-
-                    print("dataset.x_val:",type(dataset_x_val), dataset_x_val.size, dataset_x_val.shape)
-                    print("dataset.y_val:",type(dataset_y_val), dataset_y_val.size,dataset_y_val.shape)
-
-                    print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
-                    print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
-
-                    return ((dataset_x_train,dataset_y_train),(dataset_x_val,dataset_y_val),(dataset_x_test,dataset_y_test))
+                    return (dataset_x, dataset_y)
             else:
                 print("Error: Loaded data is None.")
             # dataset=((x_train, y_train), (x_test, y_test))
