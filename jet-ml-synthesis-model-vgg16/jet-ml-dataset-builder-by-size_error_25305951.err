@@ -1,0 +1,8 @@
+[NbConvertApp] Converting notebook jet-ml-dataset-builder-by-size.ipynb to python
+[NbConvertApp] Writing 10009 bytes to jet-ml-dataset-builder-by-size.py
+Traceback (most recent call last):
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-synthesis-model-vgg16/jet-ml-dataset-builder-by-size.py", line 214, in <module>
+    create_and_save_split_dataset(dataset_x,dataset_y,train_size,test_size,simulation_directory_path)
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-synthesis-model-vgg16/jet-ml-dataset-builder-by-size.py", line 188, in create_and_save_split_dataset
+    (x, y)=split_dataset(dataset_x, dataset_y, dataset_size)
+TypeError: split_dataset() missing 1 required positional argument: 'test_size'

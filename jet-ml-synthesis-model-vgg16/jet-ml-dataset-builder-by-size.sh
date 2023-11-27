@@ -11,11 +11,11 @@
 
 #SBATCH -q primary
 
-# # SBATCH -q gpu
+##SBATCH -q gpu
 
 # Request the GPU type
 
-# #SBATCH --gres=gpu:tesla
+##SBATCH --gres=gpu:tesla
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 

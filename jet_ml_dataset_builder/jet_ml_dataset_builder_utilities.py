@@ -36,7 +36,7 @@ def load_dataset(file_name,is_array=False,has_validation=False, has_test=True):
                 if has_test==True:
                     if has_validation==False:
                         if is_array==False:
-                            ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test)) = loaded_data
+                            (dataset_x_train, dataset_y_train),(dataset_x_test, dataset_y_test) = loaded_data
                         else:
                             dataset_x_train = loaded_data['x_train']
                             dataset_x_test= loaded_data['x_test']
