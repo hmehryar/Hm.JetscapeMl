@@ -1,0 +1,114 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Python version: 3.9.16
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Tokenized Arguments:
+
+Tokenized Values:
+y_class_label_items: ['MMAT', 'MLBT']
+alpha_s_items: [0.2, 0.3, 0.4]
+q0_items: [1.5, 2.0, 2.5]
+Building required params for the loading the dataset file
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled.pkl
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000 (1000, 3)
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 1000 (1000,)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 10240000 (10000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 30000 (10000, 3)
+dataset.x: <class 'numpy.ndarray'> 10240000 (10000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 10000 (10000,)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_100000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 102400000 (100000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 300000 (100000, 3)
+dataset.x: <class 'numpy.ndarray'> 102400000 (100000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 100000 (100000,)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 1024000000 (1000000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000000 (1000000, 3)
+dataset.x: <class 'numpy.ndarray'> 1024000000 (1000000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 1000000 (1000000,)
+    Dataset Size  ...                  Confusion Matrix
+0           1000  ...              [[91, 15], [26, 68]]
+1           1000  ...              [[68, 19], [30, 83]]
+2           1000  ...              [[71, 21], [33, 75]]
+3           1000  ...              [[85, 24], [28, 63]]
+4           1000  ...              [[81, 19], [31, 69]]
+..           ...  ...                               ...
+95       1000000  ...  [[65671, 34183], [29311, 70835]]
+96       1000000  ...  [[65600, 34166], [29079, 71155]]
+97       1000000  ...  [[66238, 33839], [29272, 70651]]
+98       1000000  ...  [[65850, 34051], [29185, 70914]]
+99       1000000  ...  [[66013, 34055], [29199, 70733]]
+
+[100 rows x 5 columns]
+    Dataset_Size           Classifier  Mean_Accuracy  Std_Accuracy
+0           1000  Logistic Regression       0.754000      0.022226
+1           1000        Decision Tree       0.538000      0.038026
+2           1000            LinearSVC       0.639000      0.034843
+3           1000                  KNN       0.543000      0.031559
+4           1000        Random Forest       0.599000      0.046733
+5          10000  Logistic Regression       0.834000      0.005916
+6          10000        Decision Tree       0.559300      0.006742
+7          10000            LinearSVC       0.782000      0.005431
+8          10000                  KNN       0.588200      0.003881
+9          10000        Random Forest       0.634300      0.003280
+10        100000  Logistic Regression       0.865390      0.001201
+11        100000        Decision Tree       0.558360      0.003592
+12        100000            LinearSVC       0.791980      0.009354
+13        100000                  KNN       0.594810      0.001898
+14        100000        Random Forest       0.662360      0.001613
+15       1000000  Logistic Regression       0.868401      0.000728
+16       1000000        Decision Tree       0.572427      0.001333
+17       1000000            LinearSVC       0.799152      0.003296
+18       1000000                  KNN       0.602103      0.000402
+19       1000000        Random Forest       0.683660      0.000622
+    Dataset_Size           Classifier  Mean_Accuracy  Std_Accuracy
+0           1000  Logistic Regression       0.754000      0.022226
+1           1000        Decision Tree       0.538000      0.038026
+2           1000            LinearSVC       0.639000      0.034843
+3           1000                  KNN       0.543000      0.031559
+4           1000        Random Forest       0.599000      0.046733
+5          10000  Logistic Regression       0.834000      0.005916
+6          10000        Decision Tree       0.559300      0.006742
+7          10000            LinearSVC       0.782000      0.005431
+8          10000                  KNN       0.588200      0.003881
+9          10000        Random Forest       0.634300      0.003280
+10        100000  Logistic Regression       0.865390      0.001201
+11        100000        Decision Tree       0.558360      0.003592
+12        100000            LinearSVC       0.791980      0.009354
+13        100000                  KNN       0.594810      0.001898
+14        100000        Random Forest       0.662360      0.001613
+15       1000000  Logistic Regression       0.868401      0.000728
+16       1000000        Decision Tree       0.572427      0.001333
+17       1000000            LinearSVC       0.799152      0.003296
+18       1000000                  KNN       0.602103      0.000402
+19       1000000        Random Forest       0.683660      0.000622
