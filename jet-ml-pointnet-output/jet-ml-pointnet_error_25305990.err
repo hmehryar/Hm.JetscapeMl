@@ -1,0 +1,14 @@
+[NbConvertApp] Converting notebook jet-ml-pointnet.ipynb to python
+[NbConvertApp] Writing 4861 bytes to jet-ml-pointnet.py
+  WARNING: The script isympy is installed in '/wsu/home/gy/gy40/gy4065/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script markdown-it is installed in '/wsu/home/gy/gy40/gy4065/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts convert-caffe2-to-onnx, convert-onnx-to-caffe2 and torchrun are installed in '/wsu/home/gy/gy40/gy4065/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script ti is installed in '/wsu/home/gy/gy40/gy4065/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Traceback (most recent call last):
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-pointnet/jet-ml-pointnet.py", line 111, in <module>
+    from pointnet.model import PointNet
+ModuleNotFoundError: No module named 'pointnet.model'
