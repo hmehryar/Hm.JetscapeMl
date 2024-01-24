@@ -1,0 +1,11 @@
+[NbConvertApp] Converting notebook jet_ml_pointnet_classifier_all_datasets.ipynb to python
+[NbConvertApp] Writing 26378 bytes to jet_ml_pointnet_classifier_all_datasets.py
+2024-01-22 15:06:29.411964: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-01-22 15:06:29.415193: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: rom1
+2024-01-22 15:06:29.415942: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: rom1
+2024-01-22 15:06:29.416026: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:200] libcuda reported version is: 535.146.2
+2024-01-22 15:06:29.416061: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:204] kernel reported version is: 535.146.2
+2024-01-22 15:06:29.416070: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:310] kernel version seems to match DSO: 535.146.2
+2024-01-22 15:06:29.416355: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+slurmstepd: error: *** JOB 26063476 ON rom1 CANCELLED AT 2024-01-22T18:48:49 ***
