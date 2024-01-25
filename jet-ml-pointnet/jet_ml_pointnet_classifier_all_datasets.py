@@ -611,17 +611,17 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
 # In[24]:
 
 
-monitor = 'val_accuracy'  # 'val_accuracy' or 'val_loss'
-n_epochs = 50
-k_folds = 10  # You can adjust the number of folds
+# monitor = 'val_accuracy'  # 'val_accuracy' or 'val_loss'
+# n_epochs = 50
+# k_folds = 10  # You can adjust the number of folds
 
-print(simulation_directory_path)
-current_simulation_name=f'jetml_pointnet_classification_eloss_{class_labels_str}_size_{1000}'
-current_simulation_path=simulation_directory_path+current_simulation_name
-print(current_simulation_path)
+# print(simulation_directory_path)
+# current_simulation_name=f'jetml_pointnet_classification_eloss_{class_labels_str}_size_{1000}'
+# current_simulation_path=simulation_directory_path+current_simulation_name
+# print(current_simulation_path)
 
-(dataset_x, dataset_y)= get_dataset(1000)
-(x_train,  y_train,x_test,  y_test)=preprocess_dataset(dataset_x, dataset_y)
+# (dataset_x, dataset_y)= get_dataset(1000)
+# (x_train,  y_train,x_test,  y_test)=preprocess_dataset(dataset_x, dataset_y)
 
 
 # In[27]:
@@ -770,8 +770,8 @@ def train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,sim
 
 
 monitor = 'val_accuracy'  # 'val_accuracy' or 'val_loss'
-n_epochs = 2
-k_folds = 2  # You can adjust the number of folds
+n_epochs = 50
+k_folds = 10  # You can adjust the number of folds
 
 # defining dataset sizes and classifiers
 
@@ -779,8 +779,8 @@ k_folds = 2  # You can adjust the number of folds
 #dataset_sizes = [1000]
 # dataset_sizes = [1000, 10000]
 #dataset_sizes = [1000, 10000,100000]
-dataset_sizes = [1000, 10000, 100000, 1000000]
-
+# dataset_sizes = [1000, 10000, 100000, 1000000]
+dataset_sizes = [1000000]
 print(simulation_directory_path)
 simulation_path=f'{simulation_directory_path}jetml_pointnet_classification_eloss_{class_labels_str}'
 train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds)

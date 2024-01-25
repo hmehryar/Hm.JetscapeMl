@@ -23,11 +23,11 @@
 
 #SBATCH -n 1
 
-#SBATCH -c 8
+#SBATCH -c 2
 
 # Request memory
 
-#SBATCH --mem=64G
+#SBATCH --mem=10G
 
 # #SBATCH --mem-per-cpu=32
 
