@@ -10,14 +10,30 @@
 # **Last modified:** 2020/12/20<br>
 # **Description:** Implementation of PointNet for heavy ion colllisions classifiction, based on the code from [David Griffiths](https://dgriffiths3.github.io)
 
-# In[2]:
+# In[16]:
+
+
+import tensorflow as tf
+# device_name = tf.test.gpu_device_name()
+# if device_name != '/device:GPU:0':
+#   raise SystemError('GPU device not found')
+# print('Found GPU at: {}'.format(device_name))
+
+
+# In[ ]:
+
+
+tf.config.experimental.list_physical_devices()
+
+
+# In[19]:
 
 
 # from google.colab import drive
 # drive.mount('/content/drive')
 import sys
 sys.path.insert(1,'/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source')
-sys.path.insert(1,'/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.source')
+sys.path.insert(1,'/content/drive/My Drive/Projects/110_JetscapeMl/hm.jetscapeml.source')
 
 
 # ## Setup
@@ -25,13 +41,13 @@ sys.path.insert(1,'/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.
 # If using colab first install trimesh with `!pip install trimesh`.
 # 
 
-# In[3]:
+# In[ ]:
 
 
 # pip install --upgrade keras tensorflow
 
 
-# In[4]:
+# In[40]:
 
 
 # loading libraries
@@ -48,6 +64,7 @@ import glob
 import trimesh
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -64,7 +81,7 @@ tf.random.set_seed(1234)
 print('\nLoading/Installing Package => End\n\n')
 
 
-# In[5]:
+# In[21]:
 
 
 
@@ -83,7 +100,7 @@ print('########################################################################\
 
 
 
-# In[6]:
+# In[22]:
 
 
 
@@ -109,7 +126,7 @@ print("alpha_s_items:",alpha_s_items)
 print("q0_items:",q0_items)
 
 
-# In[7]:
+# In[23]:
 
 
 print("Building required params for the loading the dataset file")
@@ -118,20 +135,9 @@ class_labels_str = '_'.join(y_class_label_items)
 alpha_s_items_str='_'.join(map(str, alpha_s_items))
 q0_items_str='_'.join(map(str, q0_items))
 total_size=9*1200000
-# for shuffled_y_processed
-# dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{total_size}_split_train_datasets/train_split_0.pkl"
-# for shuffled
-dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{1000}_shuffled.pkl"
-# dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{10000}_shuffled.pkl"
-# dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{100000}_shuffled.pkl"
-# dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{1000000}_shuffled.pkl"
-# dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{total_size}_shuffled.pkl"
-# simulation_directory_path='/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.data/simulation_results/'
-dataset_file_name=simulation_directory_path+dataset_file_name
-print("dataset_file_name:",dataset_file_name)
 
 
-# In[8]:
+# In[24]:
 
 
 # loading dataset by size and getting just the first column
@@ -153,7 +159,7 @@ def get_dataset(size):
 
 # Building and Compiling the Classifier model
 
-# In[9]:
+# In[25]:
 
 
 def conv_bn(x, filters):
@@ -227,7 +233,7 @@ def build_pointnet_binary_classifier_model(NUM_POINTS,NUM_CLASSES):
     return model
 
 
-# In[10]:
+# In[26]:
 
 
 
@@ -240,7 +246,7 @@ pointnet=build_pointnet_binary_classifier_model(NUM_POINTS,NUM_CLASSES)
 learning_rate=0.001
 
 
-# In[11]:
+# In[27]:
 
 
 def compile_pointnet_binary_classifier_model_with_hyperparam(model,learning_rate):
@@ -257,13 +263,13 @@ def compile_pointnet_binary_classifier_model_with_hyperparam(model,learning_rate
   return model
 
 
-# In[12]:
+# In[28]:
 
 
 pointnet=compile_pointnet_binary_classifier_model_with_hyperparam(pointnet,learning_rate)
 
 
-# In[13]:
+# In[29]:
 
 
 # Classifiers
@@ -272,7 +278,7 @@ classifiers = {
 }
 
 
-# In[14]:
+# In[30]:
 
 
 def get_coordinates(image_array):
@@ -291,7 +297,7 @@ def get_point_clouds(image_array,coordinates):
   return result_array
 
 
-# In[15]:
+# In[31]:
 
 
 import numpy as np
@@ -325,7 +331,7 @@ def get_dataset_points(dataset_x):
 
 
 
-# In[16]:
+# In[32]:
 
 
 def split_dataset(dataset_x, dataset_x_points, dataset_y, test_size=0.2, random_state=None):
@@ -359,7 +365,7 @@ def split_dataset(dataset_x, dataset_x_points, dataset_y, test_size=0.2, random_
 
 
 
-# In[17]:
+# In[33]:
 
 
 def parse_dataset(x_train,x_test):
@@ -379,7 +385,7 @@ def parse_dataset(x_train,x_test):
     )
 
 
-# In[18]:
+# In[34]:
 
 
 def augment(points, label):
@@ -390,7 +396,7 @@ def augment(points, label):
     return points, label
 
 
-# In[19]:
+# In[35]:
 
 
 def evaluate_model(model, x_test, y_test):
@@ -425,9 +431,7 @@ def evaluate_model(model, x_test, y_test):
 # accuracy, confusion_matrix = evaluate_model(trained_model, test_data, true_labels)
 
 
-# In[20]:
-
-
+# In[36]:
 
 
 def preprocess_dataset(dataset_x, dataset_y):
@@ -437,7 +441,8 @@ def preprocess_dataset(dataset_x, dataset_y):
   dataset_x_points = get_dataset_points(dataset_x)
   print("dataset_x_points shape:", dataset_x_points.shape)
   x_train, x_test, x_train_points, x_test_points, y_train, y_test=     split_dataset(dataset_x, dataset_x_points, dataset_y, test_size=0.2, random_state=None)
-
+  print("deleting the original dataset after splitting ...")
+  del dataset_x,dataset_x_points,dataset_y
   print("train_x:",type(x_train), x_train.size, x_train.shape)
   print("train_points:",type(x_train_points), x_train_points.size, x_train_points.shape)
   print("train_y:",type(y_train), y_train.size,y_train.shape)
@@ -472,7 +477,7 @@ def preprocess_dataset(dataset_x, dataset_y):
   return (x_train_points,  y_train_categorical_encoded,x_test_points,  y_test_categorical_encoded)
 
 
-# In[21]:
+# In[37]:
 
 
 def plot_training_history(history,simulation_path):
@@ -516,8 +521,7 @@ def plot_training_history(history,simulation_path):
 # plot_training_history_path=plot_training_history(history,simulation_path)
 
 
-# In[22]:
-
+# In[38]:
 
 
 def save_training_history(history,simulation_path):
@@ -544,10 +548,8 @@ def save_training_history(history,simulation_path):
 #   save_training_history(history,simulation_path)
 
 
-# In[23]:
+# In[41]:
 
-
-from sklearn.model_selection import KFold
 
 # Function to train and evaluate classifiers
 # This method shall get the cloud points as the trainset, to be trained by pointnet
@@ -608,9 +610,10 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
     return accuracies, cms, train_times, all_histories, plots,models
 
 
-# In[24]:
+# In[ ]:
 
 
+# #example for testing classifier k fold training for a dataset size manually
 # monitor = 'val_accuracy'  # 'val_accuracy' or 'val_loss'
 # n_epochs = 50
 # k_folds = 10  # You can adjust the number of folds
@@ -622,12 +625,6 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
 
 # (dataset_x, dataset_y)= get_dataset(1000)
 # (x_train,  y_train,x_test,  y_test)=preprocess_dataset(dataset_x, dataset_y)
-
-
-# In[27]:
-
-
-# #example for testing classifier k fold training
 # accuracies, cms, train_times, all_histories, plots,models = \
 #     train_and_evaluate_classifier_kfold(pointnet, x_train,  y_train,x_test,  y_test, n_epochs, monitor, k_folds,current_simulation_path)
 
@@ -647,14 +644,19 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
 # print(f'Histories:{all_histories}')
 
 
-# In[26]:
+# In[ ]:
 
 
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 # Load the DataFrame from the saved file
-#df_results = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/binary_classification_results_kfold_errorbar.txt", sep='\t')
+def load_csv_into_dataframe(file_path):
+  df_results = pd.read_csv(file_path, sep='\t')
+  return df_results
+#example usage
+# df_results=load_csv_into_dataframe("/content/drive/MyDrive/Colab Notebooks/binary_classification_results_kfold_errorbar.txt")
+
+
+# In[42]:
+
 
 def plot_save_mean_error_bar(df_results,simulation_path):
     # df_results= df_results_kfold_errorbar
@@ -695,8 +697,7 @@ def plot_save_mean_error_bar(df_results,simulation_path):
     plt.show()
 
 
-# In[28]:
-
+# In[43]:
 
 
 def train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds):
@@ -766,7 +767,7 @@ def train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,sim
   plot_save_mean_error_bar(df_results_kfold_errorbar,simulation_path)
 
 
-# In[30]:
+# In[ ]:
 
 
 monitor = 'val_accuracy'  # 'val_accuracy' or 'val_loss'
@@ -776,11 +777,13 @@ k_folds = 10  # You can adjust the number of folds
 # defining dataset sizes and classifiers
 
 # Sizes of datasets
-#dataset_sizes = [1000]
+# dataset_sizes = [1000]
+dataset_sizes = [100000]
+# dataset_sizes = [1000000]
 # dataset_sizes = [1000, 10000]
 #dataset_sizes = [1000, 10000,100000]
 # dataset_sizes = [1000, 10000, 100000, 1000000]
-dataset_sizes = [1000000]
+
 print(simulation_directory_path)
 simulation_path=f'{simulation_directory_path}jetml_pointnet_classification_eloss_{class_labels_str}'
 train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds)
