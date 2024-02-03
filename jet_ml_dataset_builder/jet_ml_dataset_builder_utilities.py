@@ -14,15 +14,23 @@ import pandas as pd
 
 
 def install(package):
-  print("Installing "+package) 
-  subprocess.check_call([sys.executable,"-m" ,"pip", "install", package])
-  print("Installed "+package+"\n") 
+    import importlib.util
+    # For illustrative purposes.
+    spec = importlib.util.find_spec(package)
+    if spec is None:
+        print(package +" is not installed")
+        print("Installing "+package) 
+        subprocess.check_call([sys.executable,"-m" ,"pip", "install", package])
+        print("Installed "+package+"\n")
+        
+  
 
 # #reading/writing into files
 # # !pip3 install pickle5
-install("pickle5")
-import pickle5 as pickle
-
+# install("pickle5")
+# import pickle5 as pickle
+install("pickle")
+import pickle
 def save_dataset(file_name,dataset):
     with open(file_name, 'wb') as dataset_file:
         pickle.dump(dataset,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
