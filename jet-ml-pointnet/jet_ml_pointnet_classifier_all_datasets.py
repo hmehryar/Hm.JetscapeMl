@@ -10,7 +10,7 @@
 # **Last modified:** 2020/12/20<br>
 # **Description:** Implementation of PointNet for heavy ion colllisions classifiction, based on the code from [David Griffiths](https://dgriffiths3.github.io)
 
-# In[16]:
+# In[1]:
 
 
 import tensorflow as tf
@@ -20,13 +20,13 @@ import tensorflow as tf
 # print('Found GPU at: {}'.format(device_name))
 
 
-# In[ ]:
+# In[2]:
 
 
 tf.config.experimental.list_physical_devices()
 
 
-# In[19]:
+# In[3]:
 
 
 # from google.colab import drive
@@ -778,8 +778,8 @@ k_folds = 10  # You can adjust the number of folds
 
 # Sizes of datasets
 # dataset_sizes = [1000]
-dataset_sizes = [100000]
-# dataset_sizes = [1000000]
+# dataset_sizes = [100000]
+dataset_sizes = [1000000]
 # dataset_sizes = [1000, 10000]
 #dataset_sizes = [1000, 10000,100000]
 # dataset_sizes = [1000, 10000, 100000, 1000000]

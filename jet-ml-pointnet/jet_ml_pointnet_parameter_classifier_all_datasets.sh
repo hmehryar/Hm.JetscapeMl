@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name jet-ml-pointnet-all
+#SBATCH --job-name jet-ml-pointnet-parameter-classifier-all
 
 # Submit to the GPU QoS
 
@@ -43,13 +43,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be jet_ml_pointnet_classifier_all_datasets_output_<jobid>.out
+# Create an output file that will be jet_ml_pointnet_parameter_classifier_all_datasets_output_<jobid>.out
 
-#SBATCH -o jet_ml_pointnet_classifier_all_datasets_output_%j.out
+#SBATCH -o jet_ml_pointnet_parameter_classifier_all_datasets_output_%j.out
 
-# Create an error file that will be jet_ml_pointnet_classifier_all_datasets_error_<jobid>.out
+# Create an error file that will be jet_ml_pointnet_parameter_classifier_all_datasets_error_<jobid>.out
 
-#SBATCH -e jet_ml_pointnet_classifier_all_datasets_error_%j.err
+#SBATCH -e jet_ml_pointnet_parameter_classifier_all_datasets_error_%j.err
 
 # Set maximum time limit
 

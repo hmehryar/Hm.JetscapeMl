@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name jet-ml-pointnet-all
+#SBATCH --job-name tensorflow_gpu_sample
 
 # Submit to the GPU QoS
 
@@ -17,21 +17,17 @@
 
 ##SBATCH --gres=gpu:tesla
 # #SBATCH --gres=gpu:geforc
-#SBATCH --gres=gpu:2
-
-# Request v100 gpu
-
-##SBATCH --constraint=v100
+#SBATCH --gres=gpu:1
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
 #SBATCH -n 1
 
-#SBATCH -c 4
+#SBATCH -c 16
 
 # Request memory
 
-#SBATCH --mem=120G
+#SBATCH --mem=160G
 
 # #SBATCH --mem-per-cpu=32
 
@@ -43,29 +39,22 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be jet_ml_pointnet_classifier_all_datasets_output_<jobid>.out
+# Create an output file that will be tensorflow_gpu_sample_output_<jobid>.out
 
-#SBATCH -o jet_ml_pointnet_classifier_all_datasets_output_%j.out
+#SBATCH -o tensorflow_gpu_sample_output_%j.out
 
-# Create an error file that will be jet_ml_pointnet_classifier_all_datasets_error_<jobid>.out
+# Create an error file that will be tensorflow_gpu_sample_datasets_error_<jobid>.out
 
-#SBATCH -e jet_ml_pointnet_classifier_all_datasets_error_%j.err
+#SBATCH -e tensorflow_gpu_sample_error_%j.err
 
 # Set maximum time limit
 
 #SBATCH -t 24:0:0
 
-# List assigned GPU:
-
-echo Assigned GPU: $CUDA_VISIBLE_DEVICES
-
-# Check state of GPU:
-
-nvidia-smi
 
 #Converting jupyter notebook to python script
 echo "Converting notebook to script"
-jupyter nbconvert --to python jet_ml_pointnet_classifier_all_datasets.ipynb
+jupyter nbconvert --to python tensorflow_gpu_sample.ipynb
 
 echo "Setting up python version and conda shell"
 ml python/3.7
@@ -80,4 +69,4 @@ conda activate tensorflow-gpu-v2.8
 
 #Running simulation
 echo "Running simulation"
-python -u jet_ml_pointnet_classifier_all_datasets.py
+python -u tensorflow_gpu_sample.py
