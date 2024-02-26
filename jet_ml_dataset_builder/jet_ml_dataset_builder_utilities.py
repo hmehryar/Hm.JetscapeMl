@@ -291,7 +291,8 @@ def set_directory_paths():
         dataset_directory_path = '/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
         simulation_directory_path = dataset_directory_path + 'simulation_results/'
     else:
-        dataset_directory_path = 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
+        # dataset_directory_path = 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
+        dataset_directory_path = 'D:\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
         simulation_directory_path = dataset_directory_path + 'simulation_results\\'
 
     print('Dataset Directory Path: ' + dataset_directory_path)
