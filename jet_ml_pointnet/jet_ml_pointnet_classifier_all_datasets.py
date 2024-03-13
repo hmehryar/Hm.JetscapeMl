@@ -787,8 +787,8 @@ def train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,sim
 
 
 monitor = 'val_accuracy'  # 'val_accuracy' or 'val_loss'
-n_epochs = 50
-k_folds = 10  # You can adjust the number of folds
+n_epochs = 32
+k_folds = 10 # You can adjust the number of folds
 
 # defining dataset sizes and classifiers
 
@@ -802,5 +802,27 @@ dataset_sizes = [1000000]
 
 print(simulation_directory_path)
 simulation_path=f'{simulation_directory_path}jetml_pointnet_classification_eloss_{class_labels_str}'
-train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds)
+# train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds)
+
+
+# In[ ]:
+
+
+# %%timeit -nl -rl
+start = time()
+with tf.device('/GPU:0'):
+    train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds)
+gpu_train_time=time()-start
+print("gpu_train_time",gpu_train_time)
+
+
+# In[ ]:
+
+
+# %%timeit -nl -rl
+# start = time()
+# with tf.device('/CPU:0'):
+#     train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds)
+# gpu_train_time=time()-start
+# print("cpu_train_time",gpu_train_time)
 

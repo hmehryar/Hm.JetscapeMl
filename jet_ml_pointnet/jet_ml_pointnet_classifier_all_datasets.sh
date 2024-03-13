@@ -25,13 +25,13 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 1
+#SBATCH -n 64
 
-#SBATCH -c 4
+#SBATCH -c 1
 
 # Request memory
 
-#SBATCH --mem=64G
+#SBATCH --mem=320G
 
 # #SBATCH --mem-per-cpu=32
 
@@ -53,7 +53,7 @@
 
 # Set maximum time limit
 
-#SBATCH -t 24:0:0
+#SBATCH -t 500:0:0
 
 # List assigned GPU:
 
