@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <a href="https://colab.research.google.com/github/hmehryar/Hm.JetscapeMl/blob/ml5/jet-ml-pointnet/jet_ml_pointnet_classifier_all_datasets.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+# <a href="https://colab.research.google.com/github/hmehryar/Hm.JetscapeMl/blob/ml5/jet_ml_pointnet/jet_ml_pointnet_classifier_all_datasets.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 # [link text](https://)# Point cloud classification with PointNet for Heavy Ion Collisions for diffrent dataset size and K-Folding
 # 
@@ -10,7 +10,7 @@
 # **Last modified:** 2020/12/20<br>
 # **Description:** Implementation of PointNet for heavy ion colllisions classifiction, based on the code from [David Griffiths](https://dgriffiths3.github.io)
 
-# In[1]:
+# In[2]:
 
 
 import tensorflow as tf
@@ -20,13 +20,13 @@ import tensorflow as tf
 # print('Found GPU at: {}'.format(device_name))
 
 
-# In[2]:
+# In[3]:
 
 
 tf.config.experimental.list_physical_devices()
 
 
-# In[3]:
+# In[4]:
 
 
 # from google.colab import drive
@@ -34,6 +34,9 @@ tf.config.experimental.list_physical_devices()
 import sys
 sys.path.insert(1,'/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source')
 sys.path.insert(1,'/content/drive/My Drive/Projects/110_JetscapeMl/hm.jetscapeml.source')
+sys.path.insert(1,'/content/drive/MyDrive/Projects/110_JetscapeMl/hm.jetscapeml.source')
+sys.path.insert(1,'/g/My Drive/Projects/110_JetscapeMl/hm.jetscapeml.source')
+sys.path.insert(1,'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.source')
 
 
 # ## Setup
@@ -41,13 +44,13 @@ sys.path.insert(1,'/content/drive/My Drive/Projects/110_JetscapeMl/hm.jetscapeml
 # If using colab first install trimesh with `!pip install trimesh`.
 # 
 
-# In[ ]:
+# In[5]:
 
 
 # pip install --upgrade keras tensorflow
 
 
-# In[40]:
+# In[6]:
 
 
 # loading libraries
@@ -57,11 +60,11 @@ from jet_ml_dataset_builder.jet_ml_dataset_builder_utilities import set_director
 from jet_ml_dataset_builder.jet_ml_dataset_builder_utilities import parse_parameters
 from jet_ml_dataset_builder.jet_ml_dataset_builder_utilities import load_dataset
 from jet_ml_dataset_builder.jet_ml_dataset_builder_utilities import install
-install("trimesh")
+# install("trimesh")
 import os
 from time import time
 import glob
-import trimesh
+# import trimesh
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -81,7 +84,7 @@ tf.random.set_seed(1234)
 print('\nLoading/Installing Package => End\n\n')
 
 
-# In[21]:
+# In[7]:
 
 
 
@@ -100,7 +103,7 @@ print('########################################################################\
 
 
 
-# In[22]:
+# In[8]:
 
 
 
@@ -126,7 +129,7 @@ print("alpha_s_items:",alpha_s_items)
 print("q0_items:",q0_items)
 
 
-# In[23]:
+# In[9]:
 
 
 print("Building required params for the loading the dataset file")
@@ -137,7 +140,7 @@ q0_items_str='_'.join(map(str, q0_items))
 total_size=9*1200000
 
 
-# In[24]:
+# In[10]:
 
 
 # loading dataset by size and getting just the first column
@@ -145,7 +148,7 @@ total_size=9*1200000
 def get_dataset(size):
     dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{alpha_s_items_str}_q0_{q0_items_str}_{class_labels_str}_size_{size}_shuffled.pkl"
 
-    dataset_file_name=simulation_directory_path+dataset_file_name
+    dataset_file_name=dataset_directory_path+dataset_file_name
     print("dataset_file_name:",dataset_file_name)
 
     dataset=load_dataset(dataset_file_name,has_test=False)
@@ -159,7 +162,7 @@ def get_dataset(size):
 
 # Building and Compiling the Classifier model
 
-# In[25]:
+# In[11]:
 
 
 def conv_bn(x, filters):
@@ -233,7 +236,7 @@ def build_pointnet_binary_classifier_model(NUM_POINTS,NUM_CLASSES):
     return model
 
 
-# In[26]:
+# In[12]:
 
 
 
@@ -246,7 +249,7 @@ pointnet=build_pointnet_binary_classifier_model(NUM_POINTS,NUM_CLASSES)
 learning_rate=0.001
 
 
-# In[27]:
+# In[13]:
 
 
 def compile_pointnet_binary_classifier_model_with_hyperparam(model,learning_rate):
@@ -263,13 +266,13 @@ def compile_pointnet_binary_classifier_model_with_hyperparam(model,learning_rate
   return model
 
 
-# In[28]:
+# In[14]:
 
 
 pointnet=compile_pointnet_binary_classifier_model_with_hyperparam(pointnet,learning_rate)
 
 
-# In[29]:
+# In[15]:
 
 
 # Classifiers
@@ -278,7 +281,7 @@ classifiers = {
 }
 
 
-# In[30]:
+# In[16]:
 
 
 def get_coordinates(image_array):
@@ -297,7 +300,7 @@ def get_point_clouds(image_array,coordinates):
   return result_array
 
 
-# In[31]:
+# In[17]:
 
 
 import numpy as np
@@ -331,7 +334,7 @@ def get_dataset_points(dataset_x):
 
 
 
-# In[32]:
+# In[18]:
 
 
 def split_dataset(dataset_x, dataset_x_points, dataset_y, test_size=0.2, random_state=None):
@@ -365,7 +368,7 @@ def split_dataset(dataset_x, dataset_x_points, dataset_y, test_size=0.2, random_
 
 
 
-# In[33]:
+# In[19]:
 
 
 def parse_dataset(x_train,x_test):
@@ -385,7 +388,7 @@ def parse_dataset(x_train,x_test):
     )
 
 
-# In[34]:
+# In[20]:
 
 
 def augment(points, label):
@@ -396,7 +399,7 @@ def augment(points, label):
     return points, label
 
 
-# In[35]:
+# In[21]:
 
 
 def evaluate_model(model, x_test, y_test):
@@ -431,7 +434,7 @@ def evaluate_model(model, x_test, y_test):
 # accuracy, confusion_matrix = evaluate_model(trained_model, test_data, true_labels)
 
 
-# In[36]:
+# In[22]:
 
 
 def preprocess_dataset(dataset_x, dataset_y):
@@ -477,7 +480,7 @@ def preprocess_dataset(dataset_x, dataset_y):
   return (x_train_points,  y_train_categorical_encoded,x_test_points,  y_test_categorical_encoded)
 
 
-# In[37]:
+# In[23]:
 
 
 def plot_training_history(history,simulation_path):
@@ -521,7 +524,7 @@ def plot_training_history(history,simulation_path):
 # plot_training_history_path=plot_training_history(history,simulation_path)
 
 
-# In[38]:
+# In[24]:
 
 
 def save_training_history(history,simulation_path):
@@ -548,8 +551,11 @@ def save_training_history(history,simulation_path):
 #   save_training_history(history,simulation_path)
 
 
-# In[41]:
+# In[25]:
 
+
+import tensorflow as tf
+from tensorflow.keras.callbacks import EarlyStopping
 
 # Function to train and evaluate classifiers
 # This method shall get the cloud points as the trainset, to be trained by pointnet
@@ -564,10 +570,14 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
     all_histories = []  # Store histories for each fold
     plots=[]
     models=[]
+
     for fold, (train_index, val_index) in enumerate(kfold.split(x_train)):
     # train_index, val_index in kfold.split(x_train):
         x_train_fold, x_val_fold = x_train[train_index], x_train[val_index]
         y_train_fold, y_val_fold = y_train[train_index], y_train[val_index]
+
+        # Clear any previous TensorFlow session
+        tf.keras.backend.clear_session()
 
         # Include both ModelCheckpoint and History callbacks in the callbacks list
         # callbacks=[checkpoint_callback]
@@ -582,17 +592,23 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
             mode="max" if monitor == "val_accuracy" else "min",
             verbose=1
         )
-
+        earlystop_callback = EarlyStopping(monitor=monitor, patience=10, verbose=1)
+        callbacks = [checkpoint_callback, earlystop_callback]
         # Use History callback to retrieve the training history
         history_callback = History()
 
         start = time()
+
+
+        # Create the model
+        # model_fold = compile_pointnet_binary_classifier_model_with_hyperparam()
         history = model.fit(
             x_train_fold,
             y_train_fold,
             epochs=n_epochs,
             validation_data=(x_val_fold, y_val_fold),
-            callbacks=[checkpoint_callback]
+            callbacks=callbacks
+            #  [checkpoint_callback]
         )
         train_time = (time()-start)/60.0
         train_times.append(train_time)
@@ -600,7 +616,7 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
         all_histories.append(history.history)
 
         plot=plot_training_history(history,fold_path)
-        training_history_file_path_json,training_history_file_path_csv,training_history_file_path_csv =          save_training_history(history,fold_path)
+        training_history_file_path_json,training_history_file_path_csv,training_history_file_path_csv =         save_training_history(history,fold_path)
         plots.append(plot)
 
         accuracy, confusion_matrix = evaluate_model(model, x_test, y_test)
@@ -610,7 +626,7 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
     return accuracies, cms, train_times, all_histories, plots,models
 
 
-# In[ ]:
+# In[26]:
 
 
 # #example for testing classifier k fold training for a dataset size manually
@@ -644,7 +660,7 @@ def train_and_evaluate_classifier_kfold(model, x_train,y_train , x_test, y_test,
 # print(f'Histories:{all_histories}')
 
 
-# In[ ]:
+# In[27]:
 
 
 # Load the DataFrame from the saved file
@@ -655,7 +671,7 @@ def load_csv_into_dataframe(file_path):
 # df_results=load_csv_into_dataframe("/content/drive/MyDrive/Colab Notebooks/binary_classification_results_kfold_errorbar.txt")
 
 
-# In[42]:
+# In[28]:
 
 
 def plot_save_mean_error_bar(df_results,simulation_path):
@@ -697,7 +713,7 @@ def plot_save_mean_error_bar(df_results,simulation_path):
     plt.show()
 
 
-# In[43]:
+# In[29]:
 
 
 def train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds):

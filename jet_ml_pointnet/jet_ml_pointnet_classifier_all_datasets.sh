@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name jet-ml-pointnet-all
+#SBATCH --job-name jet-ml-pointnet-eloss-100k
 
 # Submit to the GPU QoS
 
@@ -17,11 +17,11 @@
 
 ##SBATCH --gres=gpu:tesla
 # #SBATCH --gres=gpu:geforc
-#SBATCH --gres=gpu:2
+##SBATCH --gres=gpu:2
 
 # Request v100 gpu
 
-##SBATCH --constraint=v100
+#SBATCH --constraint=v100
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
@@ -31,7 +31,7 @@
 
 # Request memory
 
-#SBATCH --mem=120G
+#SBATCH --mem=64G
 
 # #SBATCH --mem-per-cpu=32
 
@@ -80,4 +80,4 @@ conda activate tensorflow-gpu-v2.8
 
 #Running simulation
 echo "Running simulation"
-python -u jet_ml_pointnet_classifier_all_datasets.py
+python -u jet_ml_pointnet_classifier_all_datasets.py | tee jet_ml_pointnet_classifier_all_datasets.output
