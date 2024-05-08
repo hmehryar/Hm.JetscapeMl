@@ -1,0 +1,45 @@
+[NbConvertApp] Converting notebook jet-ml-synthesis-model-vgg16.ipynb to python
+[NbConvertApp] Writing 10477 bytes to jet-ml-synthesis-model-vgg16.py
+
+EnvironmentNameNotFound: Could not find conda environment: tensorflow_gpuenv_v2
+You can list all discoverable environments with `conda info --envs`.
+
+
+DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 23.3 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+
+[notice] A new release of pip is available: 18.1 -> 23.3
+[notice] To update, run: pip install --upgrade pip
+/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+Traceback (most recent call last):
+  File "jet-ml-synthesis-model-vgg16.py", line 197, in <module>
+    import tensorflow as tf
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/__init__.py", line 34, in <module>
+    from tensorflow.python import pywrap_tensorflow  # pylint: disable=unused-import
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/__init__.py", line 83, in <module>
+    from tensorflow.python import keras
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/__init__.py", line 26, in <module>
+    from tensorflow.python.keras import activations
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/activations.py", line 24, in <module>
+    from tensorflow.python.keras.utils.generic_utils import deserialize_keras_object
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/utils/__init__.py", line 39, in <module>
+    from tensorflow.python.keras.utils.multi_gpu_utils import multi_gpu_model
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/utils/multi_gpu_utils.py", line 22, in <module>
+    from tensorflow.python.keras.engine.training import Model
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/engine/training.py", line 40, in <module>
+    from tensorflow.python.keras.engine import network
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/engine/network.py", line 39, in <module>
+    from tensorflow.python.keras import saving
+  File "/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/saving/__init__.py", line 33, in <module>
+    from tensorflow.python.keras.saving.saved_model import export_saved_model
+ImportError: cannot import name 'export_saved_model' from 'tensorflow.python.keras.saving.saved_model' (/wsu/el7/pre-compiled/python/3.7/lib/python3.7/site-packages/tensorflow/python/keras/saving/saved_model/__init__.py)

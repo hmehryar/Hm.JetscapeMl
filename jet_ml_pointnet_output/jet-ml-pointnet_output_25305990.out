@@ -1,0 +1,190 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Python version: 3.9.16
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Tokenized Arguments:
+
+Tokenized Values:
+y_class_label_items: ['MMAT', 'MLBT']
+alpha_s_items: [0.2, 0.3, 0.4]
+q0_items: [1.5, 2.0, 2.5]
+Building required params for the loading the dataset file
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000 (1000, 3)
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000 (1000, 3)
+dataset y_train values:
+ [[[0.        0.        0.        ... 0.        0.0295267 0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  ...
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]]
+
+ [[0.        0.        0.        ... 0.        0.        0.0857442]
+  [0.0729852 0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  ...
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]]
+
+ [[0.0886838 0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  ...
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.0506899]]
+
+ ...
+
+ [[0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  ...
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.307198  ... 0.        0.        0.       ]]
+
+ [[0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  ...
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]]
+
+ [[0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  ...
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        0.       ]
+  [0.        0.        0.        ... 0.        0.        2.05216  ]]]
+dataset y_test values:
+ [['MLBT' '0.4' '2.5']
+ ['MLBT' '0.2' '2.5']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.3' '1']
+ ['MLBT' '0.4' '2.5']
+ ['MLBT' '0.4' '2.0']]
+Installing PointNet
+Defaulting to user installation because normal site-packages is not writeable
+Collecting PointNet
+  Downloading pointnet-0.1.1-py3-none-any.whl (8.4 kB)
+Collecting torch>=1.10 (from PointNet)
+  Downloading torch-2.1.1-cp39-cp39-manylinux1_x86_64.whl (670.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 670.2/670.2 MB 5.1 MB/s eta 0:00:00
+Collecting einops>=0.6.1 (from PointNet)
+  Downloading einops-0.7.0-py3-none-any.whl (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 1.3 MB/s eta 0:00:00
+Collecting taichi>=1.6.0 (from PointNet)
+  Downloading taichi-1.6.0-cp39-cp39-manylinux2014_x86_64.whl (48.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.0/48.0 MB 16.9 MB/s eta 0:00:00
+Requirement already satisfied: numpy in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages (from taichi>=1.6.0->PointNet) (1.25.0)
+Collecting colorama (from taichi>=1.6.0->PointNet)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting dill (from taichi>=1.6.0->PointNet)
+  Downloading dill-0.3.7-py3-none-any.whl (115 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 115.3/115.3 kB 5.1 MB/s eta 0:00:00
+Collecting rich (from taichi>=1.6.0->PointNet)
+  Downloading rich-13.7.0-py3-none-any.whl (240 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 240.6/240.6 kB 9.3 MB/s eta 0:00:00
+Collecting filelock (from torch>=1.10->PointNet)
+  Downloading filelock-3.13.1-py3-none-any.whl (11 kB)
+Requirement already satisfied: typing-extensions in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages (from torch>=1.10->PointNet) (4.6.3)
+Collecting sympy (from torch>=1.10->PointNet)
+  Downloading sympy-1.12-py3-none-any.whl (5.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.7/5.7 MB 61.7 MB/s eta 0:00:00
+Requirement already satisfied: networkx in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages (from torch>=1.10->PointNet) (3.1)
+Collecting jinja2 (from torch>=1.10->PointNet)
+  Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 kB 4.0 MB/s eta 0:00:00
+Collecting fsspec (from torch>=1.10->PointNet)
+  Downloading fsspec-2023.10.0-py3-none-any.whl (166 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 166.4/166.4 kB 6.2 MB/s eta 0:00:00
+Collecting nvidia-cuda-nvrtc-cu12==12.1.105 (from torch>=1.10->PointNet)
+  Downloading nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (23.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 72.9 MB/s eta 0:00:00
+Collecting nvidia-cuda-runtime-cu12==12.1.105 (from torch>=1.10->PointNet)
+  Downloading nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (823 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 823.6/823.6 kB 22.6 MB/s eta 0:00:00
+Collecting nvidia-cuda-cupti-cu12==12.1.105 (from torch>=1.10->PointNet)
+  Downloading nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (14.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.1/14.1 MB 92.2 MB/s eta 0:00:00
+Collecting nvidia-cudnn-cu12==8.9.2.26 (from torch>=1.10->PointNet)
+  Downloading nvidia_cudnn_cu12-8.9.2.26-py3-none-manylinux1_x86_64.whl (731.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 731.7/731.7 MB 4.5 MB/s eta 0:00:00
+Collecting nvidia-cublas-cu12==12.1.3.1 (from torch>=1.10->PointNet)
+  Downloading nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl (410.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 410.6/410.6 MB 7.5 MB/s eta 0:00:00
+Collecting nvidia-cufft-cu12==11.0.2.54 (from torch>=1.10->PointNet)
+  Downloading nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl (121.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.6/121.6 MB 9.2 MB/s eta 0:00:00
+Collecting nvidia-curand-cu12==10.3.2.106 (from torch>=1.10->PointNet)
+  Downloading nvidia_curand_cu12-10.3.2.106-py3-none-manylinux1_x86_64.whl (56.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 MB 41.9 MB/s eta 0:00:00
+Collecting nvidia-cusolver-cu12==11.4.5.107 (from torch>=1.10->PointNet)
+  Downloading nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl (124.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.2/124.2 MB 16.4 MB/s eta 0:00:00
+Collecting nvidia-cusparse-cu12==12.1.0.106 (from torch>=1.10->PointNet)
+  Downloading nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl (196.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.0/196.0 MB 16.1 MB/s eta 0:00:00
+Collecting nvidia-nccl-cu12==2.18.1 (from torch>=1.10->PointNet)
+  Downloading nvidia_nccl_cu12-2.18.1-py3-none-manylinux1_x86_64.whl (209.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.8/209.8 MB 13.6 MB/s eta 0:00:00
+Collecting nvidia-nvtx-cu12==12.1.105 (from torch>=1.10->PointNet)
+  Downloading nvidia_nvtx_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (99 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.1/99.1 kB 3.2 MB/s eta 0:00:00
+Collecting triton==2.1.0 (from torch>=1.10->PointNet)
+  Downloading triton-2.1.0-0-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.3/89.3 MB 16.9 MB/s eta 0:00:00
+Collecting nvidia-nvjitlink-cu12 (from nvidia-cusolver-cu12==11.4.5.107->torch>=1.10->PointNet)
+  Downloading nvidia_nvjitlink_cu12-12.3.101-py3-none-manylinux1_x86_64.whl (20.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.5/20.5 MB 88.6 MB/s eta 0:00:00
+Requirement already satisfied: MarkupSafe>=2.0 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages (from jinja2->torch>=1.10->PointNet) (2.1.3)
+Collecting markdown-it-py>=2.2.0 (from rich->taichi>=1.6.0->PointNet)
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 3.5 MB/s eta 0:00:00
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages (from rich->taichi>=1.6.0->PointNet) (2.15.1)
+Collecting mpmath>=0.19 (from sympy->torch>=1.10->PointNet)
+  Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 21.5 MB/s eta 0:00:00
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->taichi>=1.6.0->PointNet)
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: mpmath, sympy, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, mdurl, jinja2, fsspec, filelock, einops, dill, colorama, triton, nvidia-cusparse-cu12, nvidia-cudnn-cu12, markdown-it-py, rich, nvidia-cusolver-cu12, torch, taichi, PointNet
+Successfully installed PointNet-0.1.1 colorama-0.4.6 dill-0.3.7 einops-0.7.0 filelock-3.13.1 fsspec-2023.10.0 jinja2-3.1.2 markdown-it-py-3.0.0 mdurl-0.1.2 mpmath-1.3.0 nvidia-cublas-cu12-12.1.3.1 nvidia-cuda-cupti-cu12-12.1.105 nvidia-cuda-nvrtc-cu12-12.1.105 nvidia-cuda-runtime-cu12-12.1.105 nvidia-cudnn-cu12-8.9.2.26 nvidia-cufft-cu12-11.0.2.54 nvidia-curand-cu12-10.3.2.106 nvidia-cusolver-cu12-11.4.5.107 nvidia-cusparse-cu12-12.1.0.106 nvidia-nccl-cu12-2.18.1 nvidia-nvjitlink-cu12-12.3.101 nvidia-nvtx-cu12-12.1.105 rich-13.7.0 sympy-1.12 taichi-1.6.0 torch-2.1.1 triton-2.1.0
+Installed PointNet
+

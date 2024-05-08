@@ -1,0 +1,12 @@
+[NbConvertApp] Converting notebook jet-ml-models.ipynb to python
+[NbConvertApp] Writing 12972 bytes to jet-ml-models.py
+/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-models/jet-ml-models.py", line 306, in <module>
+    x, y = get_dataset(size)
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-models/jet-ml-models.py", line 271, in get_dataset
+    dataset=load_dataset(dataset_file_name,has_test=False)
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet_ml_dataset_builder/jet_ml_dataset_builder_utilities.py", line 33, in load_dataset
+    with open(file_name, 'rb') as dataset_file:
+FileNotFoundError: [Errno 2] No such file or directory: 'jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled.pkl'

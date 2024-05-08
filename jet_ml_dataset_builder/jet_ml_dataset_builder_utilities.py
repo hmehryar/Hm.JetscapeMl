@@ -14,37 +14,68 @@ import pandas as pd
 
 
 def install(package):
-  print("Installing "+package) 
-  subprocess.check_call([sys.executable,"-m" ,"pip", "install", package])
-  print("Installed "+package+"\n") 
+    import importlib.util
+    # For illustrative purposes.
+    spec = importlib.util.find_spec(package)
+    if spec is None:
+        print(package +" is not installed")
+        print("Installing "+package) 
+        subprocess.check_call([sys.executable,"-m" ,"pip", "install", package])
+        print("Installed "+package+"\n")
+        
+  
 
-#reading/writing into files
-# !pip3 install pickle5
-install("pickle5")
-import pickle5 as pickle
-
+# #reading/writing into files
+# # !pip3 install pickle5
+# install("pickle5")
+# import pickle5 as pickle
+install("pickle")
+import pickle
 def save_dataset(file_name,dataset):
     with open(file_name, 'wb') as dataset_file:
         pickle.dump(dataset,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
 
         
-def load_dataset(file_name,is_array=False):
+def load_dataset(file_name,is_array=False,has_validation=False, has_test=True):
     try:
         with open(file_name, 'rb') as dataset_file:
             loaded_data = pickle.load(dataset_file, encoding='latin1')
             if loaded_data is not None:
-                if is_array==False:
-                    ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test)) = loaded_data
+                if has_test==True:
+                    if has_validation==False:
+                        if is_array==False:
+                            (dataset_x_train, dataset_y_train),(dataset_x_test, dataset_y_test) = loaded_data
+                        else:
+                            dataset_x_train = loaded_data['x_train']
+                            dataset_x_test= loaded_data['x_test']
+                            dataset_y_train= loaded_data['y_train']
+                            dataset_y_test= loaded_data['y_test']
+                        del loaded_data
+                        print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
+                        print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
+
+                        print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
+                        print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
+                        return ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test))
+                    else:
+                        ((dataset_x_train,dataset_y_train),(dataset_x_val,dataset_y_val),(dataset_x_test,dataset_y_test)) = loaded_data
+                        del loaded_data
+                        print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
+                        print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
+
+                        print("dataset.x_val:",type(dataset_x_val), dataset_x_val.size, dataset_x_val.shape)
+                        print("dataset.y_val:",type(dataset_y_val), dataset_y_val.size,dataset_y_val.shape)
+
+                        print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
+                        print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
+
+                        return ((dataset_x_train,dataset_y_train),(dataset_x_val,dataset_y_val),(dataset_x_test,dataset_y_test))
                 else:
-                    dataset_x_train = loaded_data['x_train']
-                    dataset_x_test= loaded_data['x_test']
-                    dataset_y_train= loaded_data['y_train']
-                    dataset_y_test= loaded_data['y_test']
-                print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
-                print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
-                print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
-                print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
-                return ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test))
+                    (dataset_x, dataset_y) = loaded_data
+                    print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
+                    print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
+                    del loaded_data
+                    return (dataset_x, dataset_y)
             else:
                 print("Error: Loaded data is None.")
             # dataset=((x_train, y_train), (x_test, y_test))
@@ -260,7 +291,8 @@ def set_directory_paths():
         dataset_directory_path = '/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/'
         simulation_directory_path = dataset_directory_path + 'simulation_results/'
     else:
-        dataset_directory_path = 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
+        # dataset_directory_path = 'G:\\My Drive\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
+        dataset_directory_path = 'D:\\Projects\\110_JetscapeMl\\hm.jetscapeml.data\\'
         simulation_directory_path = dataset_directory_path + 'simulation_results\\'
 
     print('Dataset Directory Path: ' + dataset_directory_path)

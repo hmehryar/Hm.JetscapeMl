@@ -1,0 +1,48 @@
+[NbConvertApp] Converting notebook jet-ml-models-cnn.ipynb to python
+[NbConvertApp] Writing 10814 bytes to jet-ml-models-cnn.py
+2023-11-27 17:56:25.614764: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2023-11-27 17:56:25.614853: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (mdt62): /proc/driver/nvidia/version does not exist
+2023-11-27 17:56:25.615642: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-11-27 17:56:25.953369: W tensorflow/core/framework/op_kernel.cc:1722] OP_REQUIRES failed at cast_op.cc:121 : UNIMPLEMENTED: Cast string to float is not supported
+Traceback (most recent call last):
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-models/jet-ml-models-cnn.py", line 228, in <module>
+    accuracy, cm = train_and_evaluate_classifier(clf, x_train, y_train, x_test, y_test)
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-models/jet-ml-models-cnn.py", line 162, in train_and_evaluate_classifier
+    model.fit(x_train, y_train, epochs=10, validation_split=0.2)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 54, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnimplementedError: Graph execution error:
+
+Detected at node 'binary_crossentropy/Cast' defined at (most recent call last):
+    File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-models/jet-ml-models-cnn.py", line 228, in <module>
+      accuracy, cm = train_and_evaluate_classifier(clf, x_train, y_train, x_test, y_test)
+    File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-models/jet-ml-models-cnn.py", line 162, in train_and_evaluate_classifier
+      model.fit(x_train, y_train, epochs=10, validation_split=0.2)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 64, in error_handler
+      return fn(*args, **kwargs)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/engine/training.py", line 1384, in fit
+      tmp_logs = self.train_function(iterator)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/engine/training.py", line 1021, in train_function
+      return step_function(self, iterator)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/engine/training.py", line 1010, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/engine/training.py", line 1000, in run_step
+      outputs = model.train_step(data)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/engine/training.py", line 860, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/engine/training.py", line 918, in compute_loss
+      return self.compiled_loss(
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/engine/compile_utils.py", line 201, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/losses.py", line 141, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/losses.py", line 245, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/keras/losses.py", line 1922, in binary_crossentropy
+      y_true = tf.cast(y_true, y_pred.dtype)
+Node: 'binary_crossentropy/Cast'
+Cast string to float is not supported
+	 [[{{node binary_crossentropy/Cast}}]] [Op:__inference_train_function_924]

@@ -1,0 +1,24 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pickle5
+  Downloading pickle5-0.0.11.tar.gz (132 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.1/132.1 kB 2.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Building wheels for collected packages: pickle5
+  Building wheel for pickle5 (setup.py): started
+  Building wheel for pickle5 (setup.py): finished with status 'done'
+  Created wheel for pickle5: filename=pickle5-0.0.11-cp39-cp39-linux_x86_64.whl size=125512 sha256=29b86c7b413154fbce03f45209e030b40ff063d217caa2b1c107c40050096ebc
+  Stored in directory: /wsu/home/gy/gy40/gy4065/.cache/pip/wheels/f2/7a/49/9bef8878949914ecb90c08fc5bf30a05e17f475fe7e08b63a8
+Successfully built pickle5
+Installing collected packages: pickle5
+Successfully installed pickle5-0.0.11
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+

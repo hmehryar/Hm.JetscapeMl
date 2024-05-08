@@ -1,0 +1,246 @@
+Assigned GPU: 0,1
+Wed Jan 31 15:42:28 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.129.03             Driver Version: 535.129.03   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-SXM2-16GB           On  | 00000000:1A:00.0 Off |                    0 |
+| N/A   42C    P0              41W / 300W |      0MiB / 16384MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  Tesla V100-SXM2-16GB           On  | 00000000:1C:00.0 Off |                    0 |
+| N/A   38C    P0              41W / 300W |      0MiB / 16384MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)
+Installed pickle5
+
+Installing trimesh
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: trimesh in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (4.0.5)
+Requirement already satisfied: numpy in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages (from trimesh) (1.25.0)
+Installed trimesh
+
+
+Loading/Installing Package => End
+
+
+
+########################################################################
+Checking the running platforms
+
+Python version: 3.9.16
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+Tokenized Arguments:
+
+Tokenized Values:
+y_class_label_items: ['MMAT', 'MLBT']
+alpha_s_items: [0.2, 0.3, 0.4]
+q0_items: [1.5, 2.0, 2.5]
+Building required params for the loading the dataset file
+Model: "pointnet"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 1024, 3)]    0           []                               
+                                                                                                  
+ conv1d (Conv1D)                (None, 1024, 32)     128         ['input_1[0][0]']                
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 1024, 32)    128         ['conv1d[0][0]']                 
+ alization)                                                                                       
+                                                                                                  
+ activation (Activation)        (None, 1024, 32)     0           ['batch_normalization[0][0]']    
+                                                                                                  
+ conv1d_1 (Conv1D)              (None, 1024, 64)     2112        ['activation[0][0]']             
+                                                                                                  
+ batch_normalization_1 (BatchNo  (None, 1024, 64)    256         ['conv1d_1[0][0]']               
+ rmalization)                                                                                     
+                                                                                                  
+ activation_1 (Activation)      (None, 1024, 64)     0           ['batch_normalization_1[0][0]']  
+                                                                                                  
+ conv1d_2 (Conv1D)              (None, 1024, 512)    33280       ['activation_1[0][0]']           
+                                                                                                  
+ batch_normalization_2 (BatchNo  (None, 1024, 512)   2048        ['conv1d_2[0][0]']               
+ rmalization)                                                                                     
+                                                                                                  
+ activation_2 (Activation)      (None, 1024, 512)    0           ['batch_normalization_2[0][0]']  
+                                                                                                  
+ global_max_pooling1d (GlobalMa  (None, 512)         0           ['activation_2[0][0]']           
+ xPooling1D)                                                                                      
+                                                                                                  
+ dense (Dense)                  (None, 256)          131328      ['global_max_pooling1d[0][0]']   
+                                                                                                  
+ batch_normalization_3 (BatchNo  (None, 256)         1024        ['dense[0][0]']                  
+ rmalization)                                                                                     
+                                                                                                  
+ activation_3 (Activation)      (None, 256)          0           ['batch_normalization_3[0][0]']  
+                                                                                                  
+ dense_1 (Dense)                (None, 128)          32896       ['activation_3[0][0]']           
+                                                                                                  
+ batch_normalization_4 (BatchNo  (None, 128)         512         ['dense_1[0][0]']                
+ rmalization)                                                                                     
+                                                                                                  
+ activation_4 (Activation)      (None, 128)          0           ['batch_normalization_4[0][0]']  
+                                                                                                  
+ dense_2 (Dense)                (None, 9)            1161        ['activation_4[0][0]']           
+                                                                                                  
+ reshape (Reshape)              (None, 3, 3)         0           ['dense_2[0][0]']                
+                                                                                                  
+ dot (Dot)                      (None, 1024, 3)      0           ['input_1[0][0]',                
+                                                                  'reshape[0][0]']                
+                                                                                                  
+ conv1d_3 (Conv1D)              (None, 1024, 32)     128         ['dot[0][0]']                    
+                                                                                                  
+ batch_normalization_5 (BatchNo  (None, 1024, 32)    128         ['conv1d_3[0][0]']               
+ rmalization)                                                                                     
+                                                                                                  
+ activation_5 (Activation)      (None, 1024, 32)     0           ['batch_normalization_5[0][0]']  
+                                                                                                  
+ conv1d_4 (Conv1D)              (None, 1024, 32)     1056        ['activation_5[0][0]']           
+                                                                                                  
+ batch_normalization_6 (BatchNo  (None, 1024, 32)    128         ['conv1d_4[0][0]']               
+ rmalization)                                                                                     
+                                                                                                  
+ activation_6 (Activation)      (None, 1024, 32)     0           ['batch_normalization_6[0][0]']  
+                                                                                                  
+ conv1d_5 (Conv1D)              (None, 1024, 32)     1056        ['activation_6[0][0]']           
+                                                                                                  
+ batch_normalization_7 (BatchNo  (None, 1024, 32)    128         ['conv1d_5[0][0]']               
+ rmalization)                                                                                     
+                                                                                                  
+ activation_7 (Activation)      (None, 1024, 32)     0           ['batch_normalization_7[0][0]']  
+                                                                                                  
+ conv1d_6 (Conv1D)              (None, 1024, 64)     2112        ['activation_7[0][0]']           
+                                                                                                  
+ batch_normalization_8 (BatchNo  (None, 1024, 64)    256         ['conv1d_6[0][0]']               
+ rmalization)                                                                                     
+                                                                                                  
+ activation_8 (Activation)      (None, 1024, 64)     0           ['batch_normalization_8[0][0]']  
+                                                                                                  
+ conv1d_7 (Conv1D)              (None, 1024, 512)    33280       ['activation_8[0][0]']           
+                                                                                                  
+ batch_normalization_9 (BatchNo  (None, 1024, 512)   2048        ['conv1d_7[0][0]']               
+ rmalization)                                                                                     
+                                                                                                  
+ activation_9 (Activation)      (None, 1024, 512)    0           ['batch_normalization_9[0][0]']  
+                                                                                                  
+ global_max_pooling1d_1 (Global  (None, 512)         0           ['activation_9[0][0]']           
+ MaxPooling1D)                                                                                    
+                                                                                                  
+ dense_3 (Dense)                (None, 256)          131328      ['global_max_pooling1d_1[0][0]'] 
+                                                                                                  
+ batch_normalization_10 (BatchN  (None, 256)         1024        ['dense_3[0][0]']                
+ ormalization)                                                                                    
+                                                                                                  
+ activation_10 (Activation)     (None, 256)          0           ['batch_normalization_10[0][0]'] 
+                                                                                                  
+ dense_4 (Dense)                (None, 128)          32896       ['activation_10[0][0]']          
+                                                                                                  
+ batch_normalization_11 (BatchN  (None, 128)         512         ['dense_4[0][0]']                
+ ormalization)                                                                                    
+                                                                                                  
+ activation_11 (Activation)     (None, 128)          0           ['batch_normalization_11[0][0]'] 
+                                                                                                  
+ dense_5 (Dense)                (None, 1024)         132096      ['activation_11[0][0]']          
+                                                                                                  
+ reshape_1 (Reshape)            (None, 32, 32)       0           ['dense_5[0][0]']                
+                                                                                                  
+ dot_1 (Dot)                    (None, 1024, 32)     0           ['activation_6[0][0]',           
+                                                                  'reshape_1[0][0]']              
+                                                                                                  
+ conv1d_8 (Conv1D)              (None, 1024, 32)     1056        ['dot_1[0][0]']                  
+                                                                                                  
+ batch_normalization_12 (BatchN  (None, 1024, 32)    128         ['conv1d_8[0][0]']               
+ ormalization)                                                                                    
+                                                                                                  
+ activation_12 (Activation)     (None, 1024, 32)     0           ['batch_normalization_12[0][0]'] 
+                                                                                                  
+ conv1d_9 (Conv1D)              (None, 1024, 64)     2112        ['activation_12[0][0]']          
+                                                                                                  
+ batch_normalization_13 (BatchN  (None, 1024, 64)    256         ['conv1d_9[0][0]']               
+ ormalization)                                                                                    
+                                                                                                  
+ activation_13 (Activation)     (None, 1024, 64)     0           ['batch_normalization_13[0][0]'] 
+                                                                                                  
+ conv1d_10 (Conv1D)             (None, 1024, 512)    33280       ['activation_13[0][0]']          
+                                                                                                  
+ batch_normalization_14 (BatchN  (None, 1024, 512)   2048        ['conv1d_10[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_14 (Activation)     (None, 1024, 512)    0           ['batch_normalization_14[0][0]'] 
+                                                                                                  
+ global_max_pooling1d_2 (Global  (None, 512)         0           ['activation_14[0][0]']          
+ MaxPooling1D)                                                                                    
+                                                                                                  
+ dense_6 (Dense)                (None, 256)          131328      ['global_max_pooling1d_2[0][0]'] 
+                                                                                                  
+ batch_normalization_15 (BatchN  (None, 256)         1024        ['dense_6[0][0]']                
+ ormalization)                                                                                    
+                                                                                                  
+ activation_15 (Activation)     (None, 256)          0           ['batch_normalization_15[0][0]'] 
+                                                                                                  
+ dropout (Dropout)              (None, 256)          0           ['activation_15[0][0]']          
+                                                                                                  
+ dense_7 (Dense)                (None, 128)          32896       ['dropout[0][0]']                
+                                                                                                  
+ batch_normalization_16 (BatchN  (None, 128)         512         ['dense_7[0][0]']                
+ ormalization)                                                                                    
+                                                                                                  
+ activation_16 (Activation)     (None, 128)          0           ['batch_normalization_16[0][0]'] 
+                                                                                                  
+ dropout_1 (Dropout)            (None, 128)          0           ['activation_16[0][0]']          
+                                                                                                  
+ dense_8 (Dense)                (None, 2)            258         ['dropout_1[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 747,947
+Trainable params: 741,867
+Non-trainable params: 6,080
+__________________________________________________________________________________________________
+/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jetml_pointnet_classification_eloss_MMAT_MLBT
+/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jetml_pointnet_classification_eloss_MMAT_MLBT_size_1000000
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 1024000000 (1000000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000000 (1000000, 3)
+Extract the first column for binary classification
+dataset.x: <class 'numpy.ndarray'> 1024000000 (1000000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 1000000 (1000000,)
+Pre-processing
+dataset_x_points shape: (1000000, 1024, 3)
+deleting the original dataset after splitting ...
+train_x: <class 'numpy.ndarray'> 819200000 (800000, 32, 32)
+train_points: <class 'numpy.ndarray'> 2457600000 (800000, 1024, 3)
+train_y: <class 'numpy.ndarray'> 800000 (800000,)
+x_test: <class 'numpy.ndarray'> 204800000 (200000, 32, 32)
+x_test_points: <class 'numpy.ndarray'> 614400000 (200000, 1024, 3)
+y_test: <class 'numpy.ndarray'> 200000 (200000,)
+800000 200000

@@ -1,0 +1,19 @@
+[NbConvertApp] Converting notebook jet-ml-synthesis-model-vgg16.ipynb to python
+[NbConvertApp] Writing 10625 bytes to jet-ml-synthesis-model-vgg16.py
+2023-10-22 15:13:29.167851: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2023-10-22 15:13:29.170497: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: voh1
+2023-10-22 15:13:29.171162: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: voh1
+2023-10-22 15:13:29.171265: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:200] libcuda reported version is: 525.105.17
+2023-10-22 15:13:29.171306: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:204] kernel reported version is: 525.105.17
+2023-10-22 15:13:29.171317: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:310] kernel version seems to match DSO: 525.105.17
+2023-10-22 15:13:29.171709: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-22 15:13:55.278150: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 35831771136 exceeds 10% of free system memory.
+Traceback (most recent call last):
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-synthesis-model-vgg16/jet-ml-synthesis-model-vgg16.py", line 208, in <module>
+    x_train_resized = tf.image.grayscale_to_rgb(x_train_resized)  # Ensure it has 3 channels
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/tensorflow/python/ops/image_ops_impl.py", line 292, in _CheckGrayscaleImage
+    raise ValueError('Last dimension of a grayscale image should be size 1.')
+ValueError: Last dimension of a grayscale image should be size 1.
