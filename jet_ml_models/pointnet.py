@@ -2,6 +2,7 @@ import json
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.calibration import LabelEncoder
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
@@ -61,7 +62,7 @@ def tnet(inputs, num_features):
     # Apply affine transformation to input features
     return layers.Dot(axes=(2, 1))([inputs, feat_T])
 
-def build_pointnet_classifier_model(NUM_POINTS,NUM_CLASSES):
+def build_pointnet_classifier_model(NUM_POINTS=1024,NUM_CLASSES=2, activation="sigmoid"):
     inputs = keras.Input(shape=(NUM_POINTS, 3))
     x = tnet(inputs, 3)
     x = conv_bn(x, 32)
@@ -76,8 +77,7 @@ def build_pointnet_classifier_model(NUM_POINTS,NUM_CLASSES):
     x = dense_bn(x, 128)
     x = layers.Dropout(0.3)(x)
 
-    # outputs = layers.Dense(NUM_CLASSES, activation="softmax")(x)
-    outputs = layers.Dense(NUM_CLASSES, activation="sigmoid")(x)
+    outputs = layers.Dense(NUM_CLASSES, activation=activation)(x)
 
     model = keras.Model(inputs=inputs, outputs=outputs, name="pointnet")
     return model
@@ -103,16 +103,16 @@ def print_model_summary(model):
 
 
 
-def compile_pointnet_classifier_model_with_hyperparam(model,learning_rate):
+def compile_pointnet_classifier_model_with_hyperparam(model,learning_rate=0.001, loss='sparse_categorical_crossentropy',metrics='sparse_categorical_accuracy'):
     optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
 
     model.compile(
-        # loss="sparse_categorical_crossentropy",
-        loss='categorical_crossentropy',
+        loss="sparse_categorical_crossentropy",
+        # loss='categorical_crossentropy',
         # loss="binary_crossentropy",
         optimizer=optimizer,
-        # metrics=["sparse_categorical_accuracy"],
-        metrics=['accuracy'],
+        metrics=["sparse_categorical_accuracy"],
+        # metrics=['accuracy'],
     )
     print_model_summary(model)
     return model
@@ -190,37 +190,46 @@ def split_dataset(dataset_x_points, dataset_y, test_size=0.2, random_state=None)
 
     return x_train_points, x_test_points, y_train, y_test
 
-def preprocess_dataset(dataset_x, dataset_y):
-  print("Pre-processing")
-  # Example usage:
-  dataset_x_points = get_dataset_points(dataset_x)
-  print("dataset_x_points shape:", dataset_x_points.shape)
-  x_train_points, x_test_points, y_train, y_test= \
+from tensorflow.keras.utils import to_categorical
+
+def preprocess_dataset(dataset_x, dataset_y,is_one_hot_encoded=True):
+    print("Pre-processing")
+    # Example usage:
+    dataset_x_points = get_dataset_points(dataset_x)
+    print("dataset_x_points shape:", dataset_x_points.shape)
+    x_train_points, x_test_points, y_train, y_test= \
     split_dataset(dataset_x_points, dataset_y, test_size=0.2, random_state=None)
-  print("deleting the original dataset after splitting ...")
-  del dataset_x,dataset_x_points,dataset_y
-  
-  print("train_points:",type(x_train_points), x_train_points.size, x_train_points.shape)
-  print("train_y:",type(y_train), y_train.size,y_train.shape)
+    print("deleting the original dataset after splitting ...")
+    del dataset_x,dataset_x_points,dataset_y
 
-  
-  print("x_test_points:",type(x_test_points), x_test_points.size, x_test_points.shape)
-  print("y_test:",type(y_test), y_test.size,y_test.shape)
-  
+    print("train_points:",type(x_train_points), x_train_points.size, x_train_points.shape)
+    print("train_y:",type(y_train), y_train.size,y_train.shape)
 
-  print("Preprocess y_train and y_test")
-  print("One-hot encode the categorical variable")
-  print("y_test:\n",y_test[:10])
-  y_train_categorical = np.array(y_train).reshape(-1, 1)
-  y_test_categorical = np.array(y_test).reshape(-1, 1)
 
-  encoder = OneHotEncoder(sparse_output=False)
-  y_train_categorical_encoded = encoder.fit_transform(y_train_categorical)
-  y_test_categorical_encoded = encoder.transform(y_test_categorical)
-  print("y_test_categorical:\n",y_test_categorical[:10])
-  print("y_test_categorical_encoded:\n",y_test_categorical_encoded[:10])
+    print("x_test_points:",type(x_test_points), x_test_points.size, x_test_points.shape)
+    print("y_test:",type(y_test), y_test.size,y_test.shape)
+    print("y_test[:10]:\n",y_test[:10])
 
-  return (x_train_points,  y_train_categorical_encoded,x_test_points,  y_test_categorical_encoded)
+    print("Preprocess y_train and y_test")
+    if is_one_hot_encoded==True:
+        print("One-hot encode the categorical variable")
+        y_train_categorical = np.array(y_train).reshape(-1, 1)
+        y_test_categorical = np.array(y_test).reshape(-1, 1)
+        print("y_test_categorical:\n",y_test_categorical[:10])
+
+        encoder = OneHotEncoder(sparse_output=False)
+        y_train_categorical_encoded = encoder.fit_transform(y_train_categorical)
+        y_test_categorical_encoded = encoder.transform(y_test_categorical)
+        print("y_test_categorical_encoded:\n",y_test_categorical_encoded[:10])
+
+        return (x_train_points,  y_train_categorical_encoded,x_test_points,  y_test_categorical_encoded)
+    else:
+        print("Encoding to sparse categorical variable")
+        label_encoder = LabelEncoder()
+        y_train_encoded = label_encoder.fit_transform(y_train)
+        y_test_encoded = label_encoder.fit_transform(y_test)
+        print("y_test_encoded:\n",y_test_encoded[:10])
+        return (x_train_points,  y_train_encoded,x_test_points,  y_test_encoded)
 
 
 
