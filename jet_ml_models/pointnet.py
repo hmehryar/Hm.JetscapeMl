@@ -336,7 +336,7 @@ def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=N
         monitor=monitor,
         save_best_only=True,
         # mode="max" if monitor == "val_accuracy" else "min",
-        mode="max" if monitor == "val_sparse_categorical_accuracy" else "min",
+        mode="max" if (monitor == "val_sparse_categorical_accuracy" or monitor == "val_accuracy") else "min",
         verbose=1
     )
     early_stopping_callback = tf.keras.callbacks.EarlyStopping(
