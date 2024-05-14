@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 import tensorflow as tf
 from tensorflow import keras
+tf.random.set_seed(1234)
 from tensorflow.keras import layers
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import ModelCheckpoint
@@ -256,12 +257,16 @@ def create_tf_dataset(x_data, y_data):
     """
     dataset = tf.data.Dataset.from_tensor_slices((x_data, y_data))
     return dataset
-
+# import tensorflow.keras.backend as bk
 def augment(points, label):
+    # # jitter points
+    # points += keras.random.uniform(points.shape, -0.005, 0.005, dtype="float64")
+    # # shuffle points
+    # points = keras.random.shuffle(points)
     # jitter points
-    points += keras.random.uniform(points.shape, -0.005, 0.005, dtype="float64")
+    points += tf.random.uniform(points.shape, -0.005, 0.005, dtype="float64")
     # shuffle points
-    points = keras.random.shuffle(points)
+    points = tf.random.shuffle(points)
     return points, label
 
 def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, train_size=0.8, batch_size=32):
