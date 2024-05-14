@@ -116,7 +116,7 @@ def compile_pointnet_classifier_model_with_hyperparam(model,learning_rate=0.001,
         metrics=["sparse_categorical_accuracy"],
         # metrics=['accuracy'],
     )
-    print_model_summary(model)
+    
     return model
 
 def get_coordinates(image_array):
@@ -335,7 +335,8 @@ def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=N
         best_model_file_path,
         monitor=monitor,
         save_best_only=True,
-        mode="max" if monitor == "val_accuracy" else "min",
+        # mode="max" if monitor == "val_accuracy" else "min",
+        mode="max" if monitor == "val_sparse_categorical_accuracy" else "min",
         verbose=1
     )
     early_stopping_callback = tf.keras.callbacks.EarlyStopping(
