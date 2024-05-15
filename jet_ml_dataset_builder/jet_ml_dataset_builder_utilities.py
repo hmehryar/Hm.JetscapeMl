@@ -483,8 +483,26 @@ def generate_simulation_path(simulation_directory_path,classifying_parameter, la
 
     return current_simulation_path
 
+def scale_dataset_images(dataset_x):
+    """
+    Scale each image in the dataset_x between 0 and 1 using Min-Max scaling.
 
-def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, working_column: int = 0):
+    Parameters:
+    - dataset_x (numpy.ndarray): The dataset containing images.
+
+    Returns:
+    - scaled_dataset_x (numpy.ndarray): The scaled dataset.
+    """
+    # Calculate the minimum and maximum values for each image
+    min_vals = np.min(dataset_x, axis=(1, 2), keepdims=True)
+    max_vals = np.max(dataset_x, axis=(1, 2), keepdims=True)
+
+    # Scale each image between 0 and 1
+    scaled_dataset_x = (dataset_x - min_vals) / (max_vals - min_vals)
+
+    return scaled_dataset_x
+
+def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, working_column: int = 0,scale_x=True):
     """
     Loads a dataset of specified size and extracts the specified column for classification.
 
@@ -513,6 +531,9 @@ def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, wo
     dataset = load_dataset(dataset_file_name, has_test=False)
     (dataset_x, dataset_y) = dataset
     
+    if(scale_x==True):
+        print("Scaling the datset_x each image between 0 and 1")
+        dataset_x = scale_dataset_images(dataset_x)
     print(f'Extract the working column#{working_column} for classification')
     dataset_y = dataset_y[:, working_column]
     print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
@@ -520,5 +541,7 @@ def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, wo
     print("dataset.y(working_column) sample",dataset_y[:10])
 
     return dataset_x, dataset_y
+
+
 
 
