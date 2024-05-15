@@ -105,7 +105,7 @@ def print_model_summary(model):
 
 
 
-def compile_pointnet_classifier_model_with_hyperparam(model,learning_rate=0.001, loss='sparse_categorical_crossentropy',metrics='sparse_categorical_accuracy'):
+def compile_pointnet_classifier_model_with_hyperparam(model,learning_rate=None, loss='sparse_categorical_crossentropy',metrics='sparse_categorical_accuracy'):
     optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
 
     model.compile(
@@ -179,13 +179,13 @@ def split_dataset(dataset_x_points, dataset_y, test_size=0.2, random_state=None)
 
     return x_train_points, x_test_points, y_train, y_test
 
-def preprocess_dataset(dataset_x, dataset_y,is_one_hot_encoded=True):
+def preprocess_dataset(dataset_x, dataset_y,is_one_hot_encoded=True,random_state=None,test_size=0.2):
     print("Pre-processing")
     # Example usage:
     dataset_x_points = get_dataset_points(dataset_x)
     print("dataset_x_points shape:", dataset_x_points.shape)
     x_train_points, x_test_points, y_train, y_test= \
-    split_dataset(dataset_x_points, dataset_y, test_size=0.2, random_state=None)
+    split_dataset(dataset_x_points, dataset_y, test_size=test_size, random_state=random_state)
     print("deleting the original dataset after splitting ...")
     del dataset_x,dataset_x_points,dataset_y
 
@@ -300,6 +300,40 @@ def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, tr
     
     return train_dataset, validation_dataset, test_dataset
 
+def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, train_size=0.8, batch_size=32):
+    """
+    Prepare training, validation  and test datasets for model training. It will shuffle all data and then take the validation proportion out.
+
+    Parameters:
+    - dataset (tf.data.Dataset): TensorFlow Dataset containing training data.
+    - test_dataset (tf.data.Dataset): TensorFlow Dataset containing test data.
+    - len_x_train (int): Length of the features data for training.
+    - len_x_test (int): Length of the features data for testing.
+    - augment (callable): Function to apply data augmentation.
+    - train_size (float): Proportion of the dataset to use for training. Default is 0.8.
+    - batch_size (int): Batch size for training and validation datasets. Default is 32.
+
+    Returns:
+    - train_dataset (tf.data.Dataset): TensorFlow Dataset for training.
+    - validation_dataset (tf.data.Dataset): TensorFlow Dataset for validation.
+    - test_dataset (tf.data.Dataset): TensorFlow Dataset for testing.
+    """
+    # Determine training dataset size
+    train_dataset_size = int(len(dataset) * train_size)
+    
+    # Shuffle and augment datasets
+    dataset = dataset.shuffle(len_x_train).map(augment)
+    test_dataset = test_dataset.shuffle(len_x_test).batch(batch_size)
+    
+    # Split dataset into training and validation sets
+    if (train_size!=1):
+        train_dataset = dataset.take(train_dataset_size).batch(batch_size)
+        validation_dataset = dataset.skip(train_dataset_size).batch(batch_size)
+    else:
+        train_dataset=dataset.batch(batch_size)
+    
+    return train_dataset, test_dataset, test_dataset
+
 def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=None, y_validation=None, train_dataset=None, validation_dataset=None, monitor="val_accuracy", best_model_file_path="best_model.h5", n_epochs=10):
     """
     Train a TensorFlow model with specified callbacks for checkpointing and early stopping.
@@ -341,8 +375,10 @@ def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=N
     )
     early_stopping_callback = tf.keras.callbacks.EarlyStopping(
         monitor=monitor,    # Quantity to be monitored
-        patience=3,         # Number of epochs with no improvement after which training will be stopped
-        verbose=1           # Verbosity mode. 1: print messages when triggered, 0: silent
+        patience=5,         # Number of epochs with no improvement after which training will be stopped
+        verbose=1,          # Verbosity mode. 1: print messages when triggered, 0: silent
+        min_delta=1e-3,     #
+        restore_best_weights=True
     )
     callbacks = [checkpoint_callback, early_stopping_callback]
 
@@ -395,13 +431,15 @@ def evaluate_model(model, x_test=None, y_test=None, test_dataset=None):
 
     return accuracy, cm
 
-def plot_training_history(history, simulation_path):
+
+def plot_training_history(history, simulation_path,x_tick=5):
     """
     Plot training and validation accuracy and loss values and save the plot with high resolution.
 
     Parameters:
     - history (tf.keras.callbacks.History): History object containing training/validation metrics.
     - simulation_path (str): Path to save the plot.
+    - x_tick (int) steps in x axis (optional: the default value is 5).
 
     Returns:
     - file_path (str): File path of the saved plot.
@@ -410,8 +448,10 @@ def plot_training_history(history, simulation_path):
     plt.figure(figsize=(12, 6))
     plt.subplot(1, 2, 1)
     if 'accuracy' in history.history:
+        x_axis_length=len(history.history.get('accuracy', []))+1
         plt.plot(history.history['accuracy'])
     if 'sparse_categorical_accuracy' in history.history:
+        x_axis_length=len(history.history.get('sparse_categorical_accuracy', []))+1
         plt.plot(history.history['sparse_categorical_accuracy'])
     if 'val_accuracy' in history.history:
         plt.plot(history.history['val_accuracy'])
@@ -422,7 +462,7 @@ def plot_training_history(history, simulation_path):
     plt.ylabel('Accuracy')
     plt.legend(['Train', 'Train (sparse)', 'Validation', 'Validation (sparse)'], loc='upper left')
     # Set ticks on the epoch axis to display only integer values
-    plt.xticks(range(0, len(history.history.get('accuracy', []))+1, 5))
+    plt.xticks(range(0, x_axis_length, x_tick))
 
     # Plot training & validation loss values
     plt.subplot(1, 2, 2)
@@ -434,7 +474,7 @@ def plot_training_history(history, simulation_path):
     plt.legend(['Train', 'Validation'], loc='upper left')
 
     # Set ticks on the epoch axis to display only integer values
-    plt.xticks(range(0, len(history.history.get('accuracy', []))+1, 5))
+    plt.xticks(range(0, x_axis_length, x_tick))
 
     # Adjust layout and show the plot
     plt.tight_layout()

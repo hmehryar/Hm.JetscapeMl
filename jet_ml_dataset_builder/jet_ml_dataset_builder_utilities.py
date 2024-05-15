@@ -268,6 +268,8 @@ import os
 from os import path, makedirs
 
 def set_directory_paths():
+    print('\n########################################################################')
+    print('Checking the running platforms and setting the directory path\n')
     dataset_directory_path = ''
     simulation_directory_path = ''
     
@@ -299,7 +301,7 @@ def set_directory_paths():
     if not path.exists(simulation_directory_path):
         makedirs(simulation_directory_path)
     print('Simulation Results Path: ' + simulation_directory_path)
-
+    print('########################################################################\n')
     return dataset_directory_path, simulation_directory_path
 
 import numpy as np
@@ -432,7 +434,10 @@ def get_label_items():
     print("label_items:\n",data_dict)
     return data_dict
 
-def get_labels_str(label_items_dict):
+def get_labels_str(label_items_dict=None):
+  if label_items_dict==None:
+      label_items_dict = get_label_items()
+      return get_labels_str(label_items_dict)
   print("Building required params for the loading the dataset file")
 
   data_dict = {
@@ -442,6 +447,41 @@ def get_labels_str(label_items_dict):
   }
   print("labels_str:\n",data_dict)
   return data_dict
+
+def generate_simulation_path(simulation_directory_path,classifying_parameter, label_str_dict, dataset_size, n_epochs, fold):
+    """
+    Generate a simulation path based on input parameters.
+
+    Parameters:
+    - simulation_directory_path (str): The directory path where the simulation results will be stored.
+    - label_str_dict (dict): A dictionary containing label strings.
+    - dataset_size (int): The size of the dataset.
+    - n_epochs (int): The number of epochs for training.
+    - fold (int): The fold number for cross-validation.
+
+    Returns:
+    - current_simulation_path (str): The generated simulation path.
+    """
+
+    # Print simulation directory path
+    print("simulation_directory_path:", simulation_directory_path)
+    
+    key=classifying_parameter+"_items_str"
+    classifying_parameter_label_str=label_str_dict[key]
+    # Generate simulation path components
+    simulation_path = f'{simulation_directory_path}jetml_pointnet_classification_{classifying_parameter}_{classifying_parameter_label_str}'
+    print("simulation_path:", simulation_path)
+
+    current_simulation_name = f'_size_{dataset_size}'
+    current_simulation_path = simulation_path + current_simulation_name
+
+    current_simulation_name = f'_epochs_{n_epochs}'
+    current_simulation_path = current_simulation_path + current_simulation_name
+
+    current_simulation_name = f'_fold_{fold}'
+    current_simulation_path = current_simulation_path + current_simulation_name
+
+    return current_simulation_path
 
 
 def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, working_column: int = 0):
