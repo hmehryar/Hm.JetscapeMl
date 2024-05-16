@@ -483,35 +483,17 @@ def generate_simulation_path(simulation_directory_path,classifying_parameter, la
 
     return current_simulation_path
 
-def scale_dataset_images(dataset_x):
+
+
+def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str):
     """
-    Scale each image in the dataset_x between 0 and 1 using Min-Max scaling.
-
-    Parameters:
-    - dataset_x (numpy.ndarray): The dataset containing images.
-
-    Returns:
-    - scaled_dataset_x (numpy.ndarray): The scaled dataset.
-    """
-    # Calculate the minimum and maximum values for each image
-    min_vals = np.min(dataset_x, axis=(1, 2), keepdims=True)
-    max_vals = np.max(dataset_x, axis=(1, 2), keepdims=True)
-
-    # Scale each image between 0 and 1
-    scaled_dataset_x = (dataset_x - min_vals) / (max_vals - min_vals)
-
-    return scaled_dataset_x
-
-def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, working_column: int = 0,scale_x=True):
-    """
-    Loads a dataset of specified size and extracts the specified column for classification.
+    Loads a dataset of specified size 
 
     Parameters:
     - size (int): The size of the dataset. It should be an integer representing the size of the dataset. 
                   Valid sizes are 1000, 10000, 100000, or 1000000.
     - label_str_dict (dict): A dictionary containing string labels for various parameters used in the dataset file name construction.
     - dataset_directory_path (str): The directory path where the dataset files are located.
-    - working_column (int, optional): The index of the column to be extracted for classification. Default is 0.
 
     Returns:
     - dataset_x (numpy.ndarray): The features of the dataset.
@@ -519,7 +501,7 @@ def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, wo
 
     Example:
     ```python
-    dataset_x, dataset_y = get_dataset(1000, label_str_dict, "/path/to/dataset_directory/", working_column=1)
+    dataset_x, dataset_y = get_dataset(1000, label_str_dict, "/path/to/dataset_directory/")
     ```
     """
 
@@ -531,11 +513,7 @@ def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, wo
     dataset = load_dataset(dataset_file_name, has_test=False)
     (dataset_x, dataset_y) = dataset
     
-    if(scale_x==True):
-        print("Scaling the datset_x each image between 0 and 1")
-        dataset_x = scale_dataset_images(dataset_x)
-    print(f'Extract the working column#{working_column} for classification')
-    dataset_y = dataset_y[:, working_column]
+    
     print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
     print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
     print("dataset.y(working_column) sample",dataset_y[:10])

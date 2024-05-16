@@ -159,7 +159,7 @@ def get_dataset_points(dataset_x):
     dataset_points = np.array(dataset_points)
     return dataset_points
 
-def split_dataset(dataset_x_points, dataset_y, test_size=0.2, random_state=None):
+def split_dataset(dataset_x_points, dataset_y, test_size=0.1, random_state=42,shuffle=True):
     """
     Split the dataset into training and testing sets.
 
@@ -175,48 +175,122 @@ def split_dataset(dataset_x_points, dataset_y, test_size=0.2, random_state=None)
     """
     
     x_train_points, x_test_points, y_train, y_test = \
-        train_test_split(dataset_x_points, dataset_y, test_size=test_size, random_state=random_state)
+        train_test_split(dataset_x_points, dataset_y, test_size=test_size, random_state=random_state,shuffle=shuffle)
 
     return x_train_points, x_test_points, y_train, y_test
 
-def preprocess_dataset(dataset_x, dataset_y,is_one_hot_encoded=True,random_state=None,test_size=0.2):
-    print("Pre-processing")
-    # Example usage:
-    dataset_x_points = get_dataset_points(dataset_x)
-    print("dataset_x_points shape:", dataset_x_points.shape)
-    x_train_points, x_test_points, y_train, y_test= \
-    split_dataset(dataset_x_points, dataset_y, test_size=test_size, random_state=random_state)
-    print("deleting the original dataset after splitting ...")
-    del dataset_x,dataset_x_points,dataset_y
-
-    print("train_points:",type(x_train_points), x_train_points.size, x_train_points.shape)
-    print("train_y:",type(y_train), y_train.size,y_train.shape)
-
-
-    print("x_test_points:",type(x_test_points), x_test_points.size, x_test_points.shape)
-    print("y_test:",type(y_test), y_test.size,y_test.shape)
-    print("y_test[:10]:\n",y_test[:10])
-
-    print("Preprocess y_train and y_test")
+def get_dataset_y_encoded(dataset_y,is_one_hot_encoded=True):
+    print("Preprocess dataset_y")
     if is_one_hot_encoded==True:
         print("One-hot encode the categorical variable")
-        y_train_categorical = np.array(y_train).reshape(-1, 1)
-        y_test_categorical = np.array(y_test).reshape(-1, 1)
-        print("y_test_categorical:\n",y_test_categorical[:10])
+        dataset_y_categorical = np.array(dataset_y).reshape(-1, 1)
+        print("dataset_y_categorical:\n",dataset_y_categorical[:10])
 
         encoder = OneHotEncoder(sparse_output=False)
-        y_train_categorical_encoded = encoder.fit_transform(y_train_categorical)
-        y_test_categorical_encoded = encoder.transform(y_test_categorical)
-        print("y_test_categorical_encoded:\n",y_test_categorical_encoded[:10])
+        dataset_y_categorical_encoded = encoder.fit_transform(dataset_y_categorical)
+        print("dataset_y_categorical_encoded:\n",dataset_y_categorical_encoded[:10])
 
-        return (x_train_points,  y_train_categorical_encoded,x_test_points,  y_test_categorical_encoded)
+        return dataset_y_categorical_encoded
     else:
         print("Encoding to sparse categorical variable")
         label_encoder = LabelEncoder()
-        y_train_encoded = label_encoder.fit_transform(y_train)
-        y_test_encoded = label_encoder.fit_transform(y_test)
-        print("y_test_encoded:\n",y_test_encoded[:10])
-        return (x_train_points,  y_train_encoded,x_test_points,  y_test_encoded)
+        dataset_y_encoded = label_encoder.fit_transform(dataset_y)
+        print("dataset_y_encoded:\n",dataset_y_encoded[:10])
+        return dataset_y_encoded
+
+def scale_dataset_images(dataset_x):
+    """
+    Scale each image in the dataset_x between 0 and 1 using Min-Max scaling.
+
+    Parameters:
+    - dataset_x (numpy.ndarray): The dataset containing images.
+
+    Returns:
+    - scaled_dataset_x (numpy.ndarray): The scaled dataset.
+    """
+    # Calculate the minimum and maximum values for each image
+    min_vals = np.min(dataset_x, axis=(1, 2), keepdims=True)
+    max_vals = np.max(dataset_x, axis=(1, 2), keepdims=True)
+
+    # Scale each image between 0 and 1
+    scaled_dataset_x = (dataset_x - min_vals) / (max_vals - min_vals)
+
+    return scaled_dataset_x
+def preprocess_datasets_x(dataset_x,scale_x):
+    if(scale_x==True):
+        print("Scaling the datset_x each image between 0 and 1")
+        dataset_x = scale_dataset_images(dataset_x)
+    dataset_x_points = get_dataset_points(dataset_x)
+    return dataset_x_points
+
+def preprocess_datasets_y(dataset_y,working_column,is_one_hot_encoded):
+    print(f'Extract the working column#{working_column} for classification')
+    dataset_y = dataset_y[:, working_column]
+    dataset_y_encoded=get_dataset_y_encoded(dataset_y,is_one_hot_encoded)
+    return dataset_y_encoded
+def preprocess_dataset(dataset_x, dataset_y, scale_x=True, working_column: int = 0,is_one_hot_encoded=True):
+    """
+        This function process the input dataset into point cloud and encoded feature, 
+        scales each image pixel between 0-1
+        and extracts the specified column for classification
+
+        Parameters:
+        - scale_x (bool, optional): scales each image pixel between 0-1. Default is True
+        - working_column (int, optional): The index of the column to be extracted for classification. Default is 0.
+        - is_one_hot_encoded (bool, optional): encode dataset_y as categorical OneHot-Encoded or Sparse Categorical. Default is True
+
+        Returns:
+        - dataset_x (numpy.ndarray): The features of the dataset.
+        - dataset_y (numpy.ndarray): The labels corresponding to the features.
+    """
+    print("Pre-processing")
+    # Example usage:
+    dataset_x_points=preprocess_datasets_x(dataset_x,scale_x)
+    print("dataset_x_points shape:", dataset_x_points.shape)
+    print("deleting the original dataset_x after preprocess ...")
+    del dataset_x
+    dataset_y_encoded=preprocess_datasets_y(dataset_y,working_column,is_one_hot_encoded)
+    print("dataset_y_encoded shape:", dataset_y_encoded.shape)
+    del dataset_y
+    print("deleting the original dataset_x after preprocess ...")
+    return dataset_x_points,dataset_y_encoded
+
+
+    
+    # print("dataset_x_points shape:", dataset_x_points.shape)
+    # x_train_points, x_test_points, y_train, y_test= \
+    # split_dataset(dataset_x_points, dataset_y, test_size=test_size, random_state=random_state)
+    # print("deleting the original dataset after splitting ...")
+    # del dataset_x,dataset_x_points,dataset_y
+
+    # print("train_points:",type(x_train_points), x_train_points.size, x_train_points.shape)
+    # print("train_y:",type(y_train), y_train.size,y_train.shape)
+
+
+    # print("x_test_points:",type(x_test_points), x_test_points.size, x_test_points.shape)
+    # print("y_test:",type(y_test), y_test.size,y_test.shape)
+    # print("y_test[:10]:\n",y_test[:10])
+
+    # print("Preprocess y_train and y_test")
+    # if is_one_hot_encoded==True:
+    #     print("One-hot encode the categorical variable")
+    #     y_train_categorical = np.array(y_train).reshape(-1, 1)
+    #     y_test_categorical = np.array(y_test).reshape(-1, 1)
+    #     print("y_test_categorical:\n",y_test_categorical[:10])
+
+    #     encoder = OneHotEncoder(sparse_output=False)
+    #     y_train_categorical_encoded = encoder.fit_transform(y_train_categorical)
+    #     y_test_categorical_encoded = encoder.transform(y_test_categorical)
+    #     print("y_test_categorical_encoded:\n",y_test_categorical_encoded[:10])
+
+    #     return (x_train_points,  y_train_categorical_encoded,x_test_points,  y_test_categorical_encoded)
+    # else:
+    #     print("Encoding to sparse categorical variable")
+    #     label_encoder = LabelEncoder()
+    #     y_train_encoded = label_encoder.fit_transform(y_train)
+    #     y_test_encoded = label_encoder.fit_transform(y_test)
+    #     print("y_test_encoded:\n",y_test_encoded[:10])
+    #     return (x_train_points,  y_train_encoded,x_test_points,  y_test_encoded)
 
 
 
@@ -269,69 +343,88 @@ def augment(points, label):
     points = tf.random.shuffle(points)
     return points, label
 
-def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, train_size=0.8, batch_size=32):
+# def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, train_size=0.8, batch_size=32):
+#     """
+#     Prepare training, validation  and test datasets for model training. It will shuffle all data and then take the validation proportion out.
+
+#     Parameters:
+#     - dataset (tf.data.Dataset): TensorFlow Dataset containing training data.
+#     - test_dataset (tf.data.Dataset): TensorFlow Dataset containing test data.
+#     - len_x_train (int): Length of the features data for training.
+#     - len_x_test (int): Length of the features data for testing.
+#     - augment (callable): Function to apply data augmentation.
+#     - train_size (float): Proportion of the dataset to use for training. Default is 0.8.
+#     - batch_size (int): Batch size for training and validation datasets. Default is 32.
+
+#     Returns:
+#     - train_dataset (tf.data.Dataset): TensorFlow Dataset for training.
+#     - validation_dataset (tf.data.Dataset): TensorFlow Dataset for validation.
+#     - test_dataset (tf.data.Dataset): TensorFlow Dataset for testing.
+#     """
+#     # Determine training dataset size
+#     train_dataset_size = int(len(dataset) * train_size)
+    
+#     # Shuffle and augment datasets
+#     dataset = dataset.shuffle(len_x_train).map(augment)
+#     test_dataset = test_dataset.shuffle(len_x_test).batch(batch_size)
+    
+#     # Split dataset into training and validation sets
+#     train_dataset = dataset.take(train_dataset_size).batch(batch_size)
+#     validation_dataset = dataset.skip(train_dataset_size).batch(batch_size)
+    
+#     return train_dataset, validation_dataset, test_dataset
+
+def prepare_datasets(dataset_x, dataset_y, random_state=42,test_size=0.1, validation_size=None, augment=augment, batch_size=32):
     """
-    Prepare training, validation  and test datasets for model training. It will shuffle all data and then take the validation proportion out.
+    Prepare training,  and test datasets for model training. It will split, shuffle all data,
+    Turns them to tensorFlow dataset,
+    Augments the train_dataset and Batchifies 
+    and Batchifies the test_dataset as well
 
     Parameters:
-    - dataset (tf.data.Dataset): TensorFlow Dataset containing training data.
-    - test_dataset (tf.data.Dataset): TensorFlow Dataset containing test data.
-    - len_x_train (int): Length of the features data for training.
-    - len_x_test (int): Length of the features data for testing.
+    - x_data (numpy.ndarray): The features data.
+    - y_data (numpy.ndarray): The labels data.
+    - test_size: The proportion of the dataset to include in the test split.
+    - random_state: Seed for random number generation.
+    - test_size (float): Proportion of the dataset to use for testing. Default is 0.1
+    - validation_size (float): Proportion of the dataset to use for training. Default is None, ToDo for further development
     - augment (callable): Function to apply data augmentation.
-    - train_size (float): Proportion of the dataset to use for training. Default is 0.8.
     - batch_size (int): Batch size for training and validation datasets. Default is 32.
+    
 
     Returns:
     - train_dataset (tf.data.Dataset): TensorFlow Dataset for training.
-    - validation_dataset (tf.data.Dataset): TensorFlow Dataset for validation.
     - test_dataset (tf.data.Dataset): TensorFlow Dataset for testing.
     """
-    # Determine training dataset size
-    train_dataset_size = int(len(dataset) * train_size)
+
+    print("Splitting dataset_x,dataset_y")
+    x_train, x_test, y_train, y_test= \
+    split_dataset(dataset_x, dataset_y, test_size=test_size, random_state=random_state,shuffle=False)
+    print("deleting the original dataset_x,dataset_y after splitting ...")
+    del dataset_x,dataset_y
+
+    print("x_train:",type(x_train), x_train.size, x_train.shape)
+    print("y_train:",type(y_train), y_train.size,y_train.shape)
+
+
+    print("x_test:",type(x_test), x_test.size, x_test.shape)
+    print("y_test:",type(y_test), y_test.size,y_test.shape)
+    print("y_test[:10]:\n",y_test[:10])
+
+    print()
+    # Create TensorFlow Dataset for training data and test data
+    train_dataset = create_tf_dataset(x_train, y_train)
+    test_dataset = create_tf_dataset(x_test, y_test)
     
+    
+    len_x_train=len(x_train)
+    len_x_test=len(x_test)
     # Shuffle and augment datasets
-    dataset = dataset.shuffle(len_x_train).map(augment)
-    test_dataset = test_dataset.shuffle(len_x_test).batch(batch_size)
-    
-    # Split dataset into training and validation sets
-    train_dataset = dataset.take(train_dataset_size).batch(batch_size)
-    validation_dataset = dataset.skip(train_dataset_size).batch(batch_size)
-    
-    return train_dataset, validation_dataset, test_dataset
+    train_dataset = train_dataset.shuffle(len_x_train,random_state).map(augment)
+    train_dataset=train_dataset.batch(batch_size)
 
-def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, train_size=0.8, batch_size=32):
-    """
-    Prepare training, validation  and test datasets for model training. It will shuffle all data and then take the validation proportion out.
+    test_dataset = test_dataset.shuffle(len_x_test,random_state).batch(batch_size)
 
-    Parameters:
-    - dataset (tf.data.Dataset): TensorFlow Dataset containing training data.
-    - test_dataset (tf.data.Dataset): TensorFlow Dataset containing test data.
-    - len_x_train (int): Length of the features data for training.
-    - len_x_test (int): Length of the features data for testing.
-    - augment (callable): Function to apply data augmentation.
-    - train_size (float): Proportion of the dataset to use for training. Default is 0.8.
-    - batch_size (int): Batch size for training and validation datasets. Default is 32.
-
-    Returns:
-    - train_dataset (tf.data.Dataset): TensorFlow Dataset for training.
-    - validation_dataset (tf.data.Dataset): TensorFlow Dataset for validation.
-    - test_dataset (tf.data.Dataset): TensorFlow Dataset for testing.
-    """
-    # Determine training dataset size
-    train_dataset_size = int(len(dataset) * train_size)
-    
-    # Shuffle and augment datasets
-    dataset = dataset.shuffle(len_x_train).map(augment)
-    test_dataset = test_dataset.shuffle(len_x_test).batch(batch_size)
-    
-    # Split dataset into training and validation sets
-    if (train_size!=1):
-        train_dataset = dataset.take(train_dataset_size).batch(batch_size)
-        validation_dataset = dataset.skip(train_dataset_size).batch(batch_size)
-    else:
-        train_dataset=dataset.batch(batch_size)
-    
     return train_dataset, test_dataset, test_dataset
 
 def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=None, y_validation=None, train_dataset=None, validation_dataset=None, monitor="val_accuracy", best_model_file_path="best_model.h5", n_epochs=10):
