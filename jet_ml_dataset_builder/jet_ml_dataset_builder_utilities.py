@@ -268,6 +268,8 @@ import os
 from os import path, makedirs
 
 def set_directory_paths():
+    print('\n########################################################################')
+    print('Checking the running platforms and setting the directory path\n')
     dataset_directory_path = ''
     simulation_directory_path = ''
     
@@ -299,7 +301,7 @@ def set_directory_paths():
     if not path.exists(simulation_directory_path):
         makedirs(simulation_directory_path)
     print('Simulation Results Path: ' + simulation_directory_path)
-
+    print('########################################################################\n')
     return dataset_directory_path, simulation_directory_path
 
 import numpy as np
@@ -419,4 +421,127 @@ def load_dataset_from_npz(npz_file):
     }
 
     return dataset
+def get_label_items():
+    print ('Aggregatring all parameters values')
+    y_class_label_items=['MMAT','MLBT']
+    alpha_s_items=[0.2 ,0.3 ,0.4]
+    q0_items=[1.5 ,2.0 ,2.5]
+    data_dict = {
+        "y_class_label_items": y_class_label_items,
+        "alpha_s_items": alpha_s_items,
+        "q0_items": q0_items
+    }
+    print("label_items:\n",data_dict)
+    return data_dict
+
+def get_labels_str(label_items_dict=None):
+  if label_items_dict==None:
+      label_items_dict = get_label_items()
+      return get_labels_str(label_items_dict)
+  print("Building required params for the loading the dataset file")
+
+  data_dict = {
+      "class_labels_str":'_'.join(label_items_dict['y_class_label_items']),
+      "alpha_s_items_str":'_'.join(map(str, label_items_dict['alpha_s_items'])),
+      "q0_items_str":'_'.join(map(str, label_items_dict['q0_items'])),
+  }
+  print("labels_str:\n",data_dict)
+  return data_dict
+
+def generate_simulation_path(simulation_directory_path,classifying_parameter, label_str_dict, dataset_size, n_epochs, fold):
+    """
+    Generate a simulation path based on input parameters.
+
+    Parameters:
+    - simulation_directory_path (str): The directory path where the simulation results will be stored.
+    - label_str_dict (dict): A dictionary containing label strings.
+    - dataset_size (int): The size of the dataset.
+    - n_epochs (int): The number of epochs for training.
+    - fold (int): The fold number for cross-validation.
+
+    Returns:
+    - current_simulation_path (str): The generated simulation path.
+    """
+
+    # Print simulation directory path
+    print("simulation_directory_path:", simulation_directory_path)
+    
+    key=classifying_parameter+"_items_str"
+    classifying_parameter_label_str=label_str_dict[key]
+    # Generate simulation path components
+    simulation_path = f'{simulation_directory_path}jetml_pointnet_classification_{classifying_parameter}_{classifying_parameter_label_str}'
+    print("simulation_path:", simulation_path)
+
+    current_simulation_name = f'_size_{dataset_size}'
+    current_simulation_path = simulation_path + current_simulation_name
+
+    current_simulation_name = f'_epochs_{n_epochs}'
+    current_simulation_path = current_simulation_path + current_simulation_name
+
+    current_simulation_name = f'_fold_{fold}'
+    current_simulation_path = current_simulation_path + current_simulation_name
+
+    return current_simulation_path
+
+def scale_dataset_images(dataset_x):
+    """
+    Scale each image in the dataset_x between 0 and 1 using Min-Max scaling.
+
+    Parameters:
+    - dataset_x (numpy.ndarray): The dataset containing images.
+
+    Returns:
+    - scaled_dataset_x (numpy.ndarray): The scaled dataset.
+    """
+    # Calculate the minimum and maximum values for each image
+    min_vals = np.min(dataset_x, axis=(1, 2), keepdims=True)
+    max_vals = np.max(dataset_x, axis=(1, 2), keepdims=True)
+
+    # Scale each image between 0 and 1
+    scaled_dataset_x = (dataset_x - min_vals) / (max_vals - min_vals)
+
+    return scaled_dataset_x
+
+def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, working_column: int = 0,scale_x=True):
+    """
+    Loads a dataset of specified size and extracts the specified column for classification.
+
+    Parameters:
+    - size (int): The size of the dataset. It should be an integer representing the size of the dataset. 
+                  Valid sizes are 1000, 10000, 100000, or 1000000.
+    - label_str_dict (dict): A dictionary containing string labels for various parameters used in the dataset file name construction.
+    - dataset_directory_path (str): The directory path where the dataset files are located.
+    - working_column (int, optional): The index of the column to be extracted for classification. Default is 0.
+
+    Returns:
+    - dataset_x (numpy.ndarray): The features of the dataset.
+    - dataset_y (numpy.ndarray): The labels corresponding to the features.
+
+    Example:
+    ```python
+    dataset_x, dataset_y = get_dataset(1000, label_str_dict, "/path/to/dataset_directory/", working_column=1)
+    ```
+    """
+
+    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['class_labels_str']}_size_{size}_shuffled.pkl"
+
+    dataset_file_name = dataset_directory_path + dataset_file_name
+
+    print("Loading the whole dataset")
+    dataset = load_dataset(dataset_file_name, has_test=False)
+    (dataset_x, dataset_y) = dataset
+    
+    if(scale_x==True):
+        print("Scaling the datset_x each image between 0 and 1")
+        dataset_x = scale_dataset_images(dataset_x)
+    print(f'Extract the working column#{working_column} for classification')
+    dataset_y = dataset_y[:, working_column]
+    print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
+    print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
+    print("dataset.y(working_column) sample",dataset_y[:10])
+
+    return dataset_x, dataset_y
+
+
+
 
