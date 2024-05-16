@@ -106,7 +106,10 @@ def print_model_summary(model):
 
 
 def compile_pointnet_classifier_model_with_hyperparam(model,learning_rate=None, loss='sparse_categorical_crossentropy',metrics='sparse_categorical_accuracy'):
-    optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
+    if learning_rate!=None:
+        optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
+    else:
+        optimizer = keras.optimizers.Adam()
 
     model.compile(
         loss="sparse_categorical_crossentropy",
