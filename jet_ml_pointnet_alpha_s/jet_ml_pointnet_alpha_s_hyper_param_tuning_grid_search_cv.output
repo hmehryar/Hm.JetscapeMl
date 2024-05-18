@@ -1,0 +1,60 @@
+
+########################################################################
+Checking the running platforms and setting the directory path
+
+Python version: 3.9.16
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+Aggregatring all parameters values
+label_items:
+ {'y_class_label_items': ['MMAT', 'MLBT'], 'alpha_s_items': [0.2, 0.3, 0.4], 'q0_items': [1.5, 2.0, 2.5]}
+Building required params for the loading the dataset file
+labels_str:
+ {'class_labels_str': 'MMAT_MLBT', 'alpha_s_items_str': '0.2_0.3_0.4', 'q0_items_str': '1.5_2.0_2.5'}
+Loading the whole dataset
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000 (1000, 3)
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000 (1000, 3)
+dataset.y(working_column) sample [['MLBT' '0.4' '2.5']
+ ['MLBT' '0.4' '2.5']
+ ['MLBT' '0.2' '2.5']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.4' '1']
+ ['MMAT' '0.3' '1']
+ ['MLBT' '0.4' '2.5']
+ ['MLBT' '0.4' '2.0']]
+Pre-processing
+Scaling the datset_x each image between 0 and 1
+dataset_x_points shape: (1000, 1024, 3)
+deleting the original dataset_x after preprocess ...
+Extract the working column#1 for classification
+Preprocess dataset_y
+Encoding to sparse categorical variable
+dataset_y_encoded:
+ [2 2 0 2 2 1 2 1 2 2]
+dataset_y_encoded shape: (1000,)
+deleting the original dataset_x after preprocess ...
+Splitting dataset_x,dataset_y
+deleting the original dataset_x,dataset_y after splitting ...
+x_train: <class 'numpy.ndarray'> 2764800 (900, 1024, 3)
+y_train: <class 'numpy.ndarray'> 900 (900,)
+x_test: <class 'numpy.ndarray'> 307200 (100, 1024, 3)
+y_test: <class 'numpy.ndarray'> 100 (100,)
+y_test[:10]:
+ [2 0 1 2 1 2 1 2 0 2]
+
+29
+4
+4
+simulation_directory_path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+simulation_path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jetml_pointnet_classification_alpha_s_0.2_0.3_0.4
+current_simulation_path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jetml_pointnet_classification_alpha_s_0.2_0.3_0.4_size_1000_epochs_100_fold_1
+best_model_file_path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jetml_pointnet_classification_alpha_s_0.2_0.3_0.4_size_1000_epochs_100_fold_1_best_model.keras
