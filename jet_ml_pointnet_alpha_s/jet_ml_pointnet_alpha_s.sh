@@ -17,7 +17,7 @@
 
 ##SBATCH --gres=gpu:tesla
 # #SBATCH --gres=gpu:geforc
-##SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:2
 
 # Request v100 gpu
 
@@ -25,13 +25,13 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 
-#SBATCH -n 64
+#SBATCH -n 32
 
 #SBATCH -c 1
 
 # Request memory
 
-#SBATCH --mem=320G
+#SBATCH --mem=120G
 
 # #SBATCH --mem-per-cpu=32
 
