@@ -423,11 +423,11 @@ def load_dataset_from_npz(npz_file):
     return dataset
 def get_label_items():
     print ('Aggregatring all parameters values')
-    y_class_label_items=['MMAT','MLBT']
+    eloss_items=['MMAT','MLBT']
     alpha_s_items=[0.2 ,0.3 ,0.4]
     q0_items=[1.5 ,2.0 ,2.5]
     data_dict = {
-        "y_class_label_items": y_class_label_items,
+        "eloss_items": eloss_items,
         "alpha_s_items": alpha_s_items,
         "q0_items": q0_items
     }
@@ -441,7 +441,7 @@ def get_labels_str(label_items_dict=None):
   print("Building required params for the loading the dataset file")
 
   data_dict = {
-      "class_labels_str":'_'.join(label_items_dict['y_class_label_items']),
+      "eloss_items_str":'_'.join(label_items_dict['eloss_items']),
       "alpha_s_items_str":'_'.join(map(str, label_items_dict['alpha_s_items'])),
       "q0_items_str":'_'.join(map(str, label_items_dict['q0_items'])),
   }
