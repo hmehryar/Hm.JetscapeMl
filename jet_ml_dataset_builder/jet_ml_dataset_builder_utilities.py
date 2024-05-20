@@ -523,7 +523,7 @@ def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, wo
     ```
     """
 
-    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['class_labels_str']}_size_{size}_shuffled.pkl"
+    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_shuffled.pkl"
 
     dataset_file_name = dataset_directory_path + dataset_file_name
 
