@@ -5,7 +5,7 @@
 
 # Job name
 
-#SBATCH --job-name jet-ml-pointnet
+#SBATCH --job-name jet_ml_pointnet_classifier
 
 # Submit to the GPU QoS
 
@@ -21,11 +21,11 @@
 
 #SBATCH -n 1
 
-#SBATCH -c 32
+#SBATCH -c 16
 
 # Request memory
 
-#SBATCH --mem=64G
+#SBATCH --mem=128G
 
 # #SBATCH --mem-per-cpu=32
 
@@ -37,13 +37,13 @@
 
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file that will be jet-ml-pointnet_output_<jobid>.out
+# Create an output file that will be jet_ml_pointnet_classifier_output_<jobid>.out
 
-#SBATCH -o jet-ml-pointnet_output_%j.out
+#SBATCH -o jet_ml_pointnet_classifier_output_%j.out
 
-# Create an error file that will be jet-ml-pointnet_error_<jobid>.out
+# Create an error file that will be jet_ml_pointnet_classifier_error_<jobid>.out
 
-#SBATCH -e jet-ml-pointnet_error_%j.err
+#SBATCH -e jet_ml_pointnet_classifier_error_%j.err
 
 # Set maximum time limit
 
@@ -52,7 +52,7 @@
 
 #Converting jupyter notebook to python script
 echo "Converting notebook to script"
-jupyter nbconvert --to python jet-ml-pointnet.ipynb
+jupyter nbconvert --to python jet_ml_pointnet_classifier.ipynb
 
 echo "Setting up python version and conda shell"
 ml python/3.7
@@ -67,4 +67,4 @@ conda activate tensorflow-gpu-v2.8
 
 #Running simulation
 echo "Running simulation"
-python -u jet-ml-pointnet.py
+python -u jet_ml_pointnet_classifier.py
