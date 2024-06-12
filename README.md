@@ -29,17 +29,21 @@ git clone https://github.com/hmehryar/Hm.JetscapeMl.git
 ```bash
 cd Hm.JetscapeMl
 ```
-
-3. Install the required dependencies. It's recommended to set up a virtual environment before installing dependencies:
+3. Reading the Dataset: To read and utilize the dataset, users can employ various tools and libraries compatible with the pickle format. Here’s how the dataset can be accessed using Python with the `pickle` library:
 
 ```bash
-# Create and activate a virtual environment (optional but recommended)
-python3 -m venv venv
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
+import pickle
+dataset_file_name = f"ml_jet_dataset.pkl"
+try:
+    with open(file_name, 'rb') as dataset_file:
+        loaded_data = pickle.load(dataset_file, encoding='latin1')
+        (dataset_x, dataset_y) = loaded_data
+        print("dataset_x:",type(dataset_x), dataset_x.size, dataset_x.shape)
+        print("dataset_y:",type(dataset_y), dataset_y.size,dataset_y.shape)
+except pickle.UnpicklingError as e:
+        print("Error while loading the pickle file:", e)
 ```
+
 
 ## Usage
 Once you have the repository set up and the dependencies installed, you can start utilizing the project:
