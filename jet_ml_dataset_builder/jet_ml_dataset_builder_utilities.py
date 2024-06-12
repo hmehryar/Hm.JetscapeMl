@@ -423,11 +423,11 @@ def load_dataset_from_npz(npz_file):
     return dataset
 def get_label_items():
     print ('Aggregatring all parameters values')
-    y_class_label_items=['MMAT','MLBT']
+    eloss_items=['MMAT','MLBT']
     alpha_s_items=[0.2 ,0.3 ,0.4]
     q0_items=[1.5 ,2.0 ,2.5]
     data_dict = {
-        "y_class_label_items": y_class_label_items,
+        "eloss_items": eloss_items,
         "alpha_s_items": alpha_s_items,
         "q0_items": q0_items
     }
@@ -441,7 +441,7 @@ def get_labels_str(label_items_dict=None):
   print("Building required params for the loading the dataset file")
 
   data_dict = {
-      "class_labels_str":'_'.join(label_items_dict['y_class_label_items']),
+      "eloss_items_str":'_'.join(label_items_dict['eloss_items']),
       "alpha_s_items_str":'_'.join(map(str, label_items_dict['alpha_s_items'])),
       "q0_items_str":'_'.join(map(str, label_items_dict['q0_items'])),
   }
@@ -523,7 +523,7 @@ def get_dataset(size: int, label_str_dict: dict, dataset_directory_path: str, wo
     ```
     """
 
-    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['class_labels_str']}_size_{size}_shuffled.pkl"
+    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_shuffled.pkl"
 
     dataset_file_name = dataset_directory_path + dataset_file_name
 

@@ -109,12 +109,14 @@ def compile_pointnet_classifier_model_with_hyperparam(model,learning_rate=None, 
     optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
 
     model.compile(
-        loss="sparse_categorical_crossentropy",
+        # loss="sparse_categorical_crossentropy",
         # loss='categorical_crossentropy',
-        # loss="binary_crossentropy",
+        loss="binary_crossentropy",
+        # loss=loss,
         optimizer=optimizer,
-        metrics=["sparse_categorical_accuracy"],
-        # metrics=['accuracy'],
+        # metrics=["sparse_categorical_accuracy"],
+        metrics=['accuracy'],
+        # metrics=metrics
     )
     
     return model
@@ -375,7 +377,7 @@ def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=N
     )
     early_stopping_callback = tf.keras.callbacks.EarlyStopping(
         monitor=monitor,    # Quantity to be monitored
-        patience=5,         # Number of epochs with no improvement after which training will be stopped
+        patience=40,         # Number of epochs with no improvement after which training will be stopped
         verbose=1,          # Verbosity mode. 1: print messages when triggered, 0: silent
         min_delta=1e-3,     #
         restore_best_weights=True
