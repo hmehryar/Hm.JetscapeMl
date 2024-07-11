@@ -1,0 +1,10 @@
+[NbConvertApp] Converting notebook jetscape-ml-tensorflow-nn-mnist.ipynb to python
+[NbConvertApp] Writing 26767 bytes to jetscape-ml-tensorflow-nn-mnist.py
+2022-10-13 14:00:59.912627: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2022-10-13 14:01:00.323314: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2022-10-13 14:01:00.323435: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (sfx10): /proc/driver/nvidia/version does not exist
+2022-10-13 14:01:00.324721: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+2022-10-13 14:01:00.344739: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2600000000 Hz
+2022-10-13 14:01:00.345887: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5596d04d3370 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-10-13 14:01:00.345944: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+

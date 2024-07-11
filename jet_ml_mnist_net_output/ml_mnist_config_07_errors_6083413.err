@@ -1,0 +1,12 @@
+[NbConvertApp] Converting notebook jet-ml-pretrained-mnist.ipynb to python
+[NbConvertApp] Writing 26767 bytes to jet-ml-pretrained-mnist.py
+2022-11-03 14:14:19.313060: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2022-11-03 14:14:20.898142: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2022-11-03 14:14:20.900421: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (mdt37): /proc/driver/nvidia/version does not exist
+2022-11-03 14:14:20.901488: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2022-11-03 14:14:20.965873: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3194085000 Hz
+2022-11-03 14:14:20.967056: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5586b09e13f0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-11-03 14:14:20.967100: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-11-03 14:14:21.379098: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 6881280000 exceeds 10% of system memory.
+2022-11-03 14:25:32.371611: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 6881280000 exceeds 10% of system memory.
+
