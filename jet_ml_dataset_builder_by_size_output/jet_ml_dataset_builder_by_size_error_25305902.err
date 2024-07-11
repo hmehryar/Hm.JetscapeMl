@@ -1,0 +1,3 @@
+[NbConvertApp] Converting notebook jet-ml-dataset-builder-by-size.ipynb to python
+[NbConvertApp] Writing 9499 bytes to jet-ml-dataset-builder-by-size.py
+slurmstepd: error: *** JOB 25305902 ON mdt59 CANCELLED AT 2023-11-26T18:29:16 ***

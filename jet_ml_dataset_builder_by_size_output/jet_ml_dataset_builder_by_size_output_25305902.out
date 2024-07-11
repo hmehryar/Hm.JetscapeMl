@@ -1,0 +1,59 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Python version: 3.9.16
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Tokenized Arguments:
+
+Tokenized Values:
+y_class_label_items: ['MMAT', 'MLBT']
+alpha_s_items: [0.2, 0.3, 0.4]
+q0_items: [1.5, 2.0, 2.5]
+Building required params for the loading the dataset file
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_shuffled.pkl
+dataset.x_train: <class 'numpy.ndarray'> 9953270784 (9719991, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 29159973 (9719991, 3)
+dataset.x_test: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+After loading the dataset
+dataset.x_train: <class 'numpy.ndarray'> 9953270784 (9719991, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 29159973 (9719991, 3)
+dataset.x_test: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled.pkl
+Dataset shapes - x: (9719991, 32, 32)  y: (9719991, 3)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled_splitted.pkl
+Training set shapes - x: (900, 32, 32)  y: (900, 3)
+Test set shapes - x: (100, 32, 32)  y: (100, 3)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10000_shuffled.pkl
+Dataset shapes - x: (9719991, 32, 32)  y: (9719991, 3)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10000_shuffled_splitted.pkl
+Training set shapes - x: (9000, 32, 32)  y: (9000, 3)
+Test set shapes - x: (1000, 32, 32)  y: (1000, 3)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_100000_shuffled.pkl
+Dataset shapes - x: (9719991, 32, 32)  y: (9719991, 3)
