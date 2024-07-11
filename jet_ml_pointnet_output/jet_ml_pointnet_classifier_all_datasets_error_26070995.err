@@ -1,0 +1,17 @@
+[NbConvertApp] Converting notebook jet_ml_pointnet_classifier_all_datasets.ipynb to python
+[NbConvertApp] Writing 26377 bytes to jet_ml_pointnet_classifier_all_datasets.py
+2024-01-22 19:19:04.613162: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-22 19:19:12.130349: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 14639 MB memory:  -> device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:1e:00.0, compute capability: 7.0
+Traceback (most recent call last):
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-pointnet/jet_ml_pointnet_classifier_all_datasets.py", line 786, in <module>
+    train_and_evaluate_classifier_for_all_datasets(dataset_sizes,classifiers,simulation_path,n_epochs, monitor, k_folds)
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-pointnet/jet_ml_pointnet_classifier_all_datasets.py", line 722, in train_and_evaluate_classifier_for_all_datasets
+    fold_accuracies, fold_conf_matrices, fold_train_times, all_histories, plots, models =           train_and_evaluate_classifier_kfold(pointnet, x_train,  y_train,x_test,  y_test, n_epochs, monitor, k_folds,current_simulation_path)
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-pointnet/jet_ml_pointnet_classifier_all_datasets.py", line 557, in train_and_evaluate_classifier_kfold
+    kfold = KFold(n_splits=k_folds, shuffle=True, random_state=42)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/sklearn/model_selection/_split.py", line 451, in __init__
+    super().__init__(n_splits=n_splits, shuffle=shuffle, random_state=random_state)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/sklearn/model_selection/_split.py", line 298, in __init__
+    raise ValueError(
+ValueError: k-fold cross-validation requires at least one train/test split by setting n_splits=2 or more, got n_splits=1.
