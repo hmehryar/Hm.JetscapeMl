@@ -15,8 +15,39 @@ Welcome to Hm.JetscapeMl! This repository contains code and resources related to
 Hm.JetscapeMl is designed to extract valuable insights and patterns from Jetscape simulation data using modern machine learning techniques. The dataset and accompanying scripts provide a comprehensive framework for conducting machine learning experiments on this data.
 
 ## Dataset
+ML-JET, a dataset for parameter classification in heavy ion collisions using jet images.
 The dataset is hosted on Kaggle: [ML-Jet Dataset](https://www.kaggle.com/datasets/haydarmehryar/ml-jet) ([https://www.kaggle.com/datasets/haydarmehryar/ml-jet](https://www.kaggle.com/datasets/haydarmehryar/ml-jet)).
 
+The JET-ML dataset is designed as a comprehensive benchmark for machine learning applications in the field of relativistic heavy ion collisions. This dataset facilitates the study and prediction of energy loss mechanisms in high-energy particle physics, specifically focusing on parameters like initial parton virtuality and strong coupling constant, denoted as $Q_0$ and $\alpha_s$, respectively.
+
+**Purpose and Scope**
+
+The primary aim of the JET-ML dataset is to support the development and evaluation of machine learning models that can classify and predict jet event parameters under different physical conditions in a quark-gluon plasma (QGP). It provides a rich collection of simulated jet images, which are pivotal in understanding the dynamics of parton energy loss in such environments. The dataset emphasizes the connection between energy loss and quantum chromodynamics (QCD) parameters, $Q_0$ and $\alpha_s$, which are critical for characterizing the scattering and splitting behavior of partons as they traverse the medium.
+
+**Data Generation and Features**
+
+The dataset was generated using the JETSCAPE framework ([https://jetscape.org/](https://jetscape.org/)), a sophisticated tool for simulating jet events in high-energy collisions. 
+
+**Dataset Composition and Labeling**
+
+The JET-ML dataset comprises 10.8 million images, each with a resolution of 32 x 32pixels, representing Pb-Pb collision events. Each image is labeled with its corresponding energy loss module (MATTER or MATTER-LBT), the strong coupling constant $\alpha_s$, and the virtuality separation scale $Q_0$.
+
+**Intended Use and Applications**
+
+This dataset is intended for researchers and practitioners in both machine learning and high-energy physics. It provides a robust platform for developing models that can classify or predict event parameters in particle collisions, aiding in the deeper understanding of QGP properties and behavior. Possible applications include:
+
+
+- Training deep learning models for medium parameter classification.
+- Evaluating the impact of different $Q_0$ and $\alpha_s$ values on parton energy loss.
+- Benchmarking novel machine learning algorithms in the context of high-energy physics.
+
+
+**Compliance with FAIR Standards**
+
+The JET-ML dataset adheres to the principles of FAIR (Findable, Accessible, Interoperable, Reusable) data. It is publicly available through platforms like Kaggle and GitHub, with comprehensive documentation and metadata provided to facilitate its use and integration into various research workflows.
+
+[https://www.kaggle.com/datasets/haydarmehryar/ml-jet](kaggle)
+[https://github.com/hmehryar/Hm.JetscapeMl](GitHub)
 
 
 ## Installation
