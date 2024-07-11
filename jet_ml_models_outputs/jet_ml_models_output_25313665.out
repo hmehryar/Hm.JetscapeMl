@@ -1,0 +1,66 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Python version: 3.9.16
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Tokenized Arguments:
+
+Tokenized Values:
+y_class_label_items: ['MMAT', 'MLBT']
+alpha_s_items: [0.2, 0.3, 0.4]
+q0_items: [1.5, 2.0, 2.5]
+Building required params for the loading the dataset file
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled.pkl
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000 (1000, 3)
+dataset.x: <class 'numpy.ndarray'> 1024000 (1000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 1000 (1000,)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 10240000 (10000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 30000 (10000, 3)
+dataset.x: <class 'numpy.ndarray'> 10240000 (10000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 10000 (10000,)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_100000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 102400000 (100000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 300000 (100000, 3)
+dataset.x: <class 'numpy.ndarray'> 102400000 (100000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 100000 (100000,)
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_1000000_shuffled.pkl
+dataset.x: <class 'numpy.ndarray'> 1024000000 (1000000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 3000000 (1000000, 3)
+dataset.x: <class 'numpy.ndarray'> 1024000000 (1000000, 32, 32)
+dataset.y: <class 'numpy.ndarray'> 1000000 (1000000,)
+Classifier    Decision Tree       KNN  ...  Logistic Regression  Random Forest
+Dataset Size                           ...                                    
+1000               0.570000  0.600000  ...             0.795000       0.515000
+10000              0.569000  0.592000  ...             0.843500       0.633500
+100000             0.557900  0.596750  ...             0.863200       0.661750
+1000000            0.571895  0.602365  ...             0.867435       0.682735
+
+[4 rows x 5 columns]
