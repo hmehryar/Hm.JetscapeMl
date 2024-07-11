@@ -1,0 +1,110 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Python version: 3.9.16
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Tokenized Arguments:
+
+Tokenized Values:
+y_class_label_items: ['MMAT', 'MLBT']
+alpha_s_items: [0.2, 0.3, 0.4]
+q0_items: [1.5, 2.0, 2.5]
+Building required params for the loading the dataset file
+dataset_file_name: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_shuffled.pkl
+Loading the processed dataset
+dataset.x_train: <class 'numpy.ndarray'> 9953270784 (9719991, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 38879964 (9719991, 4)
+dataset.x_test: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 4320000 (1080000, 4)
+Loaded the processed dataset
+Now that you're done with dataset , release memory
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_0.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_1.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_2.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_3.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_4.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_5.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_6.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_7.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_8.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_9.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_10.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_11.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_12.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_13.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_14.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_15.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_16.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_17.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_18.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_19.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_20.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_21.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_22.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_23.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_24.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_25.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_26.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_27.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_28.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_29.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_30.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_31.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_32.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_33.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_34.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_35.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_36.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_37.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_38.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_39.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_40.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_41.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_42.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_43.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_44.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_45.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_46.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_47.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_48.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_49.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_50.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_51.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_52.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_53.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_54.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_55.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_56.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_57.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_58.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_59.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_60.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_61.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_62.pkl
+Saving /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/jet_ml_benchmark_config_01_to_09_alpha_0.2_0.3_0.4_q0_1.5_2.0_2.5_MMAT_MLBT_size_10800000_split_train_datasets/train_split_63.pkl
+Training dataset split into 40 pieces and saved.

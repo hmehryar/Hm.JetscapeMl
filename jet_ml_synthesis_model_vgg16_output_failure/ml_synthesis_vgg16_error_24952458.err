@@ -1,0 +1,19 @@
+[NbConvertApp] Converting notebook jet-ml-synthesis-model-vgg16.ipynb to python
+[NbConvertApp] Writing 7963 bytes to jet-ml-synthesis-model-vgg16.py
+
+EnvironmentNameNotFound: Could not find conda environment: tensorflow_gpuenv_v2
+You can list all discoverable environments with `conda info --envs`.
+
+
+DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 23.3 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+
+[notice] A new release of pip is available: 18.1 -> 23.3
+[notice] To update, run: pip install --upgrade pip
+DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 23.3 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+
+[notice] A new release of pip is available: 18.1 -> 23.3
+[notice] To update, run: pip install --upgrade pip
+Traceback (most recent call last):
+  File "jet-ml-synthesis-model-vgg16.py", line 24, in <module>
+    from jet_ml_dataset_builder.jet_ml_dataset_builder_utilities import set_directory_paths
+ModuleNotFoundError: No module named 'jet_ml_dataset_builder'
