@@ -1,0 +1,73 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: sklearn in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0)
+Requirement already satisfied: scikit-learn in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from sklearn) (1.0.2)
+Requirement already satisfied: scipy>=1.1.0 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from scikit-learn->sklearn) (1.4.1)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from scikit-learn->sklearn) (3.1.0)
+Requirement already satisfied: numpy>=1.14.6 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from scikit-learn->sklearn) (1.18.1)
+Requirement already satisfied: joblib>=0.11 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from scikit-learn->sklearn) (1.1.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: seaborn in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.11.2)
+Requirement already satisfied: numpy>=1.15 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from seaborn) (1.18.1)
+Requirement already satisfied: matplotlib>=2.2 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from seaborn) (3.1.3)
+Requirement already satisfied: pandas>=0.23 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from seaborn) (0.24.2)
+Requirement already satisfied: scipy>=1.0 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from seaborn) (1.4.1)
+Requirement already satisfied: python-dateutil>=2.1 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from matplotlib>=2.2->seaborn) (2.8.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from matplotlib>=2.2->seaborn) (2.4.6)
+Requirement already satisfied: cycler>=0.10 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from matplotlib>=2.2->seaborn) (0.10.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from matplotlib>=2.2->seaborn) (1.1.0)
+Requirement already satisfied: pytz>=2011k in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from pandas>=0.23->seaborn) (2020.1)
+Requirement already satisfied: six>=1.5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from python-dateutil>=2.1->matplotlib>=2.2->seaborn) (1.12.0)
+Requirement already satisfied: setuptools in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from kiwisolver>=1.0.1->matplotlib>=2.2->seaborn) (46.1.1.post20200323)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: IPython in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (5.5.0)
+Requirement already satisfied: prompt-toolkit<2.0.0,>=1.0.4 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (1.0.18)
+Requirement already satisfied: pexpect; sys_platform != "win32" in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (4.8.0)
+Requirement already satisfied: traitlets>=4.2 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (5.1.1)
+Requirement already satisfied: setuptools>=18.5 in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages (from IPython) (46.1.1.post20200323)
+Requirement already satisfied: simplegeneric>0.8 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (0.8.1)
+Requirement already satisfied: decorator in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (5.1.1)
+Requirement already satisfied: pickleshare in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (0.7.5)
+Requirement already satisfied: pygments in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from IPython) (2.11.2)
+Requirement already satisfied: wcwidth in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from prompt-toolkit<2.0.0,>=1.0.4->IPython) (0.2.5)
+Requirement already satisfied: six>=1.9.0 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from prompt-toolkit<2.0.0,>=1.0.4->IPython) (1.12.0)
+Requirement already satisfied: ptyprocess>=0.5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (from pexpect; sys_platform != "win32"->IPython) (0.7.0)
+Loading/Installing Package => Begin
+
+
+Installing sklearn
+Installed sklearn
+
+Installing seaborn
+Installed seaborn
+
+Installing pickle5
+Installed pickle5
+
+Installing IPython
+Installed IPython
+
+
+########################################################################
+Checking the running platforms
+
+OS: Linux
+OS version: 3.10.0-1160.81.1.el7.x86_64
+running on Colab: False
+Python version: 3.7.7
+Tensorflow version: 2.1.0
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset file name: config-09-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/simulation-results-nn-mnist-1200K-config-09/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Dataset file path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-09-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl
