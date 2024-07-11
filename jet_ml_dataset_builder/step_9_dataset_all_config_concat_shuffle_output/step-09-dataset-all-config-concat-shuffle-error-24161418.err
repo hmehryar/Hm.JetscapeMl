@@ -1,0 +1,13 @@
+[NbConvertApp] Converting notebook jet-ml-dataset-builder-step-9-all-config-cocatenate-shuffler.ipynb to python
+[NbConvertApp] Writing 7132 bytes to jet-ml-dataset-builder-step-9-all-config-cocatenate-shuffler.py
+
+EnvironmentNameNotFound: Could not find conda environment: tensorflow_gpuenv_v2
+You can list all discoverable environments with `conda info --envs`.
+
+
+
+[notice] A new release of pip available: 23.0.1 -> 23.2.1
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip available: 23.0.1 -> 23.2.1
+[notice] To update, run: pip install --upgrade pip

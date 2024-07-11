@@ -1,0 +1,905 @@
+
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running chunck image convertor for matterlbt
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+OS: Linux
+OS version: 3.10.0-1160.71.1.el7.x86_64
+running on Colab: False
+Python version: 3.7.7
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+########################################################################
+
+Parsing parameters from command line and initializing the input parameters
+[('-i', 'config-03-final-state-hadrons-matterlbt-600k.dat'), ('-d', '600000'), ('-y', 'MLBT'), ('-o', 'jetscape-ml-benchmark-dataset-600k-matterlbt.pkl'), ('-n', '40'), ('-c', '/wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-03-final-state-hadrons/'), ('-p', '3')]
+[]
+-i
+Input_file_name_hadrons:  config-03-final-state-hadrons-matterlbt-600k.dat
+simulated events final state hadron file: config-03-final-state-hadrons-matterlbt-600k.dat
+-d
+Data_size:  600000
+data_size: 600000 
+-y
+Y_class_label_items:  MLBT
+y_class_label_items
+['MLBT']
+-o
+output_dataset_file_name:  jetscape-ml-benchmark-dataset-600k-matterlbt.pkl
+Dataset file name: jetscape-ml-benchmark-dataset-600k-matterlbt.pkl
+-n
+number_of_partition:  40
+Number of partition for splitting the events: 40 
+-c
+configuration_directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-03-final-state-hadrons/
+Configuration directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-03-final-state-hadrons/
+-p
+configuration_number:  3
+Configuration number to reference which dataset it is: 3 
+########################################################################
+
+
+########################################################################
+Loading Events Item Chunck Item from File and Convert them to Image Async
+Partition# 0  Loading Partition  0 in the file
+Partition# 0  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition0-numofevents15000.pkl
+Partition# 0  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 0  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 0  Converting to Image arrays Begins: 
+Partition# 0 Converting all events into image data structure
+Partition# 0 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 0 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 0  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 0  Storing Image Items Chunck into File begins
+Partition# 0 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition0-numofevents15000-img-chunk.pkl
+Partition# 0 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition0-numofevents15000-img-chunk.pkl
+Partition# 0  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 1  Loading Partition  1 in the file
+Partition# 1  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition1-numofevents15000.pkl
+Partition# 1  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 1  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 1  Converting to Image arrays Begins: 
+Partition# 1 Converting all events into image data structure
+Partition# 1 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 1 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 1  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 1  Storing Image Items Chunck into File begins
+Partition# 1 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition1-numofevents15000-img-chunk.pkl
+Partition# 1 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition1-numofevents15000-img-chunk.pkl
+Partition# 1  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 2  Loading Partition  2 in the file
+Partition# 2  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition2-numofevents15000.pkl
+Partition# 2  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 2  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 2  Converting to Image arrays Begins: 
+Partition# 2 Converting all events into image data structure
+Partition# 2 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 2 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 2  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 2  Storing Image Items Chunck into File begins
+Partition# 2 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition2-numofevents15000-img-chunk.pkl
+Partition# 2 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition2-numofevents15000-img-chunk.pkl
+Partition# 2  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 3  Loading Partition  3 in the file
+Partition# 3  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition3-numofevents15000.pkl
+Partition# 3  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 3  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 3  Converting to Image arrays Begins: 
+Partition# 3 Converting all events into image data structure
+Partition# 3 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 3 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 3  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 3  Storing Image Items Chunck into File begins
+Partition# 3 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition3-numofevents15000-img-chunk.pkl
+Partition# 3 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition3-numofevents15000-img-chunk.pkl
+Partition# 3  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 4  Loading Partition  4 in the file
+Partition# 4  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition4-numofevents15000.pkl
+Partition# 4  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 4  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 4  Converting to Image arrays Begins: 
+Partition# 4 Converting all events into image data structure
+Partition# 4 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 4 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 4  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 4  Storing Image Items Chunck into File begins
+Partition# 4 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition4-numofevents15000-img-chunk.pkl
+Partition# 4 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition4-numofevents15000-img-chunk.pkl
+Partition# 4  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 5  Loading Partition  5 in the file
+Partition# 5  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition5-numofevents15000.pkl
+Partition# 5  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 5  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 5  Converting to Image arrays Begins: 
+Partition# 5 Converting all events into image data structure
+Partition# 5 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 5 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 5  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 5  Storing Image Items Chunck into File begins
+Partition# 5 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition5-numofevents15000-img-chunk.pkl
+Partition# 5 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition5-numofevents15000-img-chunk.pkl
+Partition# 5  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 6  Loading Partition  6 in the file
+Partition# 6  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition6-numofevents15000.pkl
+Partition# 6  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 6  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 6  Converting to Image arrays Begins: 
+Partition# 6 Converting all events into image data structure
+Partition# 6 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 6 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 6  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 6  Storing Image Items Chunck into File begins
+Partition# 6 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition6-numofevents15000-img-chunk.pkl
+Partition# 6 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition6-numofevents15000-img-chunk.pkl
+Partition# 6  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 7  Loading Partition  7 in the file
+Partition# 7  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition7-numofevents15000.pkl
+Partition# 7  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 7  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 7  Converting to Image arrays Begins: 
+Partition# 7 Converting all events into image data structure
+Partition# 7 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 7 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 7  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 7  Storing Image Items Chunck into File begins
+Partition# 7 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition7-numofevents15000-img-chunk.pkl
+Partition# 7 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition7-numofevents15000-img-chunk.pkl
+Partition# 7  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 8  Loading Partition  8 in the file
+Partition# 8  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition8-numofevents15000.pkl
+Partition# 8  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 8  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 8  Converting to Image arrays Begins: 
+Partition# 8 Converting all events into image data structure
+Partition# 8 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 8 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 8  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 8  Storing Image Items Chunck into File begins
+Partition# 8 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition8-numofevents15000-img-chunk.pkl
+Partition# 8 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition8-numofevents15000-img-chunk.pkl
+Partition# 8  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 9  Loading Partition  9 in the file
+Partition# 9  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition9-numofevents15000.pkl
+Partition# 9  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 9  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 9  Converting to Image arrays Begins: 
+Partition# 9 Converting all events into image data structure
+Partition# 9 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 9 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 9  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 9  Storing Image Items Chunck into File begins
+Partition# 9 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition9-numofevents15000-img-chunk.pkl
+Partition# 9 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition9-numofevents15000-img-chunk.pkl
+Partition# 9  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 10  Loading Partition  10 in the file
+Partition# 10  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition10-numofevents15000.pkl
+Partition# 10  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 10  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 10  Converting to Image arrays Begins: 
+Partition# 10 Converting all events into image data structure
+Partition# 10 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 10 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 10  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 10  Storing Image Items Chunck into File begins
+Partition# 10 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition10-numofevents15000-img-chunk.pkl
+Partition# 10 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition10-numofevents15000-img-chunk.pkl
+Partition# 10  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 11  Loading Partition  11 in the file
+Partition# 11  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition11-numofevents15000.pkl
+Partition# 11  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 11  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 11  Converting to Image arrays Begins: 
+Partition# 11 Converting all events into image data structure
+Partition# 11 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 11 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 11  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 11  Storing Image Items Chunck into File begins
+Partition# 11 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition11-numofevents15000-img-chunk.pkl
+Partition# 11 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition11-numofevents15000-img-chunk.pkl
+Partition# 11  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 12  Loading Partition  12 in the file
+Partition# 12  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition12-numofevents15000.pkl
+Partition# 12  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 12  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 12  Converting to Image arrays Begins: 
+Partition# 12 Converting all events into image data structure
+Partition# 12 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 12 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 12  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 12  Storing Image Items Chunck into File begins
+Partition# 12 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition12-numofevents15000-img-chunk.pkl
+Partition# 12 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition12-numofevents15000-img-chunk.pkl
+Partition# 12  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 13  Loading Partition  13 in the file
+Partition# 13  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition13-numofevents15000.pkl
+Partition# 13  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 13  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 13  Converting to Image arrays Begins: 
+Partition# 13 Converting all events into image data structure
+Partition# 13 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 13 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 13  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 13  Storing Image Items Chunck into File begins
+Partition# 13 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition13-numofevents15000-img-chunk.pkl
+Partition# 13 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition13-numofevents15000-img-chunk.pkl
+Partition# 13  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 14  Loading Partition  14 in the file
+Partition# 14  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition14-numofevents15000.pkl
+Partition# 14  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 14  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 14  Converting to Image arrays Begins: 
+Partition# 14 Converting all events into image data structure
+Partition# 14 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 14 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 14  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 14  Storing Image Items Chunck into File begins
+Partition# 14 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition14-numofevents15000-img-chunk.pkl
+Partition# 14 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition14-numofevents15000-img-chunk.pkl
+Partition# 14  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 15  Loading Partition  15 in the file
+Partition# 15  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition15-numofevents15000.pkl
+Partition# 15  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 15  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 15  Converting to Image arrays Begins: 
+Partition# 15 Converting all events into image data structure
+Partition# 15 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 15 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 15  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 15  Storing Image Items Chunck into File begins
+Partition# 15 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition15-numofevents15000-img-chunk.pkl
+Partition# 15 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition15-numofevents15000-img-chunk.pkl
+Partition# 15  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 16  Loading Partition  16 in the file
+Partition# 16  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition16-numofevents15000.pkl
+Partition# 16  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 16  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 16  Converting to Image arrays Begins: 
+Partition# 16 Converting all events into image data structure
+Partition# 16 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 16 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 16  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 16  Storing Image Items Chunck into File begins
+Partition# 16 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition16-numofevents15000-img-chunk.pkl
+Partition# 16 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition16-numofevents15000-img-chunk.pkl
+Partition# 16  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 17  Loading Partition  17 in the file
+Partition# 17  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition17-numofevents15000.pkl
+Partition# 17  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 17  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 17  Converting to Image arrays Begins: 
+Partition# 17 Converting all events into image data structure
+Partition# 17 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 17 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 17  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 17  Storing Image Items Chunck into File begins
+Partition# 17 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition17-numofevents15000-img-chunk.pkl
+Partition# 17 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition17-numofevents15000-img-chunk.pkl
+Partition# 17  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 18  Loading Partition  18 in the file
+Partition# 18  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition18-numofevents15000.pkl
+Partition# 18  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 18  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 18  Converting to Image arrays Begins: 
+Partition# 18 Converting all events into image data structure
+Partition# 18 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 18 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 18  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 18  Storing Image Items Chunck into File begins
+Partition# 18 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition18-numofevents15000-img-chunk.pkl
+Partition# 18 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition18-numofevents15000-img-chunk.pkl
+Partition# 18  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 19  Loading Partition  19 in the file
+Partition# 19  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition19-numofevents15000.pkl
+Partition# 19  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 19  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 19  Converting to Image arrays Begins: 
+Partition# 19 Converting all events into image data structure
+Partition# 19 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 19 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 19  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 19  Storing Image Items Chunck into File begins
+Partition# 19 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition19-numofevents15000-img-chunk.pkl
+Partition# 19 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition19-numofevents15000-img-chunk.pkl
+Partition# 19  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 20  Loading Partition  20 in the file
+Partition# 20  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition20-numofevents15000.pkl
+Partition# 20  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 20  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 20  Converting to Image arrays Begins: 
+Partition# 20 Converting all events into image data structure
+Partition# 20 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 20 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 20  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 20  Storing Image Items Chunck into File begins
+Partition# 20 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition20-numofevents15000-img-chunk.pkl
+Partition# 20 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition20-numofevents15000-img-chunk.pkl
+Partition# 20  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 21  Loading Partition  21 in the file
+Partition# 21  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition21-numofevents15000.pkl
+Partition# 21  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 21  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 21  Converting to Image arrays Begins: 
+Partition# 21 Converting all events into image data structure
+Partition# 21 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 21 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 21  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 21  Storing Image Items Chunck into File begins
+Partition# 21 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition21-numofevents15000-img-chunk.pkl
+Partition# 21 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition21-numofevents15000-img-chunk.pkl
+Partition# 21  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 22  Loading Partition  22 in the file
+Partition# 22  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition22-numofevents15000.pkl
+Partition# 22  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 22  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 22  Converting to Image arrays Begins: 
+Partition# 22 Converting all events into image data structure
+Partition# 22 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 22 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 22  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 22  Storing Image Items Chunck into File begins
+Partition# 22 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition22-numofevents15000-img-chunk.pkl
+Partition# 22 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition22-numofevents15000-img-chunk.pkl
+Partition# 22  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 23  Loading Partition  23 in the file
+Partition# 23  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition23-numofevents15000.pkl
+Partition# 23  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 23  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 23  Converting to Image arrays Begins: 
+Partition# 23 Converting all events into image data structure
+Partition# 23 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 23 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 23  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 23  Storing Image Items Chunck into File begins
+Partition# 23 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition23-numofevents15000-img-chunk.pkl
+Partition# 23 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition23-numofevents15000-img-chunk.pkl
+Partition# 23  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 24  Loading Partition  24 in the file
+Partition# 24  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition24-numofevents15000.pkl
+Partition# 24  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 24  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 24  Converting to Image arrays Begins: 
+Partition# 24 Converting all events into image data structure
+Partition# 24 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 24 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 24  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 24  Storing Image Items Chunck into File begins
+Partition# 24 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition24-numofevents15000-img-chunk.pkl
+Partition# 24 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition24-numofevents15000-img-chunk.pkl
+Partition# 24  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 25  Loading Partition  25 in the file
+Partition# 25  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition25-numofevents15000.pkl
+Partition# 25  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 25  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 25  Converting to Image arrays Begins: 
+Partition# 25 Converting all events into image data structure
+Partition# 25 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 25 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 25  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 25  Storing Image Items Chunck into File begins
+Partition# 25 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition25-numofevents15000-img-chunk.pkl
+Partition# 25 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition25-numofevents15000-img-chunk.pkl
+Partition# 25  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 26  Loading Partition  26 in the file
+Partition# 26  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition26-numofevents15000.pkl
+Partition# 26  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 26  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 26  Converting to Image arrays Begins: 
+Partition# 26 Converting all events into image data structure
+Partition# 26 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 26 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 26  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 26  Storing Image Items Chunck into File begins
+Partition# 26 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition26-numofevents15000-img-chunk.pkl
+Partition# 26 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition26-numofevents15000-img-chunk.pkl
+Partition# 26  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 27  Loading Partition  27 in the file
+Partition# 27  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition27-numofevents15000.pkl
+Partition# 27  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 27  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 27  Converting to Image arrays Begins: 
+Partition# 27 Converting all events into image data structure
+Partition# 27 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 27 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 27  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 27  Storing Image Items Chunck into File begins
+Partition# 27 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition27-numofevents15000-img-chunk.pkl
+Partition# 27 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition27-numofevents15000-img-chunk.pkl
+Partition# 27  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 28  Loading Partition  28 in the file
+Partition# 28  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition28-numofevents15000.pkl
+Partition# 28  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 28  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 28  Converting to Image arrays Begins: 
+Partition# 28 Converting all events into image data structure
+Partition# 28 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 28 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 28  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 28  Storing Image Items Chunck into File begins
+Partition# 28 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition28-numofevents15000-img-chunk.pkl
+Partition# 28 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition28-numofevents15000-img-chunk.pkl
+Partition# 28  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 29  Loading Partition  29 in the file
+Partition# 29  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition29-numofevents15000.pkl
+Partition# 29  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 29  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 29  Converting to Image arrays Begins: 
+Partition# 29 Converting all events into image data structure
+Partition# 29 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 29 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 29  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 29  Storing Image Items Chunck into File begins
+Partition# 29 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition29-numofevents15000-img-chunk.pkl
+Partition# 29 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition29-numofevents15000-img-chunk.pkl
+Partition# 29  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 30  Loading Partition  30 in the file
+Partition# 30  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition30-numofevents15000.pkl
+Partition# 30  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 30  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 30  Converting to Image arrays Begins: 
+Partition# 30 Converting all events into image data structure
+Partition# 30 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 30 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 30  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 30  Storing Image Items Chunck into File begins
+Partition# 30 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition30-numofevents15000-img-chunk.pkl
+Partition# 30 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition30-numofevents15000-img-chunk.pkl
+Partition# 30  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 31  Loading Partition  31 in the file
+Partition# 31  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition31-numofevents15000.pkl
+Partition# 31  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 31  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 31  Converting to Image arrays Begins: 
+Partition# 31 Converting all events into image data structure
+Partition# 31 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 31 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 31  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 31  Storing Image Items Chunck into File begins
+Partition# 31 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition31-numofevents15000-img-chunk.pkl
+Partition# 31 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition31-numofevents15000-img-chunk.pkl
+Partition# 31  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 32  Loading Partition  32 in the file
+Partition# 32  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition32-numofevents15000.pkl
+Partition# 32  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 32  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 32  Converting to Image arrays Begins: 
+Partition# 32 Converting all events into image data structure
+Partition# 32 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 32 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 32  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 32  Storing Image Items Chunck into File begins
+Partition# 32 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition32-numofevents15000-img-chunk.pkl
+Partition# 32 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition32-numofevents15000-img-chunk.pkl
+Partition# 32  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 33  Loading Partition  33 in the file
+Partition# 33  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition33-numofevents15000.pkl
+Partition# 33  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 33  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 33  Converting to Image arrays Begins: 
+Partition# 33 Converting all events into image data structure
+Partition# 33 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 33 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 33  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 33  Storing Image Items Chunck into File begins
+Partition# 33 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition33-numofevents15000-img-chunk.pkl
+Partition# 33 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition33-numofevents15000-img-chunk.pkl
+Partition# 33  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 34  Loading Partition  34 in the file
+Partition# 34  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition34-numofevents15000.pkl
+Partition# 34  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 34  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 34  Converting to Image arrays Begins: 
+Partition# 34 Converting all events into image data structure
+Partition# 34 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 34 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 34  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 34  Storing Image Items Chunck into File begins
+Partition# 34 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition34-numofevents15000-img-chunk.pkl
+Partition# 34 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition34-numofevents15000-img-chunk.pkl
+Partition# 34  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 35  Loading Partition  35 in the file
+Partition# 35  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition35-numofevents15000.pkl
+Partition# 35  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 35  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 35  Converting to Image arrays Begins: 
+Partition# 35 Converting all events into image data structure
+Partition# 35 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 35 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 35  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 35  Storing Image Items Chunck into File begins
+Partition# 35 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition35-numofevents15000-img-chunk.pkl
+Partition# 35 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition35-numofevents15000-img-chunk.pkl
+Partition# 35  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 36  Loading Partition  36 in the file
+Partition# 36  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition36-numofevents15000.pkl
+Partition# 36  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 36  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 36  Converting to Image arrays Begins: 
+Partition# 36 Converting all events into image data structure
+Partition# 36 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 36 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 36  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 36  Storing Image Items Chunck into File begins
+Partition# 36 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition36-numofevents15000-img-chunk.pkl
+Partition# 36 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition36-numofevents15000-img-chunk.pkl
+Partition# 36  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 37  Loading Partition  37 in the file
+Partition# 37  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition37-numofevents15000.pkl
+Partition# 37  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 37  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 37  Converting to Image arrays Begins: 
+Partition# 37 Converting all events into image data structure
+Partition# 37 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 37 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 37  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 37  Storing Image Items Chunck into File begins
+Partition# 37 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition37-numofevents15000-img-chunk.pkl
+Partition# 37 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition37-numofevents15000-img-chunk.pkl
+Partition# 37  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 38  Loading Partition  38 in the file
+Partition# 38  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition38-numofevents15000.pkl
+Partition# 38  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 38  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 38  Converting to Image arrays Begins: 
+Partition# 38 Converting all events into image data structure
+Partition# 38 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 38 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 38  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 38  Storing Image Items Chunck into File begins
+Partition# 38 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition38-numofevents15000-img-chunk.pkl
+Partition# 38 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition38-numofevents15000-img-chunk.pkl
+Partition# 38  Storing Image Items Chunck into File ends
+
+########################################################################
+Partition# 39  Loading Partition  39 in the file
+Partition# 39  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition39-numofevents15000.pkl
+Partition# 39  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 39  event_items_chunks_item content:  15000
+
+########################################################################
+Partition# 39  Converting to Image arrays Begins: 
+Partition# 39 Converting all events into image data structure
+Partition# 39 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 39 <class 'numpy.ndarray'> 15360000 (15000, 32, 32)
+Partition# 39  Converting to Image arrays Ends: 
+
+########################################################################
+
+########################################################################
+Partition# 39  Storing Image Items Chunck into File begins
+Partition# 39 Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition39-numofevents15000-img-chunk.pkl
+Partition# 39 Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-03-MLBT-simulationsize600000-partition39-numofevents15000-img-chunk.pkl
+Partition# 39  Storing Image Items Chunck into File ends
+
+########################################################################
+Finally loading events items partitioning is done!
+Computing / Storing event chunk into Image Chunk Elapsed 16148.554 seconds.
+
+########################################################################

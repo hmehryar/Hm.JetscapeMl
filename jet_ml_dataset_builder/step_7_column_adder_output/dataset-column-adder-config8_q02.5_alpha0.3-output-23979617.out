@@ -1,0 +1,199 @@
+Converting notebook to script
+Running dataset step-7-column-adder for CONFIG_NUMBER 8, q0=2.5, alpha_s=0.3
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Python version: 3.7.3
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+########################################################################
+
+Parsing parameters from command line and initializing the input parameters
+[('-i', 'config-08-final-state-hadrons-matter-600k.dat'), ('-d', '600000'), ('-y', 'MMAT'), ('-o', 'jetscape-ml-benchmark-dataset-600k-matter.pkl'), ('-n', '40'), ('-c', '/wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-08-final-state-hadrons/'), ('-p', '8'), ('-a', '0.3'), ('-q', '2.5')]
+[]
+-i
+Input_file_name_hadrons:  config-08-final-state-hadrons-matter-600k.dat
+simulated events final state hadron file: config-08-final-state-hadrons-matter-600k.dat
+-d
+Data_size:  600000
+data_size: 600000 
+-y
+Y_class_label_items:  MMAT
+y_class_label_items
+['MMAT']
+-o
+output_dataset_file_name:  jetscape-ml-benchmark-dataset-600k-matter.pkl
+Dataset file name: jetscape-ml-benchmark-dataset-600k-matter.pkl
+-n
+number_of_partition:  40
+Number of partition for splitting the events: 40 
+-c
+configuration_directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-08-final-state-hadrons/
+Configuration directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-08-final-state-hadrons/
+-p
+configuration_number:  8
+Configuration number to reference which dataset it is: 8 
+-a
+alpha_s:  0.3
+alpha_s float value: 0.3 
+-q
+q0:  2.5
+Q0 float value: 2.5 
+########################################################################
+
+Installing pickle5
+Installed pickle5
+
+Loading dataset_mvac
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-08-MMAT-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 540000 (540000,)
+dataset.y_test: <class 'numpy.ndarray'> 60000 (60000,)
+Sample dataset.y_test
+['MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT' 'MMAT']
+
+########################################################################
+Loading dataset_mlbt
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-08-MLBT-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 540000 (540000,)
+dataset.y_test: <class 'numpy.ndarray'> 60000 (60000,)
+Sample dataset.y_test
+['MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT' 'MLBT']
+
+########################################################################
+alpha_s: 0.3
+q0: 2.5
+Adding alpha_s and q to dataset_mvac
+alpha_s: 0.3
+q0: 1
+Updated y_train shape: (540000, 3)
+Updated y_test shape: (60000, 3)
+Updated y_train values:
+ [['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']]
+Updated y_test values:
+ [['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']]
+Adding alpha_s and q to dataset_mlbt
+alpha_s: 0.3
+q0: 2.5
+Updated y_train shape: (540000, 3)
+Updated y_test shape: (60000, 3)
+Updated y_train values:
+ [['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']]
+Updated y_test values:
+ [['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']]
+Storing the concaternated dataset with y_columns (Eloss Module Label, alpha_s, and Q0) into file: MATTER
+
+########################################################################
+Saving Constructed Benchmark Dataset as a file
+
+########################################################################
+Storing the concaternated dataset with y_columns (Eloss Module Label, alpha_s, and Q0) into file: LBT
+
+########################################################################
+Saving Constructed Benchmark Dataset as a file
+
+########################################################################
+Test: Loading dataset MATTER side and Printing Y side to make sure, 3 colums are
+Loading dataset_mvac
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-08-MMAT-alpha_s-0.3-q0-1-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 1620000 (540000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 180000 (60000, 3)
+Sample dataset.y_test
+[['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']
+ ['MMAT' '0.3' '1']]
+
+########################################################################
+Loading dataset_mlbt
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-08-MLBT-alpha_s-0.3-q0-2.5-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 1620000 (540000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 180000 (60000, 3)
+Sample dataset.y_test
+[['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']
+ ['MLBT' '0.3' '2.5']]
+
+########################################################################

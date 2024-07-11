@@ -1,0 +1,175 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running dataset step-9-all-config-cocatenate-shuffler
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Installing pickle5
+Installed pickle5
+
+Python version: 3.7.3
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+Tokenized Arguments:
+
+Tokenized Values:
+Building required params for the loading/saving the dataset file
+Loading the dataset to check the structure before shuffle
+dataset.x_train: <class 'numpy.ndarray'> 9953270784 (9719991, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 29159973 (9719991, 3)
+dataset.y_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.y_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+post swap
+dataset.x_train: <class 'numpy.ndarray'> 9953270784 (9719991, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 29159973 (9719991, 3)
+dataset.y_test: <class 'numpy.ndarray'> 3240000 (1080000, 3)
+saving post swap dataset
+indices [5072455 3483194 6598386 3593432 6765291  696275 8330319 2374122  376409
+ 6078345 2241491 8973250 8078627 2312707 2726389 3436240  544087 5917034
+ 3350931 1016782 3220740 9346094 9480244 1259842 7497541 2851862 1639313
+ 2339309   82303 3447009 3526511 9315811 3412541 5827152 8868945 8585053
+ 8103555 7579338 5439517 7068578 5946895 4230819 6350874 4308261 3358690
+ 6572825 1766403 7827731 6652727  689788 7763505 7085162 8200615 3247231
+ 1606121 9653908 8120230 9661830 2192785 2151778 6600515 3073431 5429062
+ 1971498 7942694 1852705 9450782 7991764 2420869 1079770  569824 5415610
+ 4919379 7816435 3818459 7314894 3289304  459108 7620088 4715583 4767195
+ 6367469 4855213  553469 6730734 1734225 5435338 4532550 1869080  965227
+ 9369472 7494081 1367275 4566489 6013805  407625 2625742 9205210 8356552]
+shuffled_dataset x_train shape: (9719991, 32, 32)
+shuffled_dataset x_test shape: (1080000, 32, 32)
+shuffled_dataset y_train shape: (9719991, 3)
+shuffled_dataset y_test shape: (1080000, 3)
+shuffled_dataset y_train values:
+ [['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']]
+shuffled_dataset y_test values:
+ [['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']]
