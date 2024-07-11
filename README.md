@@ -18,6 +18,7 @@ Hm.JetscapeMl is designed to extract valuable insights and patterns from Jetscap
 The dataset is hosted on Kaggle: [ML-Jet Dataset](https://www.kaggle.com/datasets/haydarmehryar/ml-jet) ([https://www.kaggle.com/datasets/haydarmehryar/ml-jet](https://www.kaggle.com/datasets/haydarmehryar/ml-jet)).
 
 
+
 ## Installation
 
 To get started with Hm.JetscapeMl, follow these steps:
@@ -50,7 +51,7 @@ except pickle.UnpicklingError as e:
 ```
 # Repository Guideline
 ## Rebuidling/Expanding Dataset
-All the step-by-step process/related codes for buidling the ML-JET Dataset can be found in [jet_ml_dataset_builder](https://github.com/hmehryar/Hm.JetscapeMl/tree/main/jet_ml_dataset_builder) Directory.
+All the step-by-step process/related codes for buidling the ML-JET Dataset can be found in [jet_ml_dataset_builder](https://github.com/hmehryar/Hm.JetscapeMl/tree/main/jet_ml_dataset_builder) Directory. 
 
 ## Applying Machine Learning (ML) & Neural Network (NN) Architectures
 ### Neural Networks
@@ -62,6 +63,42 @@ All the step-by-step process/related codes for buidling the ML-JET Dataset can b
 
 #### Point Net
 **PointNet**~\cite{qi2017pointnet} introduces a novel approach to processing point cloud data, making it uniquely suited for our jet event image classification task. Unlike conventional CNNs that operate on structured grid-like data, PointNet directly consumes unordered point sets. The model implementation can be found at [pointnet]() Direcetory.
+### Traditional Machine Learning
+#### Logistic Regression
+- The logistic regression model is trained specifically for binary classification on the first column.
+- Predictions and evaluation are performed based on the binary labels.
+
+#### Decision Tree
+This code uses DecisionTreeClassifier instead of LogisticRegression. The structure is similar: extract the first column for binary classification, split the dataset, flatten the images, initialize the model, train the model, make predictions, and evaluate the accuracy. 
+
+#### Support Vector Machine (SVM)
+This code uses LinearSVC instead of LogisticRegression or DecisionTreeClassifier. The structure remains similar: extract the first column for binary classification, split the dataset, flatten the images, initialize the model, train the model, make predictions, and evaluate the accuracy. 
+
+#### K-Nearest Neighbors (KNN)
+Adjust the k_neighbors parameter based on your requirements. The structure is similar to the previous examples: extract the first column for binary classification, split the dataset, flatten the images, initialize the model, train the model, make predictions, and evaluate the accuracy.
+
+#### Random Forest
+This code uses RandomForestClassifier from scikit-learn. The structure is similar to the previous examples: extract the first column for binary classification, split the dataset, flatten the images, initialize the model, train the model, make predictions, and evaluate the accuracy. 
+
+ #### [jet_ml_dataset_builder_by_size](jet_ml_dataset_builder_by_size) For building a new dataset from the original dataset with different
+
+ #### [jet_ml_diffusion_model](jet_ml_diffusion_model) *Difussion model* implemeteation for generating events from parameters
+
+ #### [jet_ml_mnist_net](jet_ml_mnist_net) *MNIST Net* Implemetation of binary classifier for Eloss for each 9 different configuration
+
+ #### [jet_ml_models](jet_ml_models) consists of python classes for each implmented models (For now just pointnet has its own implementation)
+
+ #### [jet_ml_synthesis_model_vgg16](jet_ml_synthesis_model_vgg16) consists of *VGG16 Net* implemetation, user can choose the desired parameter from $eloss$, $\alpha_s$, or $Q_0$ to train the classifier for it
+ #### [jet_ml_validation_calculator](jet_ml_validation_calculator) consists of implmentation for loading a trained model and calculate the confusion matrix and accuracy for it based on the loaded dataset
+
+ #### [jet_ml_vgg16_model_cnn](jet_ml_vgg16_model_cnn) *VGG16 Net* Implemetation of binary classifier for Eloss for each 9 different configuration
+ #### [jet_ml_models_notebooks](jet_ml_models_notebooks) it consists the binary classification implemetation of *Decision Tree*, *KNN*, *Random Forest*, *SVM*,and *Logistic Regression* for $eloss$, more detail explanation of code implemented in this directory is in Traditional machine learning method section.
+ #### [jet_ml_pointnet](jet_ml_pointnet) several implmentation of PointNet for binary classification of $eloss$ or a single notebook that can train different type of classifier based on user desire, and it includes a sample tensorflow GPU implmentation 
+ #### [jet_ml_pointnet_alpha_s](jet_ml_pointnet_alpha_s) includes a PointNet classifier specifically for $\alpha_s$
+ #### [jet_ml_pointnet_eloss](jet_ml_pointnet_eloss) includes a PointNet binary classifier specifically for $eloss$
+ #### []()
+ #### []()
+ #### []()
 
 ## Usage
 Once you have the repository set up and the dependencies installed, you can start utilizing the project:
