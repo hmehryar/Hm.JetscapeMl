@@ -1,0 +1,346 @@
+
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running events file splitter
+Running events file splitter for matterlbt
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+OS: Linux
+OS version: 3.10.0-1160.53.1.el7.x86_64
+running on Colab: False
+Python version: 3.7.3
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+########################################################################
+
+Parsing parameters from command line and initializing the input parameters
+[('-i', 'config-04-final-state-hadrons-matterlbt-600k.dat'), ('-d', '600000'), ('-y', 'MLBT'), ('-o', 'jetscape-ml-benchmark-dataset-600k-matterlbt.pkl'), ('-n', '40'), ('-c', '/wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-04-final-state-hadrons/'), ('-p', '4')]
+[]
+-i
+Input_file_name_hadrons:  config-04-final-state-hadrons-matterlbt-600k.dat
+simulated events final state hadron file: config-04-final-state-hadrons-matterlbt-600k.dat
+-d
+Data_size:  600000
+data_size: 600000 
+-y
+Y_class_label_items:  MLBT
+y_class_label_items
+['MLBT']
+-o
+output_dataset_file_name:  jetscape-ml-benchmark-dataset-600k-matterlbt.pkl
+Dataset file name: jetscape-ml-benchmark-dataset-600k-matterlbt.pkl
+-n
+number_of_partition:  40
+Number of partition for splitting the events: 40 
+-c
+configuration_directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-04-final-state-hadrons/
+Configuration directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-04-final-state-hadrons/
+-p
+configuration_number:  4
+Configuration number to reference which dataset it is: 4 
+########################################################################
+
+
+########################################################################
+extracting_hit_items => Begin
+
+
+extracting_hit_items from config-04-final-state-hadrons-matterlbt-600k.dat
+extracting_hit_items : Elapsed 285.241 seconds.
+[[-1.5364    -6.27649    0.0749851]
+ [ 1.72605   -3.79804    0.510676 ]
+ [-2.21474   -5.56909    0.310767 ]
+ ...
+ [ 0.636439   0.255923   1.48046  ]
+ [ 0.168914  -0.217803   0.679642 ]
+ [ 0.         0.         0.       ]]
+extracting_hit_items => Ends
+
+
+
+########################################################################
+
+########################################################################
+hit data size before filtering  106723686
+hit data size after filtering : 30908709
+
+########################################################################
+
+########################################################################
+Splitting all events into separated events
+number of event items : 600000
+
+########################################################################
+
+########################################################################
+Splitting the events array to smaller chunck
+event_items_chunks_array type:  <class 'list'>
+event_items_chunks_array content:  40
+Storing Event Items Chunck in multple Files
+Storing Partition  0 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition0-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition0-numofevents15000.pkl
+Storing Partition  1 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition1-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition1-numofevents15000.pkl
+Storing Partition  2 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition2-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition2-numofevents15000.pkl
+Storing Partition  3 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition3-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition3-numofevents15000.pkl
+Storing Partition  4 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition4-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition4-numofevents15000.pkl
+Storing Partition  5 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition5-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition5-numofevents15000.pkl
+Storing Partition  6 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition6-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition6-numofevents15000.pkl
+Storing Partition  7 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition7-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition7-numofevents15000.pkl
+Storing Partition  8 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition8-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition8-numofevents15000.pkl
+Storing Partition  9 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition9-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition9-numofevents15000.pkl
+Storing Partition  10 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition10-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition10-numofevents15000.pkl
+Storing Partition  11 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition11-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition11-numofevents15000.pkl
+Storing Partition  12 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition12-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition12-numofevents15000.pkl
+Storing Partition  13 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition13-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition13-numofevents15000.pkl
+Storing Partition  14 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition14-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition14-numofevents15000.pkl
+Storing Partition  15 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition15-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition15-numofevents15000.pkl
+Storing Partition  16 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition16-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition16-numofevents15000.pkl
+Storing Partition  17 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition17-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition17-numofevents15000.pkl
+Storing Partition  18 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition18-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition18-numofevents15000.pkl
+Storing Partition  19 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition19-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition19-numofevents15000.pkl
+Storing Partition  20 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition20-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition20-numofevents15000.pkl
+Storing Partition  21 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition21-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition21-numofevents15000.pkl
+Storing Partition  22 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition22-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition22-numofevents15000.pkl
+Storing Partition  23 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition23-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition23-numofevents15000.pkl
+Storing Partition  24 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition24-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition24-numofevents15000.pkl
+Storing Partition  25 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition25-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition25-numofevents15000.pkl
+Storing Partition  26 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition26-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition26-numofevents15000.pkl
+Storing Partition  27 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition27-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition27-numofevents15000.pkl
+Storing Partition  28 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition28-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition28-numofevents15000.pkl
+Storing Partition  29 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition29-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition29-numofevents15000.pkl
+Storing Partition  30 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition30-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition30-numofevents15000.pkl
+Storing Partition  31 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition31-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition31-numofevents15000.pkl
+Storing Partition  32 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition32-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition32-numofevents15000.pkl
+Storing Partition  33 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition33-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition33-numofevents15000.pkl
+Storing Partition  34 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition34-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition34-numofevents15000.pkl
+Storing Partition  35 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition35-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition35-numofevents15000.pkl
+Storing Partition  36 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition36-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition36-numofevents15000.pkl
+Storing Partition  37 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition37-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition37-numofevents15000.pkl
+Storing Partition  38 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition38-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition38-numofevents15000.pkl
+Storing Partition  39 in the file
+Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition39-numofevents15000.pkl
+Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-04-MLBT-simulationsize600000-partition39-numofevents15000.pkl
+Finally Storing events items partitioning is done!
+Storing Elapsed 429.971 seconds.
+
+########################################################################
+
+########################################################################
+Loading the events chunks from small files
+Loaing Event Items Chunck in multple Array stream
+Loading Partition  0 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  1 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  2 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  3 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  4 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  5 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  6 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  7 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  8 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  9 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  10 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  11 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  12 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  13 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  14 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  15 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  16 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  17 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  18 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  19 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  20 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  21 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  22 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  23 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  24 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  25 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  26 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  27 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  28 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  29 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  30 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  31 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  32 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  33 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  34 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  35 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  36 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  37 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  38 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Loading Partition  39 in the file
+event_items_chunks_item type:  <class 'numpy.ndarray'>
+event_items_chunks_item content:  15000
+Finally loading events items partitioning is done!
+
+########################################################################

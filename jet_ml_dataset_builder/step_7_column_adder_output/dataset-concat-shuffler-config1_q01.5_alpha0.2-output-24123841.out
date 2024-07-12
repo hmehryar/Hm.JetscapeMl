@@ -1,0 +1,233 @@
+Converting notebook to script
+Running dataset step-7-column-adder for CONFIG_NUMBER 1, q0=1.5, alpha_s=0.2
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+Installing pickle5
+Installed pickle5
+
+Python version: 3.7.3
+OS: Linux
+OS version: 5.15.80-200.el7.x86_64
+running on Colab: False
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+input_file_name_hadrons:  config-01-final-state-hadrons-matter-600k.dat
+data_size:  600000
+y_class_label_items:  MMAT
+output_dataset_file_name:  jetscape-ml-benchmark-dataset-600k-matter.pkl
+number_of_partition:  40
+configuration_directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-01-final-state-hadrons/
+configuration_number:  1
+alpha_s:  0.2
+q0:  1.5
+Tokenized Arguments:
+input_file_name_hadrons
+data_size
+y_class_label_items
+output_dataset_file_name
+number_of_partition
+configuration_directory
+configuration_number
+alpha_s
+q0
+
+Tokenized Values:
+input_file_name_hadrons: config-01-final-state-hadrons-matter-600k.dat
+data_size: 600000
+y_class_label_items: ['MMAT']
+output_dataset_file_name: jetscape-ml-benchmark-dataset-600k-matter.pkl
+number_of_partition: 40
+configuration_directory: /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-01-final-state-hadrons/
+configuration_number: 1
+alpha_s: 0.2
+q0: 1.5
+Test: Loading dataset MATTER side and Printing Y side to make sure, 3 colums are
+Loading dataset_mvac
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-01-MMAT-alpha_s-0.2-q0-1-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 1620000 (540000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 180000 (60000, 3)
+Sample dataset.y_test
+[['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']]
+
+########################################################################
+Loading dataset_mlbt
+
+########################################################################
+Loading separate datasets
+Loading Dataset from /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-01-MLBT-alpha_s-0.2-q0-1.5-simulationsize600000-dataset.pkl
+dataset.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 1620000 (540000, 3)
+dataset.y_test: <class 'numpy.ndarray'> 180000 (60000, 3)
+Sample dataset.y_test
+[['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']]
+
+########################################################################
+indices [ 907350  548652  777936  220201   13162  454259  213468  891161  423249
+  248882  630675  187988  207009  938329  991172  621034  871515  249385
+  281566  704087  320208  626442   73723   31405   88526  321202  337907
+  394233  138055  604197  693453  890059 1076386  947590  535059  505457
+ 1073201  731286  666139  173549  535408  839687   91597  334955  787617
+  362457  733857  185681  364533  648020  809777  326303     474  940881
+  333540 1028628 1046380   13272  749349  316012  497450 1007561  357057
+  155403  806468  689856  529673   28145  422614  834848  673118  202141
+  958562  586624   53387  436835  933975  570775  800693  611824  461607
+  449679  181755   81722  843444  874766  922919   78380   81695 1012888
+  716161  110263  853146  563815  209518  468479  954580  589552  406272]
+merged_dataset x_train shape: (1080000, 32, 32)
+merged_dataset x_test shape: (120000, 32, 32)
+merged_dataset y_train shape: (1080000, 3)
+merged_dataset y_test shape: (120000, 3)
+merged_dataset y_train values:
+ [['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MLBT' '0.2' '1.5']
+ ['MLBT' '0.2' '1.5']
+ ['MMAT' '0.2' '1']]
+merged_dataset y_test values:
+ [['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']
+ ['MMAT' '0.2' '1']]
+Save merged dataset as  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_01_alpha_0.2_q0_1.5_MMAT_MLBT_size_1200000_shuffled.npz
+Merged dataset saved as: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config_01_alpha_0.2_q0_1.5_MMAT_MLBT_size_1200000_shuffled.npz

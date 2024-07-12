@@ -1,0 +1,3 @@
+[NbConvertApp] Converting notebook jet-ml-synthesis-model-vgg16.ipynb to python
+[NbConvertApp] Writing 12940 bytes to jet-ml-synthesis-model-vgg16.py
+slurmstepd: error: *** JOB 24989526 ON voh3 CANCELLED AT 2023-10-23T16:17:30 ***

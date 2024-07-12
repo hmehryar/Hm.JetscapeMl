@@ -1,0 +1,8 @@
+[NbConvertApp] Converting notebook jet-ml-pretrained-mnist.ipynb to python
+[NbConvertApp] Writing 26866 bytes to jet-ml-pretrained-mnist.py
+Traceback (most recent call last):
+  File "jet-ml-pretrained-mnist.py", line 209, in <module>
+    (x_train, y_train), (x_test, y_test) =load_dataset(dataset_file_path)
+  File "jet-ml-pretrained-mnist.py", line 156, in load_dataset
+    with open(file_name, 'rb') as dataset_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-09-matter-vs-lbt-simulationsize1200000-dataset-momentum-shuffled.pkl'

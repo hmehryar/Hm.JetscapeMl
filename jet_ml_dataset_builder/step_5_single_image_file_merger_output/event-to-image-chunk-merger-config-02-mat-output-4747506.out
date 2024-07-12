@@ -1,0 +1,346 @@
+
+
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running events file splitter
+Running chunck image merger for 2
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+OS: Linux
+OS version: 3.10.0-1160.71.1.el7.x86_64
+running on Colab: False
+Python version: 3.7.7
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+########################################################################
+
+Parsing parameters from command line and initializing the input parameters
+[('-i', 'config-02-final-state-hadrons-matter-600k.dat'), ('-d', '600000'), ('-y', 'MMAT'), ('-o', 'jetscape-ml-benchmark-dataset-600k-matter.pkl'), ('-n', '40'), ('-c', '/wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-02-final-state-hadrons/'), ('-p', '2')]
+[]
+-i
+Input_file_name_hadrons:  config-02-final-state-hadrons-matter-600k.dat
+simulated events final state hadron file: config-02-final-state-hadrons-matter-600k.dat
+-d
+Data_size:  600000
+data_size: 600000 
+-y
+Y_class_label_items:  MMAT
+y_class_label_items
+['MMAT']
+-o
+output_dataset_file_name:  jetscape-ml-benchmark-dataset-600k-matter.pkl
+Dataset file name: jetscape-ml-benchmark-dataset-600k-matter.pkl
+-n
+number_of_partition:  40
+Number of partition for splitting the events: 40 
+-c
+configuration_directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-02-final-state-hadrons/
+Configuration directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-02-final-state-hadrons/
+-p
+configuration_number:  2
+Configuration number to reference which dataset it is: 2 
+########################################################################
+
+
+########################################################################
+Loading Events Image Chunks from File and Merge Into 
+Partition# 0  Loading Partition  0 in the file
+Partition# 0  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition0-numofevents15000-img-chunk.pkl
+Partition# 0  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 0  event_items_chunks_item content:  15000
+Partition# 0  Before Appending the new file to events array:  1
+Partition# 0  After Appending the new file to events array:  15000
+Partition# 1  Loading Partition  1 in the file
+Partition# 1  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition1-numofevents15000-img-chunk.pkl
+Partition# 1  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 1  event_items_chunks_item content:  15000
+Partition# 1  Before Appending the new file to events array:  15000
+Partition# 1  After Appending the new file to events array:  30000
+Partition# 2  Loading Partition  2 in the file
+Partition# 2  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition2-numofevents15000-img-chunk.pkl
+Partition# 2  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 2  event_items_chunks_item content:  15000
+Partition# 2  Before Appending the new file to events array:  30000
+Partition# 2  After Appending the new file to events array:  45000
+Partition# 3  Loading Partition  3 in the file
+Partition# 3  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition3-numofevents15000-img-chunk.pkl
+Partition# 3  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 3  event_items_chunks_item content:  15000
+Partition# 3  Before Appending the new file to events array:  45000
+Partition# 3  After Appending the new file to events array:  60000
+Partition# 4  Loading Partition  4 in the file
+Partition# 4  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition4-numofevents15000-img-chunk.pkl
+Partition# 4  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 4  event_items_chunks_item content:  15000
+Partition# 4  Before Appending the new file to events array:  60000
+Partition# 4  After Appending the new file to events array:  75000
+Partition# 5  Loading Partition  5 in the file
+Partition# 5  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition5-numofevents15000-img-chunk.pkl
+Partition# 5  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 5  event_items_chunks_item content:  15000
+Partition# 5  Before Appending the new file to events array:  75000
+Partition# 5  After Appending the new file to events array:  90000
+Partition# 6  Loading Partition  6 in the file
+Partition# 6  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition6-numofevents15000-img-chunk.pkl
+Partition# 6  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 6  event_items_chunks_item content:  15000
+Partition# 6  Before Appending the new file to events array:  90000
+Partition# 6  After Appending the new file to events array:  105000
+Partition# 7  Loading Partition  7 in the file
+Partition# 7  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition7-numofevents15000-img-chunk.pkl
+Partition# 7  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 7  event_items_chunks_item content:  15000
+Partition# 7  Before Appending the new file to events array:  105000
+Partition# 7  After Appending the new file to events array:  120000
+Partition# 8  Loading Partition  8 in the file
+Partition# 8  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition8-numofevents15000-img-chunk.pkl
+Partition# 8  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 8  event_items_chunks_item content:  15000
+Partition# 8  Before Appending the new file to events array:  120000
+Partition# 8  After Appending the new file to events array:  135000
+Partition# 9  Loading Partition  9 in the file
+Partition# 9  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition9-numofevents15000-img-chunk.pkl
+Partition# 9  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 9  event_items_chunks_item content:  15000
+Partition# 9  Before Appending the new file to events array:  135000
+Partition# 9  After Appending the new file to events array:  150000
+Partition# 10  Loading Partition  10 in the file
+Partition# 10  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition10-numofevents15000-img-chunk.pkl
+Partition# 10  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 10  event_items_chunks_item content:  15000
+Partition# 10  Before Appending the new file to events array:  150000
+Partition# 10  After Appending the new file to events array:  165000
+Partition# 11  Loading Partition  11 in the file
+Partition# 11  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition11-numofevents15000-img-chunk.pkl
+Partition# 11  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 11  event_items_chunks_item content:  15000
+Partition# 11  Before Appending the new file to events array:  165000
+Partition# 11  After Appending the new file to events array:  180000
+Partition# 12  Loading Partition  12 in the file
+Partition# 12  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition12-numofevents15000-img-chunk.pkl
+Partition# 12  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 12  event_items_chunks_item content:  15000
+Partition# 12  Before Appending the new file to events array:  180000
+Partition# 12  After Appending the new file to events array:  195000
+Partition# 13  Loading Partition  13 in the file
+Partition# 13  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition13-numofevents15000-img-chunk.pkl
+Partition# 13  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 13  event_items_chunks_item content:  15000
+Partition# 13  Before Appending the new file to events array:  195000
+Partition# 13  After Appending the new file to events array:  210000
+Partition# 14  Loading Partition  14 in the file
+Partition# 14  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition14-numofevents15000-img-chunk.pkl
+Partition# 14  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 14  event_items_chunks_item content:  15000
+Partition# 14  Before Appending the new file to events array:  210000
+Partition# 14  After Appending the new file to events array:  225000
+Partition# 15  Loading Partition  15 in the file
+Partition# 15  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition15-numofevents15000-img-chunk.pkl
+Partition# 15  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 15  event_items_chunks_item content:  15000
+Partition# 15  Before Appending the new file to events array:  225000
+Partition# 15  After Appending the new file to events array:  240000
+Partition# 16  Loading Partition  16 in the file
+Partition# 16  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition16-numofevents15000-img-chunk.pkl
+Partition# 16  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 16  event_items_chunks_item content:  15000
+Partition# 16  Before Appending the new file to events array:  240000
+Partition# 16  After Appending the new file to events array:  255000
+Partition# 17  Loading Partition  17 in the file
+Partition# 17  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition17-numofevents15000-img-chunk.pkl
+Partition# 17  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 17  event_items_chunks_item content:  15000
+Partition# 17  Before Appending the new file to events array:  255000
+Partition# 17  After Appending the new file to events array:  270000
+Partition# 18  Loading Partition  18 in the file
+Partition# 18  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition18-numofevents15000-img-chunk.pkl
+Partition# 18  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 18  event_items_chunks_item content:  15000
+Partition# 18  Before Appending the new file to events array:  270000
+Partition# 18  After Appending the new file to events array:  285000
+Partition# 19  Loading Partition  19 in the file
+Partition# 19  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition19-numofevents15000-img-chunk.pkl
+Partition# 19  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 19  event_items_chunks_item content:  15000
+Partition# 19  Before Appending the new file to events array:  285000
+Partition# 19  After Appending the new file to events array:  300000
+Partition# 20  Loading Partition  20 in the file
+Partition# 20  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition20-numofevents15000-img-chunk.pkl
+Partition# 20  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 20  event_items_chunks_item content:  15000
+Partition# 20  Before Appending the new file to events array:  300000
+Partition# 20  After Appending the new file to events array:  315000
+Partition# 21  Loading Partition  21 in the file
+Partition# 21  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition21-numofevents15000-img-chunk.pkl
+Partition# 21  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 21  event_items_chunks_item content:  15000
+Partition# 21  Before Appending the new file to events array:  315000
+Partition# 21  After Appending the new file to events array:  330000
+Partition# 22  Loading Partition  22 in the file
+Partition# 22  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition22-numofevents15000-img-chunk.pkl
+Partition# 22  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 22  event_items_chunks_item content:  15000
+Partition# 22  Before Appending the new file to events array:  330000
+Partition# 22  After Appending the new file to events array:  345000
+Partition# 23  Loading Partition  23 in the file
+Partition# 23  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition23-numofevents15000-img-chunk.pkl
+Partition# 23  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 23  event_items_chunks_item content:  15000
+Partition# 23  Before Appending the new file to events array:  345000
+Partition# 23  After Appending the new file to events array:  360000
+Partition# 24  Loading Partition  24 in the file
+Partition# 24  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition24-numofevents15000-img-chunk.pkl
+Partition# 24  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 24  event_items_chunks_item content:  15000
+Partition# 24  Before Appending the new file to events array:  360000
+Partition# 24  After Appending the new file to events array:  375000
+Partition# 25  Loading Partition  25 in the file
+Partition# 25  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition25-numofevents15000-img-chunk.pkl
+Partition# 25  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 25  event_items_chunks_item content:  15000
+Partition# 25  Before Appending the new file to events array:  375000
+Partition# 25  After Appending the new file to events array:  390000
+Partition# 26  Loading Partition  26 in the file
+Partition# 26  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition26-numofevents15000-img-chunk.pkl
+Partition# 26  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 26  event_items_chunks_item content:  15000
+Partition# 26  Before Appending the new file to events array:  390000
+Partition# 26  After Appending the new file to events array:  405000
+Partition# 27  Loading Partition  27 in the file
+Partition# 27  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition27-numofevents15000-img-chunk.pkl
+Partition# 27  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 27  event_items_chunks_item content:  15000
+Partition# 27  Before Appending the new file to events array:  405000
+Partition# 27  After Appending the new file to events array:  420000
+Partition# 28  Loading Partition  28 in the file
+Partition# 28  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition28-numofevents15000-img-chunk.pkl
+Partition# 28  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 28  event_items_chunks_item content:  15000
+Partition# 28  Before Appending the new file to events array:  420000
+Partition# 28  After Appending the new file to events array:  435000
+Partition# 29  Loading Partition  29 in the file
+Partition# 29  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition29-numofevents15000-img-chunk.pkl
+Partition# 29  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 29  event_items_chunks_item content:  15000
+Partition# 29  Before Appending the new file to events array:  435000
+Partition# 29  After Appending the new file to events array:  450000
+Partition# 30  Loading Partition  30 in the file
+Partition# 30  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition30-numofevents15000-img-chunk.pkl
+Partition# 30  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 30  event_items_chunks_item content:  15000
+Partition# 30  Before Appending the new file to events array:  450000
+Partition# 30  After Appending the new file to events array:  465000
+Partition# 31  Loading Partition  31 in the file
+Partition# 31  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition31-numofevents15000-img-chunk.pkl
+Partition# 31  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 31  event_items_chunks_item content:  15000
+Partition# 31  Before Appending the new file to events array:  465000
+Partition# 31  After Appending the new file to events array:  480000
+Partition# 32  Loading Partition  32 in the file
+Partition# 32  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition32-numofevents15000-img-chunk.pkl
+Partition# 32  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 32  event_items_chunks_item content:  15000
+Partition# 32  Before Appending the new file to events array:  480000
+Partition# 32  After Appending the new file to events array:  495000
+Partition# 33  Loading Partition  33 in the file
+Partition# 33  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition33-numofevents15000-img-chunk.pkl
+Partition# 33  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 33  event_items_chunks_item content:  15000
+Partition# 33  Before Appending the new file to events array:  495000
+Partition# 33  After Appending the new file to events array:  510000
+Partition# 34  Loading Partition  34 in the file
+Partition# 34  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition34-numofevents15000-img-chunk.pkl
+Partition# 34  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 34  event_items_chunks_item content:  15000
+Partition# 34  Before Appending the new file to events array:  510000
+Partition# 34  After Appending the new file to events array:  525000
+Partition# 35  Loading Partition  35 in the file
+Partition# 35  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition35-numofevents15000-img-chunk.pkl
+Partition# 35  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 35  event_items_chunks_item content:  15000
+Partition# 35  Before Appending the new file to events array:  525000
+Partition# 35  After Appending the new file to events array:  540000
+Partition# 36  Loading Partition  36 in the file
+Partition# 36  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition36-numofevents15000-img-chunk.pkl
+Partition# 36  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 36  event_items_chunks_item content:  15000
+Partition# 36  Before Appending the new file to events array:  540000
+Partition# 36  After Appending the new file to events array:  555000
+Partition# 37  Loading Partition  37 in the file
+Partition# 37  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition37-numofevents15000-img-chunk.pkl
+Partition# 37  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 37  event_items_chunks_item content:  15000
+Partition# 37  Before Appending the new file to events array:  555000
+Partition# 37  After Appending the new file to events array:  570000
+Partition# 38  Loading Partition  38 in the file
+Partition# 38  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition38-numofevents15000-img-chunk.pkl
+Partition# 38  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 38  event_items_chunks_item content:  15000
+Partition# 38  Before Appending the new file to events array:  570000
+Partition# 38  After Appending the new file to events array:  585000
+Partition# 39  Loading Partition  39 in the file
+Partition# 39  Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-partition39-numofevents15000-img-chunk.pkl
+Partition# 39  event_items_chunks_item type:  <class 'numpy.ndarray'>
+Partition# 39  event_items_chunks_item content:  15000
+Partition# 39  Before Appending the new file to events array:  585000
+Partition# 39  After Appending the new file to events array:  600000
+Finally loading events items partitioning is done!
+
+########################################################################
+Storing Image Items Chunck into File begins
+Dataset Filename:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-img-chunk.pkl
+Dataset Stored at :  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-img-chunk.pkl
+Storing Image Items Chunck into File ends
+
+########################################################################
+Loading / Merging /Storing event image chunk into Singular Elapsed 219.378 seconds.
+
+########################################################################
+
+########################################################################
+Loading X dataset
+Loaded:  /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/config-02-MMAT-simulationsize600000-img-chunk.pkl
+Dataset type:  <class 'numpy.ndarray'>
+Dataset length:  600000
+
+########################################################################
+Construncting proportional train and test sets by events images
+x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+
+########################################################################
+Loading/Proportionalizing x Dataset Elapsed 5.989 seconds.
+
+########################################################################
+
+########################################################################
+Building Y side of the dataset
+y_train: <class 'numpy.ndarray'> 540000 (540000,)
+y_test: <class 'numpy.ndarray'> 60000 (60000,)
+
+########################################################################
+Proportionalizing y Dataset Elapsed 0.111 seconds.
+
+########################################################################
+
+########################################################################
+Saving Constructed Benchmark Dataset as a file
+
+########################################################################

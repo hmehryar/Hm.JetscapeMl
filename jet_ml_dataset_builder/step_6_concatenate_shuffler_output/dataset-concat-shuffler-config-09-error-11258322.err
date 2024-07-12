@@ -1,0 +1,16 @@
+
+[NbConvertApp] Converting notebook jet-ml-dataset-builder-step-6-concatenate-shuffler.ipynb to python
+[NbConvertApp] Writing 35755 bytes to jet-ml-dataset-builder-step-6-concatenate-shuffler.py
+Traceback (most recent call last):
+  File "jet-ml-dataset-builder-step-6-concatenate-shuffler.py", line 888, in <module>
+    shuffle_training_dataset_runner()
+  File "jet-ml-dataset-builder-step-6-concatenate-shuffler.py", line 874, in shuffle_training_dataset_runner
+    (x_train_shuffled, y_train_shuffled)=shuffle_training_dataset(x_train, y_train)
+  File "jet-ml-dataset-builder-step-6-concatenate-shuffler.py", line 852, in shuffle_training_dataset
+    x_train_shuffled=np.take(x_train, train_permutation_array_indices,axis=0)
+  File "<__array_function__ internals>", line 6, in take
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 194, in take
+    return _wrapfunc(a, 'take', indices, axis=axis, out=out, mode=mode)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/numpy/core/fromnumeric.py", line 61, in _wrapfunc
+    return bound(*args, **kwds)
+IndexError: index 1063063 is out of bounds for size 999000

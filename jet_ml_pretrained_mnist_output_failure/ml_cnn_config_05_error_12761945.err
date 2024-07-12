@@ -1,0 +1,6 @@
+[NbConvertApp] Converting notebook jet-ml-deep-model-cnn-legacy-replica.ipynb to python
+[NbConvertApp] Writing 18981 bytes to jet-ml-deep-model-cnn-legacy-replica.py
+Traceback (most recent call last):
+  File "jet-ml-deep-model-cnn-legacy-replica.py", line 25, in <module>
+    from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense, Rescaling
+ImportError: cannot import name 'Rescaling' from 'tensorflow.keras.layers' (/wsu/el7/pre-compiled/python/3.7/envs/tensorflow_gpuenv_v2/lib/python3.7/site-packages/tensorflow_core/python/keras/api/_v2/keras/layers/__init__.py)

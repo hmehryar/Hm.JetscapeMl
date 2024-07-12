@@ -1,0 +1,10 @@
+[NbConvertApp] Converting notebook jet-ml-validation-calculator.ipynb to python
+[NbConvertApp] Writing 12912 bytes to jet-ml-validation-calculator.py
+2023-02-23 16:34:29.943238: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2023-02-23 16:34:32.573615: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2023-02-23 16:34:32.573758: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (mdt3): /proc/driver/nvidia/version does not exist
+2023-02-23 16:34:32.574752: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2023-02-23 16:34:32.587700: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3193935000 Hz
+2023-02-23 16:34:32.590157: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5556991cd360 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-02-23 16:34:32.590205: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-02-23 16:34:37.332904: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 6881280000 exceeds 10% of system memory.

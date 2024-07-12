@@ -1,0 +1,6 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)

@@ -1,0 +1,19 @@
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running simulation
+Installing pickle5
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.9/site-packages (0.0.11)
+Installed pickle5
+
+Installing trimesh
+Defaulting to user installation because normal site-packages is not writeable
+Collecting trimesh
+  Downloading trimesh-4.0.5-py3-none-any.whl (688 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 688.5/688.5 kB 935.0 kB/s eta 0:00:00
+Requirement already satisfied: numpy in /wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages (from trimesh) (1.25.0)
+Installing collected packages: trimesh
+Successfully installed trimesh-4.0.5
+Installed trimesh
+

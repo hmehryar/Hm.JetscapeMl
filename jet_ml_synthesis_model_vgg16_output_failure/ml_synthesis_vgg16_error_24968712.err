@@ -1,0 +1,13 @@
+[NbConvertApp] Converting notebook jet-ml-synthesis-model-vgg16.ipynb to python
+[NbConvertApp] Writing 8526 bytes to jet-ml-synthesis-model-vgg16.py
+
+EnvironmentNameNotFound: Could not find conda environment: tensorflow_gpuenv_v2
+You can list all discoverable environments with `conda info --envs`.
+
+
+DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 23.3 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+
+[notice] A new release of pip is available: 18.1 -> 23.3
+[notice] To update, run: pip install --upgrade pip
+/var/spool/slurm/d/job24968712/slurm_script: line 68:  1403 Killed                  python jet-ml-synthesis-model-vgg16.py
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=24968712.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

@@ -1,0 +1,10 @@
+[NbConvertApp] Converting notebook jet-ml-pointnet.ipynb to python
+[NbConvertApp] Writing 15028 bytes to jet-ml-pointnet.py
+Traceback (most recent call last):
+  File "/wsu/home/gy/gy40/gy4065/hm.jetscapeml.source/jet-ml-pointnet/jet-ml-pointnet.py", line 277, in <module>
+    cax.set_array(np.ma.masked_where(masked_image == 0, masked_image).ravel())
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/matplotlib/image.py", line 743, in set_array
+    self.set_data(A)
+  File "/wsu/el7/pre-compiled/python/3.7/envs/tensorflow-gpu-v2.8/lib/python3.9/site-packages/matplotlib/image.py", line 710, in set_data
+    raise TypeError("Invalid shape {} for image data"
+TypeError: Invalid shape (1024,) for image data

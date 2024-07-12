@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<jetscape>
+  
+  <nEvents> 100000 </nEvents>
+  <setReuseHydro> true </setReuseHydro>
+  <nReuseHydro> 500000 </nReuseHydro>
+  <nEvents_printout> 10 </nEvents_printout>
+  
+  <JetScapeWriterAscii> off </JetScapeWriterAscii>
+
+  <!--Inital State Module  -->
+  <IS>
+    <!--Trento> </Trento-->
+<initial_profile_path>../../JETSCAPE-Hydro-Profiles</initial_profile_path>
+  </IS>
+  
+  <!-- Hard Process -->
+  <Hard>
+    <!--PythiaGun>
+      <pTHatMin>130</pTHatMin>
+      <pTHatMax>140</pTHatMax>
+      <eCM>5020</eCM>
+    </PythiaGun-->
+    <PGun>  </PGun>
+  </Hard>
+  
+  <!--Preequilibrium Dynamics Module -->
+  <Preequilibrium>
+    <NullPreDynamics> </NullPreDynamics>
+  </Preequilibrium>
+  
+  <!-- Hydro  Module  -->
+  <Hydro>
+    <!--Brick bjorken_expansion_on="false" start_time="0.6"> </Brick-->
+    <hydro_from_file>
+      <name>Hydro from file</name>
+      <read_in_multiple_hydro>1</read_in_multiple_hydro>
+      <hydro_files_folder>../../JETSCAPE-Hydro-Profiles</hydro_files_folder>
+      <boost_invariant_>1</boost_invariant_>
+    </hydro_from_file>
+  </Hydro>
+  
+  
+  
+  <!-- Create liquifier -->
+  <Liquefier>
+      <e_threshold>-3.2</e_threshold> <!-- if positve Ecut=EGeV, if negative Ecut=|E*T| -->
+      <!-- CausalLiquefier -->
+      <CausalLiquefier>
+          <name>CausalLiquefier</name>
+          <dtau>0.02</dtau><!-- fluid time step in [fm] -->
+          <dx>0.3</dx><!-- fluid cell size in [fm] -->
+          <dy>0.3</dy><!-- fluid cell size in [fm] -->
+          <deta>0.2</deta><!-- fluid cell size -->
+          <tau_delay>2.0</tau_delay><!-- in [fm] -->
+          <time_relax>0.1</time_relax><!-- in [fm] -->
+          <d_diff>0.08</d_diff><!-- in [fm] -->
+          <width_delta>0.1</width_delta><!-- in [fm] -->
+      </CausalLiquefier>
+  </Liquefier>
+  
+  <!--Eloss Modules -->
+  <Eloss>
+      <maxT>200</maxT>
+    <Matter>
+      <in_vac> 0 </in_vac>
+      <QhatParametrizationType> 1 </QhatParametrizationType>
+      <recoil_on> 1 </recoil_on>
+      <alphas> 0.2 </alphas>
+      <Q0> 2.5 </Q0>
+    </Matter>
+    <Lbt>   
+      <alphas> 0.2 </alphas>
+      <Q0> 2.5 </Q0> 
+    </Lbt>
+    <AddLiquefier> true </AddLiquefier>
+  </Eloss>
+  
+  <PartonPrinter>
+      <FileName>./finalPartonsInfo.dat</FileName>
+  </PartonPrinter>
+  
+  <!-- Jet Hadronization Module -->
+  <JetHadronization>
+    <name>colorless</name>
+    <AddLiquefier> true </AddLiquefier>
+  </JetHadronization>
+  
+  <HadronPrinter> </HadronPrinter>
+  
+</jetscape>

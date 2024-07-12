@@ -1,0 +1,199 @@
+
+Converting notebook to script
+Setting up python version and conda shell
+Activating conda environment
+Running dataset concatenator and shuffler for 6
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pickle5 in /wsu/home/gy/gy40/gy4065/.local/lib/python3.7/site-packages (0.0.12)
+Loading/Installing Package => Begin
+
+
+Installing pickle5
+Installed pickle5
+
+
+########################################################################
+Checking the running platforms
+
+OS: Linux
+OS version: 3.10.0-1160.76.1.el7.x86_64
+running on Colab: False
+Python version: 3.7.7
+Dataset Directory Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/
+Simulation Results Path: /wsu/home/gy/gy40/gy4065/hm.jetscapeml.data/simulation_results/
+########################################################################
+
+
+Loading/Installing Package => End
+
+
+########################################################################
+
+Parsing parameters from command line and initializing the input parameters
+[('-i', 'config-06-final-state-hadrons-matter-600k.dat'), ('-d', '600000'), ('-y', 'MMAT'), ('-o', 'jetscape-ml-benchmark-dataset-600k-matter.pkl'), ('-n', '40'), ('-c', '/wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-06-final-state-hadrons/'), ('-p', '6')]
+[]
+-i
+Input_file_name_hadrons:  config-06-final-state-hadrons-matter-600k.dat
+simulated events final state hadron file: config-06-final-state-hadrons-matter-600k.dat
+-d
+Data_size:  600000
+data_size: 600000 
+-y
+Y_class_label_items:  MMAT
+y_class_label_items
+['MMAT']
+-o
+output_dataset_file_name:  jetscape-ml-benchmark-dataset-600k-matter.pkl
+Dataset file name: jetscape-ml-benchmark-dataset-600k-matter.pkl
+-n
+number_of_partition:  40
+Number of partition for splitting the events: 40 
+-c
+configuration_directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-06-final-state-hadrons/
+Configuration directory:  /wsu/home/gy/gy40/gy4065/Projects/110_JetscapeMl/Source/config-06-final-state-hadrons/
+-p
+configuration_number:  6
+Configuration number to reference which dataset it is: 6 
+########################################################################
+
+
+########################################################################
+
+########################################################################
+Loading separate datasets
+dataset_mvac.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset_mvac.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset_mvac.y_train: <class 'numpy.ndarray'> 540000 (540000,)
+dataset_mvac.y_test: <class 'numpy.ndarray'> 60000 (60000,)
+dataset_mlbt.x_train: <class 'numpy.ndarray'> 552960000 (540000, 32, 32)
+dataset_mlbt.x_test: <class 'numpy.ndarray'> 61440000 (60000, 32, 32)
+dataset_mlbt.y_train: <class 'numpy.ndarray'> 540000 (540000,)
+dataset_mlbt.y_test: <class 'numpy.ndarray'> 60000 (60000,)
+dataset.x_train: <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+dataset.x_test: <class 'numpy.ndarray'> 122880000 (120000, 32, 32)
+dataset.y_train: <class 'numpy.ndarray'> 1080000 (1080000,)
+dataset.y_test: <class 'numpy.ndarray'> 120000 (120000,)
+
+########################################################################
+
+########################################################################
+Saving Constructed Benchmark Dataset as a file
+
+########################################################################
+Concatenating and Storing Elapsed 100.807 seconds.
+
+########################################################################
+
+########################################################################
+Loading Data Set
+Shuffling Data Set
+Train Dataset Permutation Array:
+y_train:
+['MMAT' 'MMAT' 'MMAT' ... 'MLBT' 'MLBT' 'MLBT'] <class 'numpy.ndarray'> 1080000 (1080000,)
+y_train_shuffled:
+['MLBT' 'MLBT' 'MMAT' ... 'MLBT' 'MMAT' 'MLBT'] <class 'numpy.ndarray'> 1080000 (1080000,)
+x_train:
+[[[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.305472]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.190434 0.      ]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.175709 0.       ... 0.       0.       0.      ]]
+
+ ...
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.159467 ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]] <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+x_train_shuffled:
+[[[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.436428 0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.237606]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]
+
+ ...
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.986027 ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.433633 0.       0.       ... 0.       0.       0.      ]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]
+
+ [[0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  ...
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]
+  [0.       0.       0.       ... 0.       0.       0.      ]]] <class 'numpy.ndarray'> 1105920000 (1080000, 32, 32)
+
+########################################################################
+Shuffling / Storing Elapsed 68.403 seconds.
+
+########################################################################
