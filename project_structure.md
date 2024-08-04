@@ -30,7 +30,7 @@
 │
 ├── setup.cfg          <- Configuration file for flake8
 │
-└── {{ module_name }}   <- Source code for use in this project.
+└── {{ module_name:jet_ml}}<- Source code for use in this project.
     │
     ├── __init__.py             <- Makes {{ module_name }} a Python module
     │
