@@ -87,8 +87,8 @@ def normalize_x(x):
 import pandas as pd
 def categorize_y(y_raw):
     dummies = pd.get_dummies(y_raw,dtype=int) # Classification
-    classes = dummies.columns
+    # classes = dummies.columns
     
-    y = dummies.values
-    return (y,classes)
-        
+    # y = dummies.values
+    # return (y,classes)
+    return (y_raw, dummies)
