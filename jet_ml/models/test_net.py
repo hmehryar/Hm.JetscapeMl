@@ -45,10 +45,10 @@ def get_callbacks(monitor, save_dir):
 
 
 import time
-from jet_ml import config
+from jet_ml.config import Config
 def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monitor):
     keras.backend.clear_session()
-    simulation_path=config.MODELS_DIR/model.name
+    simulation_path=Config().SIMULATION_MODELS_DIR/model.name
     callbacks = get_callbacks(monitor, simulation_path)
     start_time=time.time()
 

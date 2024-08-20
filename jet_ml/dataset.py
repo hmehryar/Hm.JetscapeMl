@@ -1,5 +1,5 @@
 print ("Dataset Preprocessor")
-from jet_ml import config
+from jet_ml.config import Config
 import pandas as pd
 def get_label_items():
     print ('Aggregatring all parameters values')
@@ -52,7 +52,7 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = 0):
     label_str_dict=get_labels_str()
     dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_shuffled.pkl"
 
-    dataset_file_name = config.DATA_DIR / dataset_file_name
+    dataset_file_name = Config().DATA_DIR / dataset_file_name
 
     print("Loading the whole dataset")
     dataset = pd.read_pickle(dataset_file_name)
