@@ -86,7 +86,7 @@ def plot_confusion_matrix(cm, names, title='Confusion matrix',
     
 
 # Plot an ROC. pred - the predictions, y - the expected output.
-def plot_roc(pred,y):
+def plot_binary_classification_roc(pred,y):
     fpr, tpr, _ = roc_curve(y, pred)
     roc_auc = auc(fpr, tpr)
 
