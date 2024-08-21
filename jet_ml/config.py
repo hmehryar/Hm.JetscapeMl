@@ -26,13 +26,13 @@ class Config:
 
 
     def set_config_dirs_by_simulation_name(self, simulation_name):
-        self.SIMULATION_DATA_DIR = self.DATA_DIR / simulation_name
+        # self.SIMULATION_DATA_DIR = self.DATA_DIR / simulation_name
         self.SIMULATION_MODELS_DIR = self.MODELS_DIR / simulation_name
         self.SIMULATION_REPORTS_DIR = self.REPORTS_DIR / simulation_name
         self.SIMULATION_FIGURES_DIR = self.FIGURES_DIR / simulation_name
 
         # Check and create directories
-        self.check_make_directory(self.SIMULATION_DATA_DIR)
+        # self.check_make_directory(self.SIMULATION_DATA_DIR)
         self.check_make_directory(self.SIMULATION_MODELS_DIR)
         self.check_make_directory(self.SIMULATION_REPORTS_DIR)
         self.check_make_directory(self.SIMULATION_FIGURES_DIR)

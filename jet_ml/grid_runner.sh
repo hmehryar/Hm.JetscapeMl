@@ -7,10 +7,11 @@
 DIR_PATH="jet_ml\classifiers\alpha_s"
 FILE_NAME="alpha_s_test_net"
 JOB_NAME="${FILE_NAME}-100k"
-OUTPUT_FILE="${FILE_NAME}_output_%j.out"
-ERROR_FILE="${FILE_NAME}_error_%j.err"
-PYTHON_SCRIPT="${FILE_NAME}_gpu.py"
+OUTPUT_FILE="${JOB_NAME}_output_%j.out"
+ERROR_FILE="${JOB_NAME}_error_%j.err"
 NOTEBOOK="${FILE_NAME}.ipynb"
+PYTHON_SCRIPT="${FILE_NAME}.py"
+
 
 # Job name
 #SBATCH --job-name=${JOB_NAME}
@@ -72,4 +73,4 @@ conda activate tensorflow-gpu-v2.8
 
 # Running simulation
 echo "Running simulation"
-python -u ${PYTHON_SCRIPT} | tee ${FILE_NAME}_gpu.output
+python -u ${PYTHON_SCRIPT} | tee ${FILE_NAME}.output

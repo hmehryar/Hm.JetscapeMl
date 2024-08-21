@@ -137,4 +137,91 @@ def calculate_confusion_matrix(out_of_sample_y_compare, out_of_sample_pred,y_cla
         plt.savefig(os.path.join(Config().SIMULATION_FIGURES_DIR,"confusion_matrix_normalized.png"), dpi=300)
 
         plt.show()
+
+def save_training_history(history,fold=None):
+    import os
+    from jet_ml.config import Config
+    file_name="training_history"
+    if fold !=None:
+        file_name=f"{file_name}_fold_{fold}"
+    file_name=f"{file_name}.csv"
+      
+    pd.DataFrame.from_dict(history.history).to_csv(
+        os.path.join(Config().SIMULATION_REPORTS_DIR,file_name)
+        ,index=False)
+    print(file_name)
+
+def save_fold_accuracy(fold_accuracy):
+    import os
+    from jet_ml.config import Config
+    file_name="fold_accuracy.csv"
+      
+    pd.DataFrame(fold_accuracy,columns=["fold_accuracy"]).to_csv(
+        os.path.join(Config().SIMULATION_REPORTS_DIR,file_name)
+        ,index=False)
+    print(f"stored all folds' accuracy in {file_name}")
+
+def plot_training_history(history, fold=None,x_tick=5):
+    import os
+    from jet_ml.config import Config
+    """
+    Plot training and validation accuracy and loss values and save the plot with high resolution.
+
+    Parameters:
+    - history (tf.keras.callbacks.History): History object containing training/validation metrics.
+    - simulation_path (str): Path to save the plot.
+    - x_tick (int) steps in x axis (optional: the default value is 5).
+
+    Returns:
+    - file_path (str): File path of the saved plot.
+    """
+    # Plot training & validation accuracy values
+    plt.figure(figsize=(12, 6))
+    plt.subplot(1, 2, 1)
+    if 'accuracy' in history.history:
+        x_axis_length=len(history.history.get('accuracy', []))+1
+        plt.plot(history.history['accuracy'])
+    if 'sparse_categorical_accuracy' in history.history:
+        x_axis_length=len(history.history.get('sparse_categorical_accuracy', []))+1
+        plt.plot(history.history['sparse_categorical_accuracy'])
+    if 'val_accuracy' in history.history:
+        plt.plot(history.history['val_accuracy'])
+    if 'val_sparse_categorical_accuracy' in history.history:
+        plt.plot(history.history['val_sparse_categorical_accuracy'])
+    
+    plt.title('Model Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.legend(['Train', 'Validation'], loc='upper left')
+    # Set ticks on the epoch axis to display only integer values
+    plt.xticks(range(0, x_axis_length, x_tick))
+
+    # Plot training & validation loss values
+    plt.subplot(1, 2, 2)
+    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    
+    plt.title('Model Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.legend(['Train', 'Validation'], loc='upper left')
+
+    # Set ticks on the epoch axis to display only integer values
+    plt.xticks(range(0, x_axis_length, x_tick))
+
+    # Adjust layout and show the plot
+    plt.tight_layout()
+
+    # Save the plot with high resolution (300 dpi)
+    file_name = 'accuracy_loss'
+    if fold!=None:
+        file_name=f"{file_name}_fold_{fold}"
+    file_name=f"{file_name}.png"
+    file_name = os.path.join(Config().SIMULATION_FIGURES_DIR,file_name)
+    plt.savefig(file_name, dpi=300)
+    plt.show()
+    plt.close()
+
+    return file_name
+
     

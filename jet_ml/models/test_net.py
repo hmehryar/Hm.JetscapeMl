@@ -28,7 +28,7 @@ def compile_model(model):
 
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import os.path as path
-def get_callbacks(monitor, save_dir):
+def get_callbacks(monitor, best_model_filename):
     mode = None
     if 'loss' in monitor:
         mode = 'min'
@@ -38,7 +38,7 @@ def get_callbacks(monitor, save_dir):
 
     es = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=100, 
                         verbose=1, mode='auto', restore_best_weights=True)
-    mcp = ModelCheckpoint(path.join(save_dir, 'model.keras'), monitor=monitor, 
+    mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
                           save_best_only=True, mode=mode, verbose=1)
     
     return [es, mcp]
@@ -46,10 +46,16 @@ def get_callbacks(monitor, save_dir):
 
 import time
 from jet_ml.config import Config
-def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monitor):
+def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monitor,fold=None):
     keras.backend.clear_session()
-    simulation_path=Config().SIMULATION_MODELS_DIR/model.name
-    callbacks = get_callbacks(monitor, simulation_path)
+    
+    best_model_filename=model.name
+    if fold!=None:
+       best_model_filename=f"{best_model_filename}_fold_{fold}"
+    best_model_filename=f"{best_model_filename}_model.keras"
+    best_model_filename=path.join(Config().SIMULATION_MODELS_DIR, best_model_filename)
+    
+    callbacks = get_callbacks(monitor, best_model_filename)
     start_time=time.time()
 
     history=model.fit(x_train,y_train,
