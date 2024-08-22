@@ -65,17 +65,18 @@ echo $PYTHON_SCRIPT
 
 # Converting Jupyter notebook to python script
 echo "Converting notebook to script"
-# ${PYTHON_SCRIPT}
 jupyter nbconvert --to python ${NOTEBOOK} --output ${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
-echo "Setting up python version and conda shell"
+#echo "Setting up python version and conda shell"
 #ml python/3.7
 #source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
 
 # Activating conda environment
-#echo "Activating conda environment"
+echo "Activating conda environment"
 # conda activate tensorflow_env
+# conda init
+# conda activate tensorflow
 #conda activate tensorflow-gpu-v2.8
 
 # Running simulation
