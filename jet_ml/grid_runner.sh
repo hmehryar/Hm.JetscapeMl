@@ -14,7 +14,7 @@ ERROR_FILE="${JOB_NAME}_error_%j.err"
 NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
 pwd
 echo $NOTEBOOK
-RUNNER_SCRIPTS_PATH="runner_scripts/"
+RUNNER_SCRIPTS_PATH="../../../runner_scripts/"
 PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
 echo $PYTHON_SCRIPT
 
@@ -65,6 +65,7 @@ echo $PYTHON_SCRIPT
 
 # Converting Jupyter notebook to python script
 echo "Converting notebook to script"
+# ${PYTHON_SCRIPT}
 jupyter nbconvert --to python ${NOTEBOOK} --output ${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
