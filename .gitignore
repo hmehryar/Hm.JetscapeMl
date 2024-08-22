@@ -2,6 +2,9 @@
 # Data
 /data/
 
+# runner scripts
+/runner_sciprts/
+
 # Models
 /models/
 

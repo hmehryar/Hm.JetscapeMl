@@ -3,14 +3,20 @@
 # Author: H. Mehryar
 # email: hmehryar@wayne.edu
 
+# Get the parent dir
+ROOT_PATH="jet_ml/"
 # Define the file name as a variable
-DIR_PATH="jet_ml\classifiers\alpha_s"
+NOTEBOOK_PATH="classifiers/alpha_s/"
 FILE_NAME="alpha_s_test_net"
 JOB_NAME="${FILE_NAME}-100k"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"
-NOTEBOOK="${FILE_NAME}.ipynb"
-PYTHON_SCRIPT="${FILE_NAME}.py"
+NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
+pwd
+echo $NOTEBOOK
+RUNNER_SCRIPTS_PATH="runner_scripts/"
+PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
+echo $PYTHON_SCRIPT
 
 
 # Job name
@@ -52,10 +58,10 @@ PYTHON_SCRIPT="${FILE_NAME}.py"
 #SBATCH -t 500:0:0
 
 # List assigned GPU:
-echo Assigned GPU: $CUDA_VISIBLE_DEVICES
+#echo Assigned GPU: $CUDA_VISIBLE_DEVICES
 
 # Check state of GPU:
-nvidia-smi
+#nvidia-smi
 
 # Converting Jupyter notebook to python script
 echo "Converting notebook to script"
@@ -63,14 +69,14 @@ jupyter nbconvert --to python ${NOTEBOOK} --output ${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 echo "Setting up python version and conda shell"
-ml python/3.7
-source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
+#ml python/3.7
+#source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
 
 # Activating conda environment
-echo "Activating conda environment"
+#echo "Activating conda environment"
 # conda activate tensorflow_env
-conda activate tensorflow-gpu-v2.8
+#conda activate tensorflow-gpu-v2.8
 
 # Running simulation
-echo "Running simulation"
-python -u ${PYTHON_SCRIPT} | tee ${FILE_NAME}.output
+#echo "Running simulation"
+#python -u ${PYTHON_SCRIPT} | tee ${FILE_NAME}.output
