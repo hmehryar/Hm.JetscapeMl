@@ -55,6 +55,15 @@ def get_accuracy(model,x_test,y_test):
     score = metrics.accuracy_score(y_compare, pred)  
     return pred, score
 
+def get_logloss(model,x_test,y_test):
+    from sklearn import metrics
+    pred = model.predict(x_test)
+    # raw probabilities to chosen class (highest probability)
+    pred = np.argmax(pred,axis=1) 
+    # Measure this fold's accuracy
+    y_compare = np.argmax(y_test,axis=1) # For accuracy calculation
+    score = metrics.log_loss(y_compare, pred)  
+    return pred, score
 
 def calculate_accuracy(out_of_sample_y_compare,out_of_sample_pred):
     from sklearn import metrics
@@ -181,13 +190,13 @@ def plot_training_history(history, fold=None,x_tick=5):
     if 'accuracy' in history.history:
         x_axis_length=len(history.history.get('accuracy', []))+1
         plt.plot(history.history['accuracy'])
-    if 'sparse_categorical_accuracy' in history.history:
-        x_axis_length=len(history.history.get('sparse_categorical_accuracy', []))+1
-        plt.plot(history.history['sparse_categorical_accuracy'])
+    # if 'sparse_categorical_accuracy' in history.history:
+    #     x_axis_length=len(history.history.get('sparse_categorical_accuracy', []))+1
+    #     plt.plot(history.history['sparse_categorical_accuracy'])
     if 'val_accuracy' in history.history:
         plt.plot(history.history['val_accuracy'])
-    if 'val_sparse_categorical_accuracy' in history.history:
-        plt.plot(history.history['val_sparse_categorical_accuracy'])
+    # if 'val_sparse_categorical_accuracy' in history.history:
+    #     plt.plot(history.history['val_sparse_categorical_accuracy'])
     
     plt.title('Model Accuracy')
     plt.xlabel('Epoch')
@@ -223,5 +232,20 @@ def plot_training_history(history, fold=None,x_tick=5):
     plt.close()
 
     return file_name
+
+def save_bootstraping_history(mean_benchmark,epochs_needed,times_took,splits=None):
+    import os
+    from jet_ml.config import Config
+    # Save the plot with high resolution (300 dpi)
+    file_name = 'bootstrapping_history'
+    if splits!=None:
+        file_name=f"{file_name}_splits_{splits}"
+    file_name=f"{file_name}.csv"
+    # Combine data into rows
+    data = list(zip(mean_benchmark, epochs_needed, times_took))
+    pd.DataFrame(data,columns=["accuracy_score","epoch_needed","time_took"]).to_csv(
+        os.path.join(Config().SIMULATION_REPORTS_DIR,file_name)
+        ,index=False)
+    print(f"stored all splits' history in {file_name}")
 
     

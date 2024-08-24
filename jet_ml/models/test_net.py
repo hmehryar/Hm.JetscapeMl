@@ -29,19 +29,30 @@ def compile_model(model):
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import os.path as path
 def get_callbacks(monitor, best_model_filename):
-    mode = None
-    if 'loss' in monitor:
-        mode = 'min'
-    elif 'accuracy' in monitor:
-        mode = 'max'
-    assert mode != None, 'Check the monitor parameter!'
-
-    es = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=100, 
-                        verbose=1, mode='auto', restore_best_weights=True)
-    mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
-                          save_best_only=True, mode=mode, verbose=1)
     
-    return [es, mcp]
+    es=None
+    if isinstance(monitor, str):
+        mode = None
+        if 'loss' in monitor:
+            mode = 'min'
+        elif 'accuracy' in monitor:
+            mode = 'max'
+        assert mode != None, 'Check the monitor parameter!'
+
+    # patience=25 for run
+    # patience=10 for test
+        es = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=100, 
+                            verbose=1, mode='auto', restore_best_weights=True)
+        mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
+                          save_best_only=True, mode=mode, verbose=1)
+        return [es, mcp]    
+    else:
+        #the monistor should be an early stopping object
+        es = monitor
+        return [es]
+    
+    
+    
 
 
 import time
