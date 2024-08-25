@@ -28,7 +28,7 @@ def compile_model(model):
 
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import os.path as path
-def get_callbacks(monitor, best_model_filename):
+def get_callbacks( best_model_filename,monitor='val_loss'):
     
     es=None
     if isinstance(monitor, str):
@@ -41,7 +41,7 @@ def get_callbacks(monitor, best_model_filename):
 
     # patience=25 for run
     # patience=10 for test
-        es = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=100, 
+        es = EarlyStopping(monitor=monitor, min_delta=1e-3, patience=100, 
                             verbose=1, mode='auto', restore_best_weights=True)
         mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
                           save_best_only=True, mode=mode, verbose=1)
@@ -59,14 +59,10 @@ import time
 from jet_ml.config import Config
 def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monitor,fold=None):
     keras.backend.clear_session()
+    from jet_ml.models.helpers import get_best_model_filename
+    best_model_filename=get_best_model_filename(model.name,fold=fold)
     
-    best_model_filename=model.name
-    if fold!=None:
-       best_model_filename=f"{best_model_filename}_fold_{fold}"
-    best_model_filename=f"{best_model_filename}_model.keras"
-    best_model_filename=path.join(Config().SIMULATION_MODELS_DIR, best_model_filename)
-    
-    callbacks = get_callbacks(monitor, best_model_filename)
+    callbacks = get_callbacks( best_model_filename,monitor=monitor)
     start_time=time.time()
 
     history=model.fit(x_train,y_train,
@@ -76,7 +72,10 @@ def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monito
             validation_data=(x_test,y_test),
             callbacks=callbacks,
             )
+    from jet_ml.models.helpers import extract_stopped_epoch
+    stoppped_epoch=extract_stopped_epoch(callbacks=callbacks)
+
     elapsed_time=time.time()-start_time
     import jet_ml.helpers as helpers
     print("Elpased time: {}".format(helpers.hms_string(elapsed_time)))
-    return model, history
+    return model, history, elapsed_time,stoppped_epoch
