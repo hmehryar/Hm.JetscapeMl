@@ -2,7 +2,7 @@ import pandas as pd
 def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pred,y_classes):
     
     # Check the shape of your data
-    print(len(out_of_sample_y[0]))  # Number of columns in the data
+    # print(len(out_of_sample_y[0]))  # Number of columns in the data
 
     # Define the column names
     # Original array as a pandas Index
@@ -11,7 +11,7 @@ def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pre
     # Generate new array with "OoS_" prefix
     columns = [f"OoS_{value}" for value in original_index]
 
-    print(columns)
+    # print(columns)
 
     # Check if the number of columns matches
     if len(out_of_sample_y[0]) != len(columns):
@@ -247,5 +247,20 @@ def save_bootstraping_history(mean_benchmark,epochs_needed,times_took,splits=Non
         os.path.join(Config().SIMULATION_REPORTS_DIR,file_name)
         ,index=False)
     print(f"stored all splits' history in {file_name}")
+
+def save_training_stats(accuracies,epochs_needed,times_taken):
+    import os
+    from jet_ml.config import Config
+    # Save the plot with high resolution (300 dpi)
+    file_name = 'training_stats.csv'
+    
+    # Combine data into rows
+    data = list(zip(accuracies, epochs_needed, times_taken))
+    pd.DataFrame(data,columns=["accuracy_score","epoch_needed","times_taken"]).to_csv(
+        os.path.join(Config().SIMULATION_REPORTS_DIR,file_name)
+        ,index=False)
+    print(f"stored all splits' history in {file_name}")
+
+    
 
     
