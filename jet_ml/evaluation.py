@@ -1,4 +1,5 @@
 import pandas as pd
+from IPython.display import display
 def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pred,y_classes):
     
     # Check the shape of your data

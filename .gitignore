@@ -28,3 +28,5 @@ profile_default/
 ipython_config.py
 
 *desktop.ini
+jet_ml/classifiers/alpha_s/alpha_s_vgg16_net.py
+jet_ml/classifiers/alpha_s/alpha_s_vgg16_net.output
