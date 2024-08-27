@@ -60,7 +60,6 @@ class Config:
                 f"Models Directory: {self.MODELS_DIR}\n"
                 f"Reports Directory: {self.REPORTS_DIR}\n"
                 f"Figures Directory: {self.FIGURES_DIR}\n"
-                f"Simulation Data Directory: {self.SIMULATION_DATA_DIR}\n"
                 f"Simulation Models Directory: {self.SIMULATION_MODELS_DIR}\n"
                 f"Simulation Reports Directory: {self.SIMULATION_REPORTS_DIR}\n"
                 f"Simulation Figures Directory: {self.SIMULATION_FIGURES_DIR}\n"
