@@ -64,20 +64,21 @@ echo $PYTHON_SCRIPT
 #nvidia-smi
 
 # Converting Jupyter notebook to python script
+cd /wsu/home/gy/gy40/gy4065/hm_jetscapeml_source/jet_ml/classifiers/alpha_s
 echo "Converting notebook to script"
 jupyter nbconvert --to python ${NOTEBOOK} --output ${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 #echo "Setting up python version and conda shell"
-#ml python/3.7
-#source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
+ml python/3.7
+source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
 
 # Activating conda environment
 echo "Activating conda environment"
 # conda activate tensorflow_env
 # conda init
 # conda activate tensorflow
-#conda activate tensorflow-gpu-v2.8
+conda activate tensorflow-gpu-v2.8
 
 # Running simulation
 #echo "Running simulation"
