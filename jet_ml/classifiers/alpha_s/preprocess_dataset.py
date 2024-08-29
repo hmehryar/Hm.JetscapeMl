@@ -1,3 +1,4 @@
+from IPython.display import display
 def preprocess_dataset_for_alpha_s(size=1000):
     import jet_ml.dataset as ds 
 
@@ -15,5 +16,5 @@ def get_preprocess_dataset_info(x,y):
     import pandas as pd
     print('x shape:',x.shape)
     print('x samples:{}'.format(x[0].shape))
-    display(pd.DataFrame(x[0,:,:,0]))
+    # display(pd.DataFrame(x[0,:,:,0]))
     display(pd.DataFrame(y[:10]))
