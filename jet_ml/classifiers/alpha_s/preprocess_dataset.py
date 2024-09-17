@@ -18,3 +18,4 @@ def get_preprocess_dataset_info(x,y):
     print('x samples:{}'.format(x[0].shape))
     # display(pd.DataFrame(x[0,:,:,0]))
     display(pd.DataFrame(y[:10]))
+    
