@@ -92,3 +92,86 @@ def categorize_y(y_raw):
     # y = dummies.values
     # return (y,classes)
     return (y_raw, dummies)
+
+
+def is_normalized(x):
+    import numpy as np
+    return np.max(x) <= 1
+
+def convert_to_rgb(x):
+    import numpy as np
+    import tensorflow as tf
+    # Convert grayscale to RGB (if needed)
+    x_rgb = np.concatenate([x] * 3, axis=-1)  # Convert to RGB
+    return x_rgb
+
+def resize_images(x,width=32,height=32,device="/CPU:0"):
+    import numpy as np
+    import tensorflow as tf
+    # Resize images to the target size
+    TARGET_WIDTH = width
+    TARGET_HEIGHT = height
+    # with tf.device('/CPU:0'):
+    x_resized = np.array([tf.image.resize(image, [TARGET_HEIGHT, TARGET_WIDTH]) for image in x])
+    return x_resized
+def resize_y(y):
+    import numpy as np
+    # Optionally, you might want to add an extra dimension if needed
+    y_resized = np.expand_dims(y, axis=2)  # Shape will be (1, 3, 1000)
+    return y_resized
+
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+def create_train_data_generator(x_train, y_train, batch_size=32):
+    """
+    Create an ImageDataGenerator and return the training data generator.
+
+    Parameters:
+    - x_train: Array-like, training data features.
+    - y_train: Array-like, training data labels.
+    - batch_size: Integer, the size of the batches of data (default: 32).
+
+    Returns:
+    - train_generator: The configured ImageDataGenerator.
+    """
+    # Define ImageDataGenerator
+    training_datagen = ImageDataGenerator(
+        horizontal_flip=True,
+        fill_mode='nearest'
+    )
+
+    # Create the data generator
+    train_generator = training_datagen.flow(
+        x_train,
+        y_train,
+        batch_size=batch_size,
+        shuffle=True,
+        seed=42  # For reproducibility
+    )
+
+    return train_generator
+
+
+def create_validation_data_generator(x_validate, y_validate, batch_size=32):
+    """
+    Create an ImageDataGenerator for validation data and return the validation data generator.
+
+    Parameters:
+    - x_validate: Array-like, validation data features.
+    - y_validate: Array-like, validation data labels.
+    - batch_size: Integer, the size of the batches of data (default: 32).
+
+    Returns:
+    - val_generator: The configured ImageDataGenerator for validation.
+    """
+    # Define ImageDataGenerator for validation
+    validation_datagen = ImageDataGenerator()
+
+    # Create the validation data generator
+    val_generator = validation_datagen.flow(
+        x_validate,
+        y_validate,
+        batch_size=batch_size
+    )
+
+    return val_generator

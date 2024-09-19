@@ -18,4 +18,22 @@ def get_preprocess_dataset_info(x,y):
     print('x samples:{}'.format(x[0].shape))
     # display(pd.DataFrame(x[0,:,:,0]))
     display(pd.DataFrame(y[:10]))
+
+
+#implementing the preprocess_dataset_for_resnet function
+def preprocess_dataset_for_resnet(x,y,width=32,height=32):
+    display("x.shape {0}".format(x.shape))
+    display("y.shape {0}".format(y.shape))
     
+    from jet_ml.dataset import is_normalized,convert_to_rgb,resize_images,resize_y
+    display("Data is normalized: {0}".format(is_normalized(x)))
+
+    x_rgb=convert_to_rgb(x)
+    display("x_rgb.shape {0}".format(x_rgb.shape))
+    
+    x_resized=resize_images(x_rgb,width,height)
+    display("x_resized.shape {0}".format(x_resized.shape))
+    
+    y_resized=resize_y(y)
+    display("y_resized.shape {0}".format(y_resized.shape))
+    return x_resized,y_resized

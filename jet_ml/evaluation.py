@@ -56,6 +56,48 @@ def get_accuracy(model,x_test,y_test):
     score = metrics.accuracy_score(y_compare, pred)  
     return pred, score
 
+import numpy as np
+from sklearn import metrics
+
+def get_accuracy(model, data_generator):
+    """
+    Calculate accuracy of the model on data from a generator.
+
+    Parameters:
+    - model: The trained Keras model.
+    - data_generator: A Keras generator for validation/testing.
+
+    Returns:
+    - pred: Predicted class labels.
+    - score: Accuracy score.
+    """
+    all_predictions = []
+    all_labels = []
+    batch_index = 0
+    # Iterate over the generator
+    for x_batch, y_batch in data_generator:
+        batch_index += 1
+        if batch_index >= len(data_generator)+1:
+            break
+        print(f"batch_index: {batch_index}")
+        # Get predictions from the model
+        pred = model.predict(x_batch)
+        pred_labels = np.argmax(pred, axis=1)
+        
+        # Check if y_batch is one-hot encoded
+        if y_batch.ndim > 1:  # Assuming y_batch is one-hot encoded
+            y_batch_labels = np.argmax(y_batch, axis=1)
+        else:  # Assuming y_batch is not one-hot encoded
+            y_batch_labels = y_batch
+        
+        all_predictions.extend(pred_labels)
+        all_labels.extend(y_batch_labels)
+    
+    # Calculate accuracy score
+    score = metrics.accuracy_score(all_labels, all_predictions)
+    
+    return all_predictions, score
+
 def get_logloss(model,x_test,y_test):
     from sklearn import metrics
     pred = model.predict(x_test)
