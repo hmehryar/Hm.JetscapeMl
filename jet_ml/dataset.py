@@ -29,7 +29,7 @@ def get_labels_str(label_items_dict=None):
   return data_dict
 
 
-def load_dataset(size: int, label_str_dict: dict=None, working_column: int = 0):
+def load_dataset(size: int, label_str_dict: dict=None, working_column: int = None):
     """
     Loads a dataset of specified size and extracts the specified column for classification.
 
@@ -57,9 +57,9 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = 0):
     print("Loading the whole dataset")
     dataset = pd.read_pickle(dataset_file_name)
     (dataset_x, dataset_y) = dataset
-    
-    print(f'Extract the working column#{working_column} for classification')
-    dataset_y = dataset_y[:, working_column]
+    if working_column is not None:
+        print(f'Extract the working column#{working_column} for classification')
+        dataset_y = dataset_y[:, working_column]
     print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
     print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
 
