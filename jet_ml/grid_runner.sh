@@ -19,8 +19,8 @@ echo "Running the following notebook"
 echo $NOTEBOOK
 echo "##########################################"
 RUNNER_SCRIPTS_PATH="../../../runner_scripts/"
-# PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
-PYTHON_SCRIPT="${FILE_NAME}.py"
+PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
+# PYTHON_SCRIPT="${FILE_NAME}.py"
 echo "Running the following python script"
 echo $PYTHON_SCRIPT
 echo "##########################################"
