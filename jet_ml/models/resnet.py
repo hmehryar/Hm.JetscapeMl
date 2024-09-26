@@ -28,11 +28,11 @@ def train_model(model,train_generator, val_generator, epochs,
     start_time=time.time()
 
     STEP_PER_EPOCH=train_generator.n//train_generator.batch_size 
-    display(STEP_PER_EPOCH)
+    # display(STEP_PER_EPOCH)
 
     # Important, calculate a valid step size for the validation dataset
     STEP_SIZE_VALID=val_generator.n//val_generator.batch_size
-    display(STEP_SIZE_VALID)
+    # display(STEP_SIZE_VALID)
     
 
     history=model.fit(train_generator, 
