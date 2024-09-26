@@ -7,16 +7,23 @@
 ROOT_PATH="jet_ml/"
 # Define the file name as a variable
 NOTEBOOK_PATH="classifiers/alpha_s/"
-FILE_NAME="alpha_s_test_net"
+FILE_NAME="alpha_s_transfer_learning_resnet50"
 JOB_NAME="${FILE_NAME}-100k"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"
 NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
+echo "Current directory"
 pwd
+echo "##########################################"
+echo "Running the following notebook"
 echo $NOTEBOOK
+echo "##########################################"
 RUNNER_SCRIPTS_PATH="../../../runner_scripts/"
-PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
+# PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
+PYTHON_SCRIPT="${FILE_NAME}.py"
+echo "Running the following python script"
 echo $PYTHON_SCRIPT
+echo "##########################################"
 
 
 # Job name
@@ -64,7 +71,7 @@ echo $PYTHON_SCRIPT
 #nvidia-smi
 
 # Converting Jupyter notebook to python script
-cd /wsu/home/gy/gy40/gy4065/hm_jetscapeml_source/jet_ml/classifiers/alpha_s
+# cd /wsu/home/gy/gy40/gy4065/hm_jetscapeml_source/jet_ml/classifiers/alpha_s
 echo "Converting notebook to script"
 jupyter nbconvert --to python ${NOTEBOOK} --output ${PYTHON_SCRIPT}
 
@@ -82,4 +89,4 @@ conda activate tensorflow-gpu-v2.8
 
 # Running simulation
 #echo "Running simulation"
-#python -u ${PYTHON_SCRIPT} | tee ${FILE_NAME}.output
+python -u ${PYTHON_SCRIPT} | tee ${FILE_NAME}.output
