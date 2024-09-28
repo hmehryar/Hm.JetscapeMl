@@ -3,35 +3,8 @@
 # Author: H. Mehryar
 # email: hmehryar@wayne.edu
 
-# Get the parent dir
-
-ROOT_PATH="jet_ml/"
-# Define the file name as a variable
-NOTEBOOK_PATH="classifiers/alpha_s/"
-FILE_NAME="alpha_s_transfer_learning_resnet50"
-JOB_NAME="${FILE_NAME}-100k"
-OUTPUT_FILE="${JOB_NAME}_output_%j.out"
-ERROR_FILE="${JOB_NAME}_error_%j.err"
-NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
-echo "Current directory"
-pwd
-echo "##########################################"
-echo "Running the following notebook"
-echo $NOTEBOOK
-echo "##########################################"
-RUNNER_SCRIPTS_PATH="runner_scripts/"
-# PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
-PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
-PYTHON_OUTPUT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.output"
-
-# PYTHON_SCRIPT="${FILE_NAME}.py"
-echo "Running the following python script"
-echo $PYTHON_SCRIPT
-echo "##########################################"
-
-
 # Job name
-#SBATCH --job-name=${JOB_NAME}
+#SBATCH --job-name=resnet
 
 # Submit to the GPU QoS
 ##SBATCH -q primary
@@ -59,20 +32,50 @@ echo "##########################################"
 # Where to send email alerts
 #SBATCH --mail-user=gy4065@wayne.edu
 
-# Create an output file
-#SBATCH -o ${OUTPUT_FILE}
-
-# Create an error file
-#SBATCH -e ${ERROR_FILE}
-
 # Set maximum time limit
-#SBATCH -t 500:0:0
+#SBATCH -t 100:0:0
 
 # List assigned GPU:
 #echo Assigned GPU: $CUDA_VISIBLE_DEVICES
 
 # Check state of GPU:
 #nvidia-smi
+
+# Create an output file
+#SBATCH -o resnet_output_%j.out
+
+# Create an error file
+#SBATCH -e resnet_error_%j.err
+
+
+
+# Get the parent dir
+
+ROOT_PATH="jet_ml/"
+# Define the file name as a variable
+NOTEBOOK_PATH="classifiers/alpha_s/"
+FILE_NAME="alpha_s_transfer_learning_resnet50"
+JOB_NAME="${FILE_NAME}-100k"
+OUTPUT_FILE="${JOB_NAME}_output_%j.out"
+ERROR_FILE="${JOB_NAME}_error_%j.err"
+NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
+echo "Current directory"
+pwd
+echo "##########################################"
+echo "Running the following notebook"
+echo $NOTEBOOK
+echo "##########################################"
+RUNNER_SCRIPTS_PATH="runner_scripts/"
+# PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
+PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
+PYTHON_OUTPUT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.output"
+
+# PYTHON_SCRIPT="${FILE_NAME}.py"
+echo "Running the following python script"
+echo $PYTHON_SCRIPT
+echo "##########################################"
+
+
 
 # Converting Jupyter notebook to python script
 # cd /wsu/home/gy/gy40/gy4065/hm_jetscapeml_source/jet_ml/classifiers/alpha_s
