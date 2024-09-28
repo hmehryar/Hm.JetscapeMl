@@ -17,10 +17,10 @@ def get_best_model_filename(model_name,fold=None):
     best_model_filename=path.join(Config().SIMULATION_MODELS_DIR, best_model_filename)
     return best_model_filename
 
-import keras
+import tensorflow as tf
 def compile_model(model):
-    model.compile(loss=keras.losses.categorical_crossentropy,
-                optimizer=keras.optimizers.Adam(),
+    model.compile(loss=tf.keras.losses.categorical_crossentropy,
+                optimizer=tf.keras.optimizers.Adam(),
                 metrics=['accuracy'])
     return model
 

@@ -4,6 +4,7 @@
 # email: hmehryar@wayne.edu
 
 # Get the parent dir
+
 ROOT_PATH="jet_ml/"
 # Define the file name as a variable
 NOTEBOOK_PATH="classifiers/alpha_s/"
@@ -19,6 +20,7 @@ echo "Running the following notebook"
 echo $NOTEBOOK
 echo "##########################################"
 RUNNER_SCRIPTS_PATH="runner_scripts/"
+# PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
 PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
 PYTHON_OUTPUT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.output"
 
@@ -75,18 +77,19 @@ echo "##########################################"
 # Converting Jupyter notebook to python script
 # cd /wsu/home/gy/gy40/gy4065/hm_jetscapeml_source/jet_ml/classifiers/alpha_s
 echo "Converting notebook to script"
+# 
 jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 # echo "Setting up python version and conda shell and environment on Grid"
-# ml python/3.7
-# source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
-# conda init
-# conda activate tensorflow-gpu-v2.8
+ml python/3.7
+source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
+conda init
+conda activate tensorflow-gpu-v2.8
 
 # echo "Setting up python version and conda shell and environment on HmSrv"
-conda init
-conda activate tensorflow
+# conda init
+# conda activate tensorflow
 
 
 # Running simulation
