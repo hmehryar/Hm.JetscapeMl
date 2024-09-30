@@ -85,10 +85,10 @@ jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 # echo "Setting up python version and conda shell and environment on Grid"
-ml python/3.7
-source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
-conda init
-conda activate tensorflow-gpu-v2.8
+# ml python/3.7
+# source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
+# conda init
+# conda activate tensorflow-gpu-v2.8
 
 # echo "Setting up python version and conda shell and environment on HmSrv"
 # conda init
