@@ -54,7 +54,7 @@
 ROOT_PATH="jet_ml/"
 # Define the file name as a variable
 NOTEBOOK_PATH="classifiers/alpha_s/"
-FILE_NAME="alpha_s_transfer_learning_resnet50"
+FILE_NAME="alpha_s_test_net"
 JOB_NAME="${FILE_NAME}-100k"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"
@@ -85,10 +85,10 @@ jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 # echo "Setting up python version and conda shell and environment on Grid"
-# ml python/3.7
-# source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
-# conda init
-# conda activate tensorflow-gpu-v2.8
+ml python/3.7
+source /wsu/el7/pre-compiled/python/3.7/etc/profile.d/conda.sh
+conda init
+conda activate tensorflow-gpu-v2.8
 
 # echo "Setting up python version and conda shell and environment on HmSrv"
 # conda init
