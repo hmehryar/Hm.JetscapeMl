@@ -29,7 +29,7 @@ def get_labels_str(label_items_dict=None):
   return data_dict
 
 
-def load_dataset(size: int, label_str_dict: dict=None, working_column: int = None):
+def load_dataset(size: int, label_str_dict: dict=None, working_column: int = None, has_test: bool = False):
     """
     Loads a dataset of specified size and extracts the specified column for classification.
 
@@ -51,19 +51,33 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = Non
     """
     label_str_dict=get_labels_str()
     dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_shuffled.pkl"
-
+    
     dataset_file_name = Config().DATA_DIR / dataset_file_name
 
     print("Loading the whole dataset")
     dataset = pd.read_pickle(dataset_file_name)
-    (dataset_x, dataset_y) = dataset
-    if working_column is not None:
-        print(f'Extract the working column#{working_column} for classification')
-        dataset_y = dataset_y[:, working_column]
-    print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
-    print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
+    if has_test:
+        (dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test) = dataset
+        print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
+        print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
 
-    return dataset_x, dataset_y
+        print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
+        print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
+        del dataset
+        if working_column is not None:
+            print(f'Extract the working column#{working_column} for classification')
+            dataset_y_train = dataset_y_train[:, working_column]
+            dataset_y_test = dataset_y_test[:, working_column]
+        return ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test))
+    else:
+        (dataset_x, dataset_y) = dataset
+        if working_column is not None:
+            print(f'Extract the working column#{working_column} for classification')
+            dataset_y = dataset_y[:, working_column]
+        print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
+        print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
+
+        return dataset_x, dataset_y
 
 from keras import backend as K
 def reshape_x(x):
