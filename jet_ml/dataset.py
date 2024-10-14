@@ -3,7 +3,7 @@ import pickle
 def save_dataset(file_name,dataset):
     with open(file_name, 'wb') as dataset_file:
         pickle.dump(dataset,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
-        
+
 print ("Dataset Preprocessor")
 from jet_ml.config import Config
 import pandas as pd
@@ -106,7 +106,7 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = Non
     ```
     """
     label_str_dict=get_labels_str()
-    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_balanced.pkl"
+    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_balanced_unshuffled.pkl"
     
     dataset_file_name = Config().DATA_DIR / dataset_file_name
 
