@@ -50,7 +50,7 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = Non
     ```
     """
     label_str_dict=get_labels_str()
-    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_shuffled.pkl"
+    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_balanced.pkl"
     
     dataset_file_name = Config().DATA_DIR / dataset_file_name
 
