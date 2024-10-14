@@ -1,3 +1,9 @@
+# Save the balanced dataset
+import pickle
+def save_dataset(file_name,dataset):
+    with open(file_name, 'wb') as dataset_file:
+        pickle.dump(dataset,dataset_file, protocol=pickle.HIGHEST_PROTOCOL)
+        
 print ("Dataset Preprocessor")
 from jet_ml.config import Config
 import pandas as pd
@@ -27,6 +33,56 @@ def get_labels_str(label_items_dict=None):
   }
 #   print("labels_str:\n",data_dict)
   return data_dict
+
+#loading dataaset by file name
+def load_dataset_by_filename(dataset_file_name, working_column: int = None, has_test: bool = False):
+    """
+    Loads a dataset of specified size and extracts the specified column for classification.
+
+    Parameters:
+    - size (int): The size of the dataset. It should be an integer representing the size of the dataset. 
+                  Valid sizes are 1000, 10000, 100000, or 1000000.
+    - label_str_dict (dict): A dictionary containing string labels for various parameters used in the dataset file name construction.
+    - dataset_directory_path (str): The directory path where the dataset files are located.
+    - working_column (int, optional): The index of the column to be extracted for classification. Default is 0.
+
+    Returns:
+    - dataset_x (numpy.ndarray): The features of the dataset.
+    - dataset_y (numpy.ndarray): The labels corresponding to the features.
+
+    Example:
+    ```python
+    dataset_x, dataset_y = get_dataset(1000, label_str_dict, "/path/to/dataset_directory/", working_column=1)
+    ```
+    """
+    # dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_balanced.pkl"
+    
+    dataset_file_name = Config().DATA_DIR / dataset_file_name
+
+    print("Loading the whole dataset")
+    dataset = pd.read_pickle(dataset_file_name)
+    if has_test:
+        (dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test) = dataset
+        print("dataset.x_train:",type(dataset_x_train), dataset_x_train.size, dataset_x_train.shape)
+        print("dataset.y_train:",type(dataset_y_train), dataset_y_train.size,dataset_y_train.shape)
+
+        print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
+        print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
+        del dataset
+        if working_column is not None:
+            print(f'Extract the working column#{working_column} for classification')
+            dataset_y_train = dataset_y_train[:, working_column]
+            dataset_y_test = dataset_y_test[:, working_column]
+        return ((dataset_x_train, dataset_y_train)), ((dataset_x_test, dataset_y_test))
+    else:
+        (dataset_x, dataset_y) = dataset
+        if working_column is not None:
+            print(f'Extract the working column#{working_column} for classification')
+            dataset_y = dataset_y[:, working_column]
+        print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
+        print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
+
+        return dataset_x, dataset_y
 
 
 def load_dataset(size: int, label_str_dict: dict=None, working_column: int = None, has_test: bool = False):
