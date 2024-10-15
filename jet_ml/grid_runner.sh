@@ -4,7 +4,7 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=resnet
+#SBATCH --job-name=pointnet
 
 # Submit to the GPU QoS
 ##SBATCH -q primary
@@ -42,10 +42,10 @@
 #nvidia-smi
 
 # Create an output file
-#SBATCH -o resnet_output_%j.out
+#SBATCH -o pointnet_output_%j.out
 
 # Create an error file
-#SBATCH -e resnet_error_%j.err
+#SBATCH -e pointnet_error_%j.err
 
 
 
@@ -53,9 +53,11 @@
 
 ROOT_PATH="jet_ml/"
 # Define the file name as a variable
-NOTEBOOK_PATH="classifiers/alpha_s/"
-FILE_NAME="alpha_s_test_net"
-JOB_NAME="${FILE_NAME}-100k"
+# NOTEBOOK_PATH="classifiers/alpha_s/"
+NOTEBOOK_PATH="notebooks/"
+# FILE_NAME="alpha_s_pointnet"
+FILE_NAME="building_balanced_dataset"
+JOB_NAME="${FILE_NAME}-1000k"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"
 NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
@@ -81,7 +83,8 @@ echo "##########################################"
 # cd /wsu/home/gy/gy40/gy4065/hm_jetscapeml_source/jet_ml/classifiers/alpha_s
 echo "Converting notebook to script"
 # 
-jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
+# jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
+jupyter nbconvert --to python ${NOTEBOOK} --output ../../${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 # echo "Setting up python version and conda shell and environment on Grid"
