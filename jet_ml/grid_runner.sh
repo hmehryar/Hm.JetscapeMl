@@ -83,8 +83,8 @@ echo "##########################################"
 # cd /wsu/home/gy/gy40/gy4065/hm_jetscapeml_source/jet_ml/classifiers/alpha_s
 echo "Converting notebook to script"
 # 
-# jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
-jupyter nbconvert --to python ${NOTEBOOK} --output ../../${PYTHON_SCRIPT}
+jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
+# jupyter nbconvert --to python ${NOTEBOOK} --output ../../${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 # echo "Setting up python version and conda shell and environment on Grid"
