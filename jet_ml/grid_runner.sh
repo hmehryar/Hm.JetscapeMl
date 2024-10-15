@@ -53,11 +53,11 @@
 
 ROOT_PATH="jet_ml/"
 # Define the file name as a variable
-# NOTEBOOK_PATH="classifiers/alpha_s/"
-NOTEBOOK_PATH="notebooks/"
-# FILE_NAME="alpha_s_pointnet"
-FILE_NAME="building_balanced_dataset"
-JOB_NAME="${FILE_NAME}-1000k"
+NOTEBOOK_PATH="classifiers/alpha_s/"
+# NOTEBOOK_PATH="notebooks/"
+FILE_NAME="alpha_s_pointnet"
+# FILE_NAME="building_balanced_dataset"
+JOB_NAME="${FILE_NAME}-100k"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"
 NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"

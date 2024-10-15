@@ -323,9 +323,14 @@ def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, tr
     # Determine training dataset size
     train_dataset_size = int(len(dataset) * train_size)
     
+    random_state = 42
+    # Set a random seed for reproducibility
+    seed = random_state if random_state is not None else 42
+
+
     # Shuffle and augment datasets
-    dataset = dataset.shuffle(len_x_train).map(augment)
-    test_dataset = test_dataset.shuffle(len_x_test).batch(batch_size)
+    dataset = dataset.shuffle(len_x_train, seed=seed).map(augment)
+    test_dataset = test_dataset.shuffle(len_x_test, seed=seed).batch(batch_size)
     
     # Split dataset into training and validation sets
     if (train_size!=1):
