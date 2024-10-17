@@ -244,7 +244,7 @@ def create_validation_data_generator(x_validate, y_validate, batch_size=32):
 
     return val_generator
 
-def create_tf_dataset(x_data, y_data):
+def create_tf_dataset(x_data, y_data, batch_size=128):
     """
     Create a TensorFlow Dataset from input data.
 
@@ -255,5 +255,5 @@ def create_tf_dataset(x_data, y_data):
     Returns:
     - dataset (tf.data.Dataset): TensorFlow Dataset containing input data.
     """
-    dataset = tf.data.Dataset.from_tensor_slices((x_data, y_data))
+    dataset = tf.data.Dataset.from_tensor_slices((x_data, y_data)).batch(batch_size)
     return dataset

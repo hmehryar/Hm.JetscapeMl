@@ -37,3 +37,17 @@ def preprocess_dataset_for_resnet(x,y,width=32,height=32):
     y_resized=resize_y(y)
     display("y_resized.shape {0}".format(y_resized.shape))
     return x_resized,y_resized
+
+def preprocess_dataset_for_pointnet(x,y):
+    display("x.shape {0}".format(x.shape))
+    display("y.shape {0}".format(y.shape))
+    
+    from jet_ml.dataset import is_normalized
+    display("Data is normalized: {0}".format(is_normalized(x)))
+    from jet_ml.models.pointnet import get_dataset_points
+    x_points = get_dataset_points(x)
+    
+    print("x_points:",type(x_points), x_points.size, x_points.shape)
+    print("y:",type(y), y.size,y.shape)
+
+    return x_points,y

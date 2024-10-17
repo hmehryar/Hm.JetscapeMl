@@ -64,7 +64,7 @@ def tnet(inputs, num_features):
     # Apply affine transformation to input features
     return layers.Dot(axes=(2, 1))([inputs, feat_T])
 
-def build_pointnet_classifier_model(NUM_POINTS=1024,NUM_CLASSES=2, activation="sigmoid"):
+def build_model(NUM_POINTS=1024,num_classes=2, activation="sigmoid"):
     inputs = keras.Input(shape=(NUM_POINTS, 3))
     x = tnet(inputs, 3)
     x = conv_bn(x, 32)
@@ -79,7 +79,7 @@ def build_pointnet_classifier_model(NUM_POINTS=1024,NUM_CLASSES=2, activation="s
     x = dense_bn(x, 128)
     x = layers.Dropout(0.3)(x)
 
-    outputs = layers.Dense(NUM_CLASSES, activation=activation)(x)
+    outputs = layers.Dense(num_classes, activation=activation)(x)
 
     model = keras.Model(inputs=inputs, outputs=outputs, name="pointnet")
     return model
@@ -341,6 +341,8 @@ def prepare_datasets(dataset, test_dataset, len_x_train, len_x_test, augment, tr
     
     return train_dataset, test_dataset, test_dataset
 
+
+
 def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=None, y_validation=None, train_dataset=None, validation_dataset=None, monitor="val_accuracy", best_model_file_path="best_model.keras", n_epochs=10):
     """
     Train a TensorFlow model with specified callbacks for checkpointing and early stopping.
@@ -399,6 +401,33 @@ def train_model_with_callbacks(model, x_train=None, y_train=None, x_validation=N
     )
     train_time = (time()-start)/60.0
     return model, history, train_time
+
+import keras
+from jet_ml.config import Config
+def train_model(model,train_dataset, val_dataset, epochs, batch_size, monitor,fold=None):
+    keras.backend.clear_session()
+    
+    from jet_ml.models.helpers import get_best_model_filename
+    best_model_filename=get_best_model_filename(model.name,fold=fold)
+    
+    from jet_ml.models.helpers import get_callbacks
+    callbacks = get_callbacks(monitor=monitor,
+                              model_checkpoint_best_model_filename=best_model_filename)
+    import time
+    start_time=time.time()
+
+    history = model.fit(train_dataset, 
+                        epochs=epochs, 
+                        verbose=1, 
+                        # batch_size=batch_size, 
+                        validation_data=val_dataset,
+                        callbacks=callbacks)
+    from jet_ml.models.helpers import extract_stopped_epoch
+    stoppped_epoch=extract_stopped_epoch(callbacks=callbacks)
+    elapsed_time=time.time()-start_time
+    import jet_ml.helpers as helpers
+    print("Elpased time: {}".format(helpers.hms_string(elapsed_time)))
+    return model, history, elapsed_time,stoppped_epoch
 
 
 def evaluate_model(model, x_test=None, y_test=None, test_dataset=None):
