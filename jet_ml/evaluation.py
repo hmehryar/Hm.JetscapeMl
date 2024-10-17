@@ -59,7 +59,7 @@ def get_accuracy(model,x_test,y_test):
 import numpy as np
 from sklearn import metrics
 
-def get_accuracy(model, data_generator):
+def get_accuracy_from_generator(model, data_generator):
     """
     Calculate accuracy of the model on data from a generator.
 
