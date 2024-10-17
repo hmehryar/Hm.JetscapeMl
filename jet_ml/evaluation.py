@@ -113,7 +113,7 @@ def calculate_accuracy(out_of_sample_y_compare,out_of_sample_pred):
     import numpy as np
     score=metrics.accuracy_score(out_of_sample_y_compare,out_of_sample_pred)
     score_DF=pd.DataFrame({'accuracy':[score]})
-    display(score)
+    display(f"accuracy: {score}")
     import os
     from jet_ml.config import Config 
     score_DF.to_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,"accuracy.csv"),index=False)
