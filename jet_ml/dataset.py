@@ -1,3 +1,7 @@
+import tensorflow as tf
+import numpy as np
+import pandas as pd
+
 # Save the balanced dataset
 import pickle
 def save_dataset(file_name,dataset):
@@ -6,7 +10,7 @@ def save_dataset(file_name,dataset):
 
 print ("Dataset Preprocessor")
 from jet_ml.config import Config
-import pandas as pd
+
 def get_label_items():
     # print ('Aggregatring all parameters values')
     eloss_items=['MMAT','MLBT']
@@ -154,7 +158,6 @@ def normalize_x(x):
     x/=max
     return x
 
-import pandas as pd
 def categorize_y(y_raw):
     dummies = pd.get_dummies(y_raw,dtype=int) # Classification
     # classes = dummies.columns
@@ -165,19 +168,14 @@ def categorize_y(y_raw):
 
 
 def is_normalized(x):
-    import numpy as np
     return np.max(x) <= 1
 
 def convert_to_rgb(x):
-    import numpy as np
-    import tensorflow as tf
     # Convert grayscale to RGB (if needed)
     x_rgb = np.concatenate([x] * 3, axis=-1)  # Convert to RGB
     return x_rgb
 
 def resize_images(x,width=32,height=32,device="/CPU:0"):
-    import numpy as np
-    import tensorflow as tf
     # Resize images to the target size
     TARGET_WIDTH = width
     TARGET_HEIGHT = height
@@ -185,7 +183,6 @@ def resize_images(x,width=32,height=32,device="/CPU:0"):
     x_resized = np.array([tf.image.resize(image, [TARGET_HEIGHT, TARGET_WIDTH]) for image in x])
     return x_resized
 def resize_y(y):
-    import numpy as np
     # Optionally, you might want to add an extra dimension if needed
     y_resized = np.expand_dims(y, axis=2)  # Shape will be (1, 3, 1000)
     return y_resized
@@ -215,8 +212,9 @@ def create_train_data_generator(x_train, y_train, batch_size=32):
         x_train,
         y_train,
         batch_size=batch_size,
-        shuffle=True,
-        seed=42  # For reproducibility
+        shuffle=False, #because it is already shuffled in the kfold stratified split
+        # shuffle=True,
+        # seed=42  # For reproducibility
     )
 
     return train_generator
@@ -245,3 +243,17 @@ def create_validation_data_generator(x_validate, y_validate, batch_size=32):
     )
 
     return val_generator
+
+def create_tf_dataset(x_data, y_data):
+    """
+    Create a TensorFlow Dataset from input data.
+
+    Parameters:
+    - x_data (numpy.ndarray): The features data.
+    - y_data (numpy.ndarray): The labels data.
+
+    Returns:
+    - dataset (tf.data.Dataset): TensorFlow Dataset containing input data.
+    """
+    dataset = tf.data.Dataset.from_tensor_slices((x_data, y_data))
+    return dataset
