@@ -4,7 +4,7 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=pointnet
+#SBATCH --job-name=resnet
 
 # Submit to the GPU QoS
 ##SBATCH -q primary
@@ -55,9 +55,11 @@ ROOT_PATH="jet_ml/"
 # Define the file name as a variable
 NOTEBOOK_PATH="classifiers/alpha_s/"
 # NOTEBOOK_PATH="notebooks/"
-FILE_NAME="alpha_s_pointnet"
+FILE_NAME="alpha_s_vgg16_net"
 # FILE_NAME="building_balanced_dataset"
-JOB_NAME="${FILE_NAME}-100k"
+SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
+DATASET_SIZE="100k"
+JOB_NAME="${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"
 NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
@@ -69,8 +71,8 @@ echo $NOTEBOOK
 echo "##########################################"
 RUNNER_SCRIPTS_PATH="runner_scripts/"
 # PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
-PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.py"
-PYTHON_OUTPUT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}.output"
+PYTHON_SCRIPT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}.py"
+PYTHON_OUTPUT="${RUNNER_SCRIPTS_PATH}${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}.output"
 
 # PYTHON_SCRIPT="${FILE_NAME}.py"
 echo "Running the following python script"
