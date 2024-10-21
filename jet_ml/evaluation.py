@@ -1,6 +1,6 @@
 import pandas as pd
 from IPython.display import display
-def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pred,y_classes):
+def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pred,y_classes,fold=None):
     
     # Check the shape of your data
     # print(len(out_of_sample_y[0]))  # Number of columns in the data
@@ -24,7 +24,9 @@ def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pre
     out_of_sample_DF=pd.concat([y_df,out_of_sample_y,out_of_sample_pred],axis=1)
     import os
     from jet_ml.config import Config 
-    out_of_sample_DF.to_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,"out_of_sample_DF.csv"),index=False)
+    if fold !=None:
+        fold_str=f"fold_{fold}"
+    out_of_sample_DF.to_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,"out_of_sample_DF",fold_str,".csv"),index=False)
 
 
 def get_accuracy_cpu(model,x_test,y_test):
