@@ -1,5 +1,23 @@
 import pandas as pd
 from IPython.display import display
+from jet_ml.config import Config
+import os
+def load_out_of_sample_y_and_predictions(folds):
+    out_of_sample_y=[]
+    out_of_sample_pred=[]
+    for fold in range(1,folds+1):
+        print(f"loading out_of_sample_y and Prediction for fold_{fold}")
+        fold_str=f"fold_{fold}"
+        df_fold=pd.read_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,f"out_of_sample_DF_{fold_str}.csv"))
+        out_of_sample_y.append(df_fold.iloc[:,:3])
+        print("y_len",len(out_of_sample_y))
+        # print(f"out_of_sample_y_{fold_str}.shape: {out_of_sample_y}")
+        out_of_sample_pred.append(df_fold.iloc[:,3])
+        # print(f"out_of_sample_pred_{fold_str}.shape: {out_of_sample_pred}")
+        print("pred_len",len(out_of_sample_pred))
+    return out_of_sample_y,out_of_sample_pred
+
+import pandas as pd
 def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pred,y_classes,fold=None):
     
     # Check the shape of your data
@@ -11,24 +29,54 @@ def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pre
 
     # Generate new array with "OoS_" prefix
     columns = [f"OoS_{value}" for value in original_index]
-
-    # print(columns)
-
+    
     # Check if the number of columns matches
     if len(out_of_sample_y[0]) != len(columns):
         raise ValueError("Number of columns in data does not match number of column names")
 
+    
     out_of_sample_y=pd.DataFrame(out_of_sample_y,columns=columns)
     out_of_sample_pred=pd.DataFrame(out_of_sample_pred,columns=["OoS_Pred_Class"])
 
-    out_of_sample_DF=pd.concat([y_df,out_of_sample_y,out_of_sample_pred],axis=1)
+    
+    
     import os
     from jet_ml.config import Config 
     if fold !=None:
         fold_str=f"fold_{fold}"
-    out_of_sample_DF.to_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,"out_of_sample_DF",fold_str,".csv"),index=False)
+        out_of_sample_DF=pd.concat([out_of_sample_y,out_of_sample_pred],axis=1)
+        out_of_sample_DF.to_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,f"out_of_sample_DF_{fold_str}.csv"),index=False)
+    else:
+        out_of_sample_DF=pd.concat([y_df,out_of_sample_y,out_of_sample_pred],axis=1)
+        out_of_sample_DF.to_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,"out_of_sample_DF.csv"),index=False)
 
+# def store_out_of_sample_y_and_predictions(y_df,out_of_sample_y,out_of_sample_pred,y_classes,fold=None):
+    
+#     # Check the shape of your data
+#     # print(len(out_of_sample_y[0]))  # Number of columns in the data
 
+#     # Define the column names
+#     # Original array as a pandas Index
+#     original_index = pd.Index(y_classes)
+
+#     # Generate new array with "OoS_" prefix
+#     columns = [f"OoS_{value}" for value in original_index]
+
+#     # print(columns)
+
+#     # Check if the number of columns matches
+#     if len(out_of_sample_y[0]) != len(columns):
+#         raise ValueError("Number of columns in data does not match number of column names")
+
+#     out_of_sample_y=pd.DataFrame(out_of_sample_y,columns=columns)
+#     out_of_sample_pred=pd.DataFrame(out_of_sample_pred,columns=["OoS_Pred_Class"])
+
+#     out_of_sample_DF=pd.concat([y_df,out_of_sample_y,out_of_sample_pred],axis=1)
+#     import os
+#     from jet_ml.config import Config 
+#     if fold !=None:
+#         fold_str=f"fold_{fold}"
+#     out_of_sample_DF.to_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,"out_of_sample_DF",fold_str,".csv"),index=False)
 def get_accuracy_cpu(model,x_test,y_test):
     #Better to run the prediction on CPU, becuase it can exhust the resources
     score=model.evaluate(x_test,y_test,verbose=0)
