@@ -8,29 +8,29 @@
 
 # Submit to the GPU QoS
 ##SBATCH -q primary
-##SBATCH -q gpu
+#SBATCH -q gpu
 
-#SBATCH -q express
-#SBATCH -p ecscp
+##SBATCH -q express
+##SBATCH -p ecscp
 
 # Request the GPU type
 ##SBATCH --gres=gpu:tesla
 # #SBATCH --gres=gpu:geforc
-##SBATCH --gres=gpu:1
-#SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
+#SBATCH --gres=gpu:2
+##SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
 
 # Request v100 gpu
-##SBATCH --constraint=v100
+#SBATCH --constraint=v100
 
 # Total number of cores, in this example it will 1 node with 1 core each.
-#SBATCH -n 8
-#SBATCH -c 1
+#SBATCH -n 12
+#SBATCH -c 3
 
 
-#SBATCH -N 1
+##SBATCH -N 1
 
 # Request memory
-#SBATCH --mem=180G
+#SBATCH --mem=500G
 # #SBATCH --mem-per-cpu=32
 
 # Mail when the job begins, ends, fails, requeues
