@@ -8,22 +8,29 @@
 
 # Submit to the GPU QoS
 ##SBATCH -q primary
-#SBATCH -q gpu
+##SBATCH -q gpu
+
+#SBATCH -q express
+#SBATCH -p ecscp
 
 # Request the GPU type
 ##SBATCH --gres=gpu:tesla
 # #SBATCH --gres=gpu:geforc
-#SBATCH --gres=gpu:2
+##SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
 
 # Request v100 gpu
-#SBATCH --constraint=v100
+##SBATCH --constraint=v100
 
 # Total number of cores, in this example it will 1 node with 1 core each.
-#SBATCH -n 32
+#SBATCH -n 8
 #SBATCH -c 1
 
+
+#SBATCH -N 1
+
 # Request memory
-#SBATCH --mem=120G
+#SBATCH --mem=180G
 # #SBATCH --mem-per-cpu=32
 
 # Mail when the job begins, ends, fails, requeues
@@ -33,20 +40,22 @@
 #SBATCH --mail-user=gy4065@wayne.edu
 
 # Set maximum time limit
-#SBATCH -t 100:0:0
+#SBATCH -t 800:0:0
+
+
+
+
+# Create an output file
+#SBATCH -o resnet_output_%j.out
+
+# Create an error file
+#BATCH -e resnet_error_%j.err
 
 # List assigned GPU:
 #echo Assigned GPU: $CUDA_VISIBLE_DEVICES
 
 # Check state of GPU:
-#nvidia-smi
-
-# Create an output file
-#SBATCH -o pointnet_output_%j.out
-
-# Create an error file
-#SBATCH -e pointnet_error_%j.err
-
+nvidia-smi
 
 
 # Get the parent dir
@@ -57,11 +66,13 @@ NOTEBOOK_PATH="classifiers/alpha_s/"
 # NOTEBOOK_PATH="notebooks/"
 FILE_NAME="alpha_s_transfer_learning_resnet50"
 # FILE_NAME="building_balanced_dataset"
-SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
+SERVER_NAME="wsu_grid_a100_cpu_8_mem_180gb"
 DATASET_SIZE="1000k"
 JOB_NAME="${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"
+
+
 NOTEBOOK="${NOTEBOOK_PATH}${FILE_NAME}.ipynb"
 echo "Current directory"
 pwd
