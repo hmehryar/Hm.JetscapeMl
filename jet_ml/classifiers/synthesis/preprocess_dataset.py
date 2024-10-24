@@ -6,12 +6,13 @@ def preprocess_dataset_for_synthesis(size=1000):
     x=ds.reshape_x(x)
     x=ds.normalize_x(x)
 
-    y=preprocess_y_for_synthesis(y_raw)
+    y_combined,y_df=preprocess_y_for_synthesis(y_raw)
     
-    return x,y_raw,y
+    return x,y_combined,y_df
 
 def preprocess_y_for_synthesis(y):
     import numpy as np
+    import pandas as pd
     from sklearn.preprocessing import LabelEncoder
     from tensorflow.keras.utils import to_categorical
 
@@ -26,7 +27,11 @@ def preprocess_y_for_synthesis(y):
     # One-hot encode the labels
     y_one_hot = to_categorical(y_encoded)
 
-    # Now y_one_hot is ready to be used as the target for training
-    print(y_one_hot)
-    return y_one_hot
+    # Get the class names from the label encoder (these will be the headers)
+    class_names = label_encoder.classes_
+
+    # Convert the one-hot encoded data into a DataFrame with proper headers
+    y_one_hot_df = pd.DataFrame(y_one_hot, columns=class_names)
+
+    return y_combined,y_one_hot_df
 

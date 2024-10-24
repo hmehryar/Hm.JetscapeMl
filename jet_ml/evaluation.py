@@ -2,17 +2,17 @@ import pandas as pd
 from IPython.display import display
 from jet_ml.config import Config
 import os
-def load_out_of_sample_y_and_predictions(folds):
+def load_out_of_sample_y_and_predictions(folds,num_classes=3):
     out_of_sample_y=[]
     out_of_sample_pred=[]
     for fold in range(1,folds+1):
         print(f"loading out_of_sample_y and Prediction for fold_{fold}")
         fold_str=f"fold_{fold}"
         df_fold=pd.read_csv(os.path.join(Config().SIMULATION_REPORTS_DIR,f"out_of_sample_DF_{fold_str}.csv"))
-        out_of_sample_y.append(df_fold.iloc[:,:3])
+        out_of_sample_y.append(df_fold.iloc[:,:num_classes])
         print("y_len",len(out_of_sample_y))
         # print(f"out_of_sample_y_{fold_str}.shape: {out_of_sample_y}")
-        out_of_sample_pred.append(df_fold.iloc[:,3])
+        out_of_sample_pred.append(df_fold.iloc[:,num_classes])
         # print(f"out_of_sample_pred_{fold_str}.shape: {out_of_sample_pred}")
         print("pred_len",len(out_of_sample_pred))
     return out_of_sample_y,out_of_sample_pred
