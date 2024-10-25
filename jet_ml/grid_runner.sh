@@ -4,7 +4,7 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=resnet
+#SBATCH --job-name=alphas-resnet-1m
 
 # Submit to the GPU QoS
 ##SBATCH -q primary
@@ -24,13 +24,13 @@
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 #SBATCH -n 12
-#SBATCH -c 3
+#SBATCH -c 2
 
 
 ##SBATCH -N 1
 
 # Request memory
-#SBATCH --mem=500G
+#SBATCH --mem=256G
 # #SBATCH --mem-per-cpu=32
 
 # Mail when the job begins, ends, fails, requeues
@@ -66,8 +66,8 @@ NOTEBOOK_PATH="classifiers/alpha_s/"
 # NOTEBOOK_PATH="notebooks/"
 FILE_NAME="alpha_s_transfer_learning_resnet50"
 # FILE_NAME="building_balanced_dataset"
-SERVER_NAME="wsu_grid_a100_cpu_8_mem_180gb"
-DATASET_SIZE="1000k"
+SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb_memory_optimized_test"
+DATASET_SIZE="1k"
 JOB_NAME="${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
 ERROR_FILE="${JOB_NAME}_error_%j.err"

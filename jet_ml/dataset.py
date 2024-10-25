@@ -123,11 +123,11 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = Non
 
         print("dataset.x_test:",type(dataset_x_test), dataset_x_test.size, dataset_x_test.shape)
         print("dataset.y_test:",type(dataset_y_test), dataset_y_test.size, dataset_y_test.shape)
-        del dataset
         if working_column is not None:
             print(f'Extract the working column#{working_column} for classification')
             dataset_y_train = dataset_y_train[:, working_column]
             dataset_y_test = dataset_y_test[:, working_column]
+        del dataset
         return ((dataset_x_train, dataset_y_train), (dataset_x_test, dataset_y_test))
     else:
         (dataset_x, dataset_y) = dataset
@@ -136,7 +136,7 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = Non
             dataset_y = dataset_y[:, working_column]
         print("dataset.x:",type(dataset_x), dataset_x.size, dataset_x.shape)
         print("dataset.y:",type(dataset_y), dataset_y.size,dataset_y.shape)
-
+        # del dataset
         return dataset_x, dataset_y
 
 from keras import backend as K
@@ -182,6 +182,127 @@ def resize_images(x,width=32,height=32,device="/CPU:0"):
     # with tf.device('/CPU:0'):
     x_resized = np.array([tf.image.resize(image, [TARGET_HEIGHT, TARGET_WIDTH]) for image in x])
     return x_resized
+
+import tensorflow as tf
+import numpy as np
+
+def resize_images_by_tensor(x, width=32, height=32, device="/CPU:0"):
+    """
+    Resize images to the target size efficiently.
+
+    Parameters:
+    - x (numpy.ndarray): The input images of shape (num_images, original_height, original_width, channels).
+    - width (int): The target width of the resized images. Default is 32.
+    - height (int): The target height of the resized images. Default is 32.
+    - device (str): The device to perform the resizing on. Default is "/CPU:0".
+
+    Returns:
+    - x_resized (numpy.ndarray): The resized images of shape (num_images, height, width, channels).
+    """
+    TARGET_WIDTH = width
+    TARGET_HEIGHT = height
+
+    with tf.device(device):
+        # Convert the input numpy array to a TensorFlow tensor
+        x_tensor = tf.convert_to_tensor(x, dtype=tf.float32,)
+        del x
+        # Resize all images in the batch
+        x_resized_tensor = tf.image.resize(x_tensor, [TARGET_HEIGHT, TARGET_WIDTH])
+        del x_tensor
+        # Convert the resized tensor back to a numpy array
+        x_resized = x_resized_tensor.numpy()
+    
+    return x_resized
+import tensorflow as tf
+import numpy as np
+
+def resize_images_by_tensor_in_batches(x, width=32, height=32, batch_size=10000, device="/GPU:0"):
+    """
+    Resize images to the target size efficiently in batches.
+
+    Parameters:
+    - x (numpy.ndarray): The input images of shape (num_images, original_height, original_width, channels).
+    - width (int): The target width of the resized images. Default is 32.
+    - height (int): The target height of the resized images. Default is 32.
+    - batch_size (int): The number of images to process in each batch. Default is 1000.
+    - device (str): The device to perform the resizing on. Default is "/CPU:0".
+
+    Returns:
+    - x_resized (numpy.ndarray): The resized images of shape (num_images, height, width, channels).
+    """
+    TARGET_WIDTH = width
+    TARGET_HEIGHT = height
+    num_images = x.shape[0]
+    x_resized = []
+
+    with tf.device(device):
+        for start in range(0, num_images, batch_size):
+            log = f"Resizing images: {start} to {min(start + batch_size, num_images)} of {num_images}"
+            print(log)
+            end = min(start + batch_size, num_images)
+            x_batch = x[start:end]
+            
+            # Convert the input numpy array to a TensorFlow tensor
+            x_tensor = tf.convert_to_tensor(x_batch, dtype=tf.float32)
+            
+            # Resize all images in the batch
+            x_resized_tensor = tf.image.resize(x_tensor, [TARGET_HEIGHT, TARGET_WIDTH])
+            
+            # Convert the resized tensor back to a numpy array and append to the list
+            x_resized.append(x_resized_tensor.numpy())
+            
+            # Clear memory
+            del x_batch, x_tensor, x_resized_tensor
+            tf.keras.backend.clear_session()  # Clear TensorFlow session to free up memory
+    # Concatenate all batches into a single numpy array
+    x_resized = np.concatenate(x_resized, axis=0)
+    
+    return x_resized
+import tensorflow as tf
+import numpy as np
+
+def resize_images_by_sliced_tensor_in_batches(x, width=32, height=32, batch_size=10000, device="/GPU:0"):
+    """
+    Resize images to the target size efficiently in batches using tf.data.Dataset.
+
+    Parameters:
+    - x (numpy.ndarray): The input images of shape (num_images, original_height, original_width, channels).
+    - width (int): The target width of the resized images. Default is 32.
+    - height (int): The target height of the resized images. Default is 32.
+    - batch_size (int): The number of images to process in each batch. Default is 1000.
+    - device (str): The device to perform the resizing on. Default is "/GPU:0".
+
+    Returns:
+    - x_resized (numpy.ndarray): The resized images of shape (num_images, height, width, channels).
+    """
+    TARGET_WIDTH = width
+    TARGET_HEIGHT = height
+    num_images = x.shape[0]
+
+    # Create a TensorFlow dataset from the numpy array
+    dataset = tf.data.Dataset.from_tensor_slices(x)
+    dataset = dataset.batch(batch_size)
+
+    x_resized = []
+
+    with tf.device(device):
+        for batch in dataset:
+            print (f"Resizing images: {batch.shape[0]} of {num_images}")
+            # Resize all images in the batch
+            x_resized_tensor = tf.image.resize(batch, [TARGET_HEIGHT, TARGET_WIDTH])
+            
+            # Convert the resized tensor back to a numpy array and append to the list
+            x_resized.append(x_resized_tensor.numpy())
+            
+            # Clear memory
+            del batch, x_resized_tensor
+            tf.keras.backend.clear_session()  # Clear TensorFlow session to free up memory
+
+    # Concatenate all batches into a single numpy array
+    x_resized = np.concatenate(x_resized, axis=0)
+    
+    return x_resized
+
 def resize_y(y):
     # Optionally, you might want to add an extra dimension if needed
     y_resized = np.expand_dims(y, axis=2)  # Shape will be (1, 3, 1000)
