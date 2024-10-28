@@ -1,4 +1,22 @@
 from IPython.display import display
+
+from jet_ml.dataset import get_labels_str
+def preprocess_dataset_for_alpha_s_with_constant_q0(size=1000,q0=2.0):
+    # x,y_raw,y=[]
+    # return x,y_raw,y
+    label_str_dict=get_labels_str()
+    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{q0}_{label_str_dict['eloss_items_str']}_size_{size}_balanced_unshuffled.pkl"
+    import jet_ml.dataset as ds 
+
+    (x, alpha_s)=ds.load_dataset(size=size,working_column=1,dataset_file_name=dataset_file_name)
+    x=ds.reshape_x(x)
+    x=ds.normalize_x(x)
+    # (y,classes)=ds.categorize_y(alpha_s)
+    # num_classes=classes.size
+    # return x,y,num_classes
+    (y_raw,y)=ds.categorize_y(alpha_s)
+    
+    return x,y_raw,y
 def preprocess_dataset_for_alpha_s(size=1000):
     import jet_ml.dataset as ds 
 

@@ -88,8 +88,7 @@ def load_dataset_by_filename(dataset_file_name, working_column: int = None, has_
 
         return dataset_x, dataset_y
 
-
-def load_dataset(size: int, label_str_dict: dict=None, working_column: int = None, has_test: bool = False):
+def load_dataset(size: int, label_str_dict: dict=None, working_column: int = None, has_test: bool = False, dataset_file_name: str = None):
     """
     Loads a dataset of specified size and extracts the specified column for classification.
 
@@ -100,6 +99,7 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = Non
     - dataset_directory_path (str): The directory path where the dataset files are located.
     - working_column (int, optional): The index of the column to be extracted for classification. Default is 0.
 
+
     Returns:
     - dataset_x (numpy.ndarray): The features of the dataset.
     - dataset_y (numpy.ndarray): The labels corresponding to the features.
@@ -109,8 +109,11 @@ def load_dataset(size: int, label_str_dict: dict=None, working_column: int = Non
     dataset_x, dataset_y = get_dataset(1000, label_str_dict, "/path/to/dataset_directory/", working_column=1)
     ```
     """
-    label_str_dict=get_labels_str()
-    dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_balanced_unshuffled.pkl"
+    if dataset_file_name is None:
+        if label_str_dict is None:
+            label_str_dict=get_labels_str()
+        dataset_file_name = f"jet_ml_benchmark_config_01_to_09_alpha_{label_str_dict['alpha_s_items_str']}_q0_{label_str_dict['q0_items_str']}_{label_str_dict['eloss_items_str']}_size_{size}_balanced_unshuffled.pkl"
+    
     
     dataset_file_name = Config().DATA_DIR / dataset_file_name
 
