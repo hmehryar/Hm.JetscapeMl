@@ -1,6 +1,6 @@
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D,MaxPooling2D
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.layers import Conv2D,MaxPooling2D
 
 def build_model(input_shape,num_classes,activation='softmax'):
     model=Sequential(name="testnet")
@@ -20,11 +20,11 @@ def build_model(input_shape,num_classes,activation='softmax'):
 
 import keras
 
-def compile_model(model):
-    model.compile(loss=keras.losses.categorical_crossentropy,
-                optimizer=keras.optimizers.Adam(),
-                metrics=['accuracy'])
-    return model
+# def compile_model(model):
+#     model.compile(loss=keras.losses.categorical_crossentropy,
+#                 optimizer=keras.optimizers.Adam(),
+#                 metrics=['accuracy'])
+    # return model
 
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import os.path as path
