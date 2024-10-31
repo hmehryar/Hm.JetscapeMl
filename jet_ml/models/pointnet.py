@@ -432,6 +432,35 @@ def train_model(model,train_dataset, val_dataset, epochs, batch_size, monitor,fo
     print("Elpased time: {}".format(helpers.hms_string(elapsed_time)))
     return model, history, elapsed_time,stoppped_epoch
 
+import keras
+from jet_ml.config import Config
+def train_model(model,x_train, y_train, x_test, y_test,
+                      epochs, batch_size, monitor,
+                      fold=None):
+    keras.backend.clear_session()
+    
+    from jet_ml.models.helpers import get_best_model_filename
+    best_model_filename=get_best_model_filename(model.name,fold=fold)
+    
+    from jet_ml.models.helpers import get_callbacks
+    callbacks = get_callbacks(monitor=monitor,
+                              model_checkpoint_best_model_filename=best_model_filename)
+    import time
+    start_time=time.time()
+
+    history = model.fit(x_train, y_train,
+                        epochs=epochs, 
+                        verbose=1, 
+                        # batch_size=batch_size, 
+                        validation_data=(x_test, y_test),
+                        callbacks=callbacks)
+    from jet_ml.models.helpers import extract_stopped_epoch
+    stoppped_epoch=extract_stopped_epoch(callbacks=callbacks)
+    elapsed_time=time.time()-start_time
+    import jet_ml.helpers as helpers
+    print("Elpased time: {}".format(helpers.hms_string(elapsed_time)))
+    return model, history, elapsed_time,stoppped_epoch
+
 
 def evaluate_model(model, x_test=None, y_test=None, test_dataset=None):
     """
