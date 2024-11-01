@@ -66,40 +66,40 @@ def build_model(input_shape, num_classes=3,activation='softmax', dropout1=0.2, d
     return model
 # loss='categorical_crossentropy'
 
-def compile_model(model,
-                  loss=keras.losses.categorical_crossentropy,learning_rate=5e-6):
-    model.compile(loss=loss,
-                optimizer=Adam(learning_rate = learning_rate),
-                metrics=['accuracy'])
-    return model
+# def compile_model(model,
+#                   loss=keras.losses.categorical_crossentropy,learning_rate=5e-6):
+#     model.compile(loss=loss,
+#                 optimizer=Adam(learning_rate = learning_rate),
+#                 metrics=['accuracy'])
+#     return model
 
 
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
 import os.path as path
 import time
 
-def get_callbacks( best_model_filename,monitor='val_loss'):
+# def get_callbacks( best_model_filename,monitor='val_loss'):
 
-    es=None
-    if isinstance(monitor, str):
-        mode = None
-        if 'loss' in monitor:
-            mode = 'min'
-        elif 'accuracy' in monitor:
-            mode = 'max'
-        assert mode != None, 'Check the monitor parameter!'
+#     es=None
+#     if isinstance(monitor, str):
+#         mode = None
+#         if 'loss' in monitor:
+#             mode = 'min'
+#         elif 'accuracy' in monitor:
+#             mode = 'max'
+#         assert mode != None, 'Check the monitor parameter!'
 
-        es = EarlyStopping(monitor=monitor, min_delta=1e-3, patience=100,
-                        verbose=1,mode='auto',restore_best_weights=True)
-        mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
-                            save_best_only=True, mode=mode, verbose=1)
+#         es = EarlyStopping(monitor=monitor, min_delta=1e-3, patience=100,
+#                         verbose=1,mode='auto',restore_best_weights=True)
+#         mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
+#                             save_best_only=True, mode=mode, verbose=1)
         
-        rlp = ReduceLROnPlateau(monitor=monitor, mode=mode, factor=0.2, patience=5,
-                                min_lr=0.001, verbose=1)
-        return [es, rlp, mcp]
-    else:
-        raise Exception("The monitor is not an string,\
-                        the non-string section is not implmented for this code")
+#         rlp = ReduceLROnPlateau(monitor=monitor, mode=mode, factor=0.2, patience=5,
+#                                 min_lr=0.001, verbose=1)
+#         return [es, rlp, mcp]
+#     else:
+#         raise Exception("The monitor is not an string,\
+#                         the non-string section is not implmented for this code")
     
     
 
@@ -111,7 +111,10 @@ def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monito
     from jet_ml.models.helpers import get_best_model_filename
     best_model_filename=get_best_model_filename(model.name,fold=fold)
     
-    callbacks = get_callbacks( best_model_filename,monitor=monitor)
+    from jet_ml.models.helpers import get_callbacks
+    callbacks = get_callbacks(monitor=monitor,
+                              model_checkpoint_best_model_filename=best_model_filename)
+    # callbacks = get_callbacks( best_model_filename,monitor=monitor)
     start_time=time.time()
 
     history = model.fit(x_train, y_train, 

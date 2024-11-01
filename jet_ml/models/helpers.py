@@ -29,7 +29,8 @@ import os.path as path
 import time
 def get_callbacks( monitor='val_loss',
                   #early_stopping_patience=10, #for test
-                  early_stopping_patience=100, #for run
+                #   early_stopping_patience=100, #for run
+                  early_stopping_patience=25, #for more than 1M images
                   reduce_lr_patience=5,reduce_lr_factor=0.2,reduce_lr_min_lr=0.001,
                   model_checkpoint_best_model_filename=None,
                   model_checkpoint_save_best_only=True,
