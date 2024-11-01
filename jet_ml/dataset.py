@@ -287,10 +287,14 @@ def resize_images_by_sliced_tensor_in_batches(x, width=32, height=32, batch_size
     dataset = dataset.batch(batch_size)
 
     x_resized = []
+    batch_count = 0
+    total_batches = int(np.ceil(num_images / batch_size))
 
     with tf.device(device):
         for batch in dataset:
-            print (f"Resizing images: {batch.shape[0]} of {num_images}")
+            batch_count += 1
+            if batch_count % 10 == 0 or batch_count == total_batches:
+                print(f"Resizing batch {batch_count} of {total_batches}")
             # Resize all images in the batch
             x_resized_tensor = tf.image.resize(batch, [TARGET_HEIGHT, TARGET_WIDTH])
             
