@@ -3,7 +3,7 @@ from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D,MaxPooling2D
 
 def build_model(input_shape,num_classes,activation='softmax'):
-    model=Sequential(name="testnet")
+    model=Sequential(name="mnistnet")
     model.add(Conv2D(32,kernel_size=(3,3),
                     activation='relu',
                     input_shape=input_shape))
