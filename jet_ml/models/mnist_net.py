@@ -28,28 +28,28 @@ import keras
 
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import os.path as path
-def get_callbacks( best_model_filename,monitor='val_loss'):
+# def get_callbacks( best_model_filename,monitor='val_loss'):
     
-    es=None
-    if isinstance(monitor, str):
-        mode = None
-        if 'loss' in monitor:
-            mode = 'min'
-        elif 'accuracy' in monitor:
-            mode = 'max'
-        assert mode != None, 'Check the monitor parameter!'
+#     es=None
+#     if isinstance(monitor, str):
+#         mode = None
+#         if 'loss' in monitor:
+#             mode = 'min'
+#         elif 'accuracy' in monitor:
+#             mode = 'max'
+#         assert mode != None, 'Check the monitor parameter!'
 
-    # patience=25 for run
-    # patience=10 for test
-        es = EarlyStopping(monitor=monitor, min_delta=1e-3, patience=100, 
-                            verbose=1, mode='auto', restore_best_weights=True)
-        mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
-                          save_best_only=True, mode=mode, verbose=1)
-        return [es, mcp]    
-    else:
-        #the monistor should be an early stopping object
-        es = monitor
-        return [es]
+#     # patience=25 for run
+#     # patience=10 for test
+#         es = EarlyStopping(monitor=monitor, min_delta=1e-3, patience=50, 
+#                             verbose=1, mode='auto', restore_best_weights=True)
+#         mcp = ModelCheckpoint(best_model_filename, monitor=monitor, 
+#                           save_best_only=True, mode=mode, verbose=1)
+#         return [es, mcp]    
+#     else:
+#         #the monistor should be an early stopping object
+#         es = monitor
+#         return [es]
     
     
     
@@ -62,7 +62,11 @@ def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monito
     from jet_ml.models.helpers import get_best_model_filename
     best_model_filename=get_best_model_filename(model.name,fold=fold)
     
-    callbacks = get_callbacks( best_model_filename,monitor=monitor)
+    from jet_ml.models.helpers import get_callbacks
+    # callbacks = get_callbacks( best_model_filename,monitor=monitor)
+    callbacks = get_callbacks( monitor=monitor,
+                              model_checkpoint_best_model_filename=best_model_filename,
+                              cancel_rl_on_plateau=True)
     start_time=time.time()
 
     history=model.fit(x_train,y_train,

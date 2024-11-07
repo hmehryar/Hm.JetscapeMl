@@ -34,7 +34,7 @@ def get_callbacks( monitor='val_loss',
                   reduce_lr_patience=5,reduce_lr_factor=0.2,reduce_lr_min_lr=0.001,
                   model_checkpoint_best_model_filename=None,
                   model_checkpoint_save_best_only=True,
-                  verbose=1):
+                  verbose=1,cancel_rl_on_plateau=False):
     es=None
     if isinstance(monitor, str):
         mode = None
@@ -50,12 +50,14 @@ def get_callbacks( monitor='val_loss',
         mcp = ModelCheckpoint(model_checkpoint_best_model_filename,monitor=monitor, 
                         save_best_only=model_checkpoint_save_best_only, mode=mode,
                         verbose=verbose)
-        
-        rlp = ReduceLROnPlateau(monitor=monitor, mode=mode, 
+        if cancel_rl_on_plateau!=True:
+            rlp = ReduceLROnPlateau(monitor=monitor, mode=mode, 
                                 factor=reduce_lr_factor, patience=reduce_lr_patience,
                                 min_lr=reduce_lr_min_lr, 
                                 verbose=1)
-        return [es, rlp, mcp]
+            return [es, rlp, mcp]
+        else:
+            return [es, mcp]
     else:
         raise Exception("The monitor is not an string,\
                         the non-string section is not implmented for this code")
