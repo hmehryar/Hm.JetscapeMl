@@ -15,14 +15,16 @@ import keras
 def train_model(model,train_generator, val_generator, epochs,
                 monitor=None,
                 fold=None,
-                verbose=1):
+                verbose=1,
+                cancel_rl_on_plateau=False):
     keras.backend.clear_session()
     from jet_ml.models.helpers import get_best_model_filename
     best_model_filename=get_best_model_filename(model.name,fold=fold)
     
     from jet_ml.models.helpers import get_callbacks
     callbacks = get_callbacks(monitor=monitor,
-                              model_checkpoint_best_model_filename=best_model_filename)
+                              model_checkpoint_best_model_filename=best_model_filename,
+                              cancel_rl_on_plateau=cancel_rl_on_plateau)
 
     import time
     start_time=time.time()
