@@ -4,7 +4,7 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=alphas-point-1000k-b128-nolr
+#SBATCH --job-name=alphas-point-q-2-1800k-b128-nolr
 
 # Submit to the GPU QoS
 #SBATCH -q gpu
@@ -66,9 +66,9 @@ FILE_NAME="alpha_s_pointnet"
 # SERVER_NAME="wsu_grid_a100_cpu_8_mem_150gb"
 SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
 
-# DATASET_SIZE="q0_2.5_1800k_batch_size_128"
+DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
 # DATASET_SIZE="q0_2.5_250_batch_size_128"
-DATASET_SIZE="1000k_batch_size_128_no_rl"
+# DATASET_SIZE="1000k_batch_size_128_no_rl"
 
 JOB_NAME="${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
