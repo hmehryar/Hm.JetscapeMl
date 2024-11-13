@@ -4,7 +4,7 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=a-s-point-q-2-1800k-b128-nolr
+#SBATCH --job-name=a-s-vgg-1000k-b128-nolr
 
 # Submit to the GPU QoS
 #SBATCH -q gpu
@@ -17,7 +17,7 @@
 ##SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
 
 # Request v100 gpu
-# SBATCH --constraint=v100
+#SBATCH --constraint=v100
 
 # Total number of cores, in this example it will 1 node with 1 core each.
 #SBATCH -n 2
@@ -43,10 +43,10 @@
 
 # Set the output and error log based on the simulation name
 # Create an output file
-#SBATCH -o ../runner_scripts/alpha_s_pointnet_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_output_%j.out
+#SBATCH -o ../runner_scripts/alpha_s_vgg16_net_1000k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_output_%j.out
 
 # Create an error file
-#SBATCH -e ../runner_scripts/alpha_s_pointnet_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_error_%j.err
+#SBATCH -e ../runner_scripts/alpha_s_vgg16_net_1000k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_error_%j.err
 
 
 # Check state of GPU:
@@ -60,15 +60,16 @@ ROOT_PATH="jet_ml/"
 NOTEBOOK_PATH="classifiers/alpha_s/"
 # NOTEBOOK_PATH="notebooks/"
 
-FILE_NAME="alpha_s_pointnet"
+FILE_NAME="alpha_s_vgg16_net"
 # FILE_NAME="building_alpha_s_dataset_with_constant_q0"
 
 # SERVER_NAME="wsu_grid_a100_cpu_8_mem_150gb"
 SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
 
-DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
+# DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
 # DATASET_SIZE="q0_2.5_250_batch_size_128"
-# DATASET_SIZE="1000k_batch_size_128_no_rl"
+# DATASET_SIZE="100k_batch_size_128_no_rl"
+DATASET_SIZE="1000k_batch_size_128_no_rl"
 
 JOB_NAME="${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"

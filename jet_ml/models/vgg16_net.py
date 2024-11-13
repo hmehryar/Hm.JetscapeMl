@@ -106,14 +106,15 @@ import time
 
 import keras
 from jet_ml.config import Config
-def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monitor,fold=None):
+def train_model(model,x_train,y_train, x_test,y_test, epochs, batch_size, monitor,fold=None,cancel_rl_on_plateau=False):
     keras.backend.clear_session()
     from jet_ml.models.helpers import get_best_model_filename
     best_model_filename=get_best_model_filename(model.name,fold=fold)
     
     from jet_ml.models.helpers import get_callbacks
     callbacks = get_callbacks(monitor=monitor,
-                              model_checkpoint_best_model_filename=best_model_filename)
+                              model_checkpoint_best_model_filename=best_model_filename,
+                              cancel_rl_on_plateau=cancel_rl_on_plateau)
     # callbacks = get_callbacks( best_model_filename,monitor=monitor)
     start_time=time.time()
 
