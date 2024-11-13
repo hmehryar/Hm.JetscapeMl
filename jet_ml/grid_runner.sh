@@ -4,7 +4,7 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=alphas-point-q-2-1800k-b128-nolr
+#SBATCH --job-name=a-s-point-q-2-1800k-b128-nolr
 
 # Submit to the GPU QoS
 #SBATCH -q gpu
@@ -43,10 +43,10 @@
 
 # Set the output and error log based on the simulation name
 # Create an output file
-#SBATCH -o ../runner_scripts/alpha_s_pointnet_1000K_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_output_%j.out
+#SBATCH -o ../runner_scripts/alpha_s_pointnet_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_output_%j.out
 
 # Create an error file
-#SBATCH -e ../runner_scripts/alpha_s_pointnet_1000k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_error_%j.err
+#SBATCH -e ../runner_scripts/alpha_s_pointnet_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_error_%j.err
 
 
 # Check state of GPU:
