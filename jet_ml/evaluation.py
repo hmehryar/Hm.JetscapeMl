@@ -263,7 +263,14 @@ def save_fold_accuracy(fold_accuracy):
         ,index=False)
     print(f"stored all folds' accuracy in {file_name}")
 
-def plot_training_history(history, fold=None,x_tick=5):
+def plot_training_history(history, fold=None,x_tick=5,loss_y_scale=None):
+    # Increase font sizes globally
+    plt.rcParams.update({
+        'axes.titlesize': 18,       # Title font size
+        'axes.labelsize': 14,       # Axis label font size
+        'xtick.labelsize': 12,      # X-tick font size
+        'ytick.labelsize': 12,      # Y-tick font size
+    })
     import os
     from jet_ml.config import Config
     """
@@ -302,7 +309,8 @@ def plot_training_history(history, fold=None,x_tick=5):
     plt.subplot(1, 2, 2)
     plt.plot(history.history['loss'])
     plt.plot(history.history['val_loss'])
-    
+    if loss_y_scale!=None:
+        plt.yscale(loss_y_scale)
     plt.title('Model Loss')
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
