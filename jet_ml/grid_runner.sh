@@ -4,34 +4,34 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=as-vgg-1800k-q2-b128-nolr
+#SBATCH --job-name=as-point-1800k-q2-b128-nolr
 
 # Submit to the GPU QoS
-##SBATCH -q gpu
+#SBATCH -q gpu
 
-#SBATCH -q express
-#SBATCH -p ecscp
+##SBATCH -q express
+##SBATCH -p ecscp
 
 # Request the GPU type
-##SBATCH --gres=gpu:2
-#SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
+#SBATCH --gres=gpu:2
+##SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
 
 # Request v100 gpu
-##SBATCH --constraint=v100
+#SBATCH --constraint=v100
 
 # Total number of cores, in this example it will 1 node with 1 core each.
-##SBATCH -n 2
-##SBATCH -c 12
-
 #SBATCH -n 2
-#SBATCH -c 8
+#SBATCH -c 12
+
+##SBATCH -n 2
+##SBATCH -c 8
 
 ##SBATCH -N 1
 
 # Request memory
-##SBATCH --mem=256G
+#SBATCH --mem=256G
 ##SBATCH --mem=150G
-#SBATCH --mem=180G
+##SBATCH --mem=180G
 
 # Mail when the job begins, ends, fails, requeues
 #SBATCH --mail-type=ALL
@@ -44,10 +44,10 @@
 
 # Set the output and error log based on the simulation name
 # Create an output file
-#SBATCH -o ../runner_scripts/alpha_s_vgg16_net_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid_a100_cpu_12_mem_180gb_output_%j.out
+#SBATCH -o ../runner_scripts/alpha_s_pointnet_net_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_output_%j.out
 
 # Create an error file
-#SBATCH -e ../runner_scripts/alpha_s_vgg16_net_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid__a100_cpu_12_mem_180gb_error_%j.err
+#SBATCH -e ../runner_scripts/alpha_s_pointnet_net_q0_2.0_1800k_batch_size_128_no_lr_wsu_grid_v100_cpu_24_mem_256gb_error_%j.err
 
 
 # Check state of GPU:
@@ -61,12 +61,12 @@ ROOT_PATH="jet_ml/"
 NOTEBOOK_PATH="classifiers/alpha_s/"
 # NOTEBOOK_PATH="notebooks/"
 
-FILE_NAME="alpha_s_vgg16_net"
+FILE_NAME="alpha_s_pointnet"
 # FILE_NAME="building_alpha_s_dataset_with_constant_q0"
 
-SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
+# SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
 # SERVER_NAME="wsu_grid_a100_cpu_8_mem_150gb"
-# SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
+SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
 
 DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
 # DATASET_SIZE="q0_2.5_250_batch_size_128"
