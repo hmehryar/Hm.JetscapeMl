@@ -58,20 +58,22 @@ nvidia-smi
 
 ROOT_PATH="jet_ml/"
 # Define the file name as a variable
-NOTEBOOK_PATH="classifiers/alpha_s/"
-# NOTEBOOK_PATH="notebooks/"
+# NOTEBOOK_PATH="classifiers/alpha_s/"
+NOTEBOOK_PATH="notebooks/"
 
-FILE_NAME="alpha_s_pointnet"
-# FILE_NAME="building_alpha_s_dataset_with_constant_q0"
+# FILE_NAME="alpha_s_pointnet"
+FILE_NAME="splitting_dataset_into_single_images"
 
 # SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
 # SERVER_NAME="wsu_grid_a100_cpu_8_mem_150gb"
-SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
+SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
+# SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
 
-DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
+# DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
 # DATASET_SIZE="q0_2.5_250_batch_size_128"
 # DATASET_SIZE="100k_batch_size_128_no_rl"
 # DATASET_SIZE="1000k_batch_size_128_no_rl"
+DATASET_SIZE="7200k"
 
 JOB_NAME="${FILE_NAME}_${DATASET_SIZE}_${SERVER_NAME}"
 OUTPUT_FILE="${JOB_NAME}_output_%j.out"
@@ -97,8 +99,8 @@ echo "##########################################"
 
 # Converting Jupyter notebook to python script
 echo "Converting notebook to script"
-jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
-# jupyter nbconvert --to python ${NOTEBOOK} --output ../../${PYTHON_SCRIPT}
+# jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
+jupyter nbconvert --to python ${NOTEBOOK} --output ../../${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 echo "Setting up python version and conda shell and environment on Grid"
