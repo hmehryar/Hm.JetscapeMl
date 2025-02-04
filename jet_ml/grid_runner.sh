@@ -7,7 +7,9 @@
 #SBATCH --job-name=as-point-1800k-q2-b128-nolr
 
 # Submit to the GPU QoS
-#SBATCH -q gpu
+##SBATCH -q gpu
+
+#SBATCH -q primary
 
 ##SBATCH -q express
 ##SBATCH -p ecscp
@@ -20,8 +22,11 @@
 #SBATCH --constraint=v100
 
 # Total number of cores, in this example it will 1 node with 1 core each.
-#SBATCH -n 2
-#SBATCH -c 12
+##SBATCH -n 2
+##SBATCH -c 12
+
+#SBATCH -n 4
+#SBATCH -c 8
 
 ##SBATCH -n 2
 ##SBATCH -c 8
@@ -66,7 +71,7 @@ FILE_NAME="splitting_dataset_into_single_images"
 
 # SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
 # SERVER_NAME="wsu_grid_a100_cpu_8_mem_150gb"
-SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
+SERVER_NAME="wsu_grid_a100_cpu_32_mem_500gb"
 # SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
 
 # DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
