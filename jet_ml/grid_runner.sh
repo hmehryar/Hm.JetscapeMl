@@ -4,19 +4,20 @@
 # email: hmehryar@wayne.edu
 
 # Job name
-#SBATCH --job-name=as-point-1800k-q2-b128-nolr
+##SBATCH --job-name=as-point-1800k-q2-b128-nolr
+#SBATCH --job-name=q0-mnist-1k
 
 # Submit to the GPU QoS
 ##SBATCH -q gpu
 
-#SBATCH -q primary
+##SBATCH -q primary
 
-##SBATCH -q express
-##SBATCH -p ecscp
+#SBATCH -q express
+#SBATCH -p ecscp
 
 # Request the GPU type
-#SBATCH --gres=gpu:2
-##SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
+##SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
 
 # Request v100 gpu
 #SBATCH --constraint=v100
@@ -28,15 +29,15 @@
 #SBATCH -n 4
 #SBATCH -c 8
 
-##SBATCH -n 2
-##SBATCH -c 8
+#SBATCH -n 2
+#SBATCH -c 8
 
 ##SBATCH -N 1
 
 # Request memory
 #SBATCH --mem=256G
 ##SBATCH --mem=150G
-##SBATCH --mem=180G
+#SBATCH --mem=180G
 
 # Mail when the job begins, ends, fails, requeues
 #SBATCH --mail-type=ALL
@@ -63,15 +64,16 @@ nvidia-smi
 
 ROOT_PATH="jet_ml/"
 # Define the file name as a variable
-# NOTEBOOK_PATH="classifiers/alpha_s/"
-NOTEBOOK_PATH="notebooks/"
+NOTEBOOK_PATH="classifiers/alpha_s/"
+NOTEBOOK_PATH="classifiers/q_0/"
+# NOTEBOOK_PATH="notebooks/"
 
-# FILE_NAME="alpha_s_pointnet"
-FILE_NAME="splitting_dataset_into_single_images"
+FILE_NAME="q_0_mnist_net"
+#FILE_NAME="splitting_dataset_into_single_images"
 
-# SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
+SERVER_NAME="wsu_grid_a100_cpu_16_mem_180gb"
 # SERVER_NAME="wsu_grid_a100_cpu_8_mem_150gb"
-SERVER_NAME="wsu_grid_a100_cpu_32_mem_500gb"
+# SERVER_NAME="wsu_grid_a100_cpu_32_mem_500gb"
 # SERVER_NAME="wsu_grid_v100_cpu_24_mem_256gb"
 
 # DATASET_SIZE="q0_2.0_1800k_batch_size_128_no_rl"
@@ -104,8 +106,8 @@ echo "##########################################"
 
 # Converting Jupyter notebook to python script
 echo "Converting notebook to script"
-# jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
-jupyter nbconvert --to python ${NOTEBOOK} --output ../../${PYTHON_SCRIPT}
+jupyter nbconvert --to python ${NOTEBOOK} --output ../../../${PYTHON_SCRIPT}
+#jupyter nbconvert --to python ${NOTEBOOK} --output ../../${PYTHON_SCRIPT}
 
 # Setting up python version and conda shell
 echo "Setting up python version and conda shell and environment on Grid"
